@@ -26,6 +26,7 @@ provider:
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCredit
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/updateVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/notifyUser
         - ${self:custom.appsyncPrefix}/Query/fields/getProfile
         - ${self:custom.appsyncPrefix}/Query/fields/getVideoNode
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionsBySlug
