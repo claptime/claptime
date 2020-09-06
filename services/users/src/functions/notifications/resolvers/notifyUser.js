@@ -1,7 +1,6 @@
 const {
   graphql: { formatSuccess },
 } = require('claptime-commons/api-responses');
-const { getParam } = require('claptime-commons/ssm');
 const { appSyncClient, gql } = require('claptime-commons/appsync');
 
 const createNotification = async (userId, type, payload) => {
@@ -24,10 +23,7 @@ const createNotification = async (userId, type, payload) => {
   });
 };
 
-module.exports = async ({
-  arguments: { userId, type, channels, payload },
-  identity,
-}) => {
+module.exports = async ({ arguments: { userId, type, channels, payload } }) => {
   let response;
   if (channels.includes('WEB')) {
     await createNotification(userId, type, payload);
