@@ -1,0 +1,25 @@
+enum Channel {
+  WEB
+  EMAIL
+}
+
+type Notification
+@model(
+  queries: { list: "listNotifications" },
+  mutations: { create: "createNotification" },
+  subscriptions: null,
+)
+@auth(
+  rules: [
+    { allow: owner, operations: [create, delete, read, update] },
+    { allow: private, provider: iam, operations: [create] },
+  ]
+)
+ {
+  id: ID!
+  createdAt: AWSDateTime
+  owner: String
+  type: String!
+  userId : String!
+  payload: AWSJSON
+}
