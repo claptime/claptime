@@ -520,6 +520,34 @@ const updateVideoNode = async (input) => {
   return videoNode;
 };
 
+const notifyUser = async (userId, type, channels, payload) => {
+  await appSyncClient.mutate({
+    mutation: gql(/* GraphQL */ `
+      mutation NotifyUser(
+        $userId: String!
+        $type: String!
+        $channels: [Channel]!
+        $payload: AWSJSON
+      ) {
+        notifyUser(
+          userId: $userId
+          type: $type
+          channels: $channels
+          payload: $payload
+        ) {
+          status
+        }
+      }
+    `),
+    variables: {
+      userId,
+      type,
+      channels,
+      payload,
+    },
+  });
+};
+
 module.exports = {
   createCollectionVideoNode,
   createVideoNode,
@@ -537,4 +565,5 @@ module.exports = {
   listVideoNodesByStatusSortByTitle,
   updateCollectionVideoNode,
   updateVideoNode,
+  notifyUser,
 };

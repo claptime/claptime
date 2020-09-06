@@ -1,6 +1,12 @@
 const {
   collections: { default: defaultCollection },
 } = require('../../../lib/consts');
+const { submitToCollection } = require('../../../lib/helpers');
+const {
+  getVideoNode,
+  updateVideoNode,
+  notifyUser,
+} = require('../../../lib/models');
 const {
   submitToCollection,
   validateSubmission,
@@ -13,7 +19,7 @@ module.exports = async (event) => {
     identity: { claims },
   } = event;
 
-  const { category, status } = await getVideoNode(videoNodeId);
+  const { owner, category, status } = await getVideoNode(videoNodeId);
   if (status !== 'DRAFT') {
     throw new Error('VideoNodeMustBeDraft');
   }
@@ -25,6 +31,15 @@ module.exports = async (event) => {
   });
   console.log('-> VideoNode published');
 
+  const channels = ['WEB'];
+  const payload = JSON.stringify({
+    videoNodeId: videoNodeId,
+    previousStatus: 'DRAFT',
+    newStatus: 'PUBLISHED',
+  });
+  await notifyUser(owner, 'videoStatusChange', channels, payload);
+
+  const res = await submitToCollection(
   // Submit VideoNode to default collection
   const collectionVideoNode = await submitToCollection(
     videoNodeId,
