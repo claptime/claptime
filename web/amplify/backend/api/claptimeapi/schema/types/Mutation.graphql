@@ -91,4 +91,13 @@ type Mutation {
     frequency: NotificationFrequency!,
   ): ApiResponse
   @function(name: "claptime-users-${env}-notifications")
+
+  notifyUser(
+    userId: String!,
+    type: String!,
+    channels: [Channel]!,
+    payload: AWSJSON,
+  ) : ApiResponse
+  @function(name: "claptime-users-${env}-notifications")
+  @aws_iam
 }
