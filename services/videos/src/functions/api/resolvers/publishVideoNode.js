@@ -33,7 +33,7 @@ module.exports = async (event) => {
 
   const channels = ['WEB'];
   const payload = JSON.stringify({
-    videoNodeId: videoNodeId,
+    videoNodeId,
     previousStatus: 'DRAFT',
     newStatus: 'PUBLISHED',
   });
