@@ -750,7 +750,14 @@
     "blog": "le blog",
     "press": "Point presse"
   },
-
+  "notifications": {
+    "videoStatusChange": {
+      "PUBLISHED": "{{title}} est maintenant en ligne !"
+    },
+    "popover": {
+      "title": "Vos notifications"
+    }
+  },
   "pressPage": {
     "date": "Août 2020",
     "mainTitle": "LANCEMENT DE CLAPTIME",

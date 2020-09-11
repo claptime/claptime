@@ -902,3 +902,13 @@ export const onUpdateVideoNode = /* GraphQL */ `
     }
   }
 `;
+export const onCreateNotification = /* GraphQL */ `
+  subscription OnCreateNotification($userId: String!) {
+    onCreateNotification(userId: $userId) {
+      id
+      type
+      userId
+      payload
+    }
+  }
+`;

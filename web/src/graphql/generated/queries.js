@@ -889,6 +889,26 @@ export const listCredits = /* GraphQL */ `
     }
   }
 `;
+export const listNotifications = /* GraphQL */ `
+  query ListNotifications(
+    $filter: ModelNotificationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotifications(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        createdAt
+        owner
+        type
+        userId
+        payload
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listProfiles = /* GraphQL */ `
   query ListProfiles(
     $filter: ModelProfileFilterInput

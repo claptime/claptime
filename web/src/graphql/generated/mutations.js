@@ -8208,6 +8208,25 @@ export const setNotificationPreference = /* GraphQL */ `
     }
   }
 `;
+export const notifyUser = /* GraphQL */ `
+  mutation NotifyUser(
+    $userId: String!
+    $type: String!
+    $channels: [Channel]!
+    $payload: AWSJSON
+  ) {
+    notifyUser(
+      userId: $userId
+      type: $type
+      channels: $channels
+      payload: $payload
+    ) {
+      status
+      reason
+      data
+    }
+  }
+`;
 export const createUserCollection = /* GraphQL */ `
   mutation CreateUserCollection($input: CreateUserCollectionInput!) {
     createUserCollection(input: $input) {
@@ -11022,6 +11041,19 @@ export const deleteCredit = /* GraphQL */ `
           nextToken
         }
       }
+    }
+  }
+`;
+export const createNotification = /* GraphQL */ `
+  mutation CreateNotification($input: CreateNotificationInput!) {
+    createNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      userId
+      payload
+      updatedAt
     }
   }
 `;
