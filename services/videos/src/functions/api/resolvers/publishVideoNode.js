@@ -19,7 +19,7 @@ module.exports = async (event) => {
     identity: { claims },
   } = event;
 
-  const { owner, category, status } = await getVideoNode(videoNodeId);
+  const { owner, category, status, title } = await getVideoNode(videoNodeId);
   if (status !== 'DRAFT') {
     throw new Error('VideoNodeMustBeDraft');
   }
@@ -34,6 +34,7 @@ module.exports = async (event) => {
   const channels = ['WEB'];
   const payload = JSON.stringify({
     videoNodeId,
+    title,
     previousStatus: 'DRAFT',
     newStatus: 'PUBLISHED',
   });

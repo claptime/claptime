@@ -13,6 +13,8 @@ type Notification
   rules: [
     { allow: owner, operations: [create, delete, read, update] },
     { allow: private, provider: iam, operations: [create] },
+    { allow: private, operations: [read]},
+    { allow: public, provider: iam, operations: [read]},
   ]
 )
  {
