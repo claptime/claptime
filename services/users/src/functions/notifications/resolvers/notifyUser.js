@@ -11,14 +11,14 @@ const createNotification = async (userId, type, payload) => {
     mutation: gql(`mutation CreateNotification($input: CreateNotificationInput!) {
       createNotification(input: $input) {
         id
-        userId
+        owner
         type
         payload
       }
     }`),
     variables: {
       input: {
-        userId,
+        owner: userId,
         type,
         payload: JSON.stringify(payload),
       },

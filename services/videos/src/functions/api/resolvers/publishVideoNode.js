@@ -38,7 +38,7 @@ module.exports = async (event) => {
     previousStatus: 'DRAFT',
     newStatus: 'PUBLISHED',
   });
-  await notifyUser(owner, 'videoStatusChange', channels, payload);
+  await notifyUser(owner, 'VIDEO_STATUS_CHANGE', channels, payload);
 
   const res = await submitToCollection(
   // Submit VideoNode to default collection

@@ -5,7 +5,7 @@ type Subscription {
   @aws_subscribe(mutations: ["updateVideoNode"])
 
   onCreateNotification(
-    userId: String!,
+    owner: String!,
   ): Notification
   @aws_subscribe(mutations: ["createNotification"])
 

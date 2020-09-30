@@ -1,8 +1,3 @@
-enum Channel {
-  WEB
-  EMAIL
-}
-
 type Notification
 @model(
   queries: { list: "listNotifications" },
@@ -13,15 +8,17 @@ type Notification
   rules: [
     { allow: owner, operations: [create, delete, read, update] },
     { allow: private, provider: iam, operations: [create] },
-    { allow: private, operations: [read]},
-    { allow: public, provider: iam, operations: [read]},
   ]
+)
+@key(
+  name: "ByOwnerSortByCreatedAt",
+  fields: ["owner", "createdAt"],
+  queryField: "listNotificationsByOwnerSortByCreatedAt",
 )
  {
   id: ID!
   createdAt: AWSDateTime
-  owner: String
-  type: String!
-  userId : String!
+  owner: String!
+  type: NotificationType
   payload: AWSJSON
 }
