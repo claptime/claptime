@@ -384,7 +384,7 @@ const notifyUser = async (userId, type, channels, payload) => {
       mutation NotifyUser(
         $userId: String!
         $type: String!
-        $channels: [Channel]!
+        $channels: [NotificationChannel]!
         $payload: AWSJSON
       ) {
         notifyUser(

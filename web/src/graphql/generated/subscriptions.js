@@ -903,12 +903,14 @@ export const onUpdateVideoNode = /* GraphQL */ `
   }
 `;
 export const onCreateNotification = /* GraphQL */ `
-  subscription OnCreateNotification($userId: String!) {
-    onCreateNotification(userId: $userId) {
+  subscription OnCreateNotification($owner: String!) {
+    onCreateNotification(owner: $owner) {
       id
+      createdAt
+      owner
       type
-      userId
       payload
+      updatedAt
     }
   }
 `;

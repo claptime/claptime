@@ -17,7 +17,7 @@ import { useUserState } from 'claptime/lib/user';
 
 import {
   onCreateNotification,
-  listNotifications,
+  listNotificationsByOwnerSortByCreatedAt,
 } from 'claptime/graphql/notifications';
 
 const {
@@ -33,25 +33,22 @@ const AvatarBadge = () => {
   const { username: userId } = useUserState();
 
   const { items: notifications } = useQueryList(
-    listNotifications,
+    listNotificationsByOwnerSortByCreatedAt,
     {
       variables: {
-        filter: {
-          userId: {
-            eq: userId,
-          },
-        },
+        owner: userId,
+        limite: 10,
+        sortDirection: 'DESC',
       },
     },
     {
-      resultPath: '$.listNotifications',
-      getAll: true,
+      resultPath: '$.listNotificationsByOwnerSortByCreatedAt',
     },
   );
   useSubscription(
     gql(onCreateNotification),
     {
-      variables: { userId },
+      variables: { owner: userId },
       onSubscriptionData: ({ client, subscriptionData }) => {
         const {
           data: { onCreateNotification: newNotification },
@@ -75,9 +72,8 @@ const AvatarBadge = () => {
           renderItem={(item) => formatNotification(item)}
         />
       );
-    } else {
-      return null;
     }
+    return null;
   };
 
   const formatNotification = (notification) => {
@@ -85,44 +81,59 @@ const AvatarBadge = () => {
     const jsonPayload = JSON.parse(payload);
     let notifDescription;
     let notifAvatar;
+    let link;
     switch (type) {
-      case 'videoStatusChange':
+      case 'VIDEO_STATUS_CHANGE': {
         const { title, newStatus, videoNodeId } = jsonPayload;
         notifAvatar = (
-          <Link to={`/video/${videoNodeId}`}>
-            <Avatar
-              style={{ backgroundColor: strawberry }}
-              icon={<CaretRightOutlined />}
-            />
-          </Link>
+          <Avatar
+            style={{ backgroundColor: strawberry }}
+            icon={<CaretRightOutlined />}
+          />
         );
         notifDescription = t(
           'notifications.videoStatusChange.'.concat(newStatus),
           { title },
         );
+        link = `/video/${videoNodeId}`;
         break;
+      }
       default:
+        link = '/';
         notifAvatar = (
           <Avatar style={{ backgroundColor: 'red' }} icon={<CloseOutlined />} />
         );
         notifDescription = 'not handled';
     }
     return (
-      <List.Item>
-        <List.Item.Meta avatar={notifAvatar} description={notifDescription} />
-      </List.Item>
+      <Link to={link}>
+        <List.Item>
+          <List.Item.Meta avatar={notifAvatar} description={notifDescription} />
+        </List.Item>
+      </Link>
     );
   };
 
   return (
     <Popover
-      placement="bottom"
+      placement="bottomRight"
       content={getPopoverContent()}
       title={t('notifications.popover.title')}
       trigger="click"
     >
       <Badge count={notificationsList ? notificationsList.length : 0}>
-        <Avatar icon={<NotificationOutlined />} />
+        <Avatar
+          style={{
+            backgroundColor: 'white',
+            border: `1px solid ${strawberry}`,
+            lineHeight: '28px',
+          }}
+          icon={
+            <NotificationOutlined
+              style={{ color: strawberry, fontSize: '16px' }}
+            />
+          }
+        />
       </Badge>
     </Popover>
   );

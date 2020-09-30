@@ -95,7 +95,7 @@ type Mutation {
   notifyUser(
     userId: String!,
     type: String!,
-    channels: [Channel]!,
+    channels: [NotificationChannel]!,
     payload: AWSJSON,
   ) : ApiResponse
   @function(name: "claptime-users-${env}-notifications")

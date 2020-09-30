@@ -8212,7 +8212,7 @@ export const notifyUser = /* GraphQL */ `
   mutation NotifyUser(
     $userId: String!
     $type: String!
-    $channels: [Channel]!
+    $channels: [NotificationChannel]!
     $payload: AWSJSON
   ) {
     notifyUser(
@@ -11051,7 +11051,6 @@ export const createNotification = /* GraphQL */ `
       createdAt
       owner
       type
-      userId
       payload
       updatedAt
     }

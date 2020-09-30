@@ -1,9 +1,11 @@
 enum NotificationType {
   NEWSLETTER
+  VIDEO_STATUS_CHANGE
 }
 
 enum NotificationChannel {
   EMAIL
+  WEB
 }
 
 enum NotificationFrequency {

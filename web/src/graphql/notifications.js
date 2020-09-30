@@ -3,7 +3,7 @@ export const onCreateNotification = /* GraphQL */ `
     onCreateNotification(userId: $userId) {
       id
       type
-      userId
+      owner
       payload
     }
   }
@@ -21,7 +21,35 @@ export const listNotifications = /* GraphQL */ `
         createdAt
         owner
         type
-        userId
+        payload
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const listNotificationsByOwnerSortByCreatedAt = /* GraphQL */ `
+  query ListNotificationsByOwnerSortByCreatedAt(
+    $owner: String
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelNotificationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotificationsByOwnerSortByCreatedAt(
+      owner: $owner
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        createdAt
+        owner
+        type
         payload
         updatedAt
       }
