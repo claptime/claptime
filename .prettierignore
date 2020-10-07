@@ -1,0 +1,5 @@
+**/build
+cli/README.md
+web/amplify/**
+web/src/aws-exports.js
+**/__tests__/**

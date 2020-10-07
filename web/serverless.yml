@@ -1,0 +1,6 @@
+claptime:
+  component: '@sls-next/serverless-component@1.17.0'
+  inputs:
+    domain:
+      - ${env.SUBDOMAIN}
+      - ${env.DOMAIN}

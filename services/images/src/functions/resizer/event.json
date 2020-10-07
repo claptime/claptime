@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "eu-west-1",
+      "eventTime": "2019-09-29T19:41:52.979Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AWS:AROA5UFQMW6TIZM3EM5QI:claptime-images-staging-resizer"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "34.245.89.159"
+      },
+      "responseElements": {
+        "x-amz-request-id": "52C2E7F5F1E85226",
+        "x-amz-id-2": "E+f31mvy1qDVJXc8icIxqnukroNjfuAV7jCrNrIiROW/1aRrdB7xOWhi54Lenkl9w6tJArZnG/E="
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "claptime-images-staging-resizer-4ead7434f8dcdaa1b1bae136ff2601f0",
+        "bucket": {
+          "name": "claptime-storage-staging",
+          "ownerIdentity": {
+            "principalId": "AZYXV4P1VHB1"
+          },
+          "arn": "arn:aws:s3:::claptime-storage-staging"
+        },
+        "object": {
+          "key": "protected/eu-west-1%3Af41c32fc-e82f-48c2-84a6-d892571dbc81/covers/c364cb34-94c5-4914-9888-dfd15b32470f/600-800.jpg",
+          "size": 33890,
+          "eTag": "f0593c9e6a4fcaae71ce10845a6e06c6",
+          "sequencer": "005D910900E672F4D1"
+        }
+      }
+    }
+  ]
+}

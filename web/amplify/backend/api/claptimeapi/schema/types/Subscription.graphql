@@ -1,0 +1,6 @@
+type Subscription {
+  onUpdateVideoNode(
+    id: String!,
+  ): VideoNode
+  @aws_subscribe(mutations: ["updateVideoNode"])
+}

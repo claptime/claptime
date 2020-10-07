@@ -1,0 +1,56 @@
+{
+  "christophe": {
+    "admin": {
+      "email": "user-admin@clap-time.com",
+      "password": "Crackers#18032019",
+      "firstName": "Admin",
+      "lastName": "Claptime",
+      "birthDate": "2019-03-18",
+      "username": "c12b21ef-042f-4151-a0f0-d88b60c1cb14"
+    },
+    "regular": {
+      "email": "user-regular@clap-time.com",
+      "password": "Crackers#18032019",
+      "firstName": "Regular",
+      "lastName": "Claptime",
+      "birthDate": "2019-03-18",
+      "username": "1dec54b1-8327-4b5f-a3ff-5803510c7d17"
+    }
+  },
+  "staging": {
+    "admin": {
+      "email": "user-admin@clap-time.com",
+      "password": "Crackers#18032019",
+      "firstName": "Admin",
+      "lastName": "Claptime",
+      "birthDate": "2019-03-18",
+      "username": "d7db1e4b-8276-436a-9c16-785ab3c752c7"
+    },
+    "regular": {
+      "email": "user-regular@clap-time.com",
+      "password": "Crackers#18032019",
+      "firstName": "Regular",
+      "lastName": "Claptime",
+      "birthDate": "2019-03-18",
+      "username": "0f09ce2c-2a4c-4725-88e4-75309f930aec"
+    }
+  },
+  "thibaut": {
+    "regular": {
+      "email": "user-regular@clap-time.com",
+      "password": "Crackers#18032019",
+      "firstName": "Regular",
+      "lastName": "Claptime",
+      "birthDate": "2019-03-18",
+      "username": "180b2c83-291d-4335-b6f3-47759e9b4a70"
+    },
+    "admin": {
+      "email": "user-admin@clap-time.com",
+      "password": "Crackers#18032019",
+      "firstName": "Admin",
+      "lastName": "Claptime",
+      "birthDate": "2019-03-18",
+      "username": "ad749c6b-bd92-4738-9129-3912c0c06c1f"
+    }
+  }
+}

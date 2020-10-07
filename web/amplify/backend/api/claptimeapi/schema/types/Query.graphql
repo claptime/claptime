@@ -1,0 +1,14 @@
+type Query {
+  # Stripe
+  acceptsPayments(
+    profileId: ID!,
+  ): ApiResponse
+  @function(name: "claptime-payments-${env}-stripe-intent")
+  @aws_iam
+  @aws_cognito_user_pools
+  
+  getStripeAccessToken(
+    profileId: ID!,
+  ): ApiResponse
+  @function(name: "claptime-payments-${env}-stripe-connect")
+}

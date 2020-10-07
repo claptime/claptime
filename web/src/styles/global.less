@@ -1,0 +1,108 @@
+@import '~antd/dist/antd.less';
+
+/* https://dev.to/kelli/how-to-self-host-google-fonts-on-your-own-server-d4i */
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url('/fonts/open-sans-v17-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/open-sans-v17-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* https://dev.to/kelli/how-to-self-host-google-fonts-on-your-own-server-d4i */
+/* convergence-regular - latin */
+@font-face {
+  font-family: 'Convergence';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Convergence'), local('Convergence'),
+    url('/fonts/Convergence-Regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/Convergence-Regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* quicksand-regular - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('/fonts/quicksand-v19-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/quicksand-v19-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Ensure message and notifications are show on top of video player */
+.ant-message,
+.ant-popover,
+.ant-select-dropdown,
+.ant-notification {
+  z-index: 10001 !important;
+}
+
+/* custom fonts */
+body {
+  font-family: Open Sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+.ant-card-meta-title,
+.menu {
+  font-family: Convergence;
+}
+
+.ant-typography {
+  white-space: pre-wrap;
+}
+
+/* W3C font-size recommandations : https://www.w3schools.com/tags/tag_hn.asp */
+h1.ant-typography {
+  font-size: 2em !important;
+}
+h2.ant-typography {
+  font-size: 1.5em !important;
+}
+h3.ant-typography {
+  font-size: 1.17em !important;
+}
+h4.ant-typography {
+  font-size: 1em !important;
+}
+h5.ant-typography {
+  font-size: 0.83em !important;
+}
+h6.ant-typography {
+  font-size: 0.67em !important;
+}
+
+.ant-table-row-level-1 {
+  background: rgb(250, 250, 250);
+}
+
+.slick-dots li {
+  margin-left: 12px !important;
+  width: 24px !important;
+}
+
+.slick-dots li button {
+  height: 6px !important;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+* {
+  scroll-behavior: smooth;
+}

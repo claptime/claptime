@@ -1,0 +1,21 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "jest"],
+  "rules": {
+    "no-await-in-loop": 0,
+    "no-console": 0,
+    "no-loop-func": 0,
+    "no-plusplus": 0,
+    "no-restricted-syntax": 0,
+    "no-return-await": 0
+  },
+  "settings": {
+    "react": {
+      "version": "16.12"
+    },
+    "import/core-modules": [ "sharp" ]
+  },
+  "env": {
+    "jest/globals": true
+  }
+}

@@ -1,0 +1,23 @@
+enum UserCollectionList {
+  SUBSCRIBED
+}
+
+type UserCollection
+@model(
+  queries: null,
+  mutations: { delete: "deleteUserCollection", create: "createUserCollection" },
+  subscriptions: null,
+)
+@key(
+  fields: ["userSettingsCollectionsId", "list", "userCollectionCollectionId"],
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+])
+{
+  list: UserCollectionList!
+  userSettingsCollectionsId: String!
+  userCollectionCollectionId: ID!
+  collection: Collection! @connection
+  createdAt: AWSDateTime
+}

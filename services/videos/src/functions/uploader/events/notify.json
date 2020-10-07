@@ -1,0 +1,22 @@
+{
+  "version": "0",
+  "id": "8e9c47d1-cae5-6d0b-da65-6902b0891023",
+  "detail-type": "Step Functions Execution Status Change",
+  "source": "aws.states",
+  "account": "936672802726",
+  "time": "2019-09-15T14:14:14Z",
+  "region": "eu-west-1",
+  "resources": [
+    "arn:aws:states:eu-west-1:936672802726:execution:claptime-uploader-christophe-uploader:1e5a71ed-53e9-a5de-2241-110aa5bdabce"
+  ],
+  "detail": {
+    "startDate": 1568556853358,
+    "name": "1e5a71ed-53e9-a5de-2241-110aa5bdabce",
+    "executionArn": "arn:aws:states:eu-west-1:936672802726:execution:claptime-uploader-christophe-uploader:1e5a71ed-53e9-a5de-2241-110aa5bdabce",
+    "input": "{\n    \"Comment\": \"Insert your JSON here\"\n}",
+    "status": "FAILED",
+    "stateMachineArn": "arn:aws:states:eu-west-1:936672802726:stateMachine:claptime-uploader-christophe-uploader",
+    "stopDate": 1568556854769,
+    "output": null
+  }
+}

@@ -1,0 +1,73 @@
+{
+    "identityPoolName": "claptime_identitypool",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "claptib8abbdb0",
+    "userPoolName": "claptime_userpool",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Votre code de confirmation Claptime est {####}",
+    "smsVerificationMessage": "Votre code de confirmation Claptime est {####}",
+    "emailVerificationSubject": "Activez votre compte Claptime",
+    "emailVerificationMessage": "Merci de nous avoir rejoint sur Claptime. Pour finaliser votre inscription, merci de renseigner le code de confirmation suivant : {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+        "birthdate",
+        "family_name",
+        "locale",
+        "given_name",
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "birthdate",
+        "email",
+        "family_name",
+        "locale",
+        "given_name",
+        "email_verified"
+    ],
+    "userpoolClientLambdaRole": "claptib8abbdb0_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "useDefault": "manual",
+    "authSelections": "identityPoolAndUserPool",
+    "resourceName": "claptime",
+    "usernameAttributes": [
+        "email"
+    ],
+    "triggers": "{}",
+    "hostedUI": false,
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "dependsOn": [],
+    "userPoolGroupList": [
+        "admin"
+    ],
+    "thirdPartyAuth": false,
+    "userPoolGroups": true,
+    "adminQueries": false
+}

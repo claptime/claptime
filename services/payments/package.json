@@ -1,0 +1,13 @@
+{
+  "name": "claptime-payments",
+  "private": true,
+  "devDependencies": {
+    "serverless": "^1.47.0",
+    "serverless-domain-manager": "^3.3.0",
+    "serverless-stack-termination-protection": "^1.0.0"
+  },
+  "dependencies": {
+    "claptime-commons": "file:../../commons",
+    "stripe": "^7.14.0"
+  }
+}

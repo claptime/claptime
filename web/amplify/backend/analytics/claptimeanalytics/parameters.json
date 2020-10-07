@@ -1,0 +1,20 @@
+{
+    "appName": "claptimeanalytics",
+    "roleName": "pinpointLambdaRoleb3290199",
+    "cloudWatchPolicyName": "cloudWatchPolicyb3290199",
+    "pinpointPolicyName": "pinpointPolicyb3290199",
+    "authPolicyName": "pinpoint_amplify_b3290199",
+    "unauthPolicyName": "pinpoint_amplify_b3290199",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

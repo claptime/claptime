@@ -1,0 +1,10 @@
+Bonjour Regular,
+
+Nouvelle soumission dans votre collection My collection : "My video node".
+Découvrez-la à cette adresse et choisissez si vous souhaitez l'intégrer à votre collection :
+http://localhost:3000/video/5ae69e9d-b8e5-4240-b724-9014fd01c2ac
+
+Une question ? Répondez à cet email, nous nous ferons un plaisir de vous apporter des précisions.
+
+Cinéphilement,
+L'équipe Claptime

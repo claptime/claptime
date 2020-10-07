@@ -1,0 +1,47 @@
+{
+  "Parameters": {
+    "AppSyncApiId": {
+      "Type": "String",
+      "Description": "The id of the AppSync API associated with this project."
+    },
+    "unauthRoleName": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "UnauthRolePolicyCustom": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "appsync-unauthrole-policy-custom",
+        "Roles": [
+          {
+            "Ref": "unauthRoleName"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "appsync:GraphQL"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": [
+                    "arn:aws:appsync:${AWS::Region}:${AWS::AccountId}:apis/${apiId}/types/Mutation/fields/createPaymentIntent",
+                    {
+                      "apiId": {
+                        "Ref": "AppSyncApiId"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

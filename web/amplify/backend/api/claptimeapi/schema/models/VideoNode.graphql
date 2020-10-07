@@ -1,0 +1,87 @@
+enum Category {
+  DOCUMENTARY
+  FICTION
+  MUSIC_VIDEO
+  PERFORMING_ARTS
+}
+
+enum VideoNodeStatus {
+  UPLOAD
+  IMPORT
+  PROCESSING
+  PROCESSING_FAILED
+  DRAFT
+  PUBLISHED
+}
+
+enum Type {
+  FILM
+  SERIES
+}
+
+enum NodeType {
+  ROOT
+  NODE
+}
+
+type VideoNode
+@model(
+  queries: { get: "getVideoNode", list: "listVideoNodes" },
+  mutations: { delete: "deleteVideoNode", create: "createVideoNode", update: "updateVideoNode" },
+  subscriptions: null,
+)
+@key(
+  name: "ByStatusSortByTitle",
+  fields: ["status", "title"],
+  queryField: "listVideoNodesByStatusSortByTitle",
+)
+@key(
+  name: "ByStatusSortByCreatedAt",
+  fields: ["status", "createdAt"],
+  queryField: "listVideoNodesByStatusSortByCreatedAt",
+)
+@key(
+  name: "ByParent",
+  fields: ["videoNodeParentNodeId"],
+  queryField: "listVideoNodesByParent",
+)
+@auth(rules: [
+  { allow: owner, operations: [read] },
+  { allow: groups, groups: ["admin"], operations: [read] },
+  { allow: private, provider: iam, operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  title: String!
+  status: VideoNodeStatus!
+  profile: Profile! @connection(name: "ProfileVideoNodes")
+  videoNodeProfileId: String!
+  category: Category
+  duration: Int
+  releaseYear: Int
+  synopsis: String
+  festivals: String
+  credits: [Credit] @connection(name: "VideoNodeCredit")
+  collections: [CollectionVideoNode] @connection(name: "VideoNodeCollection")
+  searchField: String
+  ttl: Int
+  createdBy: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  owner: String
+  views: [View] @connection(name: "VideoNodeView")
+  donationsAvailable: Boolean
+
+  nextNode: VideoNode @connection
+  videoNodeNextNodeId: ID
+
+  parentNode: VideoNode @connection
+  videoNodeParentNodeId: ID
+
+  type: Type!
+  nodeType: NodeType!
+  childNodes: [VideoNode] @connection(keyName: "ByParent", fields: ["id"])
+  childrenCount: Int
+}

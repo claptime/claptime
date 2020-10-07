@@ -1,0 +1,14 @@
+enum LinkType {
+  FACEBOOK
+  INSTAGRAM
+  LABFILMS
+  WEBSITE
+}
+
+type Link
+@aws_iam
+@aws_cognito_user_pools
+{
+  type: LinkType!
+  url: String!
+}

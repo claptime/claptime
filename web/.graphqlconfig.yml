@@ -1,0 +1,16 @@
+projects:
+  claptimeapi:
+    schemaPath: src/graphql/generated/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql/generated
+        maxDepth: 4
+extensions:
+  amplify:
+    version: 3

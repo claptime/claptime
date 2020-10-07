@@ -1,0 +1,42 @@
+enum NotificationType {
+  NEWSLETTER
+}
+
+enum NotificationChannel {
+  EMAIL
+}
+
+enum NotificationFrequency {
+  NEVER
+  ALWAYS
+}
+
+type NotificationPreference {
+  type: NotificationType!
+  channel: NotificationChannel!
+  frequency: NotificationFrequency!
+}
+
+type UserSettings
+@model(
+  queries: { get: "getUserSettings" },
+  mutations: { delete: "deleteUserSettings", create: "createUserSettings", update: "updateUserSettings" },
+  subscriptions: null,
+)
+@auth(
+  rules: [
+    { allow: owner, operations: [create, delete, read, update] },
+    { allow: private, provider: iam, operations: [create, delete, read, update] },
+  ]
+)
+{
+  id: ID!
+  clapValue: Float
+  uiState: AWSJSON
+  profileId: String
+  notifications: [NotificationPreference]
+  videoNodes: [UserVideoNode] @connection
+  collections: [UserCollection] @connection
+  profiles: [UserProfile] @connection
+  owner: String
+}

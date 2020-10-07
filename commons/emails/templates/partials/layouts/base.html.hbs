@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  {{#if title}}
+  <title>{{title}}</title>
+  {{/if}}
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Convergence|Quicksand&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      font-family: Quicksand, Arial, Helvetica, sans-serif;
+    }
+
+    .stylized {
+      font-family: Convergence, "Trebuchet MS", Helvetica, sans-serif;
+      color: rgb(27, 28, 48);
+    }
+  </style>
+  {{#> head-block}}
+  {{/head-block}}
+</head>
+
+<body>
+  <div style="padding: 20px;">
+    <h2 class="stylized">
+      Bonjour {{user.firstName}},
+    </h2>
+    <div>
+      {{#> body-block}}
+      {{/body-block}}
+    </div>
+    <footer>
+      {{#> footer-block}}
+      {{> includes/footer.html }}
+      {{/footer-block}}
+    </footer>
+  </div>
+  {{#> scripts-block}}
+  {{/scripts-block}}
+</body>
+
+</html>

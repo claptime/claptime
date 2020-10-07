@@ -1,0 +1,827 @@
+{
+  "errors": {
+    "fetchingData": {
+      "title": "Impossible de charger le contenu",
+      "subTitle": "Si le problème persiste, faites-le-nous savoir pour que nous puissions résoudre le problème au plus vite.",
+      "refreshButton": "Recharger la page",
+      "backHomeButton": "Revenir à l'accueil",
+      "contactButton": "Nous contacter"
+    }
+  },
+  "admin": {
+    "container": {
+      "title": "Admin",
+      "tabs": {
+        "videosValidation": "Validation des vidéos"
+      }
+    },
+    "videosValidation": {
+      "table": {
+        "title": "Titre",
+        "uploadDate": "Date d'upload",
+        "actions": "Actions",
+        "view": "Voir",
+        "confirm": "Êtes-vous sûr ?",
+        "approve": "Approuver",
+        "reject": "Rejeter",
+        "yes": "Certain",
+        "no": "Annuler"
+      }
+    }
+  },
+  "myFavoritesPage": {
+    "title": "Mes coups de cœur",
+    "emptyTitle": "Pas encore de coup de cœur",
+    "emptyDescription": "Pour facilement retrouver les films et séries que vous avez appréciés, ajoutez-les à vos coups de cœur en cliquant sur l'icône en forme de cœur."
+  },
+  "myListPage": {
+    "title": "Ma liste",
+    "emptyTitle": "Votre liste est vide",
+    "emptyDescription": "Pour facilement retrouver les films et séries que vous souhaitez regarder plus tard, ajoutez-les à votre liste en cliquant sur l'icône en forme de marque-page."
+  },
+  "clapModal": {
+    "cancel": "Annuler",
+    "clapAmountLabel": "Montant libre (minimum {{min}}€)",
+    "clapButton": "Clap",
+    "confirm": "Confirmer",
+    "doesNotAcceptPayments": "{{name}} n'accepte pas les dons pour le moment.",
+    "error": "Impossible de procéder au paiement",
+    "success": "Paiement validé",
+    "successDescription": "Votre don a bien été effectué, merci !",
+    "title": "Faire un don à {{name}}",
+    "totalAmountLabel": "Montant total (frais de transaction inclus)"
+  },
+  "filmmakersPage": {
+    "upload": {
+      "title": "Mettez en ligne vos plus belles réalisations",
+      "section1": {
+        "title": "Juste le temps d'un café...",
+        "item1": "Inscrivez-vous et créez votre profil public Claptime avec soin.",
+        "item2": "Renseignez la fiche de votre film ou de votre série (synopsis, année de sortie, genre...).",
+        "item3": "Déposez vos fichiers vidéos depuis votre PC, ou importez-les depuis YouTube ou Vimeo."
+      },
+      "section2": {
+        "title": "Une plateforme dédiée au cinéma",
+        "text": "Parce qu'on ne souhaite pas que vos plus belles créations se retrouvent au milieu de vidéos de chats, les films et séries disponibles sur Claptime doivent respecter notre charte. C'est un gage de qualité et de respect envers les ɶuvres que nous diffusons."
+      },
+      "section3": {
+        "title": "Gardez le contrôle",
+        "text": "Vous pouvez choisir de diffuser vos films pour une durée limitée. Vous pouvez aussi les retirer de la plateforme à tout moment. Sur Claptime, c'est vous le patron !"
+      }
+    },
+    "audience": {
+      "title": "Développez votre audience",
+      "section1": {
+        "title": "Intégrez des collections qui vous ressemblent",
+        "text": "Sur le modèle des festivals de cinéma, inscrivez vos films dans les collections qui vous intéressent. Faites vivre vos réalisations, et montrez-les à un public qui saura les apprécier ! "
+      },
+      "section2": {
+        "title": "Diffusez vos films où vous le souhaitez",
+        "text": "Le lecteur Claptime et son système de dons peuvent être intégrés sur n'importe quelle page web, afin que vous puissiez partager vos films sur un maximum de supports."
+      }
+    },
+    "donations": {
+      "title": "Obtenez le soutien de votre public",
+      "text": "Entre nous, on sait l'investissement que ça représente de réaliser un film. On sait aussi à quel point c'est important de se sentir proche de son public. Nous souhaitons remettre au centre du jeu la question de la rémunération de la création en impliquant directement le spectateur, et nous proposons pour cela un système de participation libre, qui crée un lien direct avec votre public. Mobilisez vos fans, faites-les participez à votre succès et récoltez un tonnerre de claps !"
+    }
+  },
+  "collectionsPage": {
+    "title": "Les collections",
+    "becomeCurator": "Vous souhaitez animer votre propre collection ?",
+    "contactUs": "Contactez-nous"
+  },
+  "spectatorsPage": {
+    "catalogue": {
+      "title": "Le cinéma sous un autre angle",
+      "text1": "Explorez un catalogue qui met à l'honneur la diversité du cinéma, sous toutes ses formes ! Fans de fictions ou de documentaires engagés, venez trouver votre bonheur et découvrir de nouveaux réalisateurs.",
+      "text2": "Accessible librement, notre objectif est de vous proposer une expérience sans aucune publicité (parce que nous sommes bien conscients que personne n'aime devoir supporter de la pub avant de pouvoir apprécier un film).",
+      "text3": "Alors installez-vous bien confortablement dans votre fauteuil, et laissez-vous embarquer !"
+    },
+    "collections": {
+      "title": "Un système de recommandation humain et collaboratif",
+      "section1": {
+        "title": "Faites confiance à la communauté...",
+        "text": "Abonnez-vous à des collections animées par des fans de cinéma, et découvrez des sélections de films et de séries qui vous inspirent."
+      },
+      "section2": {
+        "title": "... et partagez votre vision du cinéma.",
+        "text": "Vous avez l'âme d'un programmateur de cinéma, vous adorez dénicher de nouvelles pépites et vous aimeriez en faire profiter le plus grand nombre ? Alors n'hésitez plus, créez votre propre collection sur Claptime et contribuez à mettre en lumière la richesse du cinéma !"
+      }
+    },
+    "supportFilmmakers": {
+      "title": "Soutenez les réalisateurs qui vous ont fait vibrer",
+      "text1": "Claptime propose un système de participation libre pour soutenir et rémunérer la création. Vous venez de regarder un film qui vous a touché et que vous avez apprécié ? Contribuez au succès de son réalisateur, et faites lui un don directement depuis notre lecteur, en quelques clics !",
+      "participationInTheHat": "La participation au chapeau 2.0",
+      "text2": "La participation au chapeau a pour vocation de permettre au plus grand nombre d'assister à une représentation d'un spectacle ou d'une performance artistique. Chacun a le choix, sur la base de son appréciation, de contribuer à la hauteur de ses moyens à la rémunération des artistes. C'est une vision particulièrement inclusive de l'accès à la culture, qui redonne tout son sens aux liens qui unissent les spectateurs et les artistes. Nous pensons que ce modèle est tout aussi pertinent sur internet."
+    }
+  },
+  "landingPage": {
+    "findYourHappiness": "Des collections pour tous les goûts",
+    "forTheViewers": "Sortez des sentiers battus !",
+    "forTheFilmmakers": "Partagez votre passion du cinéma !",
+    "iAmViewer": "Spectateur",
+    "iAmFilmmaker": "Réalisateur",
+    "browseTheCollections": "Parcourir les collections",
+    "uploadAMovie": "Comment mettre un film en ligne ?",
+    "banner": {
+      "text1": "La plateforme vidéo\ndes réalisateurs\nindépendants",
+      "discover": "Je découvre !"
+    },
+    "viewers": {
+      "section1": {
+        "title": "Le cinéma sous un autre angle",
+        "text": "Accédez à un catalogue de films indépendants, réalisés par des amoureux du septième art. Et tout ça librement et sans publicité !"
+      },
+      "section2": {
+        "title": "Un système de recommandations humain et collaboratif",
+        "text": "Découvrez des collections et des thématiques inspirantes ! Faites confiance à la communauté pour vous aider à dénicher de nouvelles pépites."
+      },
+      "section3": {
+        "title": "Soutenez les réalisateurs qui vous ont fait vibrer",
+        "text": "Encouragez directement leur travail grâce à notre système de participation libre inspiré de la rémunération au chapeau."
+      }
+    },
+    "filmmakers": {
+      "section1": {
+        "title": "Mettez en ligne vos plus belles réalisations",
+        "text": "Profitez d'un espace de diffusion qui valorise vos créations, exclusivement dédié au cinéma sous toutes ses formes."
+      },
+      "section2": {
+        "title": "Développez votre audience",
+        "text": "Intégrez des sélections gérées par des fans de cinéma. Soumettez vos films dans les collections qui correspondent à votre vision du cinéma."
+      },
+      "section3": {
+        "title": "Obtenez le soutien de votre public",
+        "text": "Bénéficiez d'une source de revenus supplémentaire, transparente et 100% participative. Valorisez votre talent et faites participer votre audience à votre succès, vous le méritez !"
+      }
+    }
+  },
+  "partnersPage": {
+    "pageTitle": "Nos partenaires",
+    "partners": {
+      "labfilms": {
+        "name": "LabFilms",
+        "description": "LabFilms.org est une plateforme communautaire en ligne pour trouver des collaborateurs de tournage, mettre en valeur ses compétences vidéo et partager ses films. Ce réseau social est gratuit et relève d’une initiative associative à but non lucratif. Il a été pensé par des passionnés de création audiovisuelle pour d’autres passionnés.\n\nClaptime et LabFilms s'associent pour mettre en valeur le cinéma indépendant et autoproduit."
+      },
+      "cinerama": {
+        "name": "CINÉRAMA",
+        "description": "Créée en 2017, CINÉRAMA est une jeune association d'audiovisuel Bordelaise. Elle a pour objectif d'aider à produire et à diffuser du contenu cinématographique (clips, courts métrages, séries, longs métrages, etc). Aujourd'hui, l'association a aidé à produire plus d'une vingtaine de projets et diffuse une soixantaine de films, avec une sortie par semaine.\n\nParce que nous partageons des valeurs et un objectif communs, nous vous invitons à découvrir leur programmation réalisée avec attention."
+      },
+      "laNuitDesCameras": {
+        "name": "La Nuit des Caméras",
+        "description": "Né de la rencontre de deux associations étudiantes d'audiovisuel, la Nuit des Caméras est un festival de courts-métrages lillois. Le principe : 10 équipes de 4 à 6 personnes qui, le temps d’une nuit, devront scénariser, tourner et monter un court-métrage de moins de 3 minutes.\n\nPour sa première édition en 2020, Claptime s'associe au festival et mettra en lumière les plus belles réalisations."
+      }
+    }
+  },
+  "profilesPage": {
+    "title": "Les cinéastes"
+  },
+  "links": {
+    "urlRequired": "Veuillez renseigner une URL",
+    "FACEBOOK": {
+      "title": "Visiter la page Facebook",
+      "label": "Facebook",
+      "placeholder": "https://www.facebook.com/itsclaptime"
+    },
+    "INSTAGRAM": {
+      "title": "Visiter le profil Instagram",
+      "label": "Instagram",
+      "placeholder": "https://www.instagram.com/itsclaptime"
+    },
+    "LABFILMS": {
+      "title": "Visiter le profil LabFilms",
+      "label": "LabFilms",
+      "placeholder": "https://www.labfilms.org/membres/itsclaptime"
+    },
+    "WEBSITE": {
+      "title": "Visiter le site web",
+      "label": "Site web",
+      "placeholder": "https://www.clap-time.com"
+    }
+  },
+  "seo": {
+    "default": {
+      "title": "Claptime – la plateforme vidéo des réalisateurs indépendants",
+      "description": "La plateforme vidéo dédiée au cinéma et aux réalisateurs indépendants, qui favorise et soutient la création."
+    },
+    "about/filmmakers": {
+      "title": "Vous êtes réalisateur ? – Claptime",
+      "description": "Comment mettre un film en ligne ? Sous quelles conditions ? On vous explique tout !"
+    },
+    "about/spectators": {
+      "title": "Vous êtes spectateur ? – Claptime",
+      "description": "Sur Claptime, découvrez le cinéma sous un autre angle !"
+    },
+    "about/press": {
+      "title": "Espace presse – Claptime",
+      "description": "Retrouvez nos parutions presse et nos communiqués."
+    },
+    "admin": {
+      "title": "Admin – Claptime"
+    },
+    "collection": {
+      "title": "{{name}} – Une collection de films et séries sur Claptime",
+      "description": "Parcourez la collection de films et séries \"{{name}}\" sur Claptime – {{tagline}}"
+    },
+    "collection/category": {
+      "title": "{{category}} – {{collection}} sur Claptime",
+      "description": "Parcourez la catégorie \"{{category}}\" de la collection {{collection}}"
+    },
+    "collection/edit": {
+      "title": "Éditer la collection – Claptime"
+    },
+    "collections": {
+      "title": "Toutes les collections sur Claptime",
+      "description": "Des collections de films et de séries pour tous les goûts sur Claptime."
+    },
+    "legal": {
+      "title": "Mentions légales – Claptime"
+    },
+    "my-account": {
+      "title": "Mon compte – Claptime"
+    },
+    "my-favorites": {
+      "title": "Mes coups de cœur – Claptime"
+    },
+    "my-list": {
+      "title": "Ma liste – Claptime"
+    },
+    "my-profile": {
+      "title": "Mon profil – Claptime"
+    },
+    "partners": {
+      "title": "Nos partenaires – Claptime"
+    },
+    "profile": {
+      "title": "{{name}} – Sa filmographie sur Claptime",
+      "description": "Découvrez les films et séries de {{name}} – {{biography}}"
+    },
+    "profiles": {
+      "title": "Tous les réalisateurs sur Claptime",
+      "description": "La crème de la crème des réalisateurs indépendants à découvrir sur Claptime !"
+    },
+    "series": {
+      "title": "{{title}} – Une série de {{name}} sur Claptime",
+      "description": "Regardez la série \"{{title}}\" de {{name}} sur Claptime – {{synopsis}}"
+    },
+    "series/edit": {
+      "title": "Éditer la série – Claptime"
+    },
+    "video": {
+      "title": "{{title}} – {{category}} de {{name}} sur Claptime",
+      "description": "Regardez \"{{title}}\" de {{name}} sur Claptime – {{synopsis}}"
+    },
+    "video/play": {
+      "title": "{{title}} – {{category}} de {{name}} sur Claptime",
+      "description": "Regardez \"{{title}}\" de {{name}} sur Claptime – {{synopsis}}"
+    },
+    "video/embed": {
+      "title": "{{title}} – {{category}} de {{name}} sur Claptime",
+      "description": "Regardez \"{{title}}\" de {{name}} sur Claptime – {{synopsis}}"
+    },
+    "video/edit": {
+      "title": "Éditer la vidéo – Claptime"
+    },
+    "video/stats": {
+      "title": "Statistiques de la vidéo – Claptime"
+    }
+  },
+  "collectionMore": "Vous en voulez encore ?",
+  "launchVideo": "Commencer la séance",
+  "categories": {
+    "DOCUMENTARY": {
+      "name": "Documentaire"
+    },
+    "FICTION": {
+      "name": "Fiction"
+    },
+    "MUSIC_VIDEO": {
+      "name": "Clip"
+    },
+    "PERFORMING_ARTS": {
+      "name": "Spectacle vivant"
+    }
+  },
+  "collection": {
+    "subscribe": "S'abonner",
+    "unsubscribe": "Se désabonner",
+    "edit": {
+      "pageTitle": "Éditer la collection",
+      "name": "Nom",
+      "namePlaceholder": "Nom de la collection",
+      "nameMaxLength": "Le nom ne doit pas dépasser 50 caractères.",
+      "slug": "URL",
+      "slugTooltip": "C'est l'adresse à laquelle les gens pourront accéder à votre collection. Si vous souhaitez la changer, merci de nous contacter.",
+      "slugCopy": "Copier l'URL",
+      "slugCopied": "L'URL a bien été copiée dans votre presse-papier",
+      "slugPlaceholder": "ma-collection",
+      "slugMaxLength": "La partie personnalisable de l'URL ne doit pas dépasser 50 caractères",
+      "tagline": "Accroche",
+      "taglinePlaceholder": "Saisissez une accroche",
+      "taglineMaxLength": "L'accroche ne doit pas dépasser 100 caractères.",
+      "description": "Description",
+      "descriptionPlaceholder": "Saisissez une description",
+      "cover": "Image de couverture",
+      "coverPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les images de couverture au format 5:1.\n\nPour vous assurer qu'une image de couverture sera affichée avec la meilleure qualité possible, nous vous conseillons de sélectionner une image ayant une largeur minimale de 1500 pixels, ainsi qu'une hauteur minimale de 300 pixels.",
+      "coverPopoverTitle": "Format recommandé",
+      "categories": "Catégories",
+      "categoriesDelete": "Supprimer la catégorie (celle-ci doit être vide)",
+      "categoriesDeleteMustBeEmpty": "La catégorie doit être vide pour pouvoir la supprimer",
+      "categoriesAddTitle": "Ajouter une catégorie",
+      "categoriesEmpty": "Aucune catégorie",
+      "categoriesAddFailed": "Une erreur est survenue lors de la création de la catégorie",
+      "categoryName": "Nom de la catégorie",
+      "categoryNamePlaceholder": "\"Fiction\", \"Documentaire\", ...",
+      "categoryNameMaxLength": "Le nom de la catégorie ne doit pas dépasser 50 caractères.",
+      "categoryDescription": "Description",
+      "categoryDescriptionPlaceholder": "Ajoutez des détails si nécessaire",
+      "categoryDescriptionMaxLength": "La description ne doit pas dépasser 100 caractères.",
+      "categoryAdd": "Ajouter",
+      "save": "Sauvegarder",
+      "view": "Voir",
+      "required": "Obligatoire",
+      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche"
+    },
+    "category": {
+      "backToCollection": "Revenir à la collection"
+    },
+    "seeMore": "Voir plus",
+    "curatedBy": "<0>Une collection animée par </0><1/>",
+    "emptyCategory": "Cette catégorie est vide pour le moment, revenez bientôt."
+  },
+  "imageInput": {
+    "importButton": "Importer une image"
+  },
+  "charter": {
+    "introduction": {
+      "title": "Cadre",
+      "text": "Claptime est avant tout un espace dédié à la diffusion de réalisations cinématographiques originales. Notre mission est de participer à l'émergence de genres et de formats audiovisuels peu représentés généralement, en proposant aux spectateurs des films qu'ils n'auraient pas nécessairement pu voir ailleurs. C'est aussi la mise en avant du travail du réalisateur ainsi que de la pluralité des profils qui existe dans ce domaine."
+    },
+    "objectives": {
+      "title": "Objectifs",
+      "text": "Cette charte garantit la cohérence de notre catalogue et la légitimité de notre offre, tant pour les spectateurs que pour les réalisateurs."
+    },
+    "rules": {
+      "title": "Critères de validation",
+      "introduction": "Dans ce cadre, nous nous réservons le droit de refuser les contenus suivants :",
+      "1": "les teasers et les bandes-annonces d'œuvres complètes (les court-métrages tournés sous forme de bande-annonce fictive ne sont pas concernés)",
+      "2": "les prestations audiovisuelles et les films institutionnels",
+      "3": "le contenu pornographique ou incitant à la haine et à la violence",
+      "more": "Cette liste n'est pas exhaustive, et nous conservons le droits de refuser la publication de films sur d'autres critères. Nous restons sur ce point ouvert à la discussion suite à un refus."
+    },
+    "copyright": {
+      "title": "Respect des droits d'auteurs",
+      "text": "Pour vous protéger au maximum, assurez-vous de disposer des droits nécessaires avant de mettre en ligne un film. Si vous activez les dons pour un film, vous devez détenir les droits liés à l'utilisation commerciale des éléments visuels que vous avez utilisez."
+    }
+  },
+  "series": {
+    "thisSeries": "cette série",
+    "noEpisode": "Aucun épisode disponible pour le moment.",
+    "nbEpisodes": "{{count}} épisode",
+    "nbEpisodes_plural": "{{count}} épisodes",
+    "edit": {
+      "coverPopoverTitle": "Format recommandé",
+      "coverPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les affiches au format 3/4.\n\nPour vous assurer qu'une affiche sera affichée avec la meilleure qualité possible, nous vous conseillons de sélectionner une image ayant une largeur minimale de 600 pixels, ainsi qu'une hauteur minimale de 800 pixels.",
+      "pageTitle": "Éditer la série",
+      "warningDraft": "Cette série est encore à l'état de brouillon",
+      "addVideo": "Ajouter un épisode",
+      "warningEpisodesNotPublished": "<0/><1>Attention !</1> Au moins un épisode de la série n'est pas publié.<3/>Les utilisateurs pourront visionner les épisodes jusqu'au premier non-publié. Les suivants ne seront pas disponibles.",
+      "modalWarning": "<0>Attention !</0> Seuls les films que vous n'avez pas encore ajoutés à une série apparaissent dans cette liste.",
+      "saveSucceeded": "La série a été sauvegardée",
+      "saveFailed": "La série n'a pas pû être sauvegardée.",
+      "publishSucceeded": "Votre série a été publiée. Elle est maintenant disponible pour visionnage",
+      "deleteSucceeded": "La série a bien été supprimée",
+      "deleteFailed": "Une erreur est survenue lors de la suppression de la série",
+      "publish": "Publier",
+      "publishConfirm": "La série sera accessible pour visionnage",
+      "publishMissingTitle": "Impossible de publier : la série n'a pas de titre",
+      "publishMissingSynopsis": "Impossible de publier : la série n'a pas de synopsis.",
+      "publishMissingCategory": "Impossible de publier : la série n'a pas de catégorie.",
+      "publishMissingCover": "Impossible de publier : la série n'a pas d'affiche.",
+      "publishMissingReleaseYear": "Impossible de publier : la série n'a pas d'année de sortie.",
+      "unpublish": "Dépublier",
+      "unpublishConfirm": "Êtes-vous sûr ? La série ne sera plus disponible au visionnage.",
+      "unpublishSucceeded": "Votre série a bien été dépubliée. Elle n'est maintenant plus accessible.",
+      "confirmYes": "Certain",
+      "confirmNo": "Annuler",
+      "synopsis": "Synopsis",
+      "synopsisPlaceholder": "Saisissez un synopsis",
+      "festivals": "Festivals",
+      "festivalsPlaceholder": "Renseignez les sélections et les prix en festivals",
+      "category": "Catégorie",
+      "categoryPlaceholder": "Catégorie de la série",
+      "releaseYear": "Année de sortie",
+      "releaseYearPlaceholder": "Saisissez l'année de sortie",
+      "title": "Titre",
+      "cover": "Affiche",
+      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche",
+      "credits": "Crédits",
+      "save": "Sauvegarder",
+      "delete": "Supprimer",
+      "deleteConfirm": "Êtes-vous sûr ?",
+      "view": "Voir",
+      "edit": "Éditer"
+    },
+    "status": {
+      "PUBLISHED": {
+        "stepName": "Publication",
+        "title": "Publiée",
+        "description": "La série est en ligne."
+      },
+      "DRAFT": {
+        "stepName": "Brouillon",
+        "title": "En cours de création",
+        "description": "Votre série n'est pas encore disponible. Pour la mettre en ligne, vous devez d'abord la publier"
+      }
+    },
+    "episodes": {
+      "list": "Épisodes",
+      "view": "Voir",
+      "edit": "Éditer",
+      "delete": "Supprimer",
+      "deleteSuccess": "L'épisode a été supprimé de la série"
+    }
+  },
+  "video": {
+    "thisFilm": "ce film",
+    "thisEpisode": "cet épisode",
+    "play": "Démarrer la séance",
+    "previousEpisode": "Épisode précédent",
+    "nextEpisode": "Épisode suivant",
+    "nextEpisodeNotPublished": "L'épisode suivant n'est pas encore en ligne",
+    "previousEpisodeNotPublished": "L'épisode précédent n'est plus en ligne",
+    "addedBy": "ajouté par",
+    "durationAsMinutes": "{{duration, secondsAsMinutes}} minutes",
+    "ttl": "Disponible encore {{ttl}} jours !",
+    "addToMyList": "Ajouter à ma liste (à regarder)",
+    "removeFromMyList": "Retirer de ma liste",
+    "like": "Ajouter à mes coups de cœur",
+    "unlike": "Retirer de mes coups de cœur",
+    "addedToMyList": "\"{{title}}\" a été ajouté à votre liste",
+    "removedFromMyList": "\"{{title}}\" a été retiré de votre liste",
+    "clap": "Faire un don à {{name}}",
+    "donationsNotAvailable": "{{name}} a désactivé les dons pour {{thisItem}}",
+    "stripeError": "Erreur technique, contactez nos équipes pour résoudre le problème",
+    "makeDonation": "Faire un don",
+    "notPublished": "\"{{title}}\" n'est pas encore en ligne",
+    "ttlTooltip": "Dernier jour pour profiter de {{thisItem}} !",
+    "ttlTooltip_plural": "Encore {{count}} jours pour profiter de {{thisItem}}.",
+    "tabs": {
+      "synopsis": "Synopsis",
+      "credits": "Crédits",
+      "festivals": "Festivals",
+      "collections": "Collections"
+    },
+    "status": {
+      "IMPORT": {
+        "stepName": "Import",
+        "title": "Import",
+        "description": "Votre vidéo est en cours d'import depuis YouTube ou Vimeo. Veuillez patienter, cette page se mettra à jour lorsque celle-ci aura été importée."
+      },
+      "UPLOAD": {
+        "stepName": "Upload",
+        "title": "Upload",
+        "description": "Votre vidéo est en cours d'acheminement vers nos serveurs. Veuillez garder cette page ouverte jusqu'à la fin.",
+        "descriptionNotUploading": "Vous pouvez dès à présent déposer votre vidéo dans le formulaire pour la mettre en ligne."
+      },
+      "PROCESSING": {
+        "stepName": "Traitement",
+        "title": "En cours de traitement",
+        "description": "Nous compressons votre vidéo pour la rendre disponible en streaming. Cela prend généralement entre 5 à 10 minutes, vous avez le temps de prendre un café 😉"
+      },
+      "PROCESSING_FAILED": {
+        "title": "Erreur de traitement",
+        "description": "Une erreur est survenue lors du traitement de votre vidéo 😟. Assurez-vous qu'elle soit dans un format standard (.mp4, .mkv, .flv, .mov). Si le problème persiste, faites-le-nous savoir à hello@clap-time.com"
+      },
+      "DRAFT": {
+        "stepName": "Fiche",
+        "title": "Traitée",
+        "description": "C'est la première étape, votre vidéo est maintenant prête pour le streaming. Complétez sa fiche (synopsis, festivals, affiche, crédits...) et soumettez la à validation."
+      },
+      "PUBLISHED": {
+        "stepName": "Publication",
+        "title": "Publiée",
+        "description": "Votre vidéo est disponible pour visionnage. Vous pouvez partager le lien à votre public !"
+      }
+    },
+    "edit": {
+      "pageTitle": "Éditer la vidéo",
+      "uploadVideo": "Uploader une vidéo",
+      "dropVideoHere": "Déposez votre vidéo ici",
+      "messages": {
+        "authorizedExtensions": "Formats de fichiers acceptés: {{extensions}}.",
+        "errorReadingFile": "Erreur de lecture du fichier.",
+        "uploadSucceeded": "Le fichier {{filename}} a bien été uploadé."
+      },
+      "charter": "Avant de mettre en ligne votre film, assurez-vous qu'il respecte <1>notre charte<1>.",
+      "modalCharterTitle": "La charte Claptime",
+      "title": "Titre",
+      "titlePlaceholder": "Titre de la vidéo",
+      "ttl": "Disponibilité",
+      "coverPopoverTitle": "Format recommandé",
+      "coverPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les affiches au format 3/4.\n\nPour vous assurer qu'une affiche sera affichée avec la meilleure qualité possible, nous vous conseillons de sélectionner une image ayant une largeur minimale de 600 pixels, ainsi qu'une hauteur minimale de 800 pixels.",
+      "ttlTooltip": "Après ce délai, la vidéo ne sera plus disponible publiquement. Vous pourrez toujours la re-publier ultérieurement.",
+      "ttlNoLimit": "Pas de limite",
+      "ttlDuration": "{{count}} jour",
+      "ttlDuration_plural": "{{count}} jours",
+      "synopsis": "Synopsis",
+      "synopsisPlaceholder": "Saisissez un synopsis",
+      "festivals": "Festivals",
+      "festivalsPlaceholder": "Renseignez les sélections et les prix en festivals",
+      "category": "Catégorie",
+      "categoryPlaceholder": "Catégorie de la vidéo",
+      "releaseYear": "Année de sortie",
+      "releaseYearPlaceholder": "Saisissez l'année de sortie",
+      "cover": "Affiche",
+      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche",
+      "credits": "Crédits",
+      "creditAdd": "Ajouter",
+      "creditAddTitle": "Ajouter un crédit",
+      "creditAddFailed": "Impossible d'ajouter le crédit.",
+      "creditDelete": "Supprimer",
+      "creditRoles": "Rôles (séparés par une virgule)",
+      "creditRolePlaceholder": "Réalisateur.trice, Acteur.trice, ...",
+      "creditName": "Nom",
+      "duration": "Durée",
+      "durationNotAvailable": "Non disponible",
+      "required": "Obligatoire",
+      "save": "Sauvegarder",
+      "saveSucceeded": "La vidéo a été sauvegardée",
+      "saveFailed": "La vidéo n'a pas pû être sauvegardée.",
+      "stats": "Statistiques",
+      "view": "Voir",
+      "edit": "Éditer",
+      "editTooltip": "Si vous remarquez une faute ou que souhaitez ajouter une information sur un film ou un épisode déjà publié, vous pouvez éditer sa fiche. Nous nous réservons le droit de modérer ces modifications.",
+      "delete": "Supprimer",
+      "deleteConfirm": "Êtes-vous sûr ?",
+      "deleteSucceeded": "La vidéo a bien été supprimée",
+      "deleteFailed": "Une erreur est survenue lors de la suppression de la vidéo",
+      "publish": "Publier",
+      "publishConfirm": "Publier (soumettre à validation) ?",
+      "publishSucceeded": "Merci pour votre soumission. Votre vidéo va maintenant être revue avant d'être publiée.",
+      "publishMissingTitle": "Impossible de publier : la vidéo n'a pas de titre.",
+      "publishMissingSynopsis": "Impossible de publier : la vidéo n'a pas de synopsis.",
+      "publishMissingCategory": "Impossible de publier : la vidéo n'a pas de catégorie.",
+      "publishMissingCover": "Impossible de publier : la vidéo n'a pas d'affiche.",
+      "publishMissingReleaseYear": "Impossible de publier : la vidéo n'a pas d'année de sortie.",
+      "unpublish": "Dépublier",
+      "unpublishConfirm": "Êtes-vous sûr ? La vidéo ne sera plus disponible au visionnage.",
+      "unpublishSucceeded": "Votre vidéo a bien été dépubliée. Vous pouvez maintenant éditer ses informations.",
+      "confirmYes": "Certain",
+      "confirmNo": "Annuler",
+      "authorizeDonations": "Activer les dons",
+      "tooltipDonations": "Vous devez avoir activé les paiements pour que cette option soit prise en compte",
+      "parentSeries": "Un épisode de la série <1>{{parentTitle}}</1>"
+    }
+  },
+  "videosList": {
+    "orderBy": "Trier par :",
+    "createdAt": "Les derniers ajouts en premier",
+    "title": "Ordre alphabétique"
+  },
+  "videoStatsPage": {
+    "pageTitle": "{{videoTitle}} / Statistiques",
+    "pageTitleTooltip": "Une séance est comptabilisée lorsqu'un spectateur a visionné plus de 75% d'un film.",
+    "view": "Voir",
+    "views": "Séances",
+    "viewsChartTitle": "Nombre de séances : {{month}}"
+  },
+  "register": {
+    "login": "Connexion",
+    "logout": "Déconnexion"
+  },
+  "searchBar": {
+    "placeholder": "Rechercher...",
+    "profile": "Profil",
+    "film": "Film",
+    "series": "Série",
+    "collection": "Collection",
+    "episode": "Épisode de série",
+    "noResult": "Aucun résultat"
+  },
+  "notificationPreferences": {
+    "newsletter": "Lettre d'information",
+    "newsletterTooltip": "Recevez un condensé d'informations sur Claptime : films du moment, nouvelles fonctionnalités, partenariats... Pas plus d'un email par mois.",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "userOnboardingModal": {
+    "title": "{{firstName}}, on reste en contact ?",
+    "description": "Claptime est un projet encore jeune, et nous comptons sur le bouche-à-oreille pour construire une communauté de cinéastes et de cinéphiles hors du commun.\nUne manière simple de nous aider est de rester informé en s'inscrivant à notre lettre d'information, et de partager les nouveautés qui seraient susceptibles d'intéresser vos proches.\n\nOn compte sur vous ! Mais pas d'obligation, on n'est pas des tyrans."
+  },
+  "profile": {
+    "follow": "Suivre",
+    "unfollow": "Ne plus suivre",
+    "film": "1 film",
+    "film_plural": "{{count}} films",
+    "series": "1 série",
+    "series_plural": "{{count}} séries",
+    "collections": "1 collection",
+    "collections_plural": "{{count}} collections",
+    "tabs": {
+      "films": "Films",
+      "series": "Séries",
+      "collections": "Collections"
+    }
+  },
+  "myAccountPage": {
+    "container": {
+      "title": "Mon compte",
+      "tooltip": "Retrouvez toutes les informations relatives à votre compte utilisateur : informations personnelles, préférences de notification et de paiement... Ces informations sont privées, vous seul y avez accès.",
+      "tabs": {
+        "information": "Informations",
+        "notifications": "Notifications",
+        "claps": "Claps"
+      }
+    },
+    "information": {
+      "required": "Obligatoire",
+      "avatarPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les photos de profils au format 1:1.\n\nPour vous assurer le meilleur affichage de votre photo, nous vous conseillons d'en sélectionner une ayant une largeur et une hauteur minimales de 512 pixels.",
+      "avatarPopoverTitle": "Format recommandé",
+      "email": "Email",
+      "password": "Mot de passe",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "birthDate": "Date de naissance",
+      "biography": "Ma biographie",
+      "language": "Langue",
+      "save": "Enregistrer"
+    },
+    "notifications": {
+      "title": "Vos préférences de communication"
+    },
+    "claps": {
+      "clapValue": "Valeur par défaut d'un clap"
+    }
+  },
+  "myProfilePage": {
+    "container": {
+      "title": "Mon profil public",
+      "tooltip": "Retrouvez toutes les informations relatives à votre profil public : informations générales, films et séries, collections... Ces informations sont publiques, tout le monde est susceptible d'y accéder.",
+      "tabs": {
+        "information": "Informations",
+        "videos": "Vidéos",
+        "series": "Séries",
+        "collections": "Collections",
+        "payments": "Paiements"
+      },
+      "actions": {
+        "view": "Accéder au profil"
+      },
+      "acknowledgement": "J'ai connaissance que les informations de mon profil sont publiques, et j'accepte que celui-ci soit modéré par l'équipe de Claptime",
+      "noProfileYetTitle": "Vous n'avez pas encore de profil public",
+      "noProfileYetSubTitle": "Un profil est nécessaire pour soumettre des films et séries, créer des collections et recevoir des dons.\nVeuillez noter que les informations du profil sont publiques, et qu'elle peuvent être modérées par l'équipe de Claptime.",
+      "createProfileButton": "J'en créé un maintenant"
+    },
+    "information": {
+      "required": "Obligatoire",
+      "missingAvatar": "Impossible de sauvegarder : veuillez ajouter une photo de profil.",
+      "errorUploadingAvatar": "Une erreur est survenue lors de l'upload de votre photo de profil",
+      "name": "Nom du profil",
+      "biography": "Biographie",
+      "avatar": "Photo de profil",
+      "create": "Créer un profil",
+      "update": "Mettre à jour le profil"
+    },
+    "videos": {
+      "table": {
+        "cover": "Affiche",
+        "title": "Titre",
+        "uploadDate": "Date d'ajout",
+        "status": "Statut"
+      },
+      "actions": {
+        "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à hello@clap-time.com",
+        "import": "Importer une vidéo",
+        "importButton": "Importer",
+        "upload": "Uploader une vidéo",
+        "videoLink": "Lien de la vidéo (YouTube/Vimeo)"
+      },
+      "newVideoTitle": "Sans titre"
+    },
+    "series": {
+      "table": {
+        "cover": "Affiche",
+        "title": "Titre",
+        "status": "Statut"
+      },
+      "actions": {
+        "create": "Créer une nouvelle série",
+        "addEpisodes": "Ajouter"
+      },
+      "newVideoTitle": "Sans titre"
+    },
+    "collections": {
+      "table": {
+        "cover": "Affiche",
+        "name": "Nom",
+        "creationDate": "Date de création"
+      }
+    },
+    "payments": {
+      "accessStripeDashboard": "Accéder au dashboard Stripe",
+      "connectWithStripe": "Associer ou créer un compte Stripe",
+      "connectionError": "Une erreur est survenue lors de l'association",
+      "revoke": "Désassocier le compte Stripe",
+      "revokeConfirm": "Êtes-vous sûr ?",
+      "revokeYes": "Certain",
+      "revokeNo": "Annuler"
+    }
+  },
+  "navbar": {
+    "admin": "Admin",
+    "browse": "Parcourir",
+    "browseProfiles": "les cinéastes",
+    "browseCollections": "les collections",
+    "browseMyFavorites": "mes coups de cœur",
+    "browseMyList": "ma liste",
+    "help": "Centre d'aide",
+    "myAccount": "Mon compte",
+    "myProfile": "Mon profil public",
+    "myCollections": "Mes collections",
+    "mySubscriptions": "Mes abonnements",
+    "spectators": "Vous êtes spectateur ?",
+    "filmmakers": "Vous êtes cinéaste ?",
+    "project": "Claptime en bref",
+    "subscribe": "Inscription",
+    "noSubscription": "Aucun abonnement",
+    "noCollection": "Aucune collection",
+    "about": "à propos",
+    "blog": "le blog",
+    "press": "Point presse"
+  },
+
+  "pressPage": {
+    "date": "Août 2020",
+    "mainTitle": "LANCEMENT DE CLAPTIME",
+    "introduction": "Alors que les moyens pour réaliser un film n'ont jamais été aussi nombreux, parvenir à le diffuser dans de bonnes conditions reste un véritable parcours du combattant. Intégrer les circuits de diffusion conventionnels demande des investissements en temps et en argent qui sont trop rarement récompensés. Sur internet, difficile de se faire une place parmi l'océan de contenu disponible sur les hébergeurs vidéo traditionnels. Claptime crée la première plateforme dédiée à tous ces films artisanaux, personnels, loin des standards et dont la diffusion se limite malheureusement souvent à un cercle trop restreint, et propose ainsi une autre vision du cinéma.",
+    "section1": {
+      "title": "Mettre en lumière la diversité du cinéma",
+      "text": "La première version de la plateforme est actuellement en ligne, et offre un espace de diffusion accessible à tous les réalisateurs ayant des films à montrer. Sans publicité, les spectateurs ont accès à un catalogue faisant la part belle à des genres et des formats audiovisuels trop peu représentés, du court-métrage de fiction au documentaire engagé en passant par la web-série. Depuis un premier appel à films début avril, une quarantaine de réalisateurs ont rejoint le projet, et plus de 70 films et séries sont disponibles librement."
+    },
+    "section2": {
+      "title": "Des recommandations humaines et collaboratives",
+      "text": "Pour articuler ce catalogue grandissant, et pour simplifier la découverte de films par centre d'intérêt, Claptime propose un système de recommandation participatif, les Collections. Celles-ci regroupent un ensemble de films et de séries autour d'une thématique donnée, d'un format ou d'un genre particulier. L’objectif est de concevoir une expérience proche de celle des festivals de films, en proposant des sélections variées et évolutives, gérées par des acteurs du milieu du cinéma et ouvertes aux soumissions, afin que les spectateurs puissent découvrir des nouveautés pertinentes en fonction de leurs goûts et de leurs affinités."
+    },
+    "section3": {
+      "title": "La participation au chapeau 2.0",
+      "text": "Dans l'optique de créer un écosystème favorable à la création, l'un des enjeux de Claptime est aussi de renforcer les liens qui existent entre les réalisateurs et leur public. La démocratisation et l'engouement autour du financement participatif ont mis en lumière quelque chose de réellement porteur de sens : nous aimons nous engager pour soutenir des projets qui nous tiennent à coeur. Cette idée est à la base du modèle de Claptime, et notre lecteur vidéo inclut un système de participation libre qui permet à un spectateur de soutenir et de valoriser le travail d'un cinéaste qu'il apprécie."
+    },
+    "section4": {
+      "title": "Réinventer la VOD",
+      "text": "L'ADN du projet se veut porteur de valeurs, et rejoint le mouvement de la small tech. Claptime fait le choix de participer à l'émergence de nouveaux modèles numériques, loin de l'imaginaire de la Silicon Valley. Les nombreux enjeux liés à la consommation massive de données sont autant d'occasion d'innover et de développer de nouvelles alternatives plus respectueuses et plus vertueuses. Claptime intègre à sa démarche les idées de la sobriété numérique, et cherche à réduire son impact environnemental. Cette réflexion se traduit notamment par des choix de design non-addictifs, pour reprendre le temps d'apprécier un film, ainsi que par des choix techniques pertinents afin de diminuer au maximum les volumes de données transférées par le streaming vidéo."
+    },
+    "downloadButton": "Pour la version PDF, c'est par ici !"
+  },
+  "languages": {
+    "fr-FR": "Français"
+  },
+  "legalPage": {
+    "title": "Mentions légales"
+  },
+  "player": {
+    "share": {
+      "title": "Partager",
+      "link": "Lien",
+      "embed": "Intégrer",
+      "copied": "Copié dans votre presse-papier"
+    }
+  },
+  "myCollections": {
+    "noCollection": "Aucune collection",
+    "newCollectionTooltip": "Créer une nouvelle collection",
+    "addedTo": "Ajoutée à {{name}}",
+    "removedFrom": "Supprimée de {{name}}",
+    "nameRequired": "Veuillez saisir un nom pour la collection",
+    "collectionName": "Nom :",
+    "collectionDescription": "Description :",
+    "create": "Valider",
+    "signinMandatory": "Vous souhaitez ajouter cette œuvre à une collection ? Alors connectez-vous ",
+    "collectionCreated": "Collection créée",
+    "close": "Annuler"
+  },
+  "videoCard": {
+    "viewMore": "Détails"
+  },
+  "footer": {
+    "misc": {
+      "title": "Informations",
+      "legalTerms": "Mentions légales",
+      "blog": "Le blog",
+      "helpCenter": "Centre d'aide",
+      "partners": "Partenaires"
+    },
+    "contact": {
+      "title": "Restons en contact"
+    },
+    "navigation": {
+      "title": "Navigation",
+      "home": "Accueil"
+    }
+  },
+  "claptime": "Claptime",
+  "punchline": "Restez créatif.",
+  "madeInFrance": "Réalisé avec de l'amour et des croissants en France.",
+  "seeLess": "Voir moins",
+  "seeMore": "Voir plus"
+}

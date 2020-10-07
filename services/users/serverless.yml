@@ -1,0 +1,42 @@
+service: claptime-users
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'staging'}
+  region: ${opt:region, 'eu-west-1'}
+  versionFunctions: false
+  environment:
+    STAGE: ${self:provider.stage}
+    GRAPHQL_ENDPOINT: ${file(serverless-helpers.js):getApiEndpoint}
+    ENABLED: ${file(serverless-helpers.js):getEnabled}
+  iamRoleStatements:
+    - Effect: Allow
+      Action: ssm:GetParameter
+      Resource:
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/mailchimp-api-key
+        - ${self:custom.ssmPrefix}/staging/mailchimp-api-key
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/mailchimp-audience-id
+        - ${self:custom.ssmPrefix}/staging/mailchimp-audience-id
+    - Effect: Allow
+      Action: appsync:GraphQL
+      Resource:
+        - ${self:custom.appsyncPrefix}/Mutation/fields/updateUserSettings
+        - ${self:custom.appsyncPrefix}/Query/fields/getProfile
+        - ${self:custom.appsyncPrefix}/Query/fields/getUserSettings
+
+functions:
+  notifications:
+    handler: src/functions/notifications/index.handler
+
+plugins:
+  - serverless-stack-termination-protection
+
+custom:
+  accountId: ${file(serverless-helpers.js):getAccountId}
+  appsyncPrefix: arn:aws:appsync:${self:provider.region}:${self:custom.accountId}:apis/${file(serverless-helpers.js):getApiId}/types
+  ssmPrefix: arn:aws:ssm:${self:provider.region}:${self:custom.accountId}:parameter
+  serverlessTerminationProtection:
+    stages:
+      - prod
+      - staging

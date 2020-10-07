@@ -1,0 +1,50 @@
+service: claptime-images
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'staging'}
+  region: ${opt:region, 'eu-west-1'}
+  versionFunctions: false
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+        - s3:DeleteObject
+      Resource: ${self:custom.bucketArn}/*
+
+plugins:
+  - serverless-stack-termination-protection
+
+package:
+  exclude:
+    - sharp.zip
+    - node_modules/**/aws-sdk/**
+
+functions:
+  resizer:
+    handler: src/functions/resizer/index.handler
+    environment:
+      BUCKET_NAME: ${file(serverless-helpers.js):getBucketName}
+    events:
+      - s3:
+          bucket: ${file(serverless-helpers.js):getBucketName}
+          events: s3:ObjectCreated:*
+          rules:
+            - prefix: protected
+          existing: true
+    layers:
+      - { Ref: SharpLambdaLayer }
+
+layers:
+  sharp:
+    package:
+      artifact: sharp.zip
+
+custom:
+  bucketArn: arn:aws:s3:::${file(serverless-helpers.js):getBucketName}
+  serverlessTerminationProtection:
+    stages:
+      - prod
+      - staging

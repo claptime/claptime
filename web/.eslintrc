@@ -1,0 +1,40 @@
+{
+  "extends": ["../.eslintrc", "react-app", "prettier/react"],
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "hrefLeft", "hrefRight" ],
+      "aspects": [ "invalidHref", "preferButton" ]
+    }],
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+    }],
+    "import/no-unresolved": ["error", { "ignore": ["^claptime/"] }],
+    "prefer-const": ["error", {
+      "destructuring": "all"
+    }],
+    "react/forbid-prop-types": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-wrap-multilines": ["error", {
+      "declaration": false,
+      "assignment": false
+    }]
+  },
+  "overrides": [{
+    "files": ["src/graphql/*.js"],
+    "rules": {
+      "import/prefer-default-export": 0
+    }
+  }],
+  "settings": {
+    "import/internal-regex": "^claptime/",
+    "react": {
+      "version": "16.12"
+    }
+  }
+}

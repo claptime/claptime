@@ -1,0 +1,23 @@
+type Credit
+@model(
+  queries: { list: "listCredits" },
+  mutations: { delete: "deleteCredit", create: "createCredit" },
+  subscriptions: null,
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+  { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
+  { allow: private, provider: iam, operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  role: String
+  profile: Profile @connection(name: "ProfileRoles")
+  videoNode: VideoNode! @connection(name: "VideoNodeCredit")
+  customProfile: String # In case profile is not defined, can define value here
+  creditVideoId: ID
+  creditVideoNodeId: ID
+  owner: String
+}

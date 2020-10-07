@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.clap-time.com/sitemap.xml

@@ -1,0 +1,24 @@
+enum UserVideoNodeList {
+  TO_WATCH
+  LIKED
+}
+
+type UserVideoNode
+@model(
+  queries: null,
+  mutations: { delete: "deleteUserVideoNode", create: "createUserVideoNode" },
+  subscriptions: null,
+)
+@key(
+  fields: ["userSettingsVideoNodesId", "list", "userVideoNodeVideoNodeId"],
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+])
+{
+  list: UserVideoNodeList!
+  userSettingsVideoNodesId: String!
+  userVideoNodeVideoNodeId: ID!
+  videoNode: VideoNode! @connection
+  createdAt: AWSDateTime
+}

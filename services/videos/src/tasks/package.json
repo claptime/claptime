@@ -1,0 +1,14 @@
+{
+  "name": "claptime-videos-tasks",
+  "private": true,
+  "dependencies": {
+    "aws-appsync": "^1.8.1",
+    "aws-sdk": "^2.614.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "graphql-tag": "^2.10.3",
+    "isomorphic-fetch": "^2.2.1",
+    "s3-node-client": "^4.4.4",
+    "yargs": "^13.2.2",
+    "youtube-dl": "^3.0.2"
+  }
+}

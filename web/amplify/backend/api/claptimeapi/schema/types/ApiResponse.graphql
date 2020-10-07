@@ -1,0 +1,13 @@
+enum ApiResponseStatus {
+  SUCCESS
+  ERROR
+}
+
+type ApiResponse
+@aws_iam
+@aws_cognito_user_pools
+{
+  status: ApiResponseStatus!
+  reason: String
+  data: AWSJSON
+}

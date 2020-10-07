@@ -1,0 +1,93 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  DefaultAuthPasswordParameter:
+    Type: 'String'
+    Description: 'Enter the default auth password.'
+    NoEcho: true
+  DefaultAuthUsernameParameter:
+    Type: 'String'
+    Description: 'Enter the default auth username.'
+    NoEcho: true
+  DomainNameParameter:
+    Type: 'String'
+    Default: 'clap-time.com'
+    Description: 'Enter the domain name.'
+  OAuthTokenParameter:
+    Type: 'String'
+    Description: 'Enter the repository OAuth token.'
+    NoEcho: true
+  RepositoryUrlParameter:
+    Type: 'String'
+    Default: 'https://github.com/claptime/claptime'
+    Description: 'Enter the repository url.'
+
+Resources:
+  AmplifyConsoleServiceRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service:
+                - 'amplify.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/AdministratorAccess'
+  AmplifyApp:
+    Type: 'AWS::Amplify::App'
+    Properties:
+      CustomRules:
+        - Source: !Join ['', ['https://', !Ref 'DomainNameParameter']]
+          Target: !Join ['', ['https://www.', !Ref 'DomainNameParameter']]
+          Status: 302
+        - Source: '</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|woff2|ttf|json|map)$)([^.]+$)/>'
+          Target: '/index.html'
+          Status: 200
+      Description: 'Claptime'
+      OauthToken: !Ref 'OAuthTokenParameter'
+      IAMServiceRole: !GetAtt 'AmplifyConsoleServiceRole.Arn'
+      Name: 'claptime'
+      Repository: !Ref 'RepositoryUrlParameter'
+  AmplifyDevelopBranch:
+    Type: 'AWS::Amplify::Branch'
+    Properties:
+      BranchName: 'develop'
+      AppId: !GetAtt 'AmplifyApp.AppId'
+      # BasicAuthConfig:
+      #   EnableBasicAuth: true
+      #   Password: !Ref 'DefaultAuthPasswordParameter'
+      #   Username: !Ref 'DefaultAuthUsernameParameter'
+      Description: 'Develop Branch'
+      EnableAutoBuild: true
+      EnvironmentVariables:
+        - Name: 'USER_BRANCH'
+          Value: 'staging'
+  AmplifyMasterBranch:
+    Type: 'AWS::Amplify::Branch'
+    Properties:
+      BranchName: 'master'
+      AppId: !GetAtt 'AmplifyApp.AppId'
+      Description: 'Master Branch'
+      EnableAutoBuild: true
+      EnvironmentVariables:
+        - Name: 'USER_BRANCH'
+          Value: 'prod'
+  # Commented while app is served using serverless-nextjs
+  # Could be added back when Amplify Console support SSR
+  # https://github.com/aws-amplify/amplify-console/issues/412
+  # AmplifyDomain:
+  #   Type: 'AWS::Amplify::Domain'
+  #   Properties:
+  #     DomainName: !Ref 'DomainNameParameter'
+  #     AppId: !GetAtt 'AmplifyApp.AppId'
+  #     SubDomainSettings:
+  #       - Prefix: 'staging'
+  #         BranchName: !GetAtt 'AmplifyDevelopBranch.BranchName'
+  #       - Prefix: ''
+  #         BranchName: !GetAtt 'AmplifyMasterBranch.BranchName'
+  #       - Prefix: 'www'
+  #         BranchName: !GetAtt 'AmplifyMasterBranch.BranchName'

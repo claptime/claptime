@@ -1,0 +1,28 @@
+{
+  "name": "claptime-commons",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "aws-sdk": "^2.480.0",
+    "jest": "^26.4.0"
+  },
+  "dependencies": {
+    "aws-appsync": "^1.8.1",
+    "dotenv": "^8.2.0",
+    "graphql-tag": "^2.10.1",
+    "handlebars": "^4.7.6",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.24.0",
+    "p-limit": "^2.2.2",
+    "s3-node-client": "^4.4.4",
+    "uuid": "^3.3.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/.jest/setEnvVars.js"
+    ]
+  }
+}

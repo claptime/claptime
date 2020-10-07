@@ -1,0 +1,23 @@
+enum UserProfileList {
+  FOLLOWED
+}
+
+type UserProfile
+@model(
+  queries: null,
+  mutations: { delete: "deleteUserProfile", create: "createUserProfile" },
+  subscriptions: null,
+)
+@key(
+  fields: ["userSettingsProfilesId", "list", "userProfileProfileId"],
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+])
+{
+  list: UserProfileList!
+  userSettingsProfilesId: String!
+  userProfileProfileId: ID!
+  profile: Profile! @connection
+  createdAt: AWSDateTime
+}

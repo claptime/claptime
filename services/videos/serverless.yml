@@ -1,0 +1,309 @@
+service: claptime-videos
+
+plugins:
+  - serverless-cf-vars
+  - serverless-step-functions
+  - serverless-fargate-tasks
+  - serverless-stack-termination-protection
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'staging'}
+  region: ${opt:region, 'eu-west-1'}
+  versionFunctions: false
+  environment:
+    GRAPHQL_ENDPOINT: ${file(serverless-helpers.js):getApiEndpoint}
+    STAGE: ${self:provider.stage}
+  iamRoleStatements:
+    # api lambda
+    - Effect: Allow
+      Action: appsync:GraphQL
+      Resource:
+        - ${self:custom.appsyncPrefix}/Mutation/fields/createCollectionVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/createVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCollectionVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCredit
+        - ${self:custom.appsyncPrefix}/Mutation/fields/deleteVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/updateVideoNode
+        - ${self:custom.appsyncPrefix}/Query/fields/getProfile
+        - ${self:custom.appsyncPrefix}/Query/fields/getVideoNode
+        - ${self:custom.appsyncPrefix}/Query/fields/listCollectionsBySlug
+        - ${self:custom.appsyncPrefix}/Query/fields/listCollectionVideoNodes
+        - ${self:custom.appsyncPrefix}/Query/fields/listCredits
+        - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByParent
+        - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByStatusSortByTitle
+    - Effect: Allow
+      Action:
+        - s3:DeleteObject
+        - s3:ListBucket
+      Resource:
+        - ${self:custom.videosBucketArn}
+        - ${self:custom.videosBucketArn}/*
+        - ${self:custom.storageBucketArn}
+        - ${self:custom.storageBucketArn}/*
+    - Effect: Allow
+      Action:
+        - ec2:DescribeSubnets
+        - ecs:RunTask
+        - iam:PassRole
+      Resource: '*'
+    - Effect: Allow
+      Action:
+        - cognito-idp:AdminGetUser
+        - cognito-idp:AdminListGroupsForUser
+      Resource: ${self:custom.cognitoUserPoolArn}
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+      Resource: '*'
+    - Effect: Allow
+      Action: ssm:GetParameter
+      Resource:
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/slack-webhook
+        - ${self:custom.ssmPrefix}/staging/slack-webhook
+    # decrement-ttl lambda
+    - Effect: Allow
+      Action: appsync:GraphQL
+      Resource:
+        - ${self:custom.appsyncPrefix}/Mutation/fields/updateVideoNode
+        - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByStatusSortByTitle
+    # uploader/trigger lambda
+    - Effect: Allow
+      Action: states:StartExecution
+      Resource: ${self:custom.stateMachineArn}
+    # uploader/update-video-item lambda
+    - Effect: Allow
+      Action: appsync:GraphQL
+      Resource:
+        - ${self:custom.appsyncPrefix}/Mutation/fields/updateVideoNode
+    - Effect: Allow
+      Action: s3:ListBucket
+      Resource:
+        - ${self:custom.storageBucketArn}
+    - Effect: Allow
+      Action: s3:*Object
+      Resource:
+        - ${self:custom.storageBucketArn}/*
+    # uploader tasks
+    - Effect: Allow
+      Action: s3:ListBucket
+      Resource:
+        - ${self:custom.storageBucketArn}
+        - ${self:custom.videosBucketArn}
+    - Effect: Allow
+      Action: s3:*Object
+      Resource:
+        - ${self:custom.storageBucketArn}/*
+        - ${self:custom.videosBucketArn}/*
+
+package:
+  exclude:
+    - src/tasks/**
+
+functions:
+  api:
+    handler: src/functions/api/index.handler
+    environment:
+      STAGE: ${self:provider.stage}
+      STORAGE_BUCKET_NAME: ${file(serverless-helpers.js):getBucketName}
+      VIDEOS_BUCKET_NAME: claptime-videos-${self:provider.stage}
+      FROM_EMAIL: Claptime <hello@clap-time.com>
+      HELP_CENTER_URL: https://claptime.slite.com/p/channel/AHqUp91QZuDZPMf2UijEwk
+      COGNITO_USERPOOL_ID: ${file(serverless-helpers.js):getCognitoUserPoolId}
+      FARGATE_CLUSTER_ARN: !Ref FargateTasksCluster
+    timeout: 900
+  decrement-ttl:
+    handler: src/functions/decrement-ttl/index.handler
+    events:
+      - schedule: cron(0 0 * * ? *) # everyday at midnight UTC
+  # Uploader related functions
+  trigger:
+    handler: src/functions/uploader/trigger.handler
+    events:
+      - s3:
+          bucket: ${file(serverless-helpers.js):getBucketName}
+          events: s3:ObjectCreated:*
+          rules:
+            - prefix: private
+          existing: true
+    environment:
+      STATE_MACHINE_ARN: ${self:custom.stateMachineArn}
+  update-video-item:
+    handler: src/functions/uploader/update-video-item.handler
+    timeout: 300
+  notify:
+    handler: src/functions/uploader/notify.handler
+    memorySize: 256
+
+custom:
+  accountId: ${file(serverless-helpers.js):getAccountId}
+  ssmPrefix: arn:aws:ssm:${self:provider.region}:${self:custom.accountId}:parameter
+  appsyncPrefix: arn:aws:appsync:${self:provider.region}:${self:custom.accountId}:apis/${file(serverless-helpers.js):getApiId}/types
+  storageBucketArn: arn:aws:s3:::${file(serverless-helpers.js):getBucketName}
+  videosBucketName: claptime-videos-${self:provider.stage}
+  videosBucketArn: arn:aws:s3:::${self:custom.videosBucketName}
+  cognitoUserPoolArn: arn:aws:cognito-idp:${file(serverless-helpers.js):getCognitoRegion}:${file(serverless-helpers.js):getAccountId}:userpool/${file(serverless-helpers.js):getCognitoUserPoolId}
+  stateMachineArn: arn:aws:states:${self:provider.region}:${file(serverless-helpers.js):getAccountId}:stateMachine:${self:service}-${self:provider.stage}-uploader
+  dockerImageUri: ${file(serverless-helpers.js):getAccountId}.dkr.ecr.${self:provider.region}.amazonaws.com/${self:service}-${self:provider.stage}:${self:service}
+  fargate:
+    vpc:
+      public-ip: ENABLED
+      subnets: ${file(serverless-helpers.js):getDefaultSubnets}
+    tasks:
+      tasks:
+        name: ${self:service}-${self:provider.stage}
+        image: ${self:custom.dockerImageUri}
+        desired: 0
+        cpu: 4096 # 4 vCPU
+        memory: 8GB
+        environment:
+          AWS_REGION: ${self:provider.region}
+          GRAPHQL_ENDPOINT: ${file(serverless-helpers.js):getApiEndpoint}
+          VIDEOS_BUCKET_NAME: ${self:custom.videosBucketName}
+          STORAGE_BUCKET_NAME: ${file(serverless-helpers.js):getBucketName}
+  serverlessTerminationProtection:
+    stages:
+      - prod
+      - staging
+
+stepFunctions:
+  validate: true
+  stateMachines:
+    uploader:
+      dependsOn:
+        - FargateTasksCluster
+        - TasksTask
+      name: ${self:service}-${self:provider.stage}-uploader
+      definition:
+        StartAt: StartProcessing
+        States:
+          StartProcessing:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [update-video-item, Arn]
+            Next: RunTask
+          RunTask:
+            Type: Task
+            Resource: arn:aws:states:::ecs:runTask.sync
+            Parameters:
+              Cluster: '#{FargateTasksCluster}'
+              TaskDefinition: '#{TasksTask}'
+              LaunchType: FARGATE
+              NetworkConfiguration:
+                AwsvpcConfiguration:
+                  AssignPublicIp: ENABLED
+                  Subnets: ${file(serverless-helpers.js):getDefaultSubnets}
+              Overrides:
+                ContainerOverrides:
+                  - Name: ${self:service}-${self:provider.stage}
+                    Command.$: $.commands
+            Next: HandleProcessingSucceeded
+            ResultPath: $.taskResult
+            Catch:
+              - ErrorEquals:
+                  - States.ALL
+                Next: HandleProcessingFailed
+                ResultPath: $.taskError
+          HandleProcessingFailed:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [update-video-item, Arn]
+            Next: Fail
+          Fail:
+            Type: Fail
+          HandleProcessingSucceeded:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [update-video-item, Arn]
+            End: true
+      notifications:
+        FAILED:
+          - lambda:
+              Fn::GetAtt: [NotifyLambdaFunction, Arn]
+        TIMED_OUT:
+          - lambda:
+              Fn::GetAtt: [NotifyLambdaFunction, Arn]
+
+resources:
+  Resources:
+    CloudFrontOriginAccessIdentity:
+      Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+      Properties:
+        CloudFrontOriginAccessIdentityConfig:
+          Comment: CloudFront origin access identity for ${self:provider.stage}
+    CloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Aliases:
+            - cdn-${self:provider.stage}.clap-time.com
+          DefaultCacheBehavior:
+            AllowedMethods: [GET, HEAD, OPTIONS]
+            Compress: true
+            ForwardedValues:
+              Headers:
+                - Origin
+              QueryString: false
+            TargetOriginId: s3-bucket
+            ViewerProtocolPolicy: redirect-to-https
+          DefaultRootObject: index.html
+          Enabled: true
+          Origins:
+            - DomainName: ${self:custom.videosBucketName}.s3.amazonaws.com
+              Id: s3-bucket
+              S3OriginConfig:
+                OriginAccessIdentity:
+                  Fn::Join:
+                    [
+                      '/',
+                      [
+                        origin-access-identity/cloudfront,
+                        { Ref: CloudFrontOriginAccessIdentity },
+                      ],
+                    ]
+          PriceClass: PriceClass_100
+          ViewerCertificate:
+            AcmCertificateArn: ${file(serverless-helpers.js):getAcmCertificateArn}
+            SslSupportMethod: sni-only
+    EcrRepository:
+      Type: AWS::ECR::Repository
+      Properties:
+        RepositoryName: ${self:service}-${self:provider.stage}
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      DeletionPolicy: Retain
+      Properties:
+        BucketName: claptime-videos-${self:provider.stage}
+        BucketEncryption:
+          ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: AES256
+        CorsConfiguration:
+          CorsRules:
+            - AllowedOrigins:
+                - https://*.clap-time.com
+              AllowedMethods:
+                - GET
+                - HEAD
+              AllowedHeaders:
+                - '*'
+    S3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: ${self:custom.videosBucketName}
+        PolicyDocument:
+          Statement:
+            - Action: s3:GetObject
+              Effect: Allow
+              Principal:
+                CanonicalUser:
+                  Fn::GetAtt:
+                    [CloudFrontOriginAccessIdentity, S3CanonicalUserId]
+              Resource: arn:aws:s3:::${self:custom.videosBucketName}/*
+  Outputs:
+    CloudFrontDistributionDomainName:
+      Value:
+        Fn::GetAtt: [CloudFrontDistribution, DomainName]
+      Export:
+        Name: ${self:service}-${self:provider.stage}-cloudfront-domainname

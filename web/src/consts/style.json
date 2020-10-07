@@ -1,0 +1,39 @@
+{
+  "colors": {
+    "primary": "rgb(27, 28, 48)",
+    "dark": "#1c1c30",
+    "placeholder": "rgb(170, 183, 196)",
+    "invalid": "rgb(250, 117, 90)",
+    "white": "rgb(255, 255, 255)",
+    "grey": "rgb(50, 70, 95)",
+    "strawberry": "#fb2037",
+    "strawberryHover": "#FA5C6D",
+    "border": "#d9d9ff",
+    "unavailable": "#8b8b94",
+    "illustrationsSpectators": "rgb(235, 115, 126)",
+    "illustrationsFilmmakers": "rgb(86, 194, 132)",
+    "gray": "rgb(240, 239, 253)"
+  },
+  "fonts": {
+    "stylized": "'Quicksand', sans-serif",
+    "default": "'Open Sans', sans-serif",
+    "stylizedVariant": "Convergence"
+  },
+  "navbar": {
+    "height": "100px"
+  },
+  "padding": {
+    "xs": 4,
+    "s": 8,
+    "m": 16,
+    "l": 32,
+    "xl": 64
+  },
+  "margin": {
+    "xs": 4,
+    "s": 8,
+    "m": 16,
+    "l": 32,
+    "xl": 64
+  }
+}

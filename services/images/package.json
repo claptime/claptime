@@ -1,0 +1,11 @@
+{
+  "name": "claptime-images",
+  "private": true,
+  "devDependencies": {
+    "serverless": "^1.71.3",
+    "serverless-stack-termination-protection": "^1.0.0"
+  },
+  "dependencies": {
+    "claptime-commons": "file:../../commons"
+  }
+}

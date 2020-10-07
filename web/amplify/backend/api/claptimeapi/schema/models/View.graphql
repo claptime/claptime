@@ -1,0 +1,20 @@
+type View
+@model(
+  queries: { list: "listViews" },
+  mutations: { create: "createView" },
+  subscriptions: null,
+)
+@key(fields: ["viewVideoNodeId", "id"])
+@auth(rules: [
+  { allow: owner, operations: [create, read] },
+  { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
+  { allow: private, provider: iam, operations: [create] },
+  { allow: public, provider: iam, operations: [create] },
+])
+{
+  id: ID!
+  viewVideoNodeId: String!
+  videoNode: VideoNode! @connection(name: "VideoNodeView")
+  createdAt: AWSDateTime
+  owner: String!
+}

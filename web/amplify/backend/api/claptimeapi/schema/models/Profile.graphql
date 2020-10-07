@@ -1,0 +1,26 @@
+type Profile
+@model(
+  queries: { get: "getProfile", list: "listProfiles" },
+  mutations: { create: "createProfile", update: "updateProfile" },
+  subscriptions: null,
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+  { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
+  { allow: private, provider: iam, operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  name: String!
+  biography: String
+  roles: [Credit] @connection(name: "ProfileRoles")
+  videoNodes: [VideoNode] @connection(name: "ProfileVideoNodes")
+  collections: [Collection] @connection(name: "ProfileCollections")
+  links: [Link]
+  searchField: String
+  createdAt: AWSDateTime
+  createdBy: String
+  owner: String
+}

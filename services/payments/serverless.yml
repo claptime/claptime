@@ -1,0 +1,86 @@
+service: claptime-payments
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'staging'}
+  region: ${opt:region, 'eu-west-1'}
+  versionFunctions: false
+  environment:
+    STAGE: ${self:provider.stage}
+    GRAPHQL_ENDPOINT: ${file(serverless-helpers.js):getApiEndpoint}
+    TABLE_NAME:
+      Ref: StripeConnectCredentialsTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action: ssm:GetParameter
+      Resource:
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/stripe-client-id
+        - ${self:custom.ssmPrefix}/staging/stripe-client-id
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/stripe-public-key
+        - ${self:custom.ssmPrefix}/staging/stripe-public-key
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/stripe-secret-key
+        - ${self:custom.ssmPrefix}/staging/stripe-secret-key
+    - Effect: Allow
+      Action:
+        - dynamodb:DeleteItem
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:Scan
+      Resource:
+        Fn::GetAtt: [StripeConnectCredentialsTable, Arn]
+    - Effect: Allow
+      Action: appsync:GraphQL
+      Resource:
+        - ${self:custom.appsyncPrefix}/Query/fields/getProfile
+        - ${self:custom.appsyncPrefix}/Query/fields/getUserSettings
+
+plugins:
+  - serverless-domain-manager
+  - serverless-stack-termination-protection
+
+functions:
+  stripe-connect:
+    handler: src/functions/stripe-connect/index.handler
+    events:
+      - http: POST /webhook
+  stripe-intent:
+    handler: src/functions/stripe-intent/index.handler
+
+custom:
+  accountId: ${file(serverless-helpers.js):getAccountId}
+  ssmPrefix: arn:aws:ssm:${self:provider.region}:${self:custom.accountId}:parameter
+  appsyncPrefix: arn:aws:appsync:${self:provider.region}:${self:custom.accountId}:apis/${file(serverless-helpers.js):getApiId}/types
+
+  customDomain:
+    domainName: ${file(serverless-helpers.js):getApiSubDomain}.clap-time.com
+    basePath: payments
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+  serverlessTerminationProtection:
+    stages:
+      - prod
+      - staging
+
+resources:
+  Resources:
+    StripeConnectCredentialsTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        TableName: ${self:service}-${self:provider.stage}-stripe-connect-credentials
+        SSESpecification:
+          SSEEnabled: true
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+        AttributeDefinitions:
+          - AttributeName: profileId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: profileId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        Tags:
+          - Key: usage
+            Value: claptime-${self:provider.stage}-api

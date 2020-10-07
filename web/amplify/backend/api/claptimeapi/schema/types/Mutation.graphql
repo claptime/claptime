@@ -1,0 +1,94 @@
+type Mutation {
+  # VideoNodes
+  addEpisodeToSeries(
+    seriesVideoNodeId: String!,
+    episodeVideoNodeId: String!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  addVideoNode(
+    profileId: ID!,
+    type: Type!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  importVideo(
+    videoNodeId: ID!,
+    videoLink: String!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  publishVideoNode(
+    videoNodeId: ID!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  removeEpisodeFromSeries(
+    videoNodeId: ID!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  removeVideoNode(
+    videoNodeId: ID!,
+  ): Boolean
+  @function(name: "claptime-videos-${env}-api")
+
+  moveEpisodeAfter(
+    episodeVideoNodeId: ID!,
+    previousEpisodeVideoNodeId: ID!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  setVideoNodeMeta(
+    videoNodeId: ID!,
+    title: String,
+    category: Category,
+    releaseYear: Int,
+    synopsis: String,
+    festivals: String,
+    ttl: Int,
+    donationsAvailable: Boolean,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  submitVideoNodeToCollection(
+    videoNodeId: ID!,
+    collectionSlug: String!,
+    collectionCategoryId: String!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  unpublishVideoNode(
+    videoNodeId: ID!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
+  # Stripe
+  connectToStripe(
+    profileId: ID!,
+    authorizationCode: String!,
+  ): ApiResponse
+  @function(name: "claptime-payments-${env}-stripe-connect")
+
+  revokeStripe(
+    profileId: ID!,
+  ): ApiResponse
+  @function(name: "claptime-payments-${env}-stripe-connect")
+
+  createPaymentIntent(
+    profileId: ID!,
+    videoNodeId: ID,
+    value: Float,
+  ): ApiResponse
+  @function(name: "claptime-payments-${env}-stripe-intent")
+  @aws_iam
+  @aws_cognito_user_pools
+
+  # Notifications
+  setNotificationPreference(
+    type: NotificationType!,
+    channel: NotificationChannel!,
+    frequency: NotificationFrequency!,
+  ): ApiResponse
+  @function(name: "claptime-users-${env}-notifications")
+}

@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "eu-west-1",
+      "eventTime": "2019-04-27T17:22:16.807Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AZYXV4P1VHB1"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "89.157.10.53"
+      },
+      "responseElements": {
+        "x-amz-request-id": "7A03B7385D2B77B2",
+        "x-amz-id-2": "5xmxs3g4to6sNf4naahdPoW/Hy0KAN1RAcoaPvNDH3hYXvKinYFPTanaTd786+UjM6ZTBq6iF3o="
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "exS3-v2--3d22541ac5f02f12d1bbbc983f2839b8",
+        "bucket": {
+          "name": "claptime-storage-staging",
+          "ownerIdentity": {
+            "principalId": "AZYXV4P1VHB1"
+          },
+          "arn": "arn:aws:s3:::claptime-storage-staging"
+        },
+        "object": {
+          "key": "README.md",
+          "size": 984,
+          "eTag": "0bc4f65c511cca5fc25c587c2395258d",
+          "sequencer": "005CC48FC8BC833D8D"
+        }
+      }
+    }
+  ]
+}

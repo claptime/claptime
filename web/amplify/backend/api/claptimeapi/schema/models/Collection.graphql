@@ -1,0 +1,40 @@
+type CollectionCategory @aws_iam @aws_cognito_user_pools {
+  id: ID!
+  category: String!
+  description: String
+}
+
+type Collection
+@key(
+  name: "BySlug",
+  fields: ["slug"],
+  queryField: "listCollectionsBySlug",
+)
+@model(
+  queries: { list: "listCollections" },
+  mutations: { create: "createCollection", update: "updateCollection", delete: "deleteCollection" },
+  subscriptions: null,
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+  { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
+  { allow: private, provider: iam, operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  slug: String!
+  name: String!
+  tagline: String
+  description: String
+  links: [Link]
+  categories: [CollectionCategory]
+  videoNodes: [CollectionVideoNode] @connection(name: "CollectionVideoNode")
+  profile: Profile! @connection(name: "ProfileCollections")
+  collectionProfileId: String!
+  searchField: String
+  createdBy: String
+  createdAt: AWSDateTime
+  owner: String
+}
