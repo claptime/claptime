@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 import PropTypes from 'claptime/lib/prop-types';
 import { Button } from 'claptime/components/atoms';
-import NotificationsAvatar from 'claptime/components/molecules/NotificationsAvatar';
+import NotificationsAvatar from 'components/molecules/NotificationsAvatar';
 import { useUserState } from 'claptime/lib/user';
 import consts from 'claptime/consts';
 

@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { useSubscription, useQueryList } from 'claptime/lib/apollo';
 import consts from 'claptime/consts';
@@ -18,7 +18,7 @@ import { useUserState } from 'claptime/lib/user';
 import {
   onCreateNotification,
   listNotificationsByOwnerSortByCreatedAt,
-} from 'claptime/graphql/notifications';
+} from 'graphql/notifications';
 
 const {
   style: {
@@ -45,7 +45,7 @@ const AvatarBadge = () => {
       resultPath: '$.listNotificationsByOwnerSortByCreatedAt',
     },
   );
-  useSubscription(
+  /*useSubscription(
     gql(onCreateNotification),
     {
       variables: { owner: userId },
@@ -57,19 +57,21 @@ const AvatarBadge = () => {
       },
     },
     true,
-  );
+  );*/
 
   useEffect(() => {
-    setNotificationsList(notifications);
+    if (notifications) setNotificationsList(notifications);
   }, [notifications]);
 
   const getPopoverContent = () => {
+    console.log(notificationsList);
     if (notificationsList) {
       return (
         <List
           itemLayout="horizontal"
           dataSource={notificationsList}
           renderItem={(item) => formatNotification(item)}
+          locale={{ emptyText: t('notifications.popover.empty') }}
         />
       );
     }
@@ -106,7 +108,7 @@ const AvatarBadge = () => {
         notifDescription = 'not handled';
     }
     return (
-      <Link to={link}>
+      <Link href={link}>
         <List.Item>
           <List.Item.Meta avatar={notifAvatar} description={notifDescription} />
         </List.Item>
