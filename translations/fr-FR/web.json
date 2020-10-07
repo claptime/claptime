@@ -755,7 +755,8 @@
       "PUBLISHED": "{{title}} est maintenant en ligne !"
     },
     "popover": {
-      "title": "Vos notifications"
+      "title": "Vos notifications",
+      "empty": "Aucune notification pour le moment"
     }
   },
   "pressPage": {
