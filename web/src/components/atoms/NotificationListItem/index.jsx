@@ -1,7 +1,11 @@
 import React from 'react';
 
-import { List, Tooltip, Button } from 'antd';
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import { List, Tooltip, Button, Popconfirm } from 'antd';
+import {
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  DeleteOutlined,
+} from '@ant-design/icons';
 
 import styled from 'styled-components';
 
@@ -13,17 +17,28 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from 'claptime/lib/apollo';
 import PropTypes from 'claptime/lib/prop-types';
 
-import { updateNotification } from 'claptime/graphql/notifications';
+import {
+  updateNotification,
+  deleteNotification,
+} from 'claptime/graphql/notifications';
 
 const StyledItem = styled.div`
   cursor: pointer;
 `;
 
-const NotificationListItem = ({ extra, link, id, description, isRead }) => {
+const NotificationListItem = ({
+  extra,
+  link,
+  id,
+  description,
+  isRead,
+  onDelete,
+}) => {
   const router = useRouter();
   const { t } = useTranslation();
 
   const [updateNotificationMutation] = useMutation(gql(updateNotification));
+  const [deleteNotificationMutation] = useMutation(gql(deleteNotification));
 
   const handleEyeClick = async (status) => {
     await updateNotificationMutation({
@@ -32,6 +47,19 @@ const NotificationListItem = ({ extra, link, id, description, isRead }) => {
           id,
           isRead: status,
         },
+      },
+    });
+  };
+
+  const handleDelete = async () => {
+    await deleteNotificationMutation({
+      variables: {
+        input: {
+          id,
+        },
+      },
+      update: () => {
+        onDelete(id);
       },
     });
   };
@@ -74,6 +102,30 @@ const NotificationListItem = ({ extra, link, id, description, isRead }) => {
               }
             />
           </Tooltip>,
+          <Tooltip
+            title={t('notifications.actions.delete.tooltip')}
+            getPopupContainer={() =>
+              document.getElementById(`claptime-notification-list-item-${id}`)
+            }
+          >
+            <Popconfirm
+              title={t('notifications.actions.delete.popconfirm')}
+              onConfirm={(event) => {
+                handleDelete();
+                event.stopPropagation();
+              }}
+              okText={t('notifications.actions.delete.ok')}
+              cancelText={t('notifications.actions.delete.cancel')}
+            >
+              <Button
+                shape="circle"
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+                icon={<DeleteOutlined />}
+              />
+            </Popconfirm>
+          </Tooltip>,
         ]}
       >
         {description}
@@ -89,6 +141,11 @@ NotificationListItem.propTypes = {
     .isRequired,
   id: PropTypes.string.isRequired,
   isRead: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func,
+};
+
+NotificationListItem.defaultProps = {
+  onDelete: () => {},
 };
 
 export default NotificationListItem;
