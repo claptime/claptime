@@ -31,6 +31,11 @@ const {
 
 const LIMIT = 5;
 
+const InfiniteContainer = styled.div`
+  overflow: auto;
+  max-height: 500px;
+`;
+
 const StyledResult = styled(Result)`
   .ant-result-title {
     font-size: 18px;
@@ -99,7 +104,7 @@ const Notifications = () => {
   const getPopoverContent = () => {
     if (notificationsList.length > 0) {
       return (
-        <div className="claptime-infinite-notifications">
+        <InfiniteContainer className="claptime-infinite-notifications">
           <InfiniteScroll
             initialLoad={false}
             pageStart={0}
@@ -114,7 +119,7 @@ const Notifications = () => {
               locale={{ emptyText: t('notifications.popover.empty') }}
             />
           </InfiniteScroll>
-        </div>
+        </InfiniteContainer>
       );
     }
     return (
