@@ -8227,6 +8227,32 @@ export const notifyUser = /* GraphQL */ `
     }
   }
 `;
+export const updateNotification = /* GraphQL */ `
+  mutation UpdateNotification($input: UpdateNotificationInput!) {
+    updateNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
+      updatedAt
+    }
+  }
+`;
+export const deleteNotification = /* GraphQL */ `
+  mutation DeleteNotification($input: DeleteNotificationInput!) {
+    deleteNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
+      updatedAt
+    }
+  }
+`;
 export const createUserCollection = /* GraphQL */ `
   mutation CreateUserCollection($input: CreateUserCollectionInput!) {
     createUserCollection(input: $input) {

@@ -64,7 +64,6 @@ const StyledList = styled(List)`
 
 const Notifications = () => {
   const [notificationsList, setNotificationsList] = useState([]);
-  const [unreadNotifications, setUnreadNotifications] = useState(0);
 
   const { t } = useTranslation();
 
@@ -97,9 +96,12 @@ const Notifications = () => {
   useEffect(() => {
     if (notifications) {
       setNotificationsList(notifications);
-      setUnreadNotifications(notifications.filter((n) => !n.isRead).length);
     }
   }, [notifications]);
+
+  const onDeleteItem = (id) => {
+    setNotificationsList(notificationsList.filter((n) => n.id !== id));
+  };
 
   const getPopoverContent = () => {
     if (notificationsList.length > 0) {
@@ -171,6 +173,7 @@ const Notifications = () => {
     }
     return (
       <NotificationListItem
+        onDelete={onDeleteItem}
         link={link}
         extra={extra}
         id={notificationId}
@@ -180,7 +183,9 @@ const Notifications = () => {
     );
   };
 
+  const unreadNotifications = notificationsList.filter((n) => !n.isRead).length;
   const iconColor = unreadNotifications > 0 ? strawberry : primary;
+
   return (
     <Popover
       placement="bottomRight"

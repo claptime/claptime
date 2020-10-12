@@ -755,9 +755,22 @@
       "PUBLISHED": "{{title}} est maintenant en ligne !"
     },
     "popover": {
-      "title": "Vos notifications",
-      "empty": "Aucune notification pour le moment"
-    }
+      "title": "Mes notifications",
+      "emptyTitle": "Aucune notification pour le moment",
+      "emptySubTitle": "Vous pourrez en recevoir par exemple lorsqu'un nouveau film sera ajouté à une collection à laquelle vous êtes abonné."
+    },
+    "unreadNotifications": "Vous avez des notifications non lues",
+    "actions": {
+      "markAsRead": "Marquer comme lue",
+      "markAsNotRead": "Marquer comme non lue",
+      "delete": {
+        "tooltip": "Supprimer",
+        "popconfirm": "Êtes-vous sûr de vouloir supprimer cette notification ?",
+        "ok": "Oui",
+        "cancel": "Non"
+      }
+    },
+    "tooltip": "Mes notifications"
   },
   "pressPage": {
     "date": "Août 2020",

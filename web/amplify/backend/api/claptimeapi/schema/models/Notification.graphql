@@ -1,7 +1,7 @@
 type Notification
 @model(
   queries: { list: "listNotifications" },
-  mutations: { create: "createNotification" },
+  mutations: { create: "createNotification", update: "updateNotification", delete: "deleteNotification" },
   subscriptions: null,
 )
 @auth(

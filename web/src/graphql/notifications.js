@@ -1,10 +1,11 @@
 export const onCreateNotification = /* GraphQL */ `
-  subscription OnCreateNotification($userId: String!) {
-    onCreateNotification(userId: $userId) {
+  subscription OnCreateNotification($owner: String!) {
+    onCreateNotification(owner: $owner) {
       id
       type
       owner
       payload
+      isRead
     }
   }
 `;
@@ -23,6 +24,7 @@ export const listNotifications = /* GraphQL */ `
         type
         payload
         updatedAt
+        isRead
       }
       nextToken
     }
@@ -52,8 +54,37 @@ export const listNotificationsByOwnerSortByCreatedAt = /* GraphQL */ `
         type
         payload
         updatedAt
+        isRead
       }
       nextToken
+    }
+  }
+`;
+
+export const deleteNotification = /* GraphQL */ `
+  mutation DeleteNotification($input: DeleteNotificationInput!) {
+    deleteNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
+      updatedAt
+    }
+  }
+`;
+
+export const updateNotification = /* GraphQL */ `
+  mutation UpdateNotification($input: UpdateNotificationInput!) {
+    updateNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
+      updatedAt
     }
   }
 `;
