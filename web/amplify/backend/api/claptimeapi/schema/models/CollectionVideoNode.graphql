@@ -16,12 +16,12 @@ type CollectionVideoNode
   queryField: "listCollectionVideoNodesByCollectionAndStatus",
 )
 @model(
-  queries: { list: "listCollectionVideoNodes" },
-  mutations: { delete: "deleteCollectionVideoNode", create: "createCollectionVideoNode" },
+  queries: { get: "getCollectionVideoNode", list: "listCollectionVideoNodes" },
+  mutations: { delete: "deleteCollectionVideoNode", update: "updateCollectionVideoNode", create: "createCollectionVideoNode" },
   subscriptions: null,
 )
 @auth(rules: [
-  { allow: owner, operations: [read] },
+  { allow: owner, operations: [read, delete] },
   { allow: groups, groups: ["admin"], operations: [read] },
   { allow: private, provider: iam, operations: [create, delete, read, update] },
   { allow: private, operations: [read]},
@@ -33,9 +33,10 @@ type CollectionVideoNode
   collectionVideoNodeCollectionId: ID!
   status: CollectionVideoNodeStatus!
   categoryId: ID!
-  review: String
+  rejectionReason: String
   videoNode: VideoNode! @connection(name: "VideoNodeCollection")
   collectionVideoNodeVideoNodeId: ID
   createdAt: AWSDateTime
+  updatedAt: AWSDateTime
   owner: String
 }

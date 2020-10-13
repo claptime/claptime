@@ -1,78 +1,78 @@
 {
-    "staging": {
-        "awscloudformation": {
-            "AuthRoleName": "claptime-staging-20190928124011-authRole",
-            "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-staging-20190928124011-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-staging-20190928124011-authRole",
-            "Region": "eu-west-1",
-            "DeploymentBucketName": "claptime-staging-20190928124011-deployment",
-            "UnauthRoleName": "claptime-staging-20190928124011-unauthRole",
-            "StackName": "claptime-staging-20190928124011",
-            "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-staging-20190928124011/59007e10-e1dc-11e9-8c6b-06310ddbba8e",
-            "AmplifyAppId": "d2kr6iz2hgzrdy"
-        },
-        "categories": {
-            "auth": {
-                "claptime": {},
-                "userPoolGroups": {}
-            }
-        }
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "claptime-staging-20190928124011-authRole",
+      "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-staging-20190928124011-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-staging-20190928124011-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "claptime-staging-20190928124011-deployment",
+      "UnauthRoleName": "claptime-staging-20190928124011-unauthRole",
+      "StackName": "claptime-staging-20190928124011",
+      "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-staging-20190928124011/59007e10-e1dc-11e9-8c6b-06310ddbba8e",
+      "AmplifyAppId": "d2kr6iz2hgzrdy"
     },
-    "prod": {
-        "awscloudformation": {
-            "AuthRoleName": "claptime-prod-20190928151336-authRole",
-            "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-prod-20190928151336-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-prod-20190928151336-authRole",
-            "Region": "eu-west-1",
-            "DeploymentBucketName": "claptime-prod-20190928151336-deployment",
-            "UnauthRoleName": "claptime-prod-20190928151336-unauthRole",
-            "StackName": "claptime-prod-20190928151336",
-            "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-prod-20190928151336/c8110f80-e1f1-11e9-9b58-06e26620325a",
-            "AmplifyAppId": "d2kr6iz2hgzrdy"
-        },
-        "categories": {
-            "auth": {
-                "claptime": {},
-                "userPoolGroups": {}
-            }
-        }
-    },
-    "christophe": {
-        "awscloudformation": {
-            "AuthRoleName": "claptime-christophe-20190928152148-authRole",
-            "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-christophe-20190928152148-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-christophe-20190928152148-authRole",
-            "Region": "eu-west-1",
-            "DeploymentBucketName": "claptime-christophe-20190928152148-deployment",
-            "UnauthRoleName": "claptime-christophe-20190928152148-unauthRole",
-            "StackName": "claptime-christophe-20190928152148",
-            "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-christophe-20190928152148/ed1bd430-e1f2-11e9-a469-06982f8c16e4",
-            "AmplifyAppId": "d2kr6iz2hgzrdy"
-        },
-        "categories": {
-            "auth": {
-                "claptime": {},
-                "userPoolGroups": {}
-            }
-        }
-    },
-    "thibaut": {
-        "awscloudformation": {
-            "AuthRoleName": "claptime-thibaut-20190928173436-authRole",
-            "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-thibaut-20190928173436-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-thibaut-20190928173436-authRole",
-            "Region": "eu-west-1",
-            "DeploymentBucketName": "claptime-thibaut-20190928173436-deployment",
-            "UnauthRoleName": "claptime-thibaut-20190928173436-unauthRole",
-            "StackName": "claptime-thibaut-20190928173436",
-            "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-thibaut-20190928173436/7a53fff0-e205-11e9-b690-0aaf98d2f8ea",
-            "AmplifyAppId": "d2kr6iz2hgzrdy"
-        },
-        "categories": {
-            "auth": {
-                "claptime": {},
-                "userPoolGroups": {}
-            }
-        }
+    "categories": {
+      "auth": {
+        "claptime": {},
+        "userPoolGroups": {}
+      }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "claptime-prod-20190928151336-authRole",
+      "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-prod-20190928151336-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-prod-20190928151336-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "claptime-prod-20190928151336-deployment",
+      "UnauthRoleName": "claptime-prod-20190928151336-unauthRole",
+      "StackName": "claptime-prod-20190928151336",
+      "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-prod-20190928151336/c8110f80-e1f1-11e9-9b58-06e26620325a",
+      "AmplifyAppId": "d2kr6iz2hgzrdy"
+    },
+    "categories": {
+      "auth": {
+        "claptime": {},
+        "userPoolGroups": {}
+      }
+    }
+  },
+  "christophe": {
+    "awscloudformation": {
+      "AuthRoleName": "claptime-christophe-20190928152148-authRole",
+      "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-christophe-20190928152148-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-christophe-20190928152148-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "claptime-christophe-20190928152148-deployment",
+      "UnauthRoleName": "claptime-christophe-20190928152148-unauthRole",
+      "StackName": "claptime-christophe-20190928152148",
+      "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-christophe-20190928152148/ed1bd430-e1f2-11e9-a469-06982f8c16e4",
+      "AmplifyAppId": "d2kr6iz2hgzrdy"
+    },
+    "categories": {
+      "auth": {
+        "claptime": {},
+        "userPoolGroups": {}
+      }
+    }
+  },
+  "thibaut": {
+    "awscloudformation": {
+      "AuthRoleName": "claptime-thibaut-20190928173436-authRole",
+      "UnauthRoleArn": "arn:aws:iam::936672802726:role/claptime-thibaut-20190928173436-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::936672802726:role/claptime-thibaut-20190928173436-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "claptime-thibaut-20190928173436-deployment",
+      "UnauthRoleName": "claptime-thibaut-20190928173436-unauthRole",
+      "StackName": "claptime-thibaut-20190928173436",
+      "StackId": "arn:aws:cloudformation:eu-west-1:936672802726:stack/claptime-thibaut-20190928173436/7a53fff0-e205-11e9-b690-0aaf98d2f8ea",
+      "AmplifyAppId": "d2kr6iz2hgzrdy"
+    },
+    "categories": {
+      "auth": {
+        "claptime": {},
+        "userPoolGroups": {}
+      }
+    }
+  }
 }

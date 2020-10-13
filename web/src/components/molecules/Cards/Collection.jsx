@@ -53,11 +53,7 @@ const CollectionCard = ({ collection }) => {
             )})`,
           }}
         >
-          <Covers.Collection
-            clickable
-            collectionId={collection.id}
-            shadow={false}
-          />
+          <Covers.Collection collectionId={collection.id} shadow={false} />
           <div
             style={{
               marginTop: consts.style.padding.m,

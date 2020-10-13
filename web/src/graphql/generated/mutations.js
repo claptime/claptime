@@ -70,11 +70,11 @@ export const addEpisodeToSeries = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -267,11 +267,11 @@ export const addEpisodeToSeries = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -558,11 +558,11 @@ export const addEpisodeToSeries = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -971,11 +971,11 @@ export const addVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -1168,11 +1168,11 @@ export const addVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -1459,11 +1459,11 @@ export const addVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -1872,11 +1872,11 @@ export const importVideo = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -2069,11 +2069,11 @@ export const importVideo = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -2360,11 +2360,11 @@ export const importVideo = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -2773,11 +2773,11 @@ export const publishVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -2970,11 +2970,11 @@ export const publishVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -3261,11 +3261,11 @@ export const publishVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -3674,11 +3674,11 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -3871,11 +3871,11 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -4162,11 +4162,11 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -4586,11 +4586,11 @@ export const moveEpisodeAfter = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -4783,11 +4783,11 @@ export const moveEpisodeAfter = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -5074,11 +5074,11 @@ export const moveEpisodeAfter = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -5505,11 +5505,11 @@ export const setVideoNodeMeta = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -5702,11 +5702,11 @@ export const setVideoNodeMeta = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -5993,11 +5993,11 @@ export const setVideoNodeMeta = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -6414,11 +6414,11 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -6611,11 +6611,11 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -6902,11 +6902,11 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -7315,11 +7315,11 @@ export const unpublishVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -7512,11 +7512,11 @@ export const unpublishVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -7803,11 +7803,11 @@ export const unpublishVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -8153,6 +8153,379 @@ export const unpublishVideoNode = /* GraphQL */ `
     }
   }
 `;
+export const validateSubmission = /* GraphQL */ `
+  mutation ValidateSubmission(
+    $collectionVideoNodeId: ID!
+    $status: CollectionVideoNodeStatus!
+    $rejectionReason: String
+  ) {
+    validateSubmission(
+      collectionVideoNodeId: $collectionVideoNodeId
+      status: $status
+      rejectionReason: $rejectionReason
+    ) {
+      id
+      collectionVideoNodeCollectionId
+      status
+      categoryId
+      rejectionReason
+      collectionVideoNodeVideoNodeId
+      createdAt
+      updatedAt
+      owner
+      collection {
+        id
+        slug
+        name
+        tagline
+        description
+        links {
+          type
+          url
+        }
+        categories {
+          id
+          category
+          description
+        }
+        collectionProfileId
+        searchField
+        createdBy
+        createdAt
+        owner
+        updatedAt
+        videoNodes {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+      }
+      videoNode {
+        id
+        title
+        status
+        videoNodeProfileId
+        category
+        duration
+        releaseYear
+        synopsis
+        festivals
+        searchField
+        ttl
+        createdBy
+        createdAt
+        updatedAt
+        owner
+        views {
+          items {
+            id
+            viewVideoNodeId
+            createdAt
+            owner
+            updatedAt
+          }
+          nextToken
+        }
+        donationsAvailable
+        videoNodeNextNodeId
+        videoNodeParentNodeId
+        type
+        nodeType
+        childrenCount
+        collections {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        credits {
+          items {
+            id
+            role
+            customProfile
+            creditVideoId
+            creditVideoNodeId
+            owner
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+        nextNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+        parentNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+        childNodes {
+          items {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
 export const connectToStripe = /* GraphQL */ `
   mutation ConnectToStripe($profileId: ID!, $authorizationCode: String!) {
     connectToStripe(
@@ -8243,11 +8616,11 @@ export const createUserCollection = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -8313,11 +8686,11 @@ export const deleteUserCollection = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -8554,11 +8927,11 @@ export const createUserVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -8856,11 +9229,11 @@ export const deleteUserVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -9141,11 +9514,11 @@ export const createCollection = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -9286,11 +9659,11 @@ export const updateCollection = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -9431,11 +9804,11 @@ export const deleteCollection = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -9554,11 +9927,11 @@ export const createCollectionVideoNode = /* GraphQL */ `
       collectionVideoNodeCollectionId
       status
       categoryId
-      review
+      rejectionReason
       collectionVideoNodeVideoNodeId
       createdAt
-      owner
       updatedAt
+      owner
       collection {
         id
         slug
@@ -9586,11 +9959,11 @@ export const createCollectionVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -9656,11 +10029,376 @@ export const createCollectionVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        credits {
+          items {
+            id
+            role
+            customProfile
+            creditVideoId
+            creditVideoNodeId
+            owner
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+        nextNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+        parentNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+        childNodes {
+          items {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const updateCollectionVideoNode = /* GraphQL */ `
+  mutation UpdateCollectionVideoNode($input: UpdateCollectionVideoNodeInput!) {
+    updateCollectionVideoNode(input: $input) {
+      id
+      collectionVideoNodeCollectionId
+      status
+      categoryId
+      rejectionReason
+      collectionVideoNodeVideoNodeId
+      createdAt
+      updatedAt
+      owner
+      collection {
+        id
+        slug
+        name
+        tagline
+        description
+        links {
+          type
+          url
+        }
+        categories {
+          id
+          category
+          description
+        }
+        collectionProfileId
+        searchField
+        createdBy
+        createdAt
+        owner
+        updatedAt
+        videoNodes {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+      }
+      videoNode {
+        id
+        title
+        status
+        videoNodeProfileId
+        category
+        duration
+        releaseYear
+        synopsis
+        festivals
+        searchField
+        ttl
+        createdBy
+        createdAt
+        updatedAt
+        owner
+        views {
+          items {
+            id
+            viewVideoNodeId
             createdAt
             owner
             updatedAt
+          }
+          nextToken
+        }
+        donationsAvailable
+        videoNodeNextNodeId
+        videoNodeParentNodeId
+        type
+        nodeType
+        childrenCount
+        collections {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
           }
           nextToken
         }
@@ -9919,11 +10657,11 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
       collectionVideoNodeCollectionId
       status
       categoryId
-      review
+      rejectionReason
       collectionVideoNodeVideoNodeId
       createdAt
-      owner
       updatedAt
+      owner
       collection {
         id
         slug
@@ -9951,11 +10689,11 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -10021,11 +10759,11 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -10395,11 +11133,11 @@ export const createCredit = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -10769,11 +11507,11 @@ export const deleteCredit = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -11762,11 +12500,11 @@ export const createVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -11959,11 +12697,11 @@ export const createVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -12250,11 +12988,11 @@ export const createVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -12663,11 +13401,11 @@ export const updateVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -12860,11 +13598,11 @@ export const updateVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -13151,11 +13889,11 @@ export const updateVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -13564,11 +14302,11 @@ export const deleteVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -13761,11 +14499,11 @@ export const deleteVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -14052,11 +14790,11 @@ export const deleteVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -14448,11 +15186,11 @@ export const createView = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }

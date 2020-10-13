@@ -172,9 +172,9 @@ const Video = ({ video }) => {
     previousEpisode && previousEpisode.status === 'PUBLISHED';
   const nextIsPublished = nextEpisode && nextEpisode.status === 'PUBLISHED';
 
-  const collections = video.collections.items.map(
-    ({ collection }) => collection,
-  );
+  const collections = video.collections.items
+    .filter(({ status }) => status === 'APPROVED')
+    .map(({ collection }) => collection);
 
   const getInfos = () => {
     return (

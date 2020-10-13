@@ -11,7 +11,7 @@ type Collection
   queryField: "listCollectionsBySlug",
 )
 @model(
-  queries: { list: "listCollections" },
+  queries: { get: "getCollection", list: "listCollections" },
   mutations: { create: "createCollection", update: "updateCollection", delete: "deleteCollection" },
   subscriptions: null,
 )

@@ -29,7 +29,7 @@ import moment from 'moment';
 import { Storage } from 'aws-amplify';
 import Link from 'next/link';
 
-import { Spin } from 'claptime/components/atoms';
+import { Spin, Subtitle } from 'claptime/components/atoms';
 import {
   CreditsInput,
   ImageInput,
@@ -37,6 +37,7 @@ import {
   Layouts,
 } from 'claptime/components/molecules';
 import VideosInSeriesData from 'claptime/components/organisms/VideosInSeriesData';
+import VideoNodeSubmissions from 'claptime/components/organisms/VideoNodeSubmissions';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
 
@@ -383,6 +384,12 @@ const SeriesEditPage = () => {
           }
           extra={getActions()}
         />
+        {status === consts.series.status.PUBLISHED ? (
+          <VideoNodeSubmissions videoNodeId={seriesId} />
+        ) : null}
+        <Subtitle style={{ margin: '16px 0 ' }}>
+          {t('series.edit.sheetSubtitle')}
+        </Subtitle>
         <Form
           form={form}
           id="video-edit-form"

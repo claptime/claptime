@@ -8,27 +8,6 @@
       "contactButton": "Nous contacter"
     }
   },
-  "admin": {
-    "container": {
-      "title": "Admin",
-      "tabs": {
-        "videosValidation": "Validation des vidéos"
-      }
-    },
-    "videosValidation": {
-      "table": {
-        "title": "Titre",
-        "uploadDate": "Date d'upload",
-        "actions": "Actions",
-        "view": "Voir",
-        "confirm": "Êtes-vous sûr ?",
-        "approve": "Approuver",
-        "reject": "Rejeter",
-        "yes": "Certain",
-        "no": "Annuler"
-      }
-    }
-  },
   "myFavoritesPage": {
     "title": "Mes coups de cœur",
     "emptyTitle": "Pas encore de coup de cœur",
@@ -216,9 +195,6 @@
       "title": "Espace presse – Claptime",
       "description": "Retrouvez nos parutions presse et nos communiqués."
     },
-    "admin": {
-      "title": "Admin – Claptime"
-    },
     "collection": {
       "title": "{{name}} – Une collection de films et séries sur Claptime",
       "description": "Parcourez la collection de films et séries \"{{name}}\" sur Claptime – {{tagline}}"
@@ -229,6 +205,9 @@
     },
     "collection/edit": {
       "title": "Éditer la collection – Claptime"
+    },
+    "collection/submissions": {
+      "title": "Soumissions de la collection – Claptime"
     },
     "collections": {
       "title": "Toutes les collections sur Claptime",
@@ -338,9 +317,30 @@
       "categoryDescriptionMaxLength": "La description ne doit pas dépasser 100 caractères.",
       "categoryAdd": "Ajouter",
       "save": "Sauvegarder",
-      "view": "Voir",
+      "view": "Voir la collection",
       "required": "Obligatoire",
       "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche"
+    },
+    "submissions": {
+      "pageTitle": "Soumissions dans la collection \"{{collectionName}}\"",
+      "view": "Voir la collection",
+      "edit": "Éditer la collection",
+      "emptyState": "Aucune soumission en attente de validation.",
+      "table": {
+        "title": "Titre",
+        "submissionDate": "Date de soumission",
+        "actions": "Actions",
+        "view": "Voir",
+        "approve": "Approuver la soumission",
+        "approveConfirm": "Vous allez approuver la soumission au sein de la collection. Êtes-vous sûr ?",
+        "approved": "La soumission a été approuvé au sein de la collection",
+        "reject": "Refuser la soumission",
+        "rejectConfirm": "Vous allez refuser la soumission au sein de la collection. Vous pouvez transmettre la raison ci-dessous :",
+        "rejected": "La soumission a été refusée au sein de la collection",
+        "rejectReasonPlaceholder": "Expliquez les raisons de votre refus (ne rentre pas dans votre thématique, manque d'informations sur la fiche, qualité...)",
+        "yes": "Certain",
+        "no": "Annuler"
+      }
     },
     "category": {
       "backToCollection": "Revenir à la collection"
@@ -375,6 +375,7 @@
     }
   },
   "series": {
+    "sheetSubtitle": "Fiche de la série",
     "thisSeries": "cette série",
     "noEpisode": "Aucun épisode disponible pour le moment.",
     "nbEpisodes": "{{count}} épisode",
@@ -506,6 +507,7 @@
     },
     "edit": {
       "pageTitle": "Éditer la vidéo",
+      "sheetSubtitle": "Fiche de la vidéo",
       "uploadVideo": "Uploader une vidéo",
       "dropVideoHere": "Déposez votre vidéo ici",
       "messages": {
@@ -572,6 +574,40 @@
       "authorizeDonations": "Activer les dons",
       "tooltipDonations": "Vous devez avoir activé les paiements pour que cette option soit prise en compte",
       "parentSeries": "Un épisode de la série <1>{{parentTitle}}</1>"
+    }
+  },
+  "submissions": {
+    "submissionsSubtitle": "Collections",
+    "noSubmission": "Votre film ou série ne fait pas encore partie d'une collection. Soumettez votre ɶuvre dès maintenant en un instant !",
+    "new": "Soumettre dans une collection",
+    "selectCollection": "Sélectionnez une collection",
+    "selectCategory": "Sélectionnez une catégorie",
+    "submit": "Soumettre",
+    "sent": "Votre soumission a été effectuée.",
+    "table": {
+      "name": "Collection",
+      "category": "Catégorie",
+      "updatedAt": "Date",
+      "status": "Statut",
+      "actions": "Actions",
+      "view": "Voir la collection",
+      "remove": "Supprimer la soumission",
+      "removeConfirm": "Si vous supprimez la soumission, votre film ou série ne sera plus accessible au sein de la collection. Êtes-vous sûr ?",
+      "removed": "La soumission a bien été supprimée de la collection.",
+      "confirmYes": "Certain",
+      "confirmNo": "Annuler",
+      "SUBMITTED": {
+        "title": "Soumise",
+        "description": "Votre vidéo est en cours d'approbation au sein de cette collection. Vous recevrez un email dès que l'animateur aura pris sa décision."
+      },
+      "APPROVED": {
+        "title": "Accepté",
+        "description": "Votre vidéo est maintenant visionnable depuis cette collection."
+      },
+      "REJECTED": {
+        "title": "Refusé",
+        "description": "Votre vidéo n'a pas été acceptée au sein de cette collection. Nous vous invitons à contacter l'animateur de la collection si vous souhaitez obtenir plus de détails."
+      }
     }
   },
   "videosList": {
@@ -715,7 +751,11 @@
       "table": {
         "cover": "Affiche",
         "name": "Nom",
-        "creationDate": "Date de création"
+        "creationDate": "Date de création",
+        "actions": "Actions",
+        "view": "Voir la collection",
+        "edit": "Éditer la collection",
+        "validate": "Voir les soumissions"
       }
     },
     "payments": {
@@ -729,7 +769,6 @@
     }
   },
   "navbar": {
-    "admin": "Admin",
     "browse": "Parcourir",
     "browseProfiles": "les cinéastes",
     "browseCollections": "les collections",
@@ -786,22 +825,6 @@
       "embed": "Intégrer",
       "copied": "Copié dans votre presse-papier"
     }
-  },
-  "myCollections": {
-    "noCollection": "Aucune collection",
-    "newCollectionTooltip": "Créer une nouvelle collection",
-    "addedTo": "Ajoutée à {{name}}",
-    "removedFrom": "Supprimée de {{name}}",
-    "nameRequired": "Veuillez saisir un nom pour la collection",
-    "collectionName": "Nom :",
-    "collectionDescription": "Description :",
-    "create": "Valider",
-    "signinMandatory": "Vous souhaitez ajouter cette œuvre à une collection ? Alors connectez-vous ",
-    "collectionCreated": "Collection créée",
-    "close": "Annuler"
-  },
-  "videoCard": {
-    "viewMore": "Détails"
   },
   "footer": {
     "misc": {

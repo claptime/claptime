@@ -32,6 +32,7 @@ const identity = {
 
 const sampleCollection = {
   name: 'My collection',
+  slug: 'my-collection'
 };
 
 const sampleVideoNode = {

@@ -10,6 +10,7 @@ const moveEpisodeAfter = require('./resolvers/moveEpisodeAfter');
 const setVideoNodeMeta = require('./resolvers/setVideoNodeMeta');
 const submitVideoNodeToCollection = require('./resolvers/submitVideoNodeToCollection');
 const unpublishVideoNode = require('./resolvers/unpublishVideoNode');
+const validateSubmission = require('./resolvers/validateSubmission');
 
 module.exports.handler = getHandler({
   Mutation: {
@@ -110,6 +111,9 @@ module.exports.handler = getHandler({
           idArgumentName: 'videoNodeId',
         },
       ],
+    },
+    validateSubmission: {
+      handler: validateSubmission,
     },
   },
 });

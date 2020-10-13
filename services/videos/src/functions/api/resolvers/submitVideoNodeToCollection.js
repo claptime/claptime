@@ -1,4 +1,8 @@
-const { getVideoNode, submitToCollection } = require('../../../lib/helpers');
+const { getVideoNode } = require('../../../lib/models');
+const {
+  submitToCollection,
+  validateSubmission,
+} = require('../../../lib/helpers');
 
 module.exports = async (event) => {
   const {
@@ -6,11 +10,16 @@ module.exports = async (event) => {
     identity: { claims },
   } = event;
 
-  await submitToCollection(
+  // Submit VideoNode to default collection
+  const collectionVideoNode = await submitToCollection(
     videoNodeId,
     collectionSlug,
     collectionCategoryId,
     claims,
   );
+
+  // Automatically validate submission to default collection
+  await validateSubmission(collectionVideoNode, 'APPROVED', undefined, claims);
+
   return getVideoNode(videoNodeId);
 };

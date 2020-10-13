@@ -203,12 +203,6 @@ export const CollectionVideoNode = ({
 	collectionVideoNodeVideoNodeId
 	createdAt
 	owner
-  ${
-    ifAtLeast(level, LEVELS.REGULAR) &&
-    `
-	review
-  `
-  }
   ${ifNotSkipped(collection.level) && `collection ${Collection(collection)}`}
   ${ifNotSkipped(videoNode.level) && `videoNode ${VideoNode(videoNode)}`}
 }`;
