@@ -21,7 +21,7 @@ import { nl2br } from 'claptime/utils/i18n';
 
 const MyProfilePage = () => {
   const user = useUserState();
-  const [showWarning, setShowWarning] = useState(!user.hasPublicProfile);
+  const [validated, setValidated] = useState(false);
   const [acknowledged, setAcknowledged] = useState(false);
   const { t } = useTranslation();
   const { response, items: collections } = useQueryList(
@@ -35,7 +35,7 @@ const MyProfilePage = () => {
           },
         },
       },
-      skip: !user.hasPublicProfile,
+      skip: user.loaded && !user.hasPublicProfile,
     },
     {
       resultPath: '$.listCollections',
@@ -45,7 +45,7 @@ const MyProfilePage = () => {
   if (!useIsAuthenticated()) return <Spin />;
   if (response) return response;
 
-  if (showWarning) {
+  if (!user.hasPublicProfile && !validated) {
     return (
       <>
         <Head page="my-profile" />
@@ -68,7 +68,7 @@ const MyProfilePage = () => {
                 <Button
                   type="primary"
                   disabled={!acknowledged}
-                  onClick={() => setShowWarning(false)}
+                  onClick={() => setValidated(true)}
                 >
                   {t('myProfilePage.container.createProfileButton')}
                 </Button>
