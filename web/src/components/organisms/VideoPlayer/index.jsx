@@ -294,15 +294,15 @@ const VideoPlayer = ({ video, embed }) => {
           }
         },
       );
-
-      return () => {
-        if (player.current) {
-          player.current.destroy();
-          player.current = null;
-        }
-      };
     };
     init();
+
+    return () => {
+      if (player.current) {
+        player.current.destroy();
+        player.current = null;
+      }
+    };
   }, [video, embed]);
 
   return (

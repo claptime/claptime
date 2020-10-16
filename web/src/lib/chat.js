@@ -10,15 +10,21 @@ export const initChat = () => {
 };
 
 export const setChatValue = (name, value) => {
-  window.$crisp.push(['set', `user:${name}`, [value]]);
+  if (window.$crisp) {
+    window.$crisp.push(['set', `user:${name}`, [value]]);
+  }
 };
 
 export const setChatVisibility = (setVisible) => {
-  window.$crisp.push(['do', `chat:${setVisible ? 'show' : 'hide'}`]);
+  if (window.$crisp) {
+    window.$crisp.push(['do', `chat:${setVisible ? 'show' : 'hide'}`]);
+  }
 };
 
 export const openChat = () => {
-  window.$crisp.push(['do', 'chat:open']);
+  if (window.$crisp) {
+    window.$crisp.push(['do', 'chat:open']);
+  }
 };
 
 export default {
