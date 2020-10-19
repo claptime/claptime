@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import NextHead from 'next/head';
+import Router from 'next/router';
 import { ConfigProvider, Layout } from 'antd';
 import { Hub } from 'aws-amplify';
 import { ApolloProvider } from '@apollo/client';
 import { DndProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { ThemeProvider } from 'styled-components';
+import NProgress from 'nprogress';
 
 import UserOnboardingModal from 'claptime/components/organisms/UserOnboardingModal';
 import {
@@ -24,6 +26,12 @@ import PropTypes from 'claptime/lib/prop-types';
 import Head from 'claptime/lib/seo/Head';
 import style from 'claptime/consts/style';
 import 'claptime/styles/global.less';
+import 'claptime/styles/nprogress.less';
+
+// https://levelup.gitconnected.com/improve-ux-of-your-next-js-app-in-3-minutes-with-page-loading-indicator-3a422113304d
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 const App = ({ Component, pageProps }) => {
   const dispatch = useUserDispatch();
