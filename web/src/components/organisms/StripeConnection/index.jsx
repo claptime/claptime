@@ -1,5 +1,5 @@
 // https://stripe.com/docs/connect/standard-accounts
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Popconfirm, message } from 'antd';
 import { ApiOutlined } from '@ant-design/icons';
 import { gql } from '@apollo/client';
@@ -24,27 +24,21 @@ const StripeConnection = ({ queryString }) => {
   const { t } = useTranslation();
   const { settings, isLoggedIn } = useUserState();
   const apolloClient = useApolloClient();
-  const [profileId, setProfileId] = useState(null);
-  const { loading, item, error, refetch, response, run } = useQueryGet(
+
+  const { profileId } = settings;
+
+  const { item, error, refetch, response } = useQueryGet(
     getStripeAccessToken,
     {
       variables: { profileId },
     },
     {
       resultPath: '$.getStripeAccessToken',
-      lazy: true,
     },
   );
 
   if (!isLoggedIn) {
     return null;
-  }
-
-  if (!profileId && settings && settings.profileId) {
-    setProfileId(settings.profileId);
-    run();
-  } else if (!profileId || loading) {
-    return <Spin />;
   }
 
   if (response) return response;
