@@ -1,5 +1,5 @@
 // https://stripe.com/docs/connect/standard-accounts
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Popconfirm, message } from 'antd';
 import { ApiOutlined } from '@ant-design/icons';
 import { gql } from '@apollo/client';
@@ -27,13 +27,13 @@ const StripeConnection = ({ queryString }) => {
 
   const { profileId } = settings;
 
-  const { loading, item, error, refetch, response, run } = useQueryGet(
+  const { item, error, refetch, response } = useQueryGet(
     getStripeAccessToken,
     {
       variables: { profileId },
     },
     {
-      resultPath: '$.getStripeAccessToken'
+      resultPath: '$.getStripeAccessToken',
     },
   );
 
