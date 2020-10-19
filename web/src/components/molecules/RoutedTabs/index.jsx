@@ -10,7 +10,7 @@ import PageHeader from 'claptime/components/molecules/PageHeader';
 const RoutedTabs = ({ actions, basePath, tabs, i18nBasePath }) => {
   const { t } = useTranslation();
   const { asPath } = useRouter();
-  const currentKey = asPath.split('/').pop();
+  const currentKey = asPath.split('/').pop().split('?')[0];
 
   const pageTitle = (
     <span>
