@@ -31,6 +31,7 @@
     "less-loader": "^7.0.1",
     "moment": "^2.24.0",
     "next": "^9.5.3",
+    "nprogress": "^0.2.0",
     "null-loader": "^4.0.0",
     "p2p-media-loader-hlsjs": "^0.6.2",
     "prop-types": "^15.7.2",
