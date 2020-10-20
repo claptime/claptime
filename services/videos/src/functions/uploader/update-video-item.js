@@ -106,17 +106,28 @@ const handleProcessingFailed = async (event) => {
 
 module.exports.handler = async (event) => {
   console.log(JSON.stringify(event, null, 2));
-  if (!event.commands) {
-    console.log('[StartProcessing]');
-    return await startProcessing(event);
-  }
-  if (event.taskResult) {
-    console.log('[HandleProcessingSucceeded]');
-    return await handleProcessingSucceeded(event);
-  }
-  if (event.taskError) {
-    console.log('[HandleProcessingFailed]');
-    return await handleProcessingFailed(event);
+  try {
+    if (!event.commands) {
+      console.log('[StartProcessing]');
+      return await startProcessing(event);
+    }
+    if (event.taskResult) {
+      console.log('[HandleProcessingSucceeded]');
+      return await handleProcessingSucceeded(event);
+    }
+    if (event.taskError) {
+      console.log('[HandleProcessingFailed]');
+      return await handleProcessingFailed(event);
+    }
+  } catch (err) {
+    if (/^GraphQL error: The conditional request failed/.test(err.message)) {
+      console.log(err);
+      console.log(
+        'Cannot update item, which must have been deleted while processing. This is normal behaviour.',
+      );
+    } else {
+      throw err;
+    }
   }
   console.log('No handler defined.');
   throw new Error('NO_HANDLER');
