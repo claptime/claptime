@@ -13,7 +13,6 @@
     "import/order": ["error", {
       "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
     }],
-    "import/no-unresolved": ["error", { "ignore": ["^claptime/"] }],
     "prefer-const": ["error", {
       "destructuring": "all"
     }],
