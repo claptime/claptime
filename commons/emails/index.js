@@ -43,7 +43,7 @@ Handlebars.registerPartial(
 
 Handlebars.registerHelper('getVideoNodeLink', (videoNode) => {
   const types = {
-    FILM: 'videos',
+    FILM: 'video',
     SERIES: 'series',
   };
   return `${getDomain()}/${types[videoNode.type]}/${videoNode.id}`;
