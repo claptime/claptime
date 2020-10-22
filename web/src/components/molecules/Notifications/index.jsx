@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { Avatar, Badge, Popover, List, Tooltip, Result } from 'antd';
-import { BellOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { BellFilled, QuestionCircleOutlined } from '@ant-design/icons';
 
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -206,7 +206,7 @@ const Notifications = () => {
               lineHeight: '28px',
             }}
             icon={
-              <BellOutlined style={{ color: iconColor, fontSize: '16px' }} />
+              <BellFilled style={{ color: iconColor, fontSize: '16px' }} />
             }
           />
         </Badge>
