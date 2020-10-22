@@ -734,7 +734,8 @@
         "cover": "Affiche",
         "title": "Titre",
         "uploadDate": "Date d'ajout",
-        "status": "Statut"
+        "status": "Statut",
+        "likesCount": "Favoris"
       },
       "actions": {
         "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à hello@clap-time.com",
@@ -749,7 +750,8 @@
       "table": {
         "cover": "Affiche",
         "title": "Titre",
-        "status": "Statut"
+        "status": "Statut",
+        "likesCount": "Favoris"
       },
       "actions": {
         "create": "Créer une nouvelle série",

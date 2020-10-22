@@ -34,6 +34,7 @@ provider:
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionsBySlug
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionVideoNodes
         - ${self:custom.appsyncPrefix}/Query/fields/listCredits
+        - ${self:custom.appsyncPrefix}/Query/fields/listUserVideoNodesByVideoNodeAndList
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByParent
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByStatusSortByTitle
     - Effect: Allow

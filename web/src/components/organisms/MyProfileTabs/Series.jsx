@@ -136,6 +136,13 @@ const Series = () => {
         );
       },
     },
+    {
+      title: t('myProfilePage.series.table.likesCount'),
+      dataIndex: 'likesCount',
+      key: 'likesCount',
+      optional: true,
+      render: (likesCount) => likesCount || null,
+    },
   ];
 
   return (

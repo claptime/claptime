@@ -48,6 +48,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -58,6 +59,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
       type
       nodeType
       childrenCount
+      likesCount
       collections {
         items {
           id
@@ -105,6 +107,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -151,6 +154,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -221,6 +225,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -257,6 +262,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -332,6 +338,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -370,6 +377,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -393,6 +401,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -423,6 +432,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -461,6 +471,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -484,6 +495,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -512,6 +524,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -548,6 +561,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -623,6 +637,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -661,6 +676,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -684,6 +700,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -714,6 +731,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -752,6 +770,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -775,6 +794,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -803,6 +823,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -833,6 +854,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -871,6 +893,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -894,6 +917,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
