@@ -149,6 +149,7 @@ export const listCollections = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -214,6 +215,7 @@ export const getCollection = /* GraphQL */ `
       id
       slug
       name
+      status
       tagline
       description
       links {
@@ -246,6 +248,7 @@ export const getCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -299,6 +302,7 @@ export const getCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -372,6 +376,7 @@ export const listCollectionsBySlug = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -447,6 +452,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -821,6 +827,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -979,6 +986,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -1137,6 +1145,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -1424,6 +1433,7 @@ export const listProfiles = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -1499,6 +1509,7 @@ export const getProfile = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -1731,6 +1742,7 @@ export const getUserSettings = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -2143,6 +2155,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -2242,6 +2255,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId

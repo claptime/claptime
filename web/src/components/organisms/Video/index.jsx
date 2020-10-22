@@ -174,7 +174,8 @@ const Video = ({ video }) => {
 
   const collections = video.collections.items
     .filter(({ status }) => status === 'APPROVED')
-    .map(({ collection }) => collection);
+    .map(({ collection }) => collection)
+    .filter(({ status }) => status === 'PUBLISHED');
 
   const getInfos = () => {
     return (

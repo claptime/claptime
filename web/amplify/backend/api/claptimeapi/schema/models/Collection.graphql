@@ -1,3 +1,8 @@
+enum CollectionStatus {
+  DRAFT
+  PUBLISHED
+}
+
 type CollectionCategory @aws_iam @aws_cognito_user_pools {
   id: ID!
   category: String!
@@ -26,6 +31,7 @@ type Collection
   id: ID!
   slug: String!
   name: String!
+  status: CollectionStatus!
   tagline: String
   description: String
   links: [Link]

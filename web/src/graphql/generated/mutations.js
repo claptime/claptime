@@ -79,6 +79,7 @@ export const addEpisodeToSeries = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -178,6 +179,7 @@ export const addEpisodeToSeries = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -980,6 +982,7 @@ export const addVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -1079,6 +1082,7 @@ export const addVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -1881,6 +1885,7 @@ export const importVideo = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -1980,6 +1985,7 @@ export const importVideo = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -2782,6 +2788,7 @@ export const publishVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -2881,6 +2888,7 @@ export const publishVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -3683,6 +3691,7 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -3782,6 +3791,7 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -4595,6 +4605,7 @@ export const moveEpisodeAfter = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -4694,6 +4705,7 @@ export const moveEpisodeAfter = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -5514,6 +5526,7 @@ export const setVideoNodeMeta = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -5613,6 +5626,7 @@ export const setVideoNodeMeta = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -6423,6 +6437,7 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -6522,6 +6537,7 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -7324,6 +7340,7 @@ export const unpublishVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -7423,6 +7440,7 @@ export const unpublishVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -8177,6 +8195,7 @@ export const validateSubmission = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -8593,6 +8612,7 @@ export const createUserCollection = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -8663,6 +8683,7 @@ export const deleteUserCollection = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -8747,6 +8768,7 @@ export const createUserProfile = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -8827,6 +8849,7 @@ export const deleteUserProfile = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9491,6 +9514,7 @@ export const createCollection = /* GraphQL */ `
       id
       slug
       name
+      status
       tagline
       description
       links {
@@ -9523,6 +9547,7 @@ export const createCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9576,6 +9601,7 @@ export const createCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9636,6 +9662,7 @@ export const updateCollection = /* GraphQL */ `
       id
       slug
       name
+      status
       tagline
       description
       links {
@@ -9668,6 +9695,7 @@ export const updateCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9721,6 +9749,7 @@ export const updateCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9781,6 +9810,7 @@ export const deleteCollection = /* GraphQL */ `
       id
       slug
       name
+      status
       tagline
       description
       links {
@@ -9813,6 +9843,7 @@ export const deleteCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9866,6 +9897,7 @@ export const deleteCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -9936,6 +9968,7 @@ export const createCollectionVideoNode = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -10301,6 +10334,7 @@ export const updateCollectionVideoNode = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -10666,6 +10700,7 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -11044,6 +11079,7 @@ export const createCredit = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -11418,6 +11454,7 @@ export const deleteCredit = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -11783,6 +11820,7 @@ export const createProfile = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -11979,6 +12017,7 @@ export const updateProfile = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -12211,6 +12250,7 @@ export const createUserSettings = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -12305,6 +12345,7 @@ export const updateUserSettings = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -12399,6 +12440,7 @@ export const deleteUserSettings = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -12509,6 +12551,7 @@ export const createVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -12608,6 +12651,7 @@ export const createVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -13410,6 +13454,7 @@ export const updateVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -13509,6 +13554,7 @@ export const updateVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -14311,6 +14357,7 @@ export const deleteVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -14410,6 +14457,7 @@ export const deleteVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId

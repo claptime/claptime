@@ -86,7 +86,8 @@ export const Collection = ({
 {
 	id
 	slug
-	name
+  name
+  status
 	createdAt
 	owner
   ${

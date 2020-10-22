@@ -284,6 +284,16 @@
   "collection": {
     "subscribe": "S'abonner",
     "unsubscribe": "Se désabonner",
+    "status": {
+      "DRAFT": {
+        "title": "En cours de création",
+        "description": "Votre collection n'est pas en ligne. Contactez-nous pour la publier."
+      },
+      "PUBLISHED": {
+        "title": "Publiée",
+        "description": "La collection est en ligne."
+      }
+    },
     "edit": {
       "pageTitle": "Éditer la collection",
       "name": "Nom",
@@ -752,6 +762,7 @@
         "cover": "Affiche",
         "name": "Nom",
         "creationDate": "Date de création",
+        "status": "Status",
         "actions": "Actions",
         "view": "Voir la collection",
         "edit": "Éditer la collection",

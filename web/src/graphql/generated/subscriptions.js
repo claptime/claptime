@@ -73,6 +73,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -172,6 +173,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
