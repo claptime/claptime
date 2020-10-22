@@ -62,6 +62,14 @@ const StyledList = styled(List)`
   }
 `;
 
+const MyPopover = ({ className, ...props }) => <Popover {...props} overlayClassName={className} />
+
+const StyledPopover = styled(MyPopover)`
+  .ant-popover-content {
+    width: 500px;
+  }
+`;
+
 const Notifications = () => {
   const [notificationsList, setNotificationsList] = useState([]);
 
@@ -143,7 +151,7 @@ const Notifications = () => {
       case 'VIDEO_STATUS_CHANGE': {
         const { title, newStatus, videoNodeId } = jsonPayload;
         link = `/video/${videoNodeId}`;
-        extra = <Covers.Video width={60} height={80} videoId={videoNodeId} />;
+        extra = <Covers.Video width={69} height={92} videoId={videoNodeId} />;
         notificationDescription = (
           <Trans i18nKey={'notifications.videoStatusChange.'.concat(newStatus)}>
             <strong>{{ title }}</strong> est maintenant en ligne !
@@ -157,7 +165,7 @@ const Notifications = () => {
           videoNode: { id: videoNodeId, title: videoNodeTitle },
         } = jsonPayload;
         link = `/video/${videoNodeId}`;
-        extra = <Covers.Video width={60} height={80} videoId={videoNodeId} />;
+        extra = <Covers.Video width={69} height={92} videoId={videoNodeId} />;
         notificationDescription = (
           <Trans i18nKey="notifications.videoNodeAddedToCollectionSubscribers">
             <strong>{{ videoNodeTitle }}</strong>, nouvel ajout dans la
@@ -187,11 +195,12 @@ const Notifications = () => {
   const iconColor = unreadNotifications > 0 ? strawberry : primary;
 
   return (
-    <Popover
+    <StyledPopover
       placement="bottomRight"
       content={getPopoverContent()}
       title={t('notifications.popover.title')}
       trigger="click"
+      style={{width: '500px'}}
     >
       <Tooltip title={t('notifications.tooltip')}>
         <Badge
@@ -211,7 +220,7 @@ const Notifications = () => {
           />
         </Badge>
       </Tooltip>
-    </Popover>
+    </StyledPopover>
   );
 };
 
