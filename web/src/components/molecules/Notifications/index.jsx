@@ -62,6 +62,8 @@ const StyledList = styled(List)`
   }
 `;
 
+
+// Popover need to be wrapped to support styled-component: https://github.com/yesmeck/styled-antd/issues/1
 const MyPopover = ({ className, ...props }) => <Popover {...props} overlayClassName={className} />
 
 const StyledPopover = styled(MyPopover)`
