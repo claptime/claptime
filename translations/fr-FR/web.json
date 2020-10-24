@@ -8,6 +8,22 @@
       "contactButton": "Nous contacter"
     }
   },
+  "admin": {
+    "container": {
+      "title": "Admin",
+      "tabs": {
+        "news": "Actualités"
+      }
+    },
+    "news": {
+      "table": {
+        "title": "Titre",
+        "publicationDate": "Date de publication",
+        "actions": "Actions",
+        "view": "Voir"
+      }
+    }
+  },
   "myFavoritesPage": {
     "title": "Mes coups de cœur",
     "emptyTitle": "Pas encore de coup de cœur",
@@ -194,6 +210,9 @@
     "about/press": {
       "title": "Espace presse – Claptime",
       "description": "Retrouvez nos parutions presse et nos communiqués."
+    },
+    "admin": {
+      "title": "Admin – Claptime"
     },
     "collection": {
       "title": "{{name}} – Une collection de films et séries sur Claptime",
@@ -782,6 +801,7 @@
     }
   },
   "navbar": {
+    "admin": "Admin",
     "browse": "Parcourir",
     "browseProfiles": "les cinéastes",
     "browseCollections": "les collections",

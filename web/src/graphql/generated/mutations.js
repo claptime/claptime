@@ -8824,6 +8824,69 @@ export const setNotificationPreference = /* GraphQL */ `
     }
   }
 `;
+export const createNews = /* GraphQL */ `
+  mutation CreateNews($input: CreateNewsInput!) {
+    createNews(input: $input) {
+      id
+      title
+      description
+      button {
+        text
+        url
+      }
+      links {
+        type
+        url
+      }
+      createdAt
+      createdBy
+      owner
+      updatedAt
+    }
+  }
+`;
+export const updateNews = /* GraphQL */ `
+  mutation UpdateNews($input: UpdateNewsInput!) {
+    updateNews(input: $input) {
+      id
+      title
+      description
+      button {
+        text
+        url
+      }
+      links {
+        type
+        url
+      }
+      createdAt
+      createdBy
+      owner
+      updatedAt
+    }
+  }
+`;
+export const deleteNews = /* GraphQL */ `
+  mutation DeleteNews($input: DeleteNewsInput!) {
+    deleteNews(input: $input) {
+      id
+      title
+      description
+      button {
+        text
+        url
+      }
+      links {
+        type
+        url
+      }
+      createdAt
+      createdBy
+      owner
+      updatedAt
+    }
+  }
+`;
 export const createUserCollection = /* GraphQL */ `
   mutation CreateUserCollection($input: CreateUserCollectionInput!) {
     createUserCollection(input: $input) {

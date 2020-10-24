@@ -536,6 +536,76 @@
               "deprecationReason": null
             },
             {
+              "name": "getNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "listNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelNewsFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelNewsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "listProfiles",
               "description": null,
               "args": [
@@ -4855,6 +4925,332 @@
         },
         {
           "kind": "OBJECT",
+          "name": "News",
+          "description": null,
+          "fields": [
+            {
+              "name": "id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "button",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "NewsButton",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "links",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Link",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSDateTime",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "NewsButton",
+          "description": null,
+          "fields": [
+            {
+              "name": "text",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ModelNewsConnection",
+          "description": null,
+          "fields": [
+            {
+              "name": "items",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "News",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nextToken",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelNewsFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelIDFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelNewsFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelNewsFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "not",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelNewsFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ModelProfileConnection",
           "description": null,
           "fields": [
@@ -7029,6 +7425,87 @@
               "deprecationReason": null
             },
             {
+              "name": "createNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateNewsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateNewsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteNewsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createUserCollection",
               "description": null,
               "args": [
@@ -7657,6 +8134,303 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateNewsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "button",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NewsButtonInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "links",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "LinkInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NewsButtonInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "text",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "LinkInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "LinkType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateNewsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "button",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NewsButtonInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "links",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "LinkInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteNewsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateUserCollectionInput",
           "description": null,
           "fields": null,
@@ -8160,45 +8934,6 @@
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "LinkInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "type",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "LinkType",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "url",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
               },
               "defaultValue": null
             }
@@ -9803,6 +10538,122 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "ModelUserCollectionPrimaryCompositeKeyConditionInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "beginsWith",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelUserCollectionPrimaryCompositeKeyInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "list",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "UserCollectionList",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userCollectionCollectionId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "ModelFloatFilterInput",
           "description": null,
           "fields": null,
@@ -9989,122 +10840,6 @@
             },
             {
               "name": "userProfileProfileId",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ModelUserCollectionPrimaryCompositeKeyConditionInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "eq",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "le",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "lt",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "ge",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "gt",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "between",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "beginsWith",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ModelUserCollectionPrimaryCompositeKeyInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "list",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "UserCollectionList",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "userCollectionCollectionId",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -11104,15 +11839,6 @@
           "onField": false
         },
         {
-          "name": "aws_oidc",
-          "description": "Tells the service this field/object has access authorized by an OIDC token.",
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
           "name": "deprecated",
           "description": null,
           "locations": ["FIELD_DEFINITION", "ENUM_VALUE"],
@@ -11128,6 +11854,15 @@
               "defaultValue": "\"No longer supported\""
             }
           ],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_oidc",
+          "description": "Tells the service this field/object has access authorized by an OIDC token.",
+          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "args": [],
           "onOperation": false,
           "onFragment": false,
           "onField": false

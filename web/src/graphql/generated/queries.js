@@ -1433,6 +1433,55 @@ export const listCredits = /* GraphQL */ `
     }
   }
 `;
+export const getNews = /* GraphQL */ `
+  query GetNews($id: ID!) {
+    getNews(id: $id) {
+      id
+      title
+      description
+      button {
+        text
+        url
+      }
+      links {
+        type
+        url
+      }
+      createdAt
+      createdBy
+      owner
+      updatedAt
+    }
+  }
+`;
+export const listNews = /* GraphQL */ `
+  query ListNews(
+    $filter: ModelNewsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        button {
+          text
+          url
+        }
+        links {
+          type
+          url
+        }
+        createdAt
+        createdBy
+        owner
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listProfiles = /* GraphQL */ `
   query ListProfiles(
     $filter: ModelProfileFilterInput

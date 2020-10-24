@@ -121,6 +121,25 @@ export const Collection = ({
   }
 }`;
 
+export const News = () => `
+{
+  id
+  title
+  description
+  button {
+    text
+    url
+  }
+  links {
+    type
+    url
+  }
+  createdAt
+  createdBy
+  owner
+}
+`;
+
 export const VideoNode = ({
   level = LEVELS.REGULAR,
   profile = defaultParams,
