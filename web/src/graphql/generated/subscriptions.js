@@ -64,11 +64,11 @@ export const onUpdateVideoNode = /* GraphQL */ `
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
+          rejectionReason
           collectionVideoNodeVideoNodeId
           createdAt
-          owner
           updatedAt
+          owner
           collection {
             id
             slug
@@ -261,11 +261,11 @@ export const onUpdateVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }
@@ -552,11 +552,11 @@ export const onUpdateVideoNode = /* GraphQL */ `
             collectionVideoNodeCollectionId
             status
             categoryId
-            review
+            rejectionReason
             collectionVideoNodeVideoNodeId
             createdAt
-            owner
             updatedAt
+            owner
           }
           nextToken
         }

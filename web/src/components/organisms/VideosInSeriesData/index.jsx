@@ -271,7 +271,7 @@ const VideosInSeriesData = ({ series, onUpdate }) => {
         <DataTable
           columns={columnsModal}
           items={userVideosNotInSeries}
-          getEditionLink={({ id }) => {}}
+          getLink={({ id }) => {}}
           rowSelection={rowSelectionConfig}
         />
       </Modal>
@@ -280,7 +280,7 @@ const VideosInSeriesData = ({ series, onUpdate }) => {
         <DataTable
           columns={columns}
           items={videosInSeries}
-          getEditionLink={() => {}}
+          getLink={() => {}}
           disabled={tableDisabled}
           dragNDrop
           onDragNDrop={changeEpisodesOrder}

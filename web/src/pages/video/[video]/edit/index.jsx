@@ -35,7 +35,7 @@ import Link from 'next/link';
 
 import styled from 'styled-components';
 
-import { Spin } from 'claptime/components/atoms';
+import { Spin, Subtitle } from 'claptime/components/atoms';
 import {
   Charter,
   CreditsInput,
@@ -44,6 +44,7 @@ import {
   Layouts,
   VideoDropzone,
 } from 'claptime/components/molecules';
+import VideoNodeSubmissions from 'claptime/components/organisms/VideoNodeSubmissions';
 import VideoStatus from 'claptime/components/organisms/VideoStatus';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
@@ -498,6 +499,13 @@ const VideoEditPage = () => {
               margin: '0 9%',
             }}
           >
+            <VideoStatus status={status} isUploading={isUploading} />
+            {status === consts.videos.status.PUBLISHED ? (
+              <VideoNodeSubmissions videoNodeId={videoId} />
+            ) : null}
+            <Subtitle style={{ margin: '16px 0 ' }}>
+              {t('video.edit.sheetSubtitle')}
+            </Subtitle>
             <Form
               form={form}
               id="video-edit-form"
@@ -560,6 +568,13 @@ const VideoEditPage = () => {
                           setUnsavedChanges(true); // onChange is triggered when loading
                         }
                       }}
+                    />
+                  </Form.Item>
+                  <Form.Item name="credits" label={t('video.edit.credits')}>
+                    <CreditsInput
+                      textColor={consts.style.colors.dark}
+                      editable={!disabled}
+                      onChange={() => setUnsavedChanges(true)}
                     />
                   </Form.Item>
                 </Layouts.Form.Column>
@@ -735,16 +750,6 @@ const VideoEditPage = () => {
                     <Switch
                       disabled={disabled}
                       defaultChecked={video.donationsAvailable}
-                      onChange={() => setUnsavedChanges(true)}
-                    />
-                  </Form.Item>
-                </Layouts.Form.Column>
-                <Layouts.Form.Column>
-                  <VideoStatus status={status} isUploading={isUploading} />
-                  <Form.Item name="credits" label={t('video.edit.credits')}>
-                    <CreditsInput
-                      textColor={consts.style.colors.dark}
-                      editable={!disabled}
                       onChange={() => setUnsavedChanges(true)}
                     />
                   </Form.Item>

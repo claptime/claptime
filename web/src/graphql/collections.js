@@ -78,6 +78,29 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
   }
 `;
 
+export const listCollectionVideoNodes = /* GraphQL */ `
+  query ListCollectionVideoNodes(
+    $filter: ModelCollectionVideoNodeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCollectionVideoNodes(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) ${Connection({
+      children: CollectionVideoNode({
+        collection: {
+          level: LEVELS.COMPLETE,
+        },
+        videoNode: {
+          level: LEVELS.REGULAR,
+        },
+      }),
+    })}
+  }
+`;
+
 export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /* GraphQL */ `
   query ListCollectionVideoNodesByCollectionAndCategorySortByCreatedAt(
     $collectionVideoNodeCollectionId: ID
@@ -113,5 +136,21 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
         },
       }),
     })}
+  }
+`;
+
+export const validateSubmission = /* GraphQL */ `
+  mutation ValidateSubmission(
+    $collectionVideoNodeId: ID!
+    $status: CollectionVideoNodeStatus!
+    $rejectionReason: String
+  ) {
+    validateSubmission(
+      collectionVideoNodeId: $collectionVideoNodeId
+      status: $status
+      rejectionReason: $rejectionReason
+    ) {
+      id
+    }
   }
 `;

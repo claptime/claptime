@@ -1,8 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
+import { Button, Tooltip } from 'antd';
+import { CheckOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons';
 
-import { Covers } from 'claptime/components/atoms';
+import { ButtonGroup, Covers } from 'claptime/components/atoms';
 import DataTable from 'claptime/components/organisms/DataTable';
 import { listCollections } from 'claptime/graphql/collections';
 import { useQueryList } from 'claptime/lib/apollo';
@@ -52,15 +55,47 @@ const Collections = () => {
       optional: true,
       render: (date) => moment(date).calendar(),
     },
+    {
+      title: t('myProfilePage.collections.table.actions'),
+      key: 'actions',
+      render: (text, record) => (
+        <ButtonGroup>
+          <Tooltip title={t('myProfilePage.collections.table.view')}>
+            <Link
+              href="/collection/[collection]"
+              as={`/collection/${record.slug}`}
+            >
+              <a>
+                <Button icon={<EyeOutlined />} />
+              </a>
+            </Link>
+          </Tooltip>
+          <Tooltip title={t('myProfilePage.collections.table.view')}>
+            <Link
+              href="/collection/[collection]/edit"
+              as={`/collection/${record.slug}/edit`}
+            >
+              <a>
+                <Button icon={<EditOutlined />} />
+              </a>
+            </Link>
+          </Tooltip>
+          <Tooltip title={t('myProfilePage.collections.table.validate')}>
+            <Link
+              href="/collection/[collection]/submissions"
+              as={`/collection/${record.slug}/submissions`}
+            >
+              <a>
+                <Button icon={<CheckOutlined />} />
+              </a>
+            </Link>
+          </Tooltip>
+        </ButtonGroup>
+      ),
+    },
   ];
 
-  return (
-    <DataTable
-      columns={columns}
-      items={collections}
-      getEditionLink={({ slug }) => `/collection/${slug}/edit`}
-    />
-  );
+  return <DataTable columns={columns} items={collections} />;
 };
 
 export default Collections;

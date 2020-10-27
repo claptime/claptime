@@ -15,6 +15,7 @@ module.exports = ({ users, getRandomDatetime }) => {
       createdBy: users.regular.username,
       id: `${collectionVideoNodeCollectionId}-${collectionVideoNodeVideoNodeId}`,
       owner: users.regular.username,
+      status: 'APPROVED',
       updatedAt: createdAt,
     };
   };

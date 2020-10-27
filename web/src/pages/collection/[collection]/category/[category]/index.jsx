@@ -66,6 +66,11 @@ const CollectionCategoryPage = ({ collection, imageUrl }) => {
             categoryId,
           },
         },
+        filter: {
+          status: {
+            eq: 'APPROVED',
+          },
+        },
         sortDirection: 'DESC',
         limit: 20,
       },

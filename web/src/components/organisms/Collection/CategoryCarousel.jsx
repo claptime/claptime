@@ -53,6 +53,11 @@ const CategoryCarousel = ({ collectionId, collectionSlug, category }) => {
             categoryId: category.id,
           },
         },
+        filter: {
+          status: {
+            eq: 'APPROVED',
+          },
+        },
         sortDirection: 'DESC',
         limit: 10,
       },

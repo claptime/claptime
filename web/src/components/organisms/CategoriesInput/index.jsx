@@ -32,7 +32,7 @@ const CategoriesInput = ({
     }
   };
 
-  const categoryHasVideoNodes = async (category) => {
+  const categoryHasApprovedVideoNodes = async (category) => {
     const {
       data: {
         listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt: {
@@ -50,6 +50,11 @@ const CategoriesInput = ({
             categoryId: category.id,
           },
         },
+        filter: {
+          status: {
+            eq: 'APPROVED',
+          },
+        },
         limit: 1,
       },
     });
@@ -59,7 +64,7 @@ const CategoriesInput = ({
   const deleteCategory = async (category) => {
     if (onChange) {
       setDeleting(true);
-      if (await categoryHasVideoNodes(category)) {
+      if (await categoryHasApprovedVideoNodes(category)) {
         message.error(t('collection.edit.categoriesDeleteMustBeEmpty'));
       } else {
         onChange(value.filter((cur) => cur.id !== category.id));
