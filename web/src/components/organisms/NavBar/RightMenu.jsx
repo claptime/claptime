@@ -112,6 +112,13 @@ const RightMenu = ({ mode }) => {
                 <a>{t('navbar.myProfile')}</a>
               </Link>
             </StyledMenuItem>
+            {user.isAdmin ? (
+              <StyledMenuItem color={primary} key="admin">
+                <Link href="/admin">
+                  <a>{t('navbar.admin')}</a>
+                </Link>
+              </StyledMenuItem>
+            ) : null}
             <StyledMenuItem color={primary} key="help">
               <a
                 rel="noopener noreferrer"

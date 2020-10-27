@@ -229,6 +229,10 @@
       "title": "Toutes les collections sur Claptime",
       "description": "Des collections de films et de séries pour tous les goûts sur Claptime."
     },
+    "laLuciole": {
+      "title": "Festival La Luciole sur Claptime",
+      "description": "La Luciole est le festival 100% online organisé par l’équipe de La Nuit des Caméras !\nMême si le festival La Nuit des Caméras a été repoussé en avril 2021, nous ne voulions pas en rester là.\nC’est ainsi qu’est né \"La Luciole\" ! – Claptime"
+    },
     "legal": {
       "title": "Mentions légales – Claptime"
     },
@@ -686,6 +690,9 @@
       "collections": "Collections"
     }
   },
+  "laLuciolePage": {
+    "title": "Festival La Luciole 2020"
+  },
   "myAccountPage": {
     "container": {
       "title": "Mon compte",
@@ -798,6 +805,7 @@
     }
   },
   "navbar": {
+    "admin": "Admin",
     "browse": "Parcourir",
     "browseProfiles": "les cinéastes",
     "browseCollections": "les collections",
@@ -875,5 +883,8 @@
   "punchline": "Restez créatif.",
   "madeInFrance": "Réalisé avec de l'amour et des croissants en France.",
   "seeLess": "Voir moins",
-  "seeMore": "Voir plus"
+  "seeMore": "Voir plus",
+  "festivals": {
+    "laLuciole": {}
+  }
 }
