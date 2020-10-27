@@ -96,6 +96,13 @@ const Videos = () => {
         );
       },
     },
+    {
+      title: t('myProfilePage.videos.table.likesCount'),
+      dataIndex: 'likesCount',
+      key: 'likesCount',
+      optional: true,
+      render: (likesCount) => likesCount || null,
+    },
   ];
 
   return (

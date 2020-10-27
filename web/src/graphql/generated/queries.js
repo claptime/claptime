@@ -67,6 +67,7 @@ export const listViews = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -105,6 +106,7 @@ export const listViews = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -128,6 +130,7 @@ export const listViews = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -149,6 +152,7 @@ export const listCollections = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -214,6 +218,7 @@ export const getCollection = /* GraphQL */ `
       id
       slug
       name
+      status
       tagline
       description
       links {
@@ -246,6 +251,7 @@ export const getCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -277,6 +283,7 @@ export const getCollection = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -299,6 +306,7 @@ export const getCollection = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -346,6 +354,7 @@ export const getCollection = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -372,6 +381,7 @@ export const listCollectionsBySlug = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -447,6 +457,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
         id
         slug
         name
+        status
         tagline
         description
         links {
@@ -534,6 +545,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -609,6 +621,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -647,6 +660,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -670,6 +684,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -700,6 +715,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -738,6 +754,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -761,6 +778,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -789,6 +807,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -821,6 +840,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -877,6 +897,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -915,6 +936,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -938,6 +960,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -979,6 +1002,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -1035,6 +1059,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -1073,6 +1098,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -1096,6 +1122,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -1137,6 +1164,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -1193,6 +1221,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -1231,6 +1260,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -1254,6 +1284,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -1328,6 +1359,7 @@ export const listCredits = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -1366,6 +1398,7 @@ export const listCredits = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -1389,11 +1422,61 @@ export const listCredits = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
           }
         }
+      }
+      nextToken
+    }
+  }
+`;
+export const getNews = /* GraphQL */ `
+  query GetNews($id: ID!) {
+    getNews(id: $id) {
+      id
+      title
+      description
+      button {
+        text
+        url
+      }
+      links {
+        type
+        url
+      }
+      createdAt
+      createdBy
+      owner
+      updatedAt
+    }
+  }
+`;
+export const listNews = /* GraphQL */ `
+  query ListNews(
+    $filter: ModelNewsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        button {
+          text
+          url
+        }
+        links {
+          type
+          url
+        }
+        createdAt
+        createdBy
+        owner
+        updatedAt
       }
       nextToken
     }
@@ -1424,6 +1507,7 @@ export const listProfiles = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -1471,6 +1555,7 @@ export const listProfiles = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -1499,6 +1584,7 @@ export const getProfile = /* GraphQL */ `
           id
           slug
           name
+          status
           tagline
           description
           links {
@@ -1574,6 +1660,7 @@ export const getProfile = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -1604,6 +1691,7 @@ export const getProfile = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -1642,6 +1730,7 @@ export const getProfile = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -1665,6 +1754,7 @@ export const getProfile = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -1687,39 +1777,6 @@ export const getUserSettings = /* GraphQL */ `
         channel
         frequency
       }
-      videoNodes {
-        items {
-          list
-          userSettingsVideoNodesId
-          userVideoNodeVideoNodeId
-          createdAt
-          updatedAt
-          videoNode {
-            id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
-            createdAt
-            updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-          }
-        }
-        nextToken
-      }
       collections {
         items {
           list
@@ -1731,6 +1788,7 @@ export const getUserSettings = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -1766,6 +1824,284 @@ export const getUserSettings = /* GraphQL */ `
       owner
       createdAt
       updatedAt
+      videoNodes {
+        items {
+          list
+          userSettingsVideoNodesId
+          userVideoNodeVideoNodeId
+          createdAt
+          updatedAt
+          videoNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const listUserVideoNodes = /* GraphQL */ `
+  query ListUserVideoNodes(
+    $userSettingsVideoNodesId: String
+    $listUserVideoNodeVideoNodeId: ModelUserVideoNodePrimaryCompositeKeyConditionInput
+    $filter: ModelUserVideoNodeFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listUserVideoNodes(
+      userSettingsVideoNodesId: $userSettingsVideoNodesId
+      listUserVideoNodeVideoNodeId: $listUserVideoNodeVideoNodeId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        list
+        userSettingsVideoNodesId
+        userVideoNodeVideoNodeId
+        createdAt
+        updatedAt
+        videoNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          likesCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+`;
+export const listUserVideoNodesByVideoNodeAndList = /* GraphQL */ `
+  query ListUserVideoNodesByVideoNodeAndList(
+    $userVideoNodeVideoNodeId: ID
+    $list: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelUserVideoNodeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUserVideoNodesByVideoNodeAndList(
+      userVideoNodeVideoNodeId: $userVideoNodeVideoNodeId
+      list: $list
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        list
+        userSettingsVideoNodesId
+        userVideoNodeVideoNodeId
+        createdAt
+        updatedAt
+        videoNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          likesCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+      }
+      nextToken
     }
   }
 `;
@@ -1808,6 +2144,7 @@ export const listVideoNodes = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -1883,6 +2220,7 @@ export const listVideoNodes = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -1921,6 +2259,7 @@ export const listVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -1944,6 +2283,7 @@ export const listVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -1974,6 +2314,7 @@ export const listVideoNodes = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -2012,6 +2353,7 @@ export const listVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -2035,6 +2377,7 @@ export const listVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -2063,6 +2406,7 @@ export const listVideoNodes = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -2118,6 +2462,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -2128,6 +2473,7 @@ export const getVideoNode = /* GraphQL */ `
       type
       nodeType
       childrenCount
+      likesCount
       collections {
         items {
           id
@@ -2143,6 +2489,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -2174,6 +2521,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -2220,6 +2568,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
         }
         nextToken
@@ -2242,6 +2591,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             slug
             name
+            status
             tagline
             description
             collectionProfileId
@@ -2289,6 +2639,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -2325,6 +2676,7 @@ export const getVideoNode = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -2400,6 +2752,7 @@ export const getVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -2438,6 +2791,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -2461,6 +2815,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -2491,6 +2846,7 @@ export const getVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -2529,6 +2885,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -2552,6 +2909,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -2580,6 +2938,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -2616,6 +2975,7 @@ export const getVideoNode = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -2691,6 +3051,7 @@ export const getVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -2729,6 +3090,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -2752,6 +3114,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -2782,6 +3145,7 @@ export const getVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -2820,6 +3184,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -2843,6 +3208,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -2871,6 +3237,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -2901,6 +3268,7 @@ export const getVideoNode = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -2939,6 +3307,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -2962,6 +3331,7 @@ export const getVideoNode = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3021,6 +3391,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -3096,6 +3467,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -3134,6 +3506,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -3157,6 +3530,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3187,6 +3561,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -3225,6 +3600,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -3248,6 +3624,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3276,6 +3653,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -3333,6 +3711,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -3408,6 +3787,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -3446,6 +3826,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -3469,6 +3850,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3499,6 +3881,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -3537,6 +3920,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -3560,6 +3944,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3588,6 +3973,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }
@@ -3643,6 +4029,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
         type
         nodeType
         childrenCount
+        likesCount
         collections {
           items {
             id
@@ -3718,6 +4105,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -3756,6 +4144,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -3779,6 +4168,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3809,6 +4199,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
           type
           nodeType
           childrenCount
+          likesCount
           collections {
             nextToken
           }
@@ -3847,6 +4238,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           parentNode {
             id
@@ -3870,6 +4262,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           childNodes {
             nextToken
@@ -3898,6 +4291,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             type
             nodeType
             childrenCount
+            likesCount
           }
           nextToken
         }

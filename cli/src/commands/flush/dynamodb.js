@@ -73,6 +73,7 @@ class DynamodbCommand extends Command {
 
       { name: 'Credit' },
       { name: 'Profile' },
+      { name: 'News' },
       {
         name: 'UserCollection',
         schema: {

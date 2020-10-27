@@ -159,9 +159,14 @@ const SearchBar = () => {
       queryName: 'listCollections',
       variables: {
         filter: {
-          and: words.map((word) => ({
-            searchField: { contains: word },
-          })),
+          and: [
+            ...words.map((word) => ({
+              searchField: { contains: word },
+            })),
+            {
+              status: { eq: 'PUBLISHED' },
+            },
+          ],
         },
       },
       limit: DISPLAY_NUMBER,

@@ -336,6 +336,53 @@ const listCredits = async (filter) => {
   return items;
 };
 
+const listUserVideoNodesByVideoNodeAndList = async (videoNodeId, list) => {
+  let nextToken;
+  const items = [];
+  do {
+    const {
+      data: { listUserVideoNodesByVideoNodeAndList: userVideoNodes },
+    } = await appSyncClient.query({
+      query: gql(/* GraphQL */ `
+        query ListUserVideoNodesByVideoNodeAndList(
+          $userVideoNodeVideoNodeId: ID
+          $list: ModelStringKeyConditionInput
+          $sortDirection: ModelSortDirection
+          $filter: ModelUserVideoNodeFilterInput
+          $limit: Int
+          $nextToken: String
+        ) {
+          listUserVideoNodesByVideoNodeAndList(
+            userVideoNodeVideoNodeId: $userVideoNodeVideoNodeId
+            list: $list
+            sortDirection: $sortDirection
+            filter: $filter
+            limit: $limit
+            nextToken: $nextToken
+          ) {
+            items {
+              list
+              userSettingsVideoNodesId
+              userVideoNodeVideoNodeId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+        }
+      `),
+      variables: {
+        userVideoNodeVideoNodeId: videoNodeId,
+        list,
+        nextToken,
+      },
+    });
+    ({ nextToken } = userVideoNodes);
+    items.push(...userVideoNodes.items);
+  } while (nextToken);
+  return items;
+};
+
 const listVideoNodesByParent = async (parentId) => {
   let nextToken;
   const items = [];
@@ -485,6 +532,7 @@ module.exports = {
   getVideoNode,
   listCollectionVideoNodes,
   listCredits,
+  listUserVideoNodesByVideoNodeAndList,
   listVideoNodesByParent,
   listVideoNodesByStatusSortByTitle,
   updateCollectionVideoNode,

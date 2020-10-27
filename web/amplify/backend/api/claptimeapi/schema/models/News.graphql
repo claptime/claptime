@@ -1,0 +1,26 @@
+type NewsButton @aws_iam @aws_cognito_user_pools {
+  text: String!
+  url: String!
+}
+
+type News
+@model(
+  queries: { get: "getNews", list: "listNews" },
+  mutations: { create: "createNews", update: "updateNews", delete: "deleteNews" },
+  subscriptions: null,
+)
+@auth(rules: [
+  { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  title: String!
+  description: String
+  button: NewsButton
+  links: [Link]
+  createdAt: AWSDateTime
+  createdBy: String
+  owner: String
+}

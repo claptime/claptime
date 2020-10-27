@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { Button, Tooltip } from 'antd';
+import { Button, Tag, Tooltip } from 'antd';
 import { CheckOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons';
 
 import { ButtonGroup, Covers } from 'claptime/components/atoms';
@@ -13,13 +13,13 @@ import { useUserState } from 'claptime/lib/user';
 
 const Collections = () => {
   const { t } = useTranslation();
-  const { username: userId } = useUserState();
+  const user = useUserState();
   const { items, response } = useQueryList(
     listCollections,
     {
       variables: {
         filter: {
-          createdBy: { eq: userId },
+          collectionProfileId: { eq: user.settings.profileId },
         },
         limit: 100,
       },
@@ -54,6 +54,29 @@ const Collections = () => {
       key: 'creationDate',
       optional: true,
       render: (date) => moment(date).calendar(),
+    },
+    {
+      title: t('myProfilePage.collections.table.status'),
+      dataIndex: 'status',
+      key: 'status',
+      render: (status, row) => {
+        let color;
+        switch (status) {
+          case 'PUBLISHED':
+            color = 'green';
+            break;
+          case 'DRAFT':
+          default:
+            color = 'gold';
+        }
+        return (
+          <Tooltip title={t(`collection.status.${status}.description`)}>
+            <Tag color={color} key={status}>
+              {t(`collection.status.${status}.title`)}
+            </Tag>
+          </Tooltip>
+        );
+      },
     },
     {
       title: t('myProfilePage.collections.table.actions'),

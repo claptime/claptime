@@ -114,7 +114,9 @@ const Profile = ({ profile }) => {
   const series = videosPublished.filter(
     ({ type, childrenCount }) => type === 'SERIES' && childrenCount,
   );
-  const collections = profile.collections.items;
+  const collections = profile.collections.items.filter(
+    ({ status }) => status === 'PUBLISHED',
+  );
 
   return (
     <Container>
