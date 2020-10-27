@@ -86,6 +86,7 @@ const SubmitToCollection = ({ videoNode, onChange }) => {
                       style={{
                         display: 'inline-block',
                         verticalAlign: 'middle',
+                        whiteSpace: 'normal',
                       }}
                     >
                       <span style={{ fontSize: '1.5em' }}>

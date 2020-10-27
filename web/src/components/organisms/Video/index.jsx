@@ -318,7 +318,7 @@ const Video = ({ video }) => {
               {previousEpisode &&
                 (previousIsPublished ? (
                   <Link
-                    href="video/[video]"
+                    href="/video/[video]"
                     as={`/video/${previousEpisode.id}`}
                   >
                     <a>
