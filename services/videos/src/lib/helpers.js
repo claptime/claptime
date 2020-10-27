@@ -1,7 +1,10 @@
 const { sendEmailToUser } = require('claptime-commons/emails');
+const { getCognitoUserById } = require('claptime-commons/cognito');
+const { updateCollectionVideoNode } = require('./models');
 
 const {
   createCollectionVideoNode,
+  getCollection,
   getCollectionBySlug,
   getVideoNode,
 } = require('./models');
@@ -31,7 +34,7 @@ const submitToCollection = async (
     throw new Error('CollectionDoesNotExist');
   }
 
-  await createCollectionVideoNode({
+  const collectionVideoNode = await createCollectionVideoNode({
     status: 'SUBMITTED',
     collectionVideoNodeVideoNodeId: videoNodeId,
     collectionVideoNodeCollectionId: collection.id,
@@ -39,17 +42,75 @@ const submitToCollection = async (
     owner: claims.sub,
   });
   console.log('CollectionVideoNode created');
+
+  // Find collection owner email
+  const { UserAttributes } = await getCognitoUserById(
+    process.env.COGNITO_USERPOOL_ID,
+    collection.owner,
+  );
+  const email = UserAttributes.find(({ Name }) => Name === 'email').Value;
+
+  // Send email to collection owner
   await sendEmailToUser(
     'submit',
     claims,
-    { videoNode, collection },
-    claims.email,
+    {
+      videoNode,
+      collection,
+    },
+    email,
   );
-  console.log('Email sent to user');
+  console.log('Email sent to collection owner');
+
+  // TODO send notification
+
   await slackVideoNode('published', videoNode);
   console.log('Slack message sent');
+  return collectionVideoNode;
+};
+
+const validateSubmission = async (
+  collectionVideoNode,
+  status,
+  rejectionReason,
+  claims,
+) => {
+  const res = await updateCollectionVideoNode({
+    id: collectionVideoNode.id,
+    status,
+    rejectionReason: (status === 'REJECTED' && rejectionReason) || null,
+    // If omitted, these field are overriden in the record
+    categoryId: collectionVideoNode.categoryId,
+    createdAt: collectionVideoNode.createdAt,
+    createdBy: collectionVideoNode.createdBy,
+  });
+
+  const collection = await getCollection(
+    collectionVideoNode.collectionVideoNodeCollectionId,
+  );
+  const videoNode = await getVideoNode(
+    collectionVideoNode.collectionVideoNodeVideoNodeId,
+  );
+
+  // Send email to author
+  await sendEmailToUser(
+    status === 'APPROVED' ? 'approve' : 'reject',
+    claims,
+    {
+      videoNode,
+      collection,
+      rejectionReason,
+    },
+    claims.email,
+  );
+  console.log('Email sent to author');
+
+  // TODO send notification
+
+  return res;
 };
 
 module.exports = {
   submitToCollection,
+  validateSubmission,
 };

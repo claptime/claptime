@@ -1,7 +1,6 @@
 {{#> layouts/base.html }}
 {{#*inline "body-block"}}
-Nouvelle soumission dans votre collection <b>{{collection.name}}</b> : "{{videoNode.title}}".
-Découvrez-la <a href="{{getVideoNodeLink videoNode}}">à cette adresse</a> et choisissez si vous souhaitez l'intégrer à
-votre collection.
+Nouvelle soumission dans votre collection <a href="{{getCollectionLink collection}}">{{collection.name}}</a> : <a href="{{getVideoNodeLink videoNode}}">{{videoNode.title}}</a>.
+Rendez-vous dans <a href="{{getCollectionSubmissionsLink collection}}">votre espace soumission</a> pour décider si vous souhaitez l'ajouter ou non.
 {{/inline}}
 {{/layouts/base.html}}

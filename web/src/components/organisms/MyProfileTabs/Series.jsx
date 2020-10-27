@@ -148,7 +148,7 @@ const Series = () => {
       <DataTable
         columns={columns}
         items={seriesWithChildren}
-        getEditionLink={({ id, type = 'FILM' }) =>
+        getLink={({ id, type = 'FILM' }) =>
           `/${type === 'FILM' ? 'video' : 'series'}/${id}/edit`
         }
       />

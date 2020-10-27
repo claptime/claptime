@@ -10,7 +10,6 @@ import {
   ShareAltOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
 
 import consts from 'claptime/consts';
 import PropTypes from 'claptime/lib/prop-types';
@@ -42,143 +41,151 @@ const config = {
   },
 };
 
-// eslint-disable-next-line react/prop-types
-const getStep = ({ title, description, icon }) => {
-  return <Steps.Step title={title} description={description} icon={icon} />;
-};
-
 const isPassed = (current, other) => {
   return config[current].index > config[other].index;
 };
 
-const StyledSteps = styled(Steps)`
-  /* Will be used when making it horizontal
-  .ant-steps-item-content {
-    width: 100%;
-  }
-
-  .ant-steps-item-description {
-    max-width: 80% !important;
-  }
-  margin: 24px 0 !important;
-  */
-`;
-
 const VideoStatus = ({ status, isUploading }) => {
   const { t } = useTranslation();
+  let description;
+  let step1;
+  let step2;
+  let step3;
+  let step4;
 
-  const step1 = () => {
-    if (status === consts.videos.status.IMPORT) {
-      return getStep({
-        title: t(`video.status.${consts.videos.status.IMPORT}.stepName`),
-        icon: <LoadingOutlined />,
-        description: t(
-          `video.status.${consts.videos.status.IMPORT}.description`,
-        ),
-      });
+  // Step 1
+  if (status === consts.videos.status.IMPORT) {
+    step1 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.IMPORT}.stepName`)}
+        icon={<LoadingOutlined />}
+      />
+    );
+    description = t(`video.status.${consts.videos.status.IMPORT}.description`);
+  } else if (status === consts.videos.status.UPLOAD) {
+    if (isUploading) {
+      step1 = (
+        <Steps.Step
+          title={t(`video.status.${consts.videos.status.UPLOAD}.title`)}
+          icon={<LoadingOutlined />}
+        />
+      );
+      description = t(
+        `video.status.${consts.videos.status.UPLOAD}.description`,
+      );
+    } else {
+      step1 = (
+        <Steps.Step
+          title={t(`video.status.${consts.videos.status.UPLOAD}.stepName`)}
+          icon={<CloudUploadOutlined />}
+        />
+      );
+      description = t(
+        `video.status.${consts.videos.status.UPLOAD}.descriptionNotUploading`,
+      );
     }
-    if (status === consts.videos.status.UPLOAD) {
-      if (isUploading) {
-        return getStep({
-          title: t(`video.status.${consts.videos.status.UPLOAD}.title`),
-          icon: <LoadingOutlined />,
-          description: t(
-            `video.status.${consts.videos.status.UPLOAD}.description`,
-          ),
-        });
-      }
-      return getStep({
-        title: t(`video.status.${consts.videos.status.UPLOAD}.stepName`),
-        icon: <CloudUploadOutlined />,
-        description: t(
-          `video.status.${consts.videos.status.UPLOAD}.descriptionNotUploading`,
-        ),
-      });
-    }
-    return getStep({
-      title: t(`video.status.${consts.videos.status.UPLOAD}.stepName`),
-      icon: <CheckCircleOutlined />,
-    });
-  };
+  } else {
+    step1 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.UPLOAD}.stepName`)}
+        icon={<CheckCircleOutlined />}
+      />
+    );
+  }
 
-  const step2 = () => {
-    if (status === consts.videos.status.PROCESSING_FAILED) {
-      return getStep({
-        title: t(
+  // Step 2
+  if (status === consts.videos.status.PROCESSING_FAILED) {
+    step2 = (
+      <Steps.Step
+        title={t(
           `video.status.${consts.videos.status.PROCESSING_FAILED}.title`,
-        ),
-        icon: <ExclamationCircleTwoTone twoToneColor="red" />,
-        description: t(
-          `video.status.${consts.videos.status.PROCESSING_FAILED}.description`,
-        ),
-      });
-    }
-    if (status === consts.videos.status.PROCESSING) {
-      return getStep({
-        title: t(`video.status.${consts.videos.status.PROCESSING}.title`),
-        icon: <LoadingOutlined />,
-        description: t(
-          `video.status.${consts.videos.status.PROCESSING}.description`,
-        ),
-      });
-    }
-    if (isPassed(status, consts.videos.status.PROCESSING)) {
-      return getStep({
-        title: t(`video.status.${consts.videos.status.PROCESSING}.stepName`),
-        icon: <CheckCircleOutlined />,
-      });
-    }
-    return getStep({
-      title: t(`video.status.${consts.videos.status.PROCESSING}.stepName`),
-      icon: <SettingOutlined />,
-    });
-  };
+        )}
+        icon={<ExclamationCircleTwoTone twoToneColor="red" />}
+      />
+    );
+    description = t(
+      `video.status.${consts.videos.status.PROCESSING_FAILED}.description`,
+    );
+  } else if (status === consts.videos.status.PROCESSING) {
+    step2 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.PROCESSING}.title`)}
+        icon={<LoadingOutlined />}
+      />
+    );
+    description = t(
+      `video.status.${consts.videos.status.PROCESSING}.description`,
+    );
+  } else if (isPassed(status, consts.videos.status.PROCESSING)) {
+    step2 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.PROCESSING}.stepName`)}
+        icon={<CheckCircleOutlined />}
+      />
+    );
+  } else {
+    step2 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.PROCESSING}.stepName`)}
+        icon={<SettingOutlined />}
+      />
+    );
+  }
 
-  const step3 = () => {
-    if (status === consts.videos.status.DRAFT) {
-      return getStep({
-        title: t(`video.status.${consts.videos.status.DRAFT}.title`),
-        icon: <FormOutlined />,
-        description: t(
-          `video.status.${consts.videos.status.DRAFT}.description`,
-        ),
-      });
-    }
-    if (isPassed(status, consts.videos.status.DRAFT)) {
-      return getStep({
-        title: t(`video.status.${consts.videos.status.DRAFT}.stepName`),
-        icon: <CheckCircleOutlined />,
-      });
-    }
-    return getStep({
-      title: t(`video.status.${consts.videos.status.DRAFT}.stepName`),
-      icon: <FormOutlined />,
-    });
-  };
+  // Step 3
+  if (status === consts.videos.status.DRAFT) {
+    step3 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.DRAFT}.title`)}
+        icon={<FormOutlined />}
+      />
+    );
+    description = t(`video.status.${consts.videos.status.DRAFT}.description`);
+  } else if (isPassed(status, consts.videos.status.DRAFT)) {
+    step3 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.DRAFT}.stepName`)}
+        icon={<CheckCircleOutlined />}
+      />
+    );
+  } else {
+    step3 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.DRAFT}.stepName`)}
+        icon={<FormOutlined />}
+      />
+    );
+  }
 
-  const step4 = () => {
-    if (status === consts.videos.status.PUBLISHED) {
-      return getStep({
-        title: t(`video.status.${consts.videos.status.PUBLISHED}.title`),
-        icon: <CheckCircleOutlined />,
-        description: t(
-          `video.status.${consts.videos.status.PUBLISHED}.description`,
-        ),
-      });
-    }
-    return getStep({
-      title: t(`video.status.${consts.videos.status.PUBLISHED}.stepName`),
-      icon: <ShareAltOutlined />,
-    });
-  };
+  if (status === consts.videos.status.PUBLISHED) {
+    step4 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.PUBLISHED}.title`)}
+        icon={<CheckCircleOutlined />}
+      />
+    );
+    description = t(
+      `video.status.${consts.videos.status.PUBLISHED}.description`,
+    );
+  } else {
+    step4 = (
+      <Steps.Step
+        title={t(`video.status.${consts.videos.status.PUBLISHED}.stepName`)}
+        icon={<ShareAltOutlined />}
+      />
+    );
+  }
 
   return (
-    <StyledSteps current={config[status].index} direction="vertical">
-      {step1()}
-      {step2()}
-      {step3()}
-      {step4()}
-    </StyledSteps>
+    <div style={{ margin: '24px 0' }}>
+      <Steps current={config[status].index} style={{ margin: '24px 0' }}>
+        {step1}
+        {step2}
+        {step3}
+        {step4}
+      </Steps>
+      <p style={{ textAlign: 'center', fontSize: 16 }}>{description}</p>
+    </div>
   );
 };
 

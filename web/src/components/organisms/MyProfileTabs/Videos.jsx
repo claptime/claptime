@@ -104,7 +104,7 @@ const Videos = () => {
       <DataTable
         columns={columns}
         items={videos}
-        getEditionLink={({ id }) => `/video/${id}/edit`}
+        getLink={({ id }) => `/video/${id}/edit`}
       />
     </>
   );
