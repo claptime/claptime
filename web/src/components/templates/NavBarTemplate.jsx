@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Spin } from 'claptime/components/atoms';
 import NavBar from 'claptime/components/organisms/NavBar';
 import Footer from 'claptime/components/organisms/Footer';
+
 import PropTypes from 'claptime/lib/prop-types';
 import { useUserState } from 'claptime/lib/user';
 import consts from 'claptime/consts';
@@ -23,7 +24,6 @@ const StyledHeader = styled(Header)`
   .ant-menu-submenu {
     color: ${(props) => props.color || 'black'};
   }
-  line-height: 50px;
   height: ${navbarHeight};
   padding: 25px;
   font-style: normal;
