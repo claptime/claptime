@@ -94,7 +94,7 @@ const RightMenu = ({ mode }) => {
               ]
             : null}
         </Menu.SubMenu>
-        {user.isLoggedIn && (
+        {user.isLoggedIn && mode === 'horizontal' && (
           <StyledMenuItem>
             <Notifications />
           </StyledMenuItem>

@@ -47,6 +47,7 @@ const StyledList = styled(List)`
   .ant-list-item {
     align-items: center;
     flex-direction: row-reverse;
+    flex-wrap: nowrap;
     &:hover {
       background: #dddddd;
     }
@@ -68,7 +69,7 @@ const MyPopover = ({ className, ...props }) => <Popover {...props} overlayClassN
 
 const StyledPopover = styled(MyPopover)`
   .ant-popover-content {
-    width: 500px;
+    max-width: 500px;
   }
 `;
 
