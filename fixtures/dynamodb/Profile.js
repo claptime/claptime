@@ -61,5 +61,21 @@ module.exports = ({ users, getRandomDatetime, getSearchableValue }) => {
       'John Hubley',
       "John Hubley est un animateur américain et réalisateur d'animation connu pour ses expérimentations formelles et pour son réalisme émotionnel qui l'a poussé à engager son propre enfant pour interpréter des personnages de ses films.",
     ),
+    getItem(
+      '8dae0870-a7e0-400f-a003-e919b2f5c0df',
+      'La Nuit des Caméras',
+      'La Nuit des Caméras, c’est une compétition par équipe de 4 à 6 personnes qui, le temps d’une nuit, devront scénariser, tourner et monter un court-métrage de moins de 3 minutes.\n\nCe projet est né de la rencontre de deux associations passionnées de cinéma : Le CLAP et le Studio, associations audiovisuelles respectives de Centrale Lille et de Polytech Lille. Bien que totalement séparées au quotidien, elles ont eu l’occasion de se croiser lors de différents festivals de courts-métrages auxquels elles participaient.\nCes différentes rencontres ont permis de faire éclore un projet ambitieux : La Nuit des Caméras. Le principe de ce festival de courts-métrages du Nord de la France est simple : réunir 10 équipes étudiantes qui devront scénariser, tourner et monter un court métrage de 180 secondes en une nuit sur un thème tiré au sort.\n\nLa première édition aura lieu le week-end du 24 et 25 Avril 2021 sur la métropole européenne de Lille dans le cadre exceptionnel que nous offre notre partenaire LILLIAD. Elle invite tous les étudiants passionnés de cinéma à venir réaliser un court métrage à partir d’un thème tiré au sort lors de la cérémonie d’ouverture.',
+      [
+        {
+          type: 'FACEBOOK',
+          url:
+            'https://www.facebook.com/La-Nuit-des-Cam%C3%A9ras-478369362930629/',
+        },
+        {
+          type: 'WEBSITE',
+          url: 'https://www.lanuitdescameras.fr/',
+        },
+      ],
+    ),
   ];
 };

@@ -21,8 +21,10 @@ const SubmitToCollection = ({ videoNode, onChange }) => {
   const { response, items: collections } = useQueryList(
     listCollections,
     {
-      filter: {
-        status: { eq: 'PUBLISHED' },
+      variables: {
+        filter: {
+          status: { eq: 'PUBLISHED' },
+        },
       },
     },
     {

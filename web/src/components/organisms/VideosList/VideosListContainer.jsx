@@ -126,7 +126,7 @@ VideosListContainer.propTypes = {
   videos: PropTypes.arrayOf(PropTypes.claptime.videoNode),
   hasMore: PropTypes.bool,
   onLoadMore: PropTypes.func,
-  sortBy: PropTypes.oneOf(['createdAt', 'title']),
+  sortBy: PropTypes.oneOf(['createdAt', 'title', 'none']),
   onSortBy: PropTypes.func,
   sortable: PropTypes.bool,
   display: PropTypes.oneOf(['cards', 'list']),

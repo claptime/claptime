@@ -45,5 +45,10 @@ module.exports = ({ users, getRandomDatetime }) => {
       '4e4d8b71-d671-4b62-bbf1-d63741f73457',
       'ee5Ev5MHK',
     ), // Moonbird <> Animation
+    getItem(
+      'd566896a-dfb0-4d79-9d0d-f7e6a5db0692',
+      'fac6597e-9713-4d95-a982-eed3e91a70f7',
+      '3mSG3ezXS',
+    ), // Sita chante le blues <> La Luciole
   ];
 };
