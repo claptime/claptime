@@ -24,6 +24,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             name
             slug
+            status
             categories {
               id
               category

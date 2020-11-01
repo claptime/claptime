@@ -77,9 +77,8 @@ LaLuciolePage.propTypes = {
 };
 
 LaLuciolePage.defaultProps = {
-  // TODO replace when collection is created
-  collectionId: '4e4d8b71-d671-4b62-bbf1-d63741f73457',
-  collectionCategoryId: 'ee5Ev5MHK',
+  collectionId: 'fac6597e-9713-4d95-a982-eed3e91a70f7',
+  collectionCategoryId: '3mSG3ezXS',
 };
 
 export default LaLuciolePage;

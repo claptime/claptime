@@ -183,5 +183,25 @@ module.exports = ({
         },
       ],
     ),
+    getItem(
+      'fac6597e-9713-4d95-a982-eed3e91a70f7',
+      'La Luciole',
+      'Le festival 100% online organisé par l’équipe de La Nuit des Caméras !',
+      '8dae0870-a7e0-400f-a003-e919b2f5c0df',
+      'DRAFT',
+      'Même si le festival La Nuit des Caméras a été repoussé en avril 2021, nous ne voulions pas en rester là.\nC\'est ainsi qu’est né "La Luciole" !\nLe principe ? Réaliser la bande-annonce d’un film fictif le temps d’un week-end.\nIl y aura des contraintes, un jury professionnel, des prix… et plein de surprises à venir !',
+      [
+        {
+          type: 'WEBSITE',
+          url: 'https://www.lanuitdescameras.fr/laluciole',
+        },
+      ],
+      [
+        {
+          id: '3mSG3ezXS',
+          category: 'Édition 2020',
+        },
+      ],
+    ),
   ];
 };
