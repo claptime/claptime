@@ -131,6 +131,7 @@ export const getProfile = /* GraphQL */ `
             }
             nextToken
           }
+          likesCount
         }
         nextToken
       }

@@ -63,6 +63,13 @@ type Mutation {
   ): VideoNode
   @function(name: "claptime-videos-${env}-api")
 
+  validateSubmission(
+    collectionVideoNodeId: ID!,
+    status: CollectionVideoNodeStatus!,
+    rejectionReason: String,
+  ): CollectionVideoNode
+  @function(name: "claptime-videos-${env}-api")
+
   # Stripe
   connectToStripe(
     profileId: ID!,

@@ -5,15 +5,21 @@ enum UserVideoNodeList {
 
 type UserVideoNode
 @model(
-  queries: null,
+  queries: { list: "listUserVideoNodes" },
   mutations: { delete: "deleteUserVideoNode", create: "createUserVideoNode" },
   subscriptions: null,
 )
 @key(
   fields: ["userSettingsVideoNodesId", "list", "userVideoNodeVideoNodeId"],
 )
+@key(
+  name: "ByVideoNodeAndList",
+  fields: ["userVideoNodeVideoNodeId", "list"],
+  queryField: "listUserVideoNodesByVideoNodeAndList",
+)
 @auth(rules: [
   { allow: owner, operations: [create, delete, read, update] },
+  { allow: private, provider: iam, operations: [read] },
 ])
 {
   list: UserVideoNodeList!

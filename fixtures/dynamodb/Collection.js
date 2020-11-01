@@ -9,6 +9,7 @@ module.exports = ({
     name,
     tagline,
     profileId,
+    status,
     description,
     links = [],
     categories = [],
@@ -26,6 +27,7 @@ module.exports = ({
       owner: users.regular.username,
       searchField: getSearchableValue(name),
       slug: slugify(name, { lower: true }),
+      status,
       links,
       categories,
       updatedAt: createdAt,
@@ -36,7 +38,8 @@ module.exports = ({
       '4e4d8b71-d671-4b62-bbf1-d63741f73457',
       'Animation',
       "Pour tous les amoureux de l'image animée",
-      'c00c68f7-5e27-4ea0-be09-a7cf55154b02',
+      '125bc79f-1958-4b8e-b3f1-c764c24a70e2',
+      'PUBLISHED',
       'Fan de Wallace et Gromit, vous avez vu tous les Ghibli et Disney a bercé votre enfance ? Alors vous êtes au bon endroit !',
       [
         {
@@ -65,7 +68,8 @@ module.exports = ({
       '189b65c5-6e61-4391-9b11-380eb4058fd9',
       'En quête de sens',
       "Voir le présent autrement. Penser l'avenir différemment.",
-      'c00c68f7-5e27-4ea0-be09-a7cf55154b02',
+      '125bc79f-1958-4b8e-b3f1-c764c24a70e2',
+      'DRAFT',
       'Le cinéma pour réinventer le monde et faire bouger les choses, pour découvrir de nouvelles perspectives et de nouveaux horizons.',
       [
         {
@@ -100,6 +104,7 @@ module.exports = ({
       'La crème du court',
       'Des bons films non pasteurisés',
       'c00c68f7-5e27-4ea0-be09-a7cf55154b02',
+      'PUBLISHED',
       'De quelques secondes à 59 minutes, du court et seulement du court ! Un format qui fait la part belle à la liberté et à la créativité !',
       [
         {
@@ -156,6 +161,7 @@ module.exports = ({
       'La scène ouverte',
       "L'espace de diffusion ouvert à tous.",
       'c00c68f7-5e27-4ea0-be09-a7cf55154b02',
+      'PUBLISHED',
       'Ici, pas de chichis : tout le monde est le bienvenu !\nDu réalisateur aguerri au cinéaste en herbe, jetez un nouveau regard sur la diversité du cinéma.',
       [],
       [
@@ -174,6 +180,26 @@ module.exports = ({
         {
           id: 'xjJKt0nG2',
           category: 'Spectacles vivants',
+        },
+      ],
+    ),
+    getItem(
+      'fac6597e-9713-4d95-a982-eed3e91a70f7',
+      'La Luciole',
+      'Le festival 100% online organisé par l’équipe de La Nuit des Caméras !',
+      '8dae0870-a7e0-400f-a003-e919b2f5c0df',
+      'DRAFT',
+      'Même si le festival La Nuit des Caméras a été repoussé en avril 2021, nous ne voulions pas en rester là.\nC\'est ainsi qu’est né "La Luciole" !\nLe principe ? Réaliser la bande-annonce d’un film fictif le temps d’un week-end.\nIl y aura des contraintes, un jury professionnel, des prix… et plein de surprises à venir !',
+      [
+        {
+          type: 'WEBSITE',
+          url: 'https://www.lanuitdescameras.fr/laluciole',
+        },
+      ],
+      [
+        {
+          id: '3mSG3ezXS',
+          category: 'Édition 2020',
         },
       ],
     ),

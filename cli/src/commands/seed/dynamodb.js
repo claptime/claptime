@@ -71,6 +71,7 @@ class DynamodbCommand extends Command {
       'Collection',
       'CollectionVideoNode',
       'Credit',
+      'News',
       'Profile',
       'UserCollection',
       'UserProfile',

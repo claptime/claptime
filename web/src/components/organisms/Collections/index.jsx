@@ -13,7 +13,13 @@ const Collections = () => {
 
   const { response, items } = useQueryList(
     listCollections,
-    {},
+    {
+      variables: {
+        filter: {
+          status: { eq: 'PUBLISHED' },
+        },
+      },
+    },
     {
       resultPath: '$.listCollections',
       getAll: true,

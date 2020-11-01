@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { Table, Empty } from 'antd';
+import { Table } from 'antd';
 import styled from 'styled-components';
 import Router from 'next/router';
 
@@ -79,7 +79,7 @@ const DragableBodyRow = ({
 const DataTable = ({
   items,
   columns,
-  getEditionLink,
+  getLink,
   rowSelection,
   dragNDrop,
   onDragNDrop,
@@ -91,7 +91,7 @@ const DataTable = ({
   }, [items]);
 
   if (!items.length) {
-    return <Empty />;
+    return null;
   }
 
   const components = {
@@ -134,7 +134,12 @@ const DataTable = ({
     tableProps.components = components;
   } else {
     tableProps.onRow = (record) => ({
-      onClick: () => Router.push(getEditionLink(record)),
+      onClick: () => {
+        const link = getLink(record);
+        if (link) {
+          Router.push(link);
+        }
+      },
     });
   }
 
@@ -156,11 +161,17 @@ const DataTable = ({
               moveRow,
             })
           : (record) => ({
-              onClick: () => Router.push(getEditionLink(record)),
+              onClick: () => {
+                const link = getLink(record);
+                if (link) {
+                  Router.push(link);
+                }
+              },
             })
       }
       rowSelection={rowSelection}
       loading={disabled}
+      pagination={{ hideOnSinglePage: true }}
     />
   );
 };
@@ -168,7 +179,7 @@ const DataTable = ({
 DataTable.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
-  getEditionLink: PropTypes.func.isRequired,
+  getLink: PropTypes.func,
   dragNDrop: PropTypes.bool,
   onDragNDrop: PropTypes.func,
   rowSelection: PropTypes.object,
@@ -176,6 +187,7 @@ DataTable.propTypes = {
 };
 
 DataTable.defaultProps = {
+  getLink: () => {},
   rowSelection: null,
   dragNDrop: false,
   onDragNDrop: () => {},

@@ -43,10 +43,18 @@ Handlebars.registerPartial(
 
 Handlebars.registerHelper('getVideoNodeLink', (videoNode) => {
   const types = {
-    FILM: 'videos',
+    FILM: 'video',
     SERIES: 'series',
   };
   return `${getDomain()}/${types[videoNode.type]}/${videoNode.id}`;
+});
+
+Handlebars.registerHelper('getCollectionLink', (collection) => {
+  return `${getDomain()}/collection/${collection.slug}`;
+});
+
+Handlebars.registerHelper('getCollectionSubmissionsLink', (collection) => {
+  return `${getDomain()}/collection/${collection.slug}/submissions`;
 });
 
 const sendEmailToUser = async (

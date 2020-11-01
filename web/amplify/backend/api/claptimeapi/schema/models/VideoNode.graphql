@@ -84,4 +84,6 @@ type VideoNode
   nodeType: NodeType!
   childNodes: [VideoNode] @connection(keyName: "ByParent", fields: ["id"])
   childrenCount: Int
+
+  likesCount: Int @function(name: "claptime-videos-${env}-api")
 }

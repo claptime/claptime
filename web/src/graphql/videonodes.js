@@ -15,10 +15,21 @@ export const getVideoNode = /* GraphQL */ `
       donationsAvailable
       collections(nextToken: $collectionsNextToken) {
         items {
+          id
+          status
+          categoryId
+          createdAt
+          updatedAt
           collection {
             id
             name
             slug
+            status
+            categories {
+              id
+              category
+              description
+            }
           }
         }
         nextToken

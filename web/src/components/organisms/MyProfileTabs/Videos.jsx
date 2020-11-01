@@ -96,6 +96,13 @@ const Videos = () => {
         );
       },
     },
+    {
+      title: t('myProfilePage.videos.table.likesCount'),
+      dataIndex: 'likesCount',
+      key: 'likesCount',
+      optional: true,
+      render: (likesCount) => likesCount || null,
+    },
   ];
 
   return (
@@ -104,7 +111,7 @@ const Videos = () => {
       <DataTable
         columns={columns}
         items={videos}
-        getEditionLink={({ id }) => `/video/${id}/edit`}
+        getLink={({ id }) => `/video/${id}/edit`}
       />
     </>
   );

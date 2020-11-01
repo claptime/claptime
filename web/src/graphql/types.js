@@ -27,9 +27,9 @@ ${getVariables(variables)} {
 }`;
 
 export const ApiResponse = () => `{
-	status
-	reason
-	data
+  status
+  reason
+  data
 }`;
 
 export const Link = () => `{
@@ -38,9 +38,9 @@ export const Link = () => `{
 }`;
 
 export const NotificationPreference = () => `{
-	type
-	channel
-	frequency
+  type
+  channel
+  frequency
 }`;
 
 export const Profile = ({
@@ -49,17 +49,17 @@ export const Profile = ({
   videoNodes = defaultParams,
 } = {}) => `
 {
-	id
-	createdAt
-	owner
-	name
+  id
+  createdAt
+  owner
+  name
   ${
     ifAtLeast(level, LEVELS.REGULAR) &&
     `
-	biography
-	links ${Link()}
-	searchField
-	createdBy
+  biography
+  links ${Link()}
+  searchField
+  createdBy
   `
   }
   ${
@@ -84,19 +84,20 @@ export const Collection = ({
   videoNodes = defaultParams,
 } = {}) => `
 {
-	id
-	slug
-	name
-	createdAt
-	owner
+  id
+  slug
+  name
+  status
+  createdAt
+  owner
   ${
     ifAtLeast(level, LEVELS.REGULAR) &&
     `
   tagline
   collectionProfileId
-	description
-	links ${Link()}
-	categories {
+  description
+  links ${Link()}
+  categories {
     id
     category
     description
@@ -106,12 +107,12 @@ export const Collection = ({
   ${
     ifAtLeast(level, LEVELS.COMPLETE) &&
     `
-	searchField
-	createdBy
+  searchField
+  createdBy
   `
   }
   ${ifNotSkipped(profile.level) && `profile ${Profile(profile)}`}
-	${
+  ${
     ifNotSkipped(videoNodes.level) &&
     `videoNodes ${Connection({
       children: CollectionVideoNode(videoNodes),
@@ -119,6 +120,25 @@ export const Collection = ({
     })}`
   }
 }`;
+
+export const News = () => `
+{
+  id
+  title
+  description
+  button {
+    text
+    url
+  }
+  links {
+    type
+    url
+  }
+  createdAt
+  createdBy
+  owner
+}
+`;
 
 export const VideoNode = ({
   level = LEVELS.REGULAR,
@@ -131,8 +151,8 @@ export const VideoNode = ({
   childNodes = defaultParams,
 } = {}) => `
 {
-	id
-	createdAt
+  id
+  createdAt
   owner
   ${
     ifAtLeast(level, LEVELS.REGULAR) &&
@@ -152,8 +172,8 @@ export const VideoNode = ({
   ${
     ifAtLeast(level, LEVELS.COMPLETE) &&
     `
-	createdBy
-	updatedAt
+  createdBy
+  updatedAt
   synopsis
   festivals
   searchField
@@ -165,25 +185,25 @@ export const VideoNode = ({
   ${ifNotSkipped(profile.level) && `profile ${Profile(profile)}`}
   ${ifNotSkipped(nextNode.level) && `nextNode ${VideoNode(nextNode)}`}
   ${ifNotSkipped(parentNode.level) && `parentNode ${VideoNode(parentNode)}`}
-	${
+  ${
     ifNotSkipped(views.level) &&
     `views ${Connection({ children: View(views), variables: views.variables })}`
   }
-	${
+  ${
     ifNotSkipped(collections.level) &&
     `collections ${Connection({
       children: Collection(collections),
       variables: collections.variables,
     })}`
   }
-	${
+  ${
     ifNotSkipped(credits.level) &&
     `credits ${Connection({
       children: Credit(credits),
       variables: credits.variables,
     })}`
   }
-	${
+  ${
     ifNotSkipped(childNodes.level) &&
     `childNodes ${Connection({
       children: VideoNode(childNodes),
@@ -198,17 +218,11 @@ export const CollectionVideoNode = ({
   videoNode = defaultParams,
 } = {}) => `{
   id
-	categoryId
-	collectionVideoNodeCollectionId
-	collectionVideoNodeVideoNodeId
-	createdAt
-	owner
-  ${
-    ifAtLeast(level, LEVELS.REGULAR) &&
-    `
-	review
-  `
-  }
+  categoryId
+  collectionVideoNodeCollectionId
+  collectionVideoNodeVideoNodeId
+  createdAt
+  owner
   ${ifNotSkipped(collection.level) && `collection ${Collection(collection)}`}
   ${ifNotSkipped(videoNode.level) && `videoNode ${VideoNode(videoNode)}`}
 }`;
@@ -217,29 +231,29 @@ export const Credit = ({
   profile = defaultParams,
   videoNode = defaultParams,
 } = {}) => `{
-	id
-	role
-	customProfile
-	creditVideoId
-	creditVideoNodeId
-	owner
+  id
+  role
+  customProfile
+  creditVideoId
+  creditVideoNodeId
+  owner
   ${ifNotSkipped(profile.level) && `profile ${Profile(profile)}`}
   ${ifNotSkipped(videoNode.level) && `videoNode ${VideoNode(videoNode)}`}
 }`;
 
 export const UserCollection = ({ collection = defaultParams } = {}) => `{
-	list
-	userSettingsCollectionsId
-	userCollectionCollectionId
-	createdAt
+  list
+  userSettingsCollectionsId
+  userCollectionCollectionId
+  createdAt
   ${ifNotSkipped(collection.level) && `collection ${Collection(collection)}`}
 }`;
 
 export const UserProfile = ({ profile = defaultParams } = {}) => `{
   list
-	userSettingsProfilesId
-	userProfileProfileId
-	createdAt
+  userSettingsProfilesId
+  userProfileProfileId
+  createdAt
   ${ifNotSkipped(profile.level) && `profile ${Profile(profile)}`}
 }`;
 
@@ -249,26 +263,26 @@ export const UserSettings = ({
   profiles = defaultParams,
 } = {}) => `{
   id
-	clapValue
-	uiState
-	profileId
-	notifications ${NotificationPreference()}
-	owner
-	${
+  clapValue
+  uiState
+  profileId
+  notifications ${NotificationPreference()}
+  owner
+  ${
     ifNotSkipped(videoNodes.level) &&
     `videoNodes ${Connection({
       children: VideoNode(videoNodes),
       variables: videoNodes.variables,
     })}`
   }
-	${
+  ${
     ifNotSkipped(collections.level) &&
     `collections ${Connection({
       children: Collection(collections),
       variables: collections.variables,
     })}`
   }
-	${
+  ${
     ifNotSkipped(profiles.level) &&
     `profiles ${Connection({
       children: Profile(profiles),
@@ -278,17 +292,17 @@ export const UserSettings = ({
 }`;
 
 export const UserVideoNode = ({ videoNode = defaultParams } = {}) => `{
-	list
-	userSettingsVideoNodesId
-	userVideoNodeVideoNodeId
-	createdAt
+  list
+  userSettingsVideoNodesId
+  userVideoNodeVideoNodeId
+  createdAt
   ${ifNotSkipped(videoNode.level) && `videoNode ${VideoNode(videoNode)}`}
 }`;
 
 export const View = ({ videoNode = defaultParams }) => `{
-	id
-	viewVideoNodeId
-	createdAt
-	owner
+  id
+  viewVideoNodeId
+  createdAt
+  owner
   ${ifNotSkipped(videoNode.level) && `videoNode ${VideoNode(videoNode)}`}
 }`;

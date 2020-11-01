@@ -23,10 +23,17 @@ const config = {
       return 0;
     },
   },
+  none: {
+    sortFunction: (a, b) => -1,
+  },
 };
 
-export const StaticVideosList = ({ videos, ...props }) => {
-  const [sortBy, setSortBy] = useState(DEFAULT_SORT_FUNCTION);
+export const StaticVideosList = ({
+  videos,
+  sortBy: initialSortBy,
+  ...props
+}) => {
+  const [sortBy, setSortBy] = useState(initialSortBy);
 
   return (
     <VideosListContainer
@@ -39,10 +46,12 @@ export const StaticVideosList = ({ videos, ...props }) => {
 };
 
 StaticVideosList.propTypes = {
+  sortBy: PropTypes.oneOf(['createdAt', 'title', 'none']),
   videos: PropTypes.arrayOf(PropTypes.claptime.videoNode),
 };
 
 StaticVideosList.defaultProps = {
+  sortBy: DEFAULT_SORT_FUNCTION,
   videos: [],
 };
 

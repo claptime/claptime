@@ -187,6 +187,33 @@
               "deprecationReason": null
             },
             {
+              "name": "getCollection",
+              "description": null,
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Collection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "listCollectionsBySlug",
               "description": null,
               "args": [
@@ -244,6 +271,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ModelCollectionConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "getCollectionVideoNode",
+              "description": null,
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CollectionVideoNode",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -482,6 +536,76 @@
               "deprecationReason": null
             },
             {
+              "name": "getNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "listNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelNewsFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelNewsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "listProfiles",
               "description": null,
               "args": [
@@ -573,6 +697,152 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "listUserVideoNodes",
+              "description": null,
+              "args": [
+                {
+                  "name": "userSettingsVideoNodesId",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "listUserVideoNodeVideoNodeId",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelUserVideoNodePrimaryCompositeKeyConditionInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelUserVideoNodeFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sortDirection",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ModelSortDirection",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelUserVideoNodeConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "listUserVideoNodesByVideoNodeAndList",
+              "description": null,
+              "args": [
+                {
+                  "name": "userVideoNodeVideoNodeId",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "list",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelStringKeyConditionInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sortDirection",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ModelSortDirection",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelUserVideoNodeFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelUserVideoNodeConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1454,6 +1724,18 @@
               "deprecationReason": null
             },
             {
+              "name": "likesCount",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "collections",
               "description": null,
               "args": [
@@ -2257,7 +2539,7 @@
               "deprecationReason": null
             },
             {
-              "name": "review",
+              "name": "rejectionReason",
               "description": null,
               "args": [],
               "type": {
@@ -2293,6 +2575,18 @@
               "deprecationReason": null
             },
             {
+              "name": "updatedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "owner",
               "description": null,
               "args": [],
@@ -2300,22 +2594,6 @@
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updatedAt",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "AWSDateTime",
-                  "ofType": null
-                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2434,6 +2712,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CollectionStatus",
                   "ofType": null
                 }
               },
@@ -2652,6 +2946,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "CollectionStatus",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DRAFT",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PUBLISHED",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Link",
           "description": null,
@@ -2831,7 +3148,7 @@
               "defaultValue": null
             },
             {
-              "name": "review",
+              "name": "rejectionReason",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -2852,6 +3169,16 @@
             },
             {
               "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "updatedAt",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -3314,6 +3641,16 @@
               "defaultValue": null
             },
             {
+              "name": "status",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelCollectionStatusFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "tagline",
               "description": null,
               "type": {
@@ -3417,6 +3754,37 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelCollectionFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelCollectionStatusFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "CollectionStatus",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "CollectionStatus",
                 "ofType": null
               },
               "defaultValue": null
@@ -3968,6 +4336,16 @@
             },
             {
               "name": "childrenCount",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelIntFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "likesCount",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -4547,6 +4925,332 @@
         },
         {
           "kind": "OBJECT",
+          "name": "News",
+          "description": null,
+          "fields": [
+            {
+              "name": "id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "button",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "NewsButton",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "links",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Link",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSDateTime",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "NewsButton",
+          "description": null,
+          "fields": [
+            {
+              "name": "text",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ModelNewsConnection",
+          "description": null,
+          "fields": [
+            {
+              "name": "items",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "News",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nextToken",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelNewsFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelIDFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelNewsFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelNewsFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "not",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelNewsFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ModelProfileConnection",
           "description": null,
           "fields": [
@@ -4777,59 +5481,6 @@
               "deprecationReason": null
             },
             {
-              "name": "videoNodes",
-              "description": null,
-              "args": [
-                {
-                  "name": "filter",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "ModelUserVideoNodeFilterInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "sortDirection",
-                  "description": null,
-                  "type": {
-                    "kind": "ENUM",
-                    "name": "ModelSortDirection",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "limit",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "nextToken",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ModelUserVideoNodeConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "collections",
               "description": null,
               "args": [
@@ -4978,6 +5629,59 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "videoNodes",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelUserVideoNodeFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sortDirection",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ModelSortDirection",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelUserVideoNodeConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -5109,291 +5813,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ModelUserVideoNodeConnection",
-          "description": null,
-          "fields": [
-            {
-              "name": "items",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserVideoNode",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "nextToken",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "UserVideoNode",
-          "description": null,
-          "fields": [
-            {
-              "name": "list",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "UserVideoNodeList",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "userSettingsVideoNodesId",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "userVideoNodeVideoNodeId",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "createdAt",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "AWSDateTime",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updatedAt",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "AWSDateTime",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "videoNode",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "VideoNode",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "UserVideoNodeList",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "TO_WATCH",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "LIKED",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ModelUserVideoNodeFilterInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "list",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodeListFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "userSettingsVideoNodesId",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "userVideoNodeVideoNodeId",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelIDFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "createdAt",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "and",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ModelUserVideoNodeFilterInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "or",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ModelUserVideoNodeFilterInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "not",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodeFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ModelUserVideoNodeListFilterInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "eq",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "UserVideoNodeList",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "ne",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "UserVideoNodeList",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -5956,6 +6375,407 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ModelUserVideoNodeConnection",
+          "description": null,
+          "fields": [
+            {
+              "name": "items",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UserVideoNode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nextToken",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserVideoNode",
+          "description": null,
+          "fields": [
+            {
+              "name": "list",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UserVideoNodeList",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userSettingsVideoNodesId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userVideoNodeVideoNodeId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSDateTime",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "videoNode",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VideoNode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UserVideoNodeList",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "TO_WATCH",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LIKED",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelUserVideoNodeFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "list",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodeListFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userSettingsVideoNodesId",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userVideoNodeVideoNodeId",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelIDFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelUserVideoNodeFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelUserVideoNodeFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "not",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodeFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelUserVideoNodeListFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "UserVideoNodeList",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "UserVideoNodeList",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelUserVideoNodePrimaryCompositeKeyConditionInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "beginsWith",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "list",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "UserVideoNodeList",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userVideoNodeVideoNodeId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "Mutation",
           "description": null,
           "fields": [
@@ -6384,6 +7204,57 @@
               "deprecationReason": null
             },
             {
+              "name": "validateSubmission",
+              "description": null,
+              "args": [
+                {
+                  "name": "collectionVideoNodeId",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "status",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "CollectionVideoNodeStatus",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "rejectionReason",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CollectionVideoNode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "connectToStripe",
               "description": null,
               "args": [
@@ -6548,6 +7419,87 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ApiResponse",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateNewsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateNewsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteNews",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteNewsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "News",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -6809,6 +7761,33 @@
                     "ofType": {
                       "kind": "INPUT_OBJECT",
                       "name": "CreateCollectionVideoNodeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CollectionVideoNode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCollectionVideoNode",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCollectionVideoNodeInput",
                       "ofType": null
                     }
                   },
@@ -7150,6 +8129,303 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateNewsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "button",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NewsButtonInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "links",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "LinkInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NewsButtonInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "text",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "LinkInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "LinkType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateNewsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "button",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NewsButtonInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "links",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "LinkInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdBy",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteNewsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -7546,6 +8822,20 @@
               "defaultValue": null
             },
             {
+              "name": "status",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CollectionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "tagline",
               "description": null,
               "type": {
@@ -7654,45 +8944,6 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "LinkInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "type",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "LinkType",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "url",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
           "name": "CollectionCategoryInput",
           "description": null,
           "fields": null,
@@ -7776,6 +9027,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "status",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "CollectionStatus",
                 "ofType": null
               },
               "defaultValue": null
@@ -7963,7 +9224,7 @@
               "defaultValue": null
             },
             {
-              "name": "review",
+              "name": "rejectionReason",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -7984,6 +9245,121 @@
             },
             {
               "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "updatedAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "owner",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCollectionVideoNodeInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "collectionVideoNodeCollectionId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "status",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "CollectionVideoNodeStatus",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "categoryId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rejectionReason",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "collectionVideoNodeVideoNodeId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "createdAt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSDateTime",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "updatedAt",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -8791,6 +10167,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "likesCount",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -9016,6 +10402,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "likesCount",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -9142,16 +10538,26 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "ModelUserVideoNodePrimaryCompositeKeyConditionInput",
+          "name": "ModelFloatFilterInput",
           "description": null,
           "fields": null,
           "inputFields": [
             {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "eq",
               "description": null,
               "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "kind": "SCALAR",
+                "name": "Float",
                 "ofType": null
               },
               "defaultValue": null
@@ -9160,8 +10566,8 @@
               "name": "le",
               "description": null,
               "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "kind": "SCALAR",
+                "name": "Float",
                 "ofType": null
               },
               "defaultValue": null
@@ -9170,8 +10576,8 @@
               "name": "lt",
               "description": null,
               "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "kind": "SCALAR",
+                "name": "Float",
                 "ofType": null
               },
               "defaultValue": null
@@ -9180,8 +10586,8 @@
               "name": "ge",
               "description": null,
               "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "kind": "SCALAR",
+                "name": "Float",
                 "ofType": null
               },
               "defaultValue": null
@@ -9190,8 +10596,8 @@
               "name": "gt",
               "description": null,
               "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                "kind": "SCALAR",
+                "name": "Float",
                 "ofType": null
               },
               "defaultValue": null
@@ -9203,51 +10609,10 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
+                  "kind": "SCALAR",
+                  "name": "Float",
                   "ofType": null
                 }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "beginsWith",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ModelUserVideoNodePrimaryCompositeKeyInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "list",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "UserVideoNodeList",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "userVideoNodeVideoNodeId",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
               },
               "defaultValue": null
             }
@@ -9480,91 +10845,6 @@
                 "kind": "SCALAR",
                 "name": "ID",
                 "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ModelFloatFilterInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "ne",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "eq",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "le",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "lt",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "ge",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "gt",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "between",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
               },
               "defaultValue": null
             }
@@ -10445,67 +11725,10 @@
           "onField": true
         },
         {
-          "name": "aws_auth",
-          "description": "Directs the schema to enforce authorization on a field",
-          "locations": ["FIELD_DEFINITION"],
-          "args": [
-            {
-              "name": "cognito_groups",
-              "description": "List of cognito user pool groups which have access on this field",
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
-          "name": "aws_oidc",
-          "description": "Tells the service this field/object has access authorized by an OIDC token.",
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
           "name": "aws_iam",
           "description": "Tells the service this field/object has access authorized by sigv4 signing.",
           "locations": ["OBJECT", "FIELD_DEFINITION"],
           "args": [],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
-          "name": "aws_cognito_user_pools",
-          "description": "Tells the service this field/object has access authorized by a Cognito User Pools token.",
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [
-            {
-              "name": "cognito_groups",
-              "description": "List of cognito user pool groups which have access on this field",
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
           "onOperation": false,
           "onFragment": false,
           "onField": false
@@ -10555,15 +11778,6 @@
           "onField": false
         },
         {
-          "name": "aws_api_key",
-          "description": "Tells the service this field/object has access authorized by an API key.",
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
           "name": "aws_subscribe",
           "description": "Tells the service which mutation triggers this subscription.",
           "locations": ["FIELD_DEFINITION"],
@@ -10583,6 +11797,72 @@
               "defaultValue": null
             }
           ],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_auth",
+          "description": "Directs the schema to enforce authorization on a field",
+          "locations": ["FIELD_DEFINITION"],
+          "args": [
+            {
+              "name": "cognito_groups",
+              "description": "List of cognito user pool groups which have access on this field",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_api_key",
+          "description": "Tells the service this field/object has access authorized by an API key.",
+          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "args": [],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_cognito_user_pools",
+          "description": "Tells the service this field/object has access authorized by a Cognito User Pools token.",
+          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "args": [
+            {
+              "name": "cognito_groups",
+              "description": "List of cognito user pool groups which have access on this field",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_oidc",
+          "description": "Tells the service this field/object has access authorized by an OIDC token.",
+          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "args": [],
           "onOperation": false,
           "onFragment": false,
           "onField": false

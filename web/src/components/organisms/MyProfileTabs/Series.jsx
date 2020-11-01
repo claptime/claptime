@@ -136,6 +136,13 @@ const Series = () => {
         );
       },
     },
+    {
+      title: t('myProfilePage.series.table.likesCount'),
+      dataIndex: 'likesCount',
+      key: 'likesCount',
+      optional: true,
+      render: (likesCount) => likesCount || null,
+    },
   ];
 
   return (
@@ -148,7 +155,7 @@ const Series = () => {
       <DataTable
         columns={columns}
         items={seriesWithChildren}
-        getEditionLink={({ id, type = 'FILM' }) =>
+        getLink={({ id, type = 'FILM' }) =>
           `/${type === 'FILM' ? 'video' : 'series'}/${id}/edit`
         }
       />

@@ -3,6 +3,7 @@ const { getHandler } = require('claptime-commons/appsync');
 const addEpisodeToSeries = require('./resolvers/addEpisodeToSeries');
 const addVideoNode = require('./resolvers/addVideoNode');
 const importVideo = require('./resolvers/importVideo');
+const likesCount = require('./resolvers/likesCount');
 const publishVideoNode = require('./resolvers/publishVideoNode');
 const removeEpisodeFromSeries = require('./resolvers/removeEpisodeFromSeries');
 const removeVideoNode = require('./resolvers/removeVideoNode');
@@ -10,6 +11,7 @@ const moveEpisodeAfter = require('./resolvers/moveEpisodeAfter');
 const setVideoNodeMeta = require('./resolvers/setVideoNodeMeta');
 const submitVideoNodeToCollection = require('./resolvers/submitVideoNodeToCollection');
 const unpublishVideoNode = require('./resolvers/unpublishVideoNode');
+const validateSubmission = require('./resolvers/validateSubmission');
 
 module.exports.handler = getHandler({
   Mutation: {
@@ -110,6 +112,14 @@ module.exports.handler = getHandler({
           idArgumentName: 'videoNodeId',
         },
       ],
+    },
+    validateSubmission: {
+      handler: validateSubmission,
+    },
+  },
+  VideoNode: {
+    likesCount: {
+      handler: likesCount,
     },
   },
 });

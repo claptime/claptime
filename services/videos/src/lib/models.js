@@ -13,7 +13,6 @@ const createCollectionVideoNode = async (input) => {
           collectionVideoNodeCollectionId
           status
           categoryId
-          review
           collectionVideoNodeVideoNodeId
           createdAt
           owner
@@ -114,6 +113,42 @@ const deleteVideoNode = async (input) => {
   return videoNode;
 };
 
+const getCollection = async (collectionId) => {
+  const {
+    data: { getCollection: collection },
+  } = await appSyncClient.query({
+    query: gql(/* GraphQL */ `
+      query GetCollection($id: ID!) {
+        getCollection(id: $id) {
+          id
+          slug
+          name
+          tagline
+          description
+          links {
+            type
+            url
+          }
+          categories {
+            id
+            category
+            description
+          }
+          collectionProfileId
+          searchField
+          createdBy
+          createdAt
+          owner
+        }
+      }
+    `),
+    variables: {
+      id: collectionId,
+    },
+  });
+  return collection;
+};
+
 const getCollectionBySlug = async (collectionSlug) => {
   const {
     data: {
@@ -129,6 +164,12 @@ const getCollectionBySlug = async (collectionSlug) => {
             id
             slug
             name
+            categories {
+              id
+              category
+              description
+            }
+            owner
           }
         }
       }
@@ -138,6 +179,32 @@ const getCollectionBySlug = async (collectionSlug) => {
     },
   });
   return collection;
+};
+
+const getCollectionVideoNode = async (collectionVideoNodeId) => {
+  const {
+    data: { getCollectionVideoNode: collectionVideoNode },
+  } = await appSyncClient.query({
+    query: gql(/* GraphQL */ `
+      query GetCollectionVideoNode($id: ID!) {
+        getCollectionVideoNode(id: $id) {
+          id
+          collectionVideoNodeCollectionId
+          status
+          categoryId
+          rejectionReason
+          collectionVideoNodeVideoNodeId
+          createdAt
+          updatedAt
+          owner
+        }
+      }
+    `),
+    variables: {
+      id: collectionVideoNodeId,
+    },
+  });
+  return collectionVideoNode;
 };
 
 const getVideoNode = async (videoNodeId) => {
@@ -269,6 +336,53 @@ const listCredits = async (filter) => {
   return items;
 };
 
+const listUserVideoNodesByVideoNodeAndList = async (videoNodeId, list) => {
+  let nextToken;
+  const items = [];
+  do {
+    const {
+      data: { listUserVideoNodesByVideoNodeAndList: userVideoNodes },
+    } = await appSyncClient.query({
+      query: gql(/* GraphQL */ `
+        query ListUserVideoNodesByVideoNodeAndList(
+          $userVideoNodeVideoNodeId: ID
+          $list: ModelStringKeyConditionInput
+          $sortDirection: ModelSortDirection
+          $filter: ModelUserVideoNodeFilterInput
+          $limit: Int
+          $nextToken: String
+        ) {
+          listUserVideoNodesByVideoNodeAndList(
+            userVideoNodeVideoNodeId: $userVideoNodeVideoNodeId
+            list: $list
+            sortDirection: $sortDirection
+            filter: $filter
+            limit: $limit
+            nextToken: $nextToken
+          ) {
+            items {
+              list
+              userSettingsVideoNodesId
+              userVideoNodeVideoNodeId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+        }
+      `),
+      variables: {
+        userVideoNodeVideoNodeId: videoNodeId,
+        list,
+        nextToken,
+      },
+    });
+    ({ nextToken } = userVideoNodes);
+    items.push(...userVideoNodes.items);
+  } while (nextToken);
+  return items;
+};
+
 const listVideoNodesByParent = async (parentId) => {
   let nextToken;
   const items = [];
@@ -355,6 +469,34 @@ const listVideoNodesByStatusSortByTitle = async (status, filter) => {
   return items;
 };
 
+const updateCollectionVideoNode = async (input) => {
+  const {
+    data: { updateCollectionVideoNode: collectionVideoNode },
+  } = await appSyncClient.mutate({
+    mutation: gql(/* GraphQL */ `
+      mutation UpdateCollectionVideoNode(
+        $input: UpdateCollectionVideoNodeInput!
+      ) {
+        updateCollectionVideoNode(input: $input) {
+          id
+          collectionVideoNodeCollectionId
+          status
+          categoryId
+          rejectionReason
+          collectionVideoNodeVideoNodeId
+          createdAt
+          updatedAt
+          owner
+        }
+      }
+    `),
+    variables: {
+      input,
+    },
+  });
+  return collectionVideoNode;
+};
+
 const updateVideoNode = async (input) => {
   const {
     data: { updateVideoNode: videoNode },
@@ -384,11 +526,15 @@ module.exports = {
   deleteCollectionVideoNode,
   deleteCredit,
   deleteVideoNode,
+  getCollection,
   getCollectionBySlug,
+  getCollectionVideoNode,
   getVideoNode,
   listCollectionVideoNodes,
   listCredits,
+  listUserVideoNodesByVideoNodeAndList,
   listVideoNodesByParent,
   listVideoNodesByStatusSortByTitle,
+  updateCollectionVideoNode,
   updateVideoNode,
 };
