@@ -93,7 +93,7 @@ const Collections = () => {
               </a>
             </Link>
           </Tooltip>
-          <Tooltip title={t('myProfilePage.collections.table.view')}>
+          <Tooltip title={t('myProfilePage.collections.table.edit')}>
             <Link
               href="/collection/[collection]/edit"
               as={`/collection/${record.slug}/edit`}

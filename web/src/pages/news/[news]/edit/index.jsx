@@ -3,15 +3,14 @@ import dynamic from 'next/dynamic';
 import Router, { useRouter } from 'next/router';
 import { Button, Form, Input, Popover, Tooltip, message } from 'antd';
 import {
-  CopyOutlined,
-  EyeOutlined,
+  ArrowRightOutlined,
   InfoCircleOutlined,
+  RollbackOutlined,
   SaveOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { gql } from '@apollo/client';
 import { Storage } from 'aws-amplify';
-import Link from 'next/link';
 
 import { Spin } from 'claptime/components/atoms';
 import {
@@ -20,13 +19,9 @@ import {
   Links,
   PageHeader,
 } from 'claptime/components/molecules';
-import CategoriesInput from 'claptime/components/organisms/CategoriesInput';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
-import {
-  listCollectionsBySlug,
-  updateCollection,
-} from 'claptime/graphql/collections';
+import { getNews, updateNews } from 'claptime/graphql/news';
 import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
 import { getUrl } from 'claptime/lib/profiles';
 import Head from 'claptime/lib/seo/Head';
@@ -34,35 +29,61 @@ import { useIsAuthenticated, useUserState } from 'claptime/lib/user';
 import { dataURItoBlob } from 'claptime/utils';
 import { nl2br } from 'claptime/utils/i18n';
 
-const CollectionEditPage = () => {
+const NewsEditPage = () => {
   const [form] = Form.useForm();
   const {
-    query: { collection: collectionSlug },
+    query: { news: newsId },
   } = useRouter();
   const { t } = useTranslation();
   const [unsavedChanges, setUnsavedChanges] = useState(false);
   const [saving, setSaving] = useState(false);
   const apolloClient = useApolloClient();
-  const { username: userId, isAdmin } = useUserState();
+  const { isAdmin } = useUserState();
   const [updatedImage, setUpdatedImage] = useState(null);
 
-  const { item: collection, refetch, response } = useQueryGet(
-    listCollectionsBySlug,
+  const { item: news, refetch, response } = useQueryGet(
+    getNews,
     {
       variables: {
-        slug: collectionSlug,
+        id: newsId,
       },
       errorPolicy: 'all',
     },
-    { resultPath: '$.listCollectionsBySlug.items[0]' },
+    { resultPath: '$.getNews' },
   );
   if (!useIsAuthenticated()) return <Spin />;
   if (response) return response;
 
   // Check authorization
-  if (!isAdmin && collection.owner !== userId) {
+  if (!isAdmin) {
     Router.push('/');
   }
+
+  const publishNews = async () => {
+    await apolloClient.mutate({
+      mutation: gql(updateNews),
+      variables: {
+        input: {
+          id: news.id,
+          status: 'PUBLISHED',
+        },
+      },
+    });
+    message.info(t('news.edit.publishSucceeded'));
+  };
+
+  const unpublishNews = async () => {
+    await apolloClient.mutate({
+      mutation: gql(updateNews),
+      variables: {
+        input: {
+          id: news.id,
+          status: 'DRAFT',
+        },
+      },
+    });
+    message.info(t('news.edit.unpublishSucceeded'));
+  };
 
   const onFinish = async (fieldsValue) => {
     setSaving(true);
@@ -70,17 +91,17 @@ const CollectionEditPage = () => {
       try {
         // Cover
         await Storage.put(
-          `collections/${collection.id}/${fieldsValue.cover.filename}`,
+          `news/${news.id}/${fieldsValue.cover.filename}`,
           dataURItoBlob(fieldsValue.cover.croppedImage),
           { level: 'protected' },
         );
         setUpdatedImage(fieldsValue.cover.croppedImage);
       } catch (err) {
         console.error(err);
-        message.error(t('collection.edit.errorUploadingCover'));
+        message.error(t('news.edit.errorUploadingCover'));
       }
     }
-    // Collection metadata
+    // News metadata
     const links = [];
     if (fieldsValue.facebook) {
       links.push({
@@ -107,18 +128,18 @@ const CollectionEditPage = () => {
       });
     }
     await apolloClient.mutate({
-      mutation: gql(updateCollection),
+      mutation: gql(updateNews),
       variables: {
         input: {
-          id: collection.id,
-          name: fieldsValue.name,
-          slug: fieldsValue.slug,
-          tagline: fieldsValue.tagline,
+          id: news.id,
+          title: fieldsValue.title,
+          status: fieldsValue.status,
           description: fieldsValue.description,
-          categories: fieldsValue.categories.map(
-            ({ id, category, description }) => ({ id, category, description }),
-          ),
           links,
+          button: {
+            text: fieldsValue.buttonText,
+            url: fieldsValue.buttonUrl,
+          },
         },
       },
     });
@@ -132,48 +153,56 @@ const CollectionEditPage = () => {
 
   return (
     <>
-      <Head page="collection/edit" />
+      <Head page="news/edit" />
       <NavBarTemplate>
         <PageHeader
-          title={t('collection.edit.pageTitle')}
+          title={t('news.edit.pageTitle')}
           extra={[
-            <Tooltip title={t('collection.edit.view')} key="view">
-              <Link
-                href="/collection/[collection]"
-                as={`/collection/${collection.slug}`}
-              >
-                <a>
-                  <Button icon={<EyeOutlined />} />
-                </a>
-              </Link>
-            </Tooltip>,
-            <Tooltip title={t('collection.edit.save')} key="save">
+            <Tooltip title={t('news.edit.save')} key="save">
               <Button
                 type="primary"
                 loading={saving}
                 icon={<SaveOutlined />}
-                form="collection-edit-form"
+                form="news-edit-form"
                 htmlType="submit"
                 disabled={!unsavedChanges}
               />
             </Tooltip>,
+            news.status === 'DRAFT' ? (
+              <Button
+                type="primary"
+                icon={<ArrowRightOutlined />}
+                disabled={unsavedChanges}
+                onClick={publishNews}
+              >
+                {t('news.edit.publish')}
+              </Button>
+            ) : null,
+            news.status === 'PUBLISHED' ? (
+              <Button
+                icon={<RollbackOutlined />}
+                onClick={unpublishNews}
+                disabled={unsavedChanges}
+              >
+                {t('news.edit.unpublish')}
+              </Button>
+            ) : null,
           ]}
         />
         <Form
           form={form}
-          id="collection-edit-form"
+          id="news-edit-form"
           onFinish={onFinish}
           initialValues={{
-            name: collection.name,
-            slug: collection.slug,
-            tagline: collection.tagline,
-            description: collection.description,
+            title: news.title,
+            description: news.description,
             cover: { image: null },
-            categories: collection.categories,
-            facebook: getUrl(collection.links || [], 'FACEBOOK'),
-            instagram: getUrl(collection.links || [], 'INSTAGRAM'),
-            labfilms: getUrl(collection.links || [], 'LABFILMS'),
-            website: getUrl(collection.links || [], 'WEBSITE'),
+            facebook: getUrl(news.links || [], 'FACEBOOK'),
+            instagram: getUrl(news.links || [], 'INSTAGRAM'),
+            labfilms: getUrl(news.links || [], 'LABFILMS'),
+            website: getUrl(news.links || [], 'WEBSITE'),
+            buttonText: news.button?.text,
+            buttonUrl: news.button?.url,
           }}
           layout="vertical"
           style={{
@@ -187,23 +216,23 @@ const CollectionEditPage = () => {
                 <span>
                   <Popover
                     placement="rightTop"
-                    title={t('collection.edit.coverPopoverTitle')}
+                    title={t('news.edit.coverPopoverTitle')}
                     content={
                       <div style={{ maxWidth: '500px' }}>
-                        {nl2br(t('collection.edit.coverPopoverContent'))}
+                        {nl2br(t('news.edit.coverPopoverContent'))}
                       </div>
                     }
                   >
                     <InfoCircleOutlined />
                   </Popover>
-                  {` ${t('collection.edit.cover')}`}
+                  {` ${t('news.edit.cover')}`}
                 </span>
               }
               style={{ width: '100%' }}
             >
               <ImageInput
-                s3Path={`collections/${collection.id}/${consts.collections.covers.filenames.CROPPED_1500_300}`}
-                format="5:1"
+                s3Path={`news/${news.id}/${consts.news.covers.filenames.CROPPED_1500_500}`}
+                format="3:1"
                 disabled={disabled}
                 updatedImage={updatedImage}
                 onChange={(value) => {
@@ -215,92 +244,29 @@ const CollectionEditPage = () => {
             </Form.Item>
             <Layouts.Form.Column>
               <Form.Item
-                name="name"
+                name="title"
                 rules={[
                   {
                     required: true,
-                    message: t('collection.edit.required'),
-                  },
-                  {
-                    max: 50,
-                    message: t('collection.edit.nameMaxLength'),
-                  },
-                ]}
-                label={t('collection.edit.name')}
-              >
-                <Input
-                  placeholder={t('collection.edit.namePlaceholder')}
-                  disabled={disabled}
-                  onChange={() => setUnsavedChanges(true)}
-                />
-              </Form.Item>
-              <Form.Item
-                name="slug"
-                rules={[
-                  {
-                    required: true,
-                    message: t('collection.edit.required'),
-                  },
-                  {
-                    max: 50,
-                    message: t('collection.edit.slugMaxLength'),
-                  },
-                ]}
-                label={
-                  <>
-                    {t('collection.edit.slug')}&nbsp;
-                    <Tooltip title={t('collection.edit.slugTooltip')}>
-                      <InfoCircleOutlined />
-                    </Tooltip>
-                  </>
-                }
-              >
-                <Input
-                  placeholder={t('collection.edit.slugPlaceholder')}
-                  disabled
-                  onChange={() => setUnsavedChanges(true)}
-                  addonBefore="/collection/"
-                  addonAfter={
-                    <Tooltip title={t('collection.edit.slugCopy')}>
-                      <CopyOutlined
-                        onClick={() => {
-                          navigator.clipboard.writeText(
-                            `https://www.clap-time.com/collection/${collection.slug}`,
-                          );
-                          message.info(t('collection.edit.slugCopied'));
-                        }}
-                      />
-                    </Tooltip>
-                  }
-                />
-              </Form.Item>
-              <Form.Item
-                name="tagline"
-                rules={[
-                  {
-                    required: true,
-                    message: t('collection.edit.required'),
+                    message: t('news.edit.required'),
                   },
                   {
                     max: 100,
-                    message: t('collection.edit.taglineMaxLength'),
+                    message: t('news.edit.titleMaxLength'),
                   },
                 ]}
-                label={t('collection.edit.tagline')}
+                label={t('news.edit.title')}
               >
                 <Input
-                  placeholder={t('collection.edit.taglinePlaceholder')}
+                  placeholder={t('news.edit.titlePlaceholder')}
                   disabled={disabled}
                   onChange={() => setUnsavedChanges(true)}
                 />
               </Form.Item>
-              <Form.Item
-                name="description"
-                label={t('collection.edit.description')}
-              >
+              <Form.Item name="description" label={t('news.edit.description')}>
                 <Input.TextArea
                   autoSize={{ minRows: 4, maxRows: 10 }}
-                  placeholder={t('collection.edit.descriptionPlaceholder')}
+                  placeholder={t('news.edit.descriptionPlaceholder')}
                   disabled={disabled}
                   onChange={() => setUnsavedChanges(true)}
                 />
@@ -308,12 +274,25 @@ const CollectionEditPage = () => {
             </Layouts.Form.Column>
             <Layouts.Form.Column>
               <Form.Item
-                name="categories"
-                label={t('collection.edit.categories')}
+                name="buttonText"
+                rules={[
+                  {
+                    max: 50,
+                    message: t('news.edit.buttonTextMaxLength'),
+                  },
+                ]}
+                label={t('news.edit.buttonText')}
               >
-                <CategoriesInput
-                  collectionId={collection.id}
-                  editable={!disabled}
+                <Input
+                  placeholder={t('news.edit.buttonTextPlaceholder')}
+                  disabled={disabled}
+                  onChange={() => setUnsavedChanges(true)}
+                />
+              </Form.Item>
+              <Form.Item name="buttonUrl" label={t('news.edit.buttonUrl')}>
+                <Input
+                  placeholder={t('news.edit.buttonUrlPlaceholder')}
+                  disabled={disabled}
                   onChange={() => setUnsavedChanges(true)}
                 />
               </Form.Item>
@@ -328,6 +307,6 @@ const CollectionEditPage = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(CollectionEditPage), {
+export default dynamic(() => Promise.resolve(NewsEditPage), {
   ssr: false,
 });
