@@ -4,7 +4,7 @@ enum UserCollectionList {
 
 type UserCollection
 @model(
-  queries: null,
+  queries: { list: "listUserCollection" },
   mutations: { delete: "deleteUserCollection", create: "createUserCollection" },
   subscriptions: null,
 )
@@ -13,6 +13,7 @@ type UserCollection
 )
 @auth(rules: [
   { allow: owner, operations: [create, delete, read, update] },
+  { allow: private, provider: iam, operations: [read] },
 ])
 {
   list: UserCollectionList!

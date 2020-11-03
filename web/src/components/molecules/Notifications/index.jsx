@@ -12,6 +12,8 @@ import { useTranslation, Trans } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useSubscription, useQueryList } from 'claptime/lib/apollo';
+import PropTypes from 'claptime/lib/prop-types';
+
 import consts from 'claptime/consts';
 
 import { Covers, NotificationListItem } from 'claptime/components/atoms';
@@ -63,9 +65,10 @@ const StyledList = styled(List)`
   }
 `;
 
-
 // Popover need to be wrapped to support styled-component: https://github.com/yesmeck/styled-antd/issues/1
-const MyPopover = ({ className, ...props }) => <Popover {...props} overlayClassName={className} />
+const MyPopover = ({ className, ...props }) => (
+  <Popover {...props} overlayClassName={className} />
+);
 
 const StyledPopover = styled(MyPopover)`
   .ant-popover-content {
@@ -151,17 +154,6 @@ const Notifications = () => {
     let link;
     let extra;
     switch (type) {
-      case 'VIDEO_STATUS_CHANGE': {
-        const { title, newStatus, videoNodeId } = jsonPayload;
-        link = `/video/${videoNodeId}`;
-        extra = <Covers.Video width={69} height={92} videoId={videoNodeId} />;
-        notificationDescription = (
-          <Trans i18nKey={'notifications.videoStatusChange.'.concat(newStatus)}>
-            <strong>{{ title }}</strong> est maintenant en ligne !
-          </Trans>
-        );
-        break;
-      }
       case 'VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS': {
         const {
           collection: { name: collectionName },
@@ -203,7 +195,7 @@ const Notifications = () => {
       content={getPopoverContent()}
       title={t('notifications.popover.title')}
       trigger="click"
-      style={{width: '500px'}}
+      style={{ width: '500px' }}
     >
       <Tooltip title={t('notifications.tooltip')}>
         <Badge
@@ -217,14 +209,16 @@ const Notifications = () => {
               border: `1px solid ${iconColor}`,
               lineHeight: '28px',
             }}
-            icon={
-              <BellFilled style={{ color: iconColor, fontSize: '16px' }} />
-            }
+            icon={<BellFilled style={{ color: iconColor, fontSize: '16px' }} />}
           />
         </Badge>
       </Tooltip>
     </StyledPopover>
   );
+};
+
+MyPopover.propTypes = {
+  className: PropTypes.string.isRequired,
 };
 
 export default Notifications;

@@ -1,6 +1,6 @@
 enum NotificationType {
   NEWSLETTER
-  VIDEO_STATUS_CHANGE
+  VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS
 }
 
 enum NotificationChannel {

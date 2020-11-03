@@ -7,6 +7,8 @@ const {
   getCollection,
   getCollectionBySlug,
   getVideoNode,
+  listUserCollection,
+  notifyUser,
 } = require('./models');
 const { slackVideoNode } = require('./slack');
 
@@ -106,6 +108,37 @@ const validateSubmission = async (
   console.log('Email sent to author');
 
   // TODO send notification
+  if (status === 'APPROVED') {
+    const subscribingUsers = await listUserCollection({
+      userCollectionCollectionId: {
+        eq: collection.id,
+      },
+    });
+    console.log('Create notification for subscribing users');
+    const channels = ['WEB'];
+    const payload = JSON.stringify({
+      collection: {
+        name: collection.name,
+        id: collection.id,
+      },
+      videoNode: {
+        type: videoNode.type,
+        title: videoNode.title,
+        id: videoNode.id,
+      },
+    });
+    await Promise.all(
+      subscribingUsers.map((user) => {
+        const { userSettingsCollectionsId: owner } = user;
+        return notifyUser(
+          owner,
+          'VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS',
+          channels,
+          payload,
+        );
+      }),
+    );
+  }
 
   return res;
 };

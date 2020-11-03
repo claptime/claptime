@@ -19,6 +19,26 @@ export const getStripeAccessToken = /* GraphQL */ `
     }
   }
 `;
+export const listNotifications = /* GraphQL */ `
+  query ListNotifications(
+    $filter: ModelNotificationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotifications(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        createdAt
+        owner
+        type
+        payload
+        isRead
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listViews = /* GraphQL */ `
   query ListViews(
     $viewVideoNodeId: String
@@ -136,6 +156,36 @@ export const listViews = /* GraphQL */ `
             nextToken
           }
         }
+      }
+      nextToken
+    }
+  }
+`;
+export const listNotificationsByOwnerSortByCreatedAt = /* GraphQL */ `
+  query ListNotificationsByOwnerSortByCreatedAt(
+    $owner: String
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelNotificationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotificationsByOwnerSortByCreatedAt(
+      owner: $owner
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        createdAt
+        owner
+        type
+        payload
+        isRead
+        updatedAt
       }
       nextToken
     }
@@ -1765,6 +1815,70 @@ export const getProfile = /* GraphQL */ `
     }
   }
 `;
+export const listUserCollection = /* GraphQL */ `
+  query ListUserCollection(
+    $userSettingsCollectionsId: String
+    $listUserCollectionCollectionId: ModelUserCollectionPrimaryCompositeKeyConditionInput
+    $filter: ModelUserCollectionFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listUserCollection(
+      userSettingsCollectionsId: $userSettingsCollectionsId
+      listUserCollectionCollectionId: $listUserCollectionCollectionId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        list
+        userSettingsCollectionsId
+        userCollectionCollectionId
+        createdAt
+        updatedAt
+        collection {
+          id
+          slug
+          name
+          status
+          tagline
+          description
+          links {
+            type
+            url
+          }
+          categories {
+            id
+            category
+            description
+          }
+          collectionProfileId
+          searchField
+          createdBy
+          createdAt
+          owner
+          updatedAt
+          videoNodes {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const getUserSettings = /* GraphQL */ `
   query GetUserSettings($id: ID!) {
     getUserSettings(id: $id) {
@@ -1776,30 +1890,6 @@ export const getUserSettings = /* GraphQL */ `
         type
         channel
         frequency
-      }
-      collections {
-        items {
-          list
-          userSettingsCollectionsId
-          userCollectionCollectionId
-          createdAt
-          updatedAt
-          collection {
-            id
-            slug
-            name
-            status
-            tagline
-            description
-            collectionProfileId
-            searchField
-            createdBy
-            createdAt
-            owner
-            updatedAt
-          }
-        }
-        nextToken
       }
       profiles {
         items {
@@ -1824,6 +1914,30 @@ export const getUserSettings = /* GraphQL */ `
       owner
       createdAt
       updatedAt
+      collections {
+        items {
+          list
+          userSettingsCollectionsId
+          userCollectionCollectionId
+          createdAt
+          updatedAt
+          collection {
+            id
+            slug
+            name
+            status
+            tagline
+            description
+            collectionProfileId
+            searchField
+            createdBy
+            createdAt
+            owner
+            updatedAt
+          }
+        }
+        nextToken
+      }
       videoNodes {
         items {
           list

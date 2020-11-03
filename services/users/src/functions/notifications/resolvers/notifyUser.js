@@ -14,6 +14,7 @@ const createNotification = async (userId, type, payload) => {
         owner
         type
         payload
+        isRead
       }
     }`),
     variables: {
@@ -21,6 +22,7 @@ const createNotification = async (userId, type, payload) => {
         owner: userId,
         type,
         payload: JSON.stringify(payload),
+        isRead: false,
       },
     },
   });

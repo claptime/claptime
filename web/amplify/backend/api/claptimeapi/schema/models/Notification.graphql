@@ -21,4 +21,5 @@ type Notification
   owner: String!
   type: NotificationType
   payload: AWSJSON
+  isRead: Boolean
 }

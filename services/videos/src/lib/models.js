@@ -548,6 +548,42 @@ const notifyUser = async (userId, type, channels, payload) => {
   });
 };
 
+const listUserCollection = async (filter) => {
+  let nextToken;
+  const items = [];
+  do {
+    const {
+      data: { listUserCollection: userCollection },
+    } = await appSyncClient.query({
+      query: gql(/* GraphQL */ `
+        query ListUserCollection(
+          $filter: ModelUserCollectionFilterInput
+          $limit: Int
+          $nextToken: String
+        ) {
+          listUserCollection(
+            filter: $filter
+            limit: $limit
+            nextToken: $nextToken
+          ) {
+            items {
+              userSettingsCollectionsId
+            }
+            nextToken
+          }
+        }
+      `),
+      variables: {
+        filter,
+        nextToken,
+      },
+    });
+    ({ nextToken } = userCollection);
+    items.push(...userCollection.items);
+  } while (nextToken);
+  return items;
+};
+
 module.exports = {
   createCollectionVideoNode,
   createVideoNode,
@@ -566,4 +602,5 @@ module.exports = {
   updateCollectionVideoNode,
   updateVideoNode,
   notifyUser,
+  listUserCollection,
 };

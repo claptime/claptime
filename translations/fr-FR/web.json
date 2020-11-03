@@ -828,8 +828,9 @@
   },
   "notifications": {
     "videoStatusChange": {
-      "PUBLISHED": "{{title}} est maintenant en ligne !"
+      "PUBLISHED": "<0>{{title}}</0> est maintenant en ligne !"
     },
+    "videoNodeAddedToCollectionSubscribers": "<0>{{videoNodeTitle}}</0>, nouvel ajout dans la collection <2>{{collectionName}}</2>",
     "popover": {
       "title": "Mes notifications",
       "emptyTitle": "Aucune notification pour le moment",
