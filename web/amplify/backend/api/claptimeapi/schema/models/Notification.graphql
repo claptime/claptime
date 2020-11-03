@@ -1,0 +1,25 @@
+type Notification
+@model(
+  queries: { list: "listNotifications" },
+  mutations: { create: "createNotification", update: "updateNotification", delete: "deleteNotification" },
+  subscriptions: null,
+)
+@auth(
+  rules: [
+    { allow: owner, operations: [create, delete, read, update] },
+    { allow: private, provider: iam, operations: [create] },
+  ]
+)
+@key(
+  name: "ByOwnerSortByCreatedAt",
+  fields: ["owner", "createdAt"],
+  queryField: "listNotificationsByOwnerSortByCreatedAt",
+)
+ {
+  id: ID!
+  createdAt: AWSDateTime
+  owner: String!
+  type: NotificationType
+  payload: AWSJSON
+  isRead: Boolean
+}

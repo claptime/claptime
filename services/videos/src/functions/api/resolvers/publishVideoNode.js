@@ -1,11 +1,11 @@
 const {
   collections: { default: defaultCollection },
 } = require('../../../lib/consts');
+const { getVideoNode, updateVideoNode } = require('../../../lib/models');
 const {
   submitToCollection,
   validateSubmission,
 } = require('../../../lib/helpers');
-const { getVideoNode, updateVideoNode } = require('../../../lib/models');
 
 module.exports = async (event) => {
   const {

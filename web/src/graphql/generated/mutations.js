@@ -8824,6 +8824,25 @@ export const setNotificationPreference = /* GraphQL */ `
     }
   }
 `;
+export const notifyUser = /* GraphQL */ `
+  mutation NotifyUser(
+    $userId: String!
+    $type: String!
+    $channels: [NotificationChannel]!
+    $payload: AWSJSON
+  ) {
+    notifyUser(
+      userId: $userId
+      type: $type
+      channels: $channels
+      payload: $payload
+    ) {
+      status
+      reason
+      data
+    }
+  }
+`;
 export const createNews = /* GraphQL */ `
   mutation CreateNews($input: CreateNewsInput!) {
     createNews(input: $input) {
@@ -8883,6 +8902,32 @@ export const deleteNews = /* GraphQL */ `
       createdAt
       createdBy
       owner
+      updatedAt
+    }
+  }
+`;
+export const updateNotification = /* GraphQL */ `
+  mutation UpdateNotification($input: UpdateNotificationInput!) {
+    updateNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
+      updatedAt
+    }
+  }
+`;
+export const deleteNotification = /* GraphQL */ `
+  mutation DeleteNotification($input: DeleteNotificationInput!) {
+    deleteNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
       updatedAt
     }
   }
@@ -12153,6 +12198,19 @@ export const deleteCredit = /* GraphQL */ `
     }
   }
 `;
+export const createNotification = /* GraphQL */ `
+  mutation CreateNotification($input: CreateNotificationInput!) {
+    createNotification(input: $input) {
+      id
+      createdAt
+      owner
+      type
+      payload
+      isRead
+      updatedAt
+    }
+  }
+`;
 export const createProfile = /* GraphQL */ `
   mutation CreateProfile($input: CreateProfileInput!) {
     createProfile(input: $input) {
@@ -12567,6 +12625,29 @@ export const createUserSettings = /* GraphQL */ `
         channel
         frequency
       }
+      profiles {
+        items {
+          list
+          userSettingsProfilesId
+          userProfileProfileId
+          createdAt
+          updatedAt
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+        }
+        nextToken
+      }
+      owner
+      createdAt
+      updatedAt
       collections {
         items {
           list
@@ -12591,29 +12672,6 @@ export const createUserSettings = /* GraphQL */ `
         }
         nextToken
       }
-      profiles {
-        items {
-          list
-          userSettingsProfilesId
-          userProfileProfileId
-          createdAt
-          updatedAt
-          profile {
-            id
-            name
-            biography
-            searchField
-            createdAt
-            createdBy
-            owner
-            updatedAt
-          }
-        }
-        nextToken
-      }
-      owner
-      createdAt
-      updatedAt
       videoNodes {
         items {
           list
@@ -12663,6 +12721,29 @@ export const updateUserSettings = /* GraphQL */ `
         channel
         frequency
       }
+      profiles {
+        items {
+          list
+          userSettingsProfilesId
+          userProfileProfileId
+          createdAt
+          updatedAt
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+        }
+        nextToken
+      }
+      owner
+      createdAt
+      updatedAt
       collections {
         items {
           list
@@ -12687,29 +12768,6 @@ export const updateUserSettings = /* GraphQL */ `
         }
         nextToken
       }
-      profiles {
-        items {
-          list
-          userSettingsProfilesId
-          userProfileProfileId
-          createdAt
-          updatedAt
-          profile {
-            id
-            name
-            biography
-            searchField
-            createdAt
-            createdBy
-            owner
-            updatedAt
-          }
-        }
-        nextToken
-      }
-      owner
-      createdAt
-      updatedAt
       videoNodes {
         items {
           list
@@ -12759,6 +12817,29 @@ export const deleteUserSettings = /* GraphQL */ `
         channel
         frequency
       }
+      profiles {
+        items {
+          list
+          userSettingsProfilesId
+          userProfileProfileId
+          createdAt
+          updatedAt
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+        }
+        nextToken
+      }
+      owner
+      createdAt
+      updatedAt
       collections {
         items {
           list
@@ -12783,29 +12864,6 @@ export const deleteUserSettings = /* GraphQL */ `
         }
         nextToken
       }
-      profiles {
-        items {
-          list
-          userSettingsProfilesId
-          userProfileProfileId
-          createdAt
-          updatedAt
-          profile {
-            id
-            name
-            biography
-            searchField
-            createdAt
-            createdBy
-            owner
-            updatedAt
-          }
-        }
-        nextToken
-      }
-      owner
-      createdAt
-      updatedAt
       videoNodes {
         items {
           list

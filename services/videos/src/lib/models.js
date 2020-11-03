@@ -520,6 +520,70 @@ const updateVideoNode = async (input) => {
   return videoNode;
 };
 
+const notifyUser = async (userId, type, channels, payload) => {
+  await appSyncClient.mutate({
+    mutation: gql(/* GraphQL */ `
+      mutation NotifyUser(
+        $userId: String!
+        $type: String!
+        $channels: [NotificationChannel]!
+        $payload: AWSJSON
+      ) {
+        notifyUser(
+          userId: $userId
+          type: $type
+          channels: $channels
+          payload: $payload
+        ) {
+          status
+        }
+      }
+    `),
+    variables: {
+      userId,
+      type,
+      channels,
+      payload,
+    },
+  });
+};
+
+const listUserCollection = async (filter) => {
+  let nextToken;
+  const items = [];
+  do {
+    const {
+      data: { listUserCollection: userCollection },
+    } = await appSyncClient.query({
+      query: gql(/* GraphQL */ `
+        query ListUserCollection(
+          $filter: ModelUserCollectionFilterInput
+          $limit: Int
+          $nextToken: String
+        ) {
+          listUserCollection(
+            filter: $filter
+            limit: $limit
+            nextToken: $nextToken
+          ) {
+            items {
+              userSettingsCollectionsId
+            }
+            nextToken
+          }
+        }
+      `),
+      variables: {
+        filter,
+        nextToken,
+      },
+    });
+    ({ nextToken } = userCollection);
+    items.push(...userCollection.items);
+  } while (nextToken);
+  return items;
+};
+
 module.exports = {
   createCollectionVideoNode,
   createVideoNode,
@@ -537,4 +601,6 @@ module.exports = {
   listVideoNodesByStatusSortByTitle,
   updateCollectionVideoNode,
   updateVideoNode,
+  notifyUser,
+  listUserCollection,
 };

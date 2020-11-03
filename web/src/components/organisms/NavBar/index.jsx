@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import PropTypes from 'claptime/lib/prop-types';
 
 import { Logo } from 'claptime/components/atoms';
+import Notifications from 'claptime/components/molecules/Notifications';
 
 import consts from 'claptime/consts';
 
@@ -17,9 +18,11 @@ const {
 } = style;
 
 const StyledNav = styled.nav`
+
+  align-items: center;
+
   .ant-menu-horizontal {
     border-bottom: none;
-    line-height: 50px;
   }
 
   .ant-menu-inline {
@@ -52,18 +55,15 @@ const StyledNav = styled.nav`
 
   .bars-menu {
     height: 32px;
-    float: right;
     display: none;
     background: none;
     border-color: white;
-    margin-left: auto;
     align-self: center;
   }
   .bars-btn {
     display: block;
     width: 20px;
     height: 2px;
-    top: -4px;
     background: white;
     position: relative;
   }
@@ -89,8 +89,15 @@ const StyledNav = styled.nav`
   .ant-menu-submenu-horizontal.ant-menu-submenu:hover {
     border-bottom: 0 !important;
   }
-
+  #claptime-notifications-menu-container {
+    display: none;
+  }
   @media (max-width: 1023px) {
+    #claptime-notifications-menu-container {
+      display: block;
+      margin-left: auto;
+      margin-right: 5%;
+    }
     .bars-menu {
       display: inline-block;
     }
@@ -171,7 +178,7 @@ const NavBar = ({ logoSize, logoColor }) => {
 
   return (
     <StyledNav className="nav-bar" style={{ width: '100%', display: 'flex' }}>
-      <div className="logo" style={{ height: 50, textAlign: 'center' }}>
+      <div className="logo" style={{ height: 40, textAlign: 'center' }}>
         <Logo color={logoColor} size={logoSize} />
       </div>
       <div className="menu-items">
@@ -179,6 +186,9 @@ const NavBar = ({ logoSize, logoColor }) => {
         <RightMenu mode="horizontal" />
       </div>
 
+      <div id="claptime-notifications-menu-container">
+        <Notifications />
+      </div>
       <Button
         className="bars-menu"
         type="primary"

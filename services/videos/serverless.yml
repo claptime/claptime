@@ -27,6 +27,7 @@ provider:
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/updateCollectionVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/updateVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/notifyUser
         - ${self:custom.appsyncPrefix}/Query/fields/getCollection
         - ${self:custom.appsyncPrefix}/Query/fields/getCollectionVideoNode
         - ${self:custom.appsyncPrefix}/Query/fields/getProfile
@@ -34,6 +35,7 @@ provider:
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionsBySlug
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionVideoNodes
         - ${self:custom.appsyncPrefix}/Query/fields/listCredits
+        - ${self:custom.appsyncPrefix}/Query/fields/listUserCollection
         - ${self:custom.appsyncPrefix}/Query/fields/listUserVideoNodesByVideoNodeAndList
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByParent
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByStatusSortByTitle
@@ -274,24 +276,24 @@ resources:
       Type: AWS::ECR::Repository
       Properties:
         RepositoryName: ${self:service}-${self:provider.stage}
-    S3Bucket:
-      Type: AWS::S3::Bucket
-      DeletionPolicy: Retain
-      Properties:
-        BucketName: claptime-videos-${self:provider.stage}
-        BucketEncryption:
-          ServerSideEncryptionConfiguration:
-            - ServerSideEncryptionByDefault:
-                SSEAlgorithm: AES256
-        CorsConfiguration:
-          CorsRules:
-            - AllowedOrigins:
-                - https://*.clap-time.com
-              AllowedMethods:
-                - GET
-                - HEAD
-              AllowedHeaders:
-                - '*'
+    #S3Bucket:
+    #  Type: AWS::S3::Bucket
+    #  DeletionPolicy: Retain
+    #  Properties:
+    #    BucketName: claptime-videos-${self:provider.stage}
+    #    BucketEncryption:
+    #      ServerSideEncryptionConfiguration:
+    #        - ServerSideEncryptionByDefault:
+    #            SSEAlgorithm: AES256
+    #    CorsConfiguration:
+    #      CorsRules:
+    #        - AllowedOrigins:
+    #            - https://*.clap-time.com
+    #          AllowedMethods:
+    #            - GET
+    #            - HEAD
+    #          AllowedHeaders:
+    #            - '*'
     S3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
