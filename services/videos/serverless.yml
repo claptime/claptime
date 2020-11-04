@@ -276,24 +276,24 @@ resources:
       Type: AWS::ECR::Repository
       Properties:
         RepositoryName: ${self:service}-${self:provider.stage}
-    #S3Bucket:
-    #  Type: AWS::S3::Bucket
-    #  DeletionPolicy: Retain
-    #  Properties:
-    #    BucketName: claptime-videos-${self:provider.stage}
-    #    BucketEncryption:
-    #      ServerSideEncryptionConfiguration:
-    #        - ServerSideEncryptionByDefault:
-    #            SSEAlgorithm: AES256
-    #    CorsConfiguration:
-    #      CorsRules:
-    #        - AllowedOrigins:
-    #            - https://*.clap-time.com
-    #          AllowedMethods:
-    #            - GET
-    #            - HEAD
-    #          AllowedHeaders:
-    #            - '*'
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      DeletionPolicy: Retain
+      Properties:
+        BucketName: claptime-videos-${self:provider.stage}
+        BucketEncryption:
+          ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: AES256
+        CorsConfiguration:
+          CorsRules:
+            - AllowedOrigins:
+                - https://*.clap-time.com
+              AllowedMethods:
+                - GET
+                - HEAD
+              AllowedHeaders:
+                - '*'
     S3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
