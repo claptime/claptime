@@ -139,7 +139,7 @@ const Legal = () => {
           <h3>7.1 Responsables de la collecte des données personnelles</h3>
 
           <p>
-            Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est l'association LabFilms, représentée par Christophe BOUGERE.
+            Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est l’association LabFilms, représentée par Christophe BOUGERE.
           </p>
 
           <p>

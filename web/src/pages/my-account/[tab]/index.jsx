@@ -14,7 +14,6 @@ const tabs = [
   {
     key: 'information',
     Component: Information,
-    isDefault: true,
   },
   {
     key: 'notifications',

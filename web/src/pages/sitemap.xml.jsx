@@ -16,7 +16,13 @@ const createSitemap = ({
         <loc>${`${host}/about/filmmakers`}</loc>
     </url>
     <url>
-        <loc>${`${host}/about/press`}</loc>
+        <loc>${`${host}/about/project/association`}</loc>
+    </url>
+    <url>
+        <loc>${`${host}/about/project/manifest`}</loc>
+    </url>
+    <url>
+        <loc>${`${host}/about/project/partners`}</loc>
     </url>
     <url>
         <loc>${`${host}/about/spectators`}</loc>
@@ -25,10 +31,10 @@ const createSitemap = ({
         <loc>${`${host}/collections`}</loc>
     </url>
     <url>
-        <loc>${`${host}/legal`}</loc>
+        <loc>${`${host}/festivals/la-luciole-2020`}</loc>
     </url>
     <url>
-        <loc>${`${host}/partners`}</loc>
+        <loc>${`${host}/legal`}</loc>
     </url>
     <url>
         <loc>${`${host}/profiles`}</loc>

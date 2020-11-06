@@ -151,13 +151,58 @@
       }
     }
   },
-  "partnersPage": {
-    "pageTitle": "Nos partenaires",
-    "partners": {
+  "projectPage": {
+    "pageTitle": "Le projet",
+    "container": {
+      "tabs": {
+        "association": "L'association",
+        "manifest": "Manifeste",
+        "partners": "Partenaires",
+        "contributing": "Contribuer"
+      }
+    },
+    "association": {
+      "introduction": "Initié et développé courant 2019 par deux passionnés de court-métrage et de culture indépendante, le projet Claptime est maintenant porté par l'association LabFilms depuis novembre 2020.",
       "labfilms": {
-        "name": "LabFilms",
-        "description": "LabFilms.org est une plateforme communautaire en ligne pour trouver des collaborateurs de tournage, mettre en valeur ses compétences vidéo et partager ses films. Ce réseau social est gratuit et relève d’une initiative associative à but non lucratif. Il a été pensé par des passionnés de création audiovisuelle pour d’autres passionnés.\n\nClaptime et LabFilms s'associent pour mettre en valeur le cinéma indépendant et autoproduit."
+        "title": "L'association LabFilms",
+        "text": "LabFilms.org est une plateforme communautaire en ligne pour trouver des collaborateurs de tournage, mettre en valeur ses compétences vidéo et partager ses films. Ce réseau social est gratuit et relève d’une initiative associative à but non lucratif. Il a été pensé par des passionnés de création audiovisuelle pour d’autres passionnés.\n\nFace à la synergie de nos valeurs et à la complémentarité de nos plateformes, nous sommes convaincus que mettre en commun nos ressources nous permettra de servir au mieux notre (noble) cause et de vous proposer une expérience la plus complète et agréable possible.",
+        "ctaText": "Découvrir LabFilms.org"
       },
+      "openSource": {
+        "title": "Open-source",
+        "text": "Le code source de Claptime est open-source. C'est notre manière de proposer un modèle alternatif à celui des GAFAM et autres géants du web, et d'être le plus transparent possible en termes d'utilisation de vos données.",
+        "ctaText": "Accéder au code source"
+      },
+      "contributing": {
+        "title": "Envie de contribuer ?",
+        "text": "Vous aimez le projet et vous souhaitez y participer ? Formidable, car c'est avec votre soutien que nous pourront proposer une réelle alternative ! Il existe différents moyens de nous aider :",
+        "item1": "Le premier, mais pas des moindres, c'est de parler de Claptime à vos proches ! Qu'ils soient cinéastes, cinéphiles, étudiants ou réalisateurs du dimanche, partagez-leur vos films préférés et proposez leur de mettre leurs réalisations en ligne.",
+        "item2": "Pour proposer des collections de qualité et une éditorialisation pertinente, nous sommes à la recherche de curateurs. Alors si vous rêvez d'être un jour sélectionneur pour le festival de Cannes, venez montrer votre talent en animant une collection sur une thématique qui vous tient à cœur.",
+        "item3": "Si les réseaux sociaux n'ont plus aucun secret pour vous, que vous savez animer une communauté, venez-nous aider à montrer au plus grand nombre toutes les pépites qui sont mises en ligne sur Claptime !",
+        "item4": "Enfin, si vous êtes développeur web et que vous souhaitez mettre la main à la pâte, nous avons de très nombreuses idées de fonctionnalités que nous souhaiterions ajouter (n'ayez pas peur, on vous expliquera comment ça marche) !",
+        "ctaText": "Envoyez-nous un message pour plus de détails"
+      }
+    },
+    "manifest": {
+      "introduction": "Alors que les moyens pour réaliser un film n'ont jamais été aussi nombreux, parvenir à le diffuser dans de bonnes conditions reste un véritable parcours du combattant. Intégrer les circuits de diffusion conventionnels demande des investissements en temps et en argent qui sont trop rarement récompensés. Sur internet, difficile de se faire une place parmi l'océan de contenu disponible sur les hébergeurs vidéo traditionnels. Claptime crée la première plateforme dédiée à tous ces films artisanaux, personnels, loin des standards et dont la diffusion se limite malheureusement souvent à un cercle trop restreint, et propose ainsi une autre vision du cinéma.",
+      "section1": {
+        "title": "Mettre en lumière la diversité du cinéma",
+        "text": "La plateforme Claptime offre un espace de diffusion accessible à tous les réalisateurs ayant des films à montrer. Sans publicité, les spectateurs ont accès à un catalogue faisant la part belle à des genres et des formats audiovisuels trop peu représentés, du court-métrage de fiction au documentaire engagé en passant par la web-série."
+      },
+      "section2": {
+        "title": "Des recommandations humaines et collaboratives",
+        "text": "Pour articuler ce catalogue grandissant, et pour simplifier la découverte de films par centre d'intérêt, Claptime propose un système de recommandation participatif, les Collections. Celles-ci regroupent un ensemble de films et de séries autour d'une thématique donnée, d'un format ou d'un genre particulier. L’objectif est de concevoir une expérience proche de celle des festivals de films, en proposant des sélections variées et évolutives, gérées par des acteurs du milieu du cinéma et ouvertes aux soumissions, afin que les spectateurs puissent découvrir des nouveautés pertinentes en fonction de leurs goûts et de leurs affinités."
+      },
+      "section3": {
+        "title": "La participation au chapeau 2.0",
+        "text": "Dans l'optique de créer un écosystème favorable à la création, l'un des enjeux de Claptime est aussi de renforcer les liens qui existent entre les réalisateurs et leur public. La démocratisation et l'engouement autour du financement participatif ont mis en lumière quelque chose de réellement porteur de sens : nous aimons nous engager pour soutenir des projets qui nous tiennent à coeur. Cette idée est à la base du modèle de Claptime, et notre lecteur vidéo inclut un système de participation libre qui permet à un spectateur de soutenir et de valoriser le travail d'un cinéaste qu'il apprécie."
+      },
+      "section4": {
+        "title": "Réinventer la VOD",
+        "text": "L'ADN du projet se veut porteur de valeurs, et rejoint le mouvement de la small tech. Claptime fait le choix de participer à l'émergence de nouveaux modèles numériques, loin de l'imaginaire de la Silicon Valley. Les nombreux enjeux liés à la consommation massive de données sont autant d'occasions d'innover et de développer de nouvelles alternatives plus respectueuses et plus vertueuses. Claptime intègre à sa démarche les idées de la sobriété numérique, et cherche à réduire son impact environnemental. Cette réflexion se traduit notamment par des choix de design non-addictifs, pour reprendre le temps d'apprécier un film, ainsi que par des choix techniques pertinents afin de diminuer au maximum les volumes de données transférées par le streaming vidéo."
+      }
+    },
+    "partners": {
       "cinerama": {
         "name": "CINÉRAMA",
         "description": "Créée en 2017, CINÉRAMA est une jeune association d'audiovisuel Bordelaise. Elle a pour objectif d'aider à produire et à diffuser du contenu cinématographique (clips, courts métrages, séries, longs métrages, etc). Aujourd'hui, l'association a aidé à produire plus d'une vingtaine de projets et diffuse une soixantaine de films, avec une sortie par semaine.\n\nParce que nous partageons des valeurs et un objectif communs, nous vous invitons à découvrir leur programmation réalisée avec attention."
@@ -203,13 +248,13 @@
       "title": "Vous êtes réalisateur ? – Claptime",
       "description": "Comment mettre un film en ligne ? Sous quelles conditions ? On vous explique tout !"
     },
+    "about/project": {
+      "title": "Le projet – Claptime",
+      "description": "Découvrez le projet, notre manifeste, nos partenaires, ..."
+    },
     "about/spectators": {
       "title": "Vous êtes spectateur ? – Claptime",
       "description": "Sur Claptime, découvrez le cinéma sous un autre angle !"
-    },
-    "about/press": {
-      "title": "Espace presse – Claptime",
-      "description": "Retrouvez nos parutions presse et nos communiqués."
     },
     "collection": {
       "title": "{{name}} – Une collection de films et séries sur Claptime",
@@ -247,9 +292,6 @@
     },
     "my-profile": {
       "title": "Mon profil – Claptime"
-    },
-    "partners": {
-      "title": "Nos partenaires – Claptime"
     },
     "profile": {
       "title": "{{name}} – Sa filmographie sur Claptime",
@@ -818,13 +860,12 @@
     "mySubscriptions": "Mes abonnements",
     "spectators": "Vous êtes spectateur ?",
     "filmmakers": "Vous êtes cinéaste ?",
-    "project": "Claptime en bref",
+    "project": "Le projet",
     "subscribe": "Inscription",
     "noSubscription": "Aucun abonnement",
     "noCollection": "Aucune collection",
     "about": "à propos",
-    "blog": "le blog",
-    "press": "Point presse"
+    "blog": "le blog"
   },
   "notifications": {
     "videoStatusChange": {
@@ -849,28 +890,6 @@
     },
     "tooltip": "Mes notifications"
   },
-  "pressPage": {
-    "date": "Août 2020",
-    "mainTitle": "LANCEMENT DE CLAPTIME",
-    "introduction": "Alors que les moyens pour réaliser un film n'ont jamais été aussi nombreux, parvenir à le diffuser dans de bonnes conditions reste un véritable parcours du combattant. Intégrer les circuits de diffusion conventionnels demande des investissements en temps et en argent qui sont trop rarement récompensés. Sur internet, difficile de se faire une place parmi l'océan de contenu disponible sur les hébergeurs vidéo traditionnels. Claptime crée la première plateforme dédiée à tous ces films artisanaux, personnels, loin des standards et dont la diffusion se limite malheureusement souvent à un cercle trop restreint, et propose ainsi une autre vision du cinéma.",
-    "section1": {
-      "title": "Mettre en lumière la diversité du cinéma",
-      "text": "La première version de la plateforme est actuellement en ligne, et offre un espace de diffusion accessible à tous les réalisateurs ayant des films à montrer. Sans publicité, les spectateurs ont accès à un catalogue faisant la part belle à des genres et des formats audiovisuels trop peu représentés, du court-métrage de fiction au documentaire engagé en passant par la web-série. Depuis un premier appel à films début avril, une quarantaine de réalisateurs ont rejoint le projet, et plus de 70 films et séries sont disponibles librement."
-    },
-    "section2": {
-      "title": "Des recommandations humaines et collaboratives",
-      "text": "Pour articuler ce catalogue grandissant, et pour simplifier la découverte de films par centre d'intérêt, Claptime propose un système de recommandation participatif, les Collections. Celles-ci regroupent un ensemble de films et de séries autour d'une thématique donnée, d'un format ou d'un genre particulier. L’objectif est de concevoir une expérience proche de celle des festivals de films, en proposant des sélections variées et évolutives, gérées par des acteurs du milieu du cinéma et ouvertes aux soumissions, afin que les spectateurs puissent découvrir des nouveautés pertinentes en fonction de leurs goûts et de leurs affinités."
-    },
-    "section3": {
-      "title": "La participation au chapeau 2.0",
-      "text": "Dans l'optique de créer un écosystème favorable à la création, l'un des enjeux de Claptime est aussi de renforcer les liens qui existent entre les réalisateurs et leur public. La démocratisation et l'engouement autour du financement participatif ont mis en lumière quelque chose de réellement porteur de sens : nous aimons nous engager pour soutenir des projets qui nous tiennent à coeur. Cette idée est à la base du modèle de Claptime, et notre lecteur vidéo inclut un système de participation libre qui permet à un spectateur de soutenir et de valoriser le travail d'un cinéaste qu'il apprécie."
-    },
-    "section4": {
-      "title": "Réinventer la VOD",
-      "text": "L'ADN du projet se veut porteur de valeurs, et rejoint le mouvement de la small tech. Claptime fait le choix de participer à l'émergence de nouveaux modèles numériques, loin de l'imaginaire de la Silicon Valley. Les nombreux enjeux liés à la consommation massive de données sont autant d'occasion d'innover et de développer de nouvelles alternatives plus respectueuses et plus vertueuses. Claptime intègre à sa démarche les idées de la sobriété numérique, et cherche à réduire son impact environnemental. Cette réflexion se traduit notamment par des choix de design non-addictifs, pour reprendre le temps d'apprécier un film, ainsi que par des choix techniques pertinents afin de diminuer au maximum les volumes de données transférées par le streaming vidéo."
-    },
-    "downloadButton": "Pour la version PDF, c'est par ici !"
-  },
   "languages": {
     "fr-FR": "Français"
   },
@@ -890,8 +909,7 @@
       "title": "Informations",
       "legalTerms": "Mentions légales",
       "blog": "Le blog",
-      "helpCenter": "Centre d'aide",
-      "partners": "Partenaires"
+      "helpCenter": "Centre d'aide"
     },
     "contact": {
       "title": "Restons en contact"
