@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 import PropTypes from 'claptime/lib/prop-types';
 import { Button } from 'claptime/components/atoms';
+import Notifications from 'claptime/components/molecules/Notifications';
 import { useUserState } from 'claptime/lib/user';
 import consts from 'claptime/consts';
 
@@ -93,6 +94,11 @@ const RightMenu = ({ mode }) => {
               ]
             : null}
         </Menu.SubMenu>
+        {user.isLoggedIn && mode === 'horizontal' && (
+          <StyledMenuItem>
+            <Notifications />
+          </StyledMenuItem>
+        )}
         {user.isLoggedIn ? (
           <Menu.SubMenu
             key="submenu-user"

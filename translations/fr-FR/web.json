@@ -826,7 +826,29 @@
     "blog": "le blog",
     "press": "Point presse"
   },
-
+  "notifications": {
+    "videoStatusChange": {
+      "PUBLISHED": "<0>{{title}}</0> est maintenant en ligne !"
+    },
+    "videoNodeAddedToCollectionSubscribers": "<0>{{videoNodeTitle}}</0>, nouvel ajout dans la collection <2>{{collectionName}}</2>",
+    "popover": {
+      "title": "Mes notifications",
+      "emptyTitle": "Aucune notification pour le moment",
+      "emptySubTitle": "Vous pourrez en recevoir par exemple lorsqu'un nouveau film sera ajouté à une collection à laquelle vous êtes abonné."
+    },
+    "unreadNotifications": "Vous avez des notifications non lues",
+    "actions": {
+      "markAsRead": "Marquer comme lue",
+      "markAsNotRead": "Marquer comme non lue",
+      "delete": {
+        "tooltip": "Supprimer",
+        "popconfirm": "Êtes-vous sûr de vouloir supprimer cette notification ?",
+        "ok": "Oui",
+        "cancel": "Non"
+      }
+    },
+    "tooltip": "Mes notifications"
+  },
   "pressPage": {
     "date": "Août 2020",
     "mainTitle": "LANCEMENT DE CLAPTIME",

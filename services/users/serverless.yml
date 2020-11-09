@@ -22,6 +22,7 @@ provider:
       Action: appsync:GraphQL
       Resource:
         - ${self:custom.appsyncPrefix}/Mutation/fields/updateUserSettings
+        - ${self:custom.appsyncPrefix}/Mutation/fields/createNotification
         - ${self:custom.appsyncPrefix}/Query/fields/getProfile
         - ${self:custom.appsyncPrefix}/Query/fields/getUserSettings
 
