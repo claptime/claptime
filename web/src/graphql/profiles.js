@@ -53,6 +53,7 @@ export const getProfile = /* GraphQL */ `
           slug
           name
           tagline
+          status
           profile {
             id
             name
