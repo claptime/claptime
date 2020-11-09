@@ -288,6 +288,7 @@ resources:
         CorsConfiguration:
           CorsRules:
             - AllowedOrigins:
+                - https://clap-time.com
                 - https://*.clap-time.com
               AllowedMethods:
                 - GET
