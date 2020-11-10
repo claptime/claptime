@@ -349,7 +349,11 @@
       "save": "Sauvegarder",
       "view": "Voir la collection",
       "required": "Obligatoire",
-      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche"
+      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche",
+      "starringVideoNode": "Film à l'honneur",
+      "starringVideoNodeTooltip": "Ce film sera affiché en tête de la collection.",
+      "starringVideoNodeButton": "Sélectionner un film",
+      "starringVideoNodeNone": "Aucun"
     },
     "submissions": {
       "pageTitle": "Soumissions dans la collection \"{{collectionName}}\"",

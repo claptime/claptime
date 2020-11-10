@@ -20,6 +20,7 @@ import {
   Links,
   PageHeader,
 } from 'claptime/components/molecules';
+import StarringVideoNode from 'claptime/components/molecules/StarringVideoNode';
 import CategoriesInput from 'claptime/components/organisms/CategoriesInput';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
@@ -27,6 +28,7 @@ import {
   listCollectionsBySlug,
   updateCollection,
 } from 'claptime/graphql/collections';
+import { createStarringVideoNode } from 'claptime/graphql/videonodes';
 import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
 import Head from 'claptime/lib/seo/Head';
 import { useIsAuthenticated, useUserState } from 'claptime/lib/user';
@@ -62,7 +64,6 @@ const CollectionEditPage = () => {
   if (!isAdmin && collection.owner !== userId) {
     Router.push('/');
   }
-
   const onFinish = async (fieldsValue) => {
     setSaving(true);
     if (fieldsValue.cover.croppedImage) {
@@ -104,6 +105,11 @@ const CollectionEditPage = () => {
         type: 'WEBSITE',
         url: fieldsValue.website,
       });
+    }
+    console.log(fieldsValue);
+    if (fieldsValue.starringVideoNode) {
+      console.log('tutu');
+      console.log(fieldsValue.starringVideoNode);
     }
     await apolloClient.mutate({
       mutation: gql(updateCollection),
@@ -170,6 +176,7 @@ const CollectionEditPage = () => {
             cover: { image: null },
             categories: collection.categories,
             links: collection.links || [],
+            starringVideoNode: null,
           }}
           layout="vertical"
           style={{
@@ -303,6 +310,25 @@ const CollectionEditPage = () => {
               </Form.Item>
             </Layouts.Form.Column>
             <Layouts.Form.Column>
+              <Form.Item
+                name="starringVideoNode"
+                label={
+                  <>
+                    {t('collection.edit.starringVideoNode')}&nbsp;
+                    <Tooltip
+                      title={t('collection.edit.starringVideoNodeTooltip')}
+                    >
+                      <InfoCircleOutlined />
+                    </Tooltip>
+                  </>
+                }
+              >
+                <StarringVideoNode
+                  onChange={() => setUnsavedChanges(true)}
+                  collectionId={collection.id}
+                />
+              </Form.Item>
+
               <Form.Item
                 name="categories"
                 label={t('collection.edit.categories')}

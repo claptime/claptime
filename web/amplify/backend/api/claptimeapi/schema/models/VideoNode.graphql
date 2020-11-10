@@ -24,6 +24,26 @@ enum NodeType {
   NODE
 }
 
+
+type StarringVideoNode
+@model(
+  queries: { get: "getStarringVideoNode" },
+  mutations: { delete: "deleteStarringVideoNode", create: "createStarringVideoNode", update: "updateStarringVideoNode" },
+  subscriptions: null,
+)
+@auth(rules: [
+  { allow: owner, operations: [read] },
+  { allow: groups, groups: ["admin"], operations: [read] },
+  { allow: private, provider: iam, operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  label: String
+  videoNode: VideoNode! @connection
+}
+
 type VideoNode
 @model(
   queries: { get: "getVideoNode", list: "listVideoNodes" },
