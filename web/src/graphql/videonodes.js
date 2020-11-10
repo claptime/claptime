@@ -431,3 +431,11 @@ export const onUpdateVideoNode = /* GraphQL */ `
     }
   }
 `;
+
+export const createStarringVideoNode = /* GraphQL */ `
+  mutation CreateStarringVideoNode($input: CreateStarringVideoNodeInput!) {
+    createStarringVideoNode(input: $input) {
+      id
+    }
+  }
+`;
