@@ -86,6 +86,23 @@ const handleCollection = (tmpDir, localPath, s3Path) => {
   ]);
 };
 
+const handleNews = (tmpDir, localPath, s3Path) => {
+  const originalFilePath = path.join(tmpDir, 'original.jpg');
+  const croppedFilePath = path.join(tmpDir, '1500-500.jpg');
+  return Promise.all([
+    sharp(localPath)
+      .toFile(originalFilePath)
+      .then(() => uploadFile(BUCKET_NAME, originalFilePath, s3Path)),
+    sharp(localPath)
+      .resize(1500, 500, {
+        fit: sharp.fit.contain,
+        position: sharp.position.centre,
+      })
+      .toFile(croppedFilePath)
+      .then(() => uploadFile(BUCKET_NAME, croppedFilePath, s3Path)),
+  ]);
+};
+
 exports.handler = async (event) => {
   console.log('event', JSON.stringify(event));
   const tasks = event.Records.map(
@@ -135,6 +152,9 @@ exports.handler = async (event) => {
             localPath,
             `public/profiles/${resourceId}`,
           );
+          break;
+        case 'news':
+          await handleNews(tmpDir, localPath, `public/news/${resourceId}`);
           break;
         default:
           throw new Error(`UnknownType: Unknown type ${resourceType}`);

@@ -6,8 +6,8 @@ import PropTypes from 'claptime/lib/prop-types';
 
 import { Logo } from 'claptime/components/atoms';
 import Notifications from 'claptime/components/molecules/Notifications';
-
 import consts from 'claptime/consts';
+import { useUserState } from 'claptime/lib/user';
 
 import LeftMenu from './LeftMenu';
 import RightMenu from './RightMenu';
@@ -18,7 +18,6 @@ const {
 } = style;
 
 const StyledNav = styled.nav`
-
   align-items: center;
 
   .ant-menu-horizontal {
@@ -175,6 +174,7 @@ const StyledDrawer = styled(Drawer)`
 
 const NavBar = ({ logoSize, logoColor }) => {
   const [visible, setVisible] = useState(false);
+  const user = useUserState();
 
   return (
     <StyledNav className="nav-bar" style={{ width: '100%', display: 'flex' }}>
@@ -186,9 +186,11 @@ const NavBar = ({ logoSize, logoColor }) => {
         <RightMenu mode="horizontal" />
       </div>
 
-      <div id="claptime-notifications-menu-container">
-        <Notifications />
-      </div>
+      {user.isLoggedIn && (
+        <div id="claptime-notifications-menu-container">
+          <Notifications />
+        </div>
+      )}
       <Button
         className="bars-menu"
         type="primary"

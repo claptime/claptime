@@ -133,12 +133,11 @@ const NewsEditPage = () => {
         input: {
           id: news.id,
           title: fieldsValue.title,
-          status: fieldsValue.status,
           description: fieldsValue.description,
           links,
           button: {
-            text: fieldsValue.buttonText,
-            url: fieldsValue.buttonUrl,
+            text: fieldsValue.buttonText || '',
+            url: fieldsValue.buttonUrl || '',
           },
         },
       },
@@ -166,6 +165,7 @@ const NewsEditPage = () => {
                 form="news-edit-form"
                 htmlType="submit"
                 disabled={!unsavedChanges}
+                key="save"
               />
             </Tooltip>,
             news.status === 'DRAFT' ? (
@@ -174,6 +174,7 @@ const NewsEditPage = () => {
                 icon={<ArrowRightOutlined />}
                 disabled={unsavedChanges}
                 onClick={publishNews}
+                key="publish"
               >
                 {t('news.edit.publish')}
               </Button>
@@ -183,6 +184,7 @@ const NewsEditPage = () => {
                 icon={<RollbackOutlined />}
                 onClick={unpublishNews}
                 disabled={unsavedChanges}
+                key="unpublish"
               >
                 {t('news.edit.unpublish')}
               </Button>
