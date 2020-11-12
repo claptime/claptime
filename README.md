@@ -16,14 +16,6 @@ nvm use
 npm install --global @aws-amplify/cli@latest
 ```
 
-### Git LFS
-
-Videos are stored on Git LFS. In order to seed videos, [install Git LFS](https://git-lfs.github.com/). Then pull large files:
-
-```bash
-git lfs pull
-```
-
 ### CLI
 
 The Claptime CLI will be installed along with this package.
