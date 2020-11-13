@@ -358,6 +358,7 @@
       "emptyState": "Aucune soumission en attente de validation.",
       "table": {
         "title": "Titre",
+        "category": "Catégorie",
         "submissionDate": "Date de soumission",
         "actions": "Actions",
         "view": "Voir",
