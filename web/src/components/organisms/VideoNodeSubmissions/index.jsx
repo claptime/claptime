@@ -67,7 +67,7 @@ const VideoNodeSubmissions = ({ videoNodeId }) => {
     },
     {
       title: t('submissions.table.category'),
-      key: 'categoory',
+      key: 'category',
       render: (text, record) =>
         record.collection.categories.find(({ id }) => id === record.categoryId)
           .category,

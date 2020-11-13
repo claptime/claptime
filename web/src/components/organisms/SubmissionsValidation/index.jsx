@@ -66,6 +66,13 @@ const SubmissionsValidation = ({ collectionId }) => {
       render: (text, record) => record.videoNode.title,
     },
     {
+      title: t('collection.submissions.table.category'),
+      key: 'category',
+      render: (text, record) =>
+        record.collection.categories.find(({ id }) => id === record.categoryId)
+          .category,
+    },
+    {
       title: t('collection.submissions.table.submissionDate'),
       dataIndex: 'createdAt',
       key: 'uploadDate',
