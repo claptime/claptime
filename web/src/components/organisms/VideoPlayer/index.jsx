@@ -144,13 +144,16 @@ const VideoPlayer = ({ video, embed }) => {
 
   useEffect(() => {
     const init = async () => {
-      const Clappr = (await import('clappr')).default;
-      // Try loading from src to avoid build error (only in amplify console):
-      // ModuleNotFoundError: Module not found: Error: Can't resolve 'Clappr' in '/codebuild/output/src529827064/src/claptime/web/node_modules/clappr-stats/dist'
+      const Clappr = (await import('@clappr/player')).default;
+      // Must import with @clappr/stats-plugin/src/clappr-stats instead of @clappr/stats-plugin
+      // to avoid this error:
+      // ./node_modules/@clappr/stats-plugin/dist/clappr-stats.js:3:0
+      // Module not found: Can't resolve 'Clappr'
       // Because it requires Clappr instead of clappr...
       // https://github.com/clappr/clappr-stats/blob/1ff79a4c2dbf535139c443e3eb90f15b6e6ddb5a/webpack.config.js
-      const ClapprStats = (await import('clappr-stats/src/clappr-stats'))
-        .default;
+      const ClapprStats = (
+        await import('@clappr/stats-plugin/src/clappr-stats')
+      ).default;
       const ClapprCreatePortal = (await import('./ClapprCreatePortal')).default;
 
       let playing = false;
