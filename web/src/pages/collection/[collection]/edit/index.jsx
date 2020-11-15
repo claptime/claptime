@@ -28,6 +28,7 @@ import {
   updateCollection,
 } from 'claptime/graphql/collections';
 import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
+import { getUrl } from 'claptime/lib/profiles';
 import Head from 'claptime/lib/seo/Head';
 import { useIsAuthenticated, useUserState } from 'claptime/lib/user';
 import { dataURItoBlob } from 'claptime/utils';
@@ -169,7 +170,10 @@ const CollectionEditPage = () => {
             description: collection.description,
             cover: { image: null },
             categories: collection.categories,
-            links: collection.links || [],
+            facebook: getUrl(collection.links || [], 'FACEBOOK'),
+            instagram: getUrl(collection.links || [], 'INSTAGRAM'),
+            labfilms: getUrl(collection.links || [], 'LABFILMS'),
+            website: getUrl(collection.links || [], 'WEBSITE'),
           }}
           layout="vertical"
           style={{

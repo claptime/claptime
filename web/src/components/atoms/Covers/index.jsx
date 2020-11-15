@@ -85,6 +85,25 @@ CollectionCover.defaultProps = {
   shadow: true,
 };
 
+const NewsCover = ({ width, height, newsId }) => (
+  <StyledContainer style={{ width, height }} className="news-cover">
+    <Image
+      s3Key={`news/${newsId}/${consts.news.covers.filenames.CROPPED_1500_500}`}
+    />
+  </StyledContainer>
+);
+
+NewsCover.propTypes = {
+  width: PropTypes.any,
+  height: PropTypes.any,
+  newsId: PropTypes.string.isRequired,
+};
+
+NewsCover.defaultProps = {
+  width: undefined,
+  height: undefined,
+};
+
 const VideoCover = ({ width, height, videoId, shadow }) => (
   <div style={{ width, height, position: 'relative' }} className="video-cover">
     <Image
@@ -148,6 +167,7 @@ ProfileCover.defaultProps = {
 export default {
   Category: CategoryCover,
   Collection: CollectionCover,
+  News: NewsCover,
   Video: VideoCover,
   Profile: ProfileCover,
 };

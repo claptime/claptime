@@ -8848,6 +8848,7 @@ export const createNews = /* GraphQL */ `
     createNews(input: $input) {
       id
       title
+      status
       description
       button {
         text
@@ -8869,6 +8870,7 @@ export const updateNews = /* GraphQL */ `
     updateNews(input: $input) {
       id
       title
+      status
       description
       button {
         text
@@ -8890,6 +8892,7 @@ export const deleteNews = /* GraphQL */ `
     deleteNews(input: $input) {
       id
       title
+      status
       description
       button {
         text

@@ -16,11 +16,13 @@
       }
     },
     "news": {
+      "create": "Créer",
       "table": {
+        "cover": "Image de couverture",
         "title": "Titre",
-        "publicationDate": "Date de publication",
+        "status": "Status",
         "actions": "Actions",
-        "view": "Voir"
+        "edit": "Éditer"
       }
     }
   },
@@ -256,6 +258,9 @@
       "title": "Vous êtes spectateur ? – Claptime",
       "description": "Sur Claptime, découvrez le cinéma sous un autre angle !"
     },
+    "admin": {
+      "title": "Admin"
+    },
     "collection": {
       "title": "{{name}} – Une collection de films et séries sur Claptime",
       "description": "Parcourez la collection de films et séries \"{{name}}\" sur Claptime – {{tagline}}"
@@ -292,6 +297,9 @@
     },
     "my-profile": {
       "title": "Mon profil – Claptime"
+    },
+    "news/edit": {
+      "title": "Éditer la news – Claptime"
     },
     "profile": {
       "title": "{{name}} – Sa filmographie sur Claptime",
@@ -341,6 +349,41 @@
     },
     "PERFORMING_ARTS": {
       "name": "Spectacle vivant"
+    }
+  },
+  "news": {
+    "edit": {
+      "pageTitle": "Éditer l'actualité",
+      "save": "Sauvegarder",
+      "coverPopoverTitle": "Format recommandé",
+      "coverPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les images de couverture au format 3:1.\n\nPour vous assurer qu'une image de couverture sera affichée avec la meilleure qualité possible, nous vous conseillons de sélectionner une image ayant une largeur minimale de 1500 pixels, ainsi qu'une hauteur minimale de 500 pixels.",
+      "cover": "Image de couverture",
+      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'image de couverture",
+      "title": "Titre",
+      "titleMaxLength": "Le titre ne doit pas dépasser 100 caractères.",
+      "titlePlaceholder": "Saisissez un titre",
+      "description": "Description",
+      "descriptionPlaceholder": "Saisissez une description",
+      "buttonText": "Texte du bouton",
+      "buttonTextMaxLength": "Le texte du bouton ne doit pas dépasser 50 caractères.",
+      "buttonTextPlaceholder": "Saisissez le texte du bouton",
+      "buttonUrl": "URL du bouton",
+      "buttonUrlPlaceholder": "Saisissez l'URL du bouton",
+      "publish": "Publier l'actualité",
+      "publishSucceeded": "L'actualité a été publiée",
+      "unpublish": "Dépublier l'actualité",
+      "unpublishSucceeded": "L'actualité a été dépubliée",
+      "required": "Obligatoire"
+    },
+    "status": {
+      "DRAFT": {
+        "title": "Brouillon",
+        "description": "L'actualité n'est pas en ligne."
+      },
+      "PUBLISHED": {
+        "title": "Publiée",
+        "description": "L'actualité est en ligne."
+      }
     }
   },
   "collection": {
@@ -400,6 +443,7 @@
       "emptyState": "Aucune soumission en attente de validation.",
       "table": {
         "title": "Titre",
+        "category": "Catégorie",
         "submissionDate": "Date de soumission",
         "actions": "Actions",
         "view": "Voir",

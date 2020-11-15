@@ -134,6 +134,7 @@ export const News = () => `
     type
     url
   }
+  status
   createdAt
   createdBy
   owner

@@ -84,7 +84,10 @@ const NavBarTemplate = ({ children, collapsed }) => {
 };
 
 NavBarTemplate.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   collapsed: PropTypes.bool,
 };
 

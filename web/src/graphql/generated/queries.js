@@ -1488,6 +1488,7 @@ export const getNews = /* GraphQL */ `
     getNews(id: $id) {
       id
       title
+      status
       description
       button {
         text
@@ -1514,6 +1515,7 @@ export const listNews = /* GraphQL */ `
       items {
         id
         title
+        status
         description
         button {
           text

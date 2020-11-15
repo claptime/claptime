@@ -1,3 +1,4 @@
+const { getCognitoUserById } = require('claptime-commons/cognito');
 const {
   getCollection,
   getCollectionVideoNode,
@@ -7,7 +8,7 @@ const { validateSubmission } = require('../../../lib/helpers');
 module.exports = async (event) => {
   const {
     arguments: { collectionVideoNodeId, status, rejectionReason },
-    identity: { username, groups, claims },
+    identity: { username, groups },
   } = event;
 
   let collectionVideoNode = await getCollectionVideoNode(collectionVideoNodeId);
@@ -33,11 +34,21 @@ module.exports = async (event) => {
     );
   }
 
+  // Retrieve submitter identity
+  const { UserAttributes } = await getCognitoUserById(
+    process.env.COGNITO_USERPOOL_ID,
+    collectionVideoNode.owner,
+  );
+
   collectionVideoNode = await validateSubmission(
     collectionVideoNode,
     status,
     rejectionReason,
-    claims,
+    {
+      email: UserAttributes.find(({ Name }) => Name === 'email').Value,
+      given_name: UserAttributes.find(({ Name }) => Name === 'given_name')
+        .Value,
+    },
   );
 
   return collectionVideoNode;
