@@ -1,4 +1,4 @@
-import { UICorePlugin, Events } from 'clappr';
+import { UICorePlugin, Events } from '@clappr/player';
 
 class ClapprCreatePortal extends UICorePlugin {
   constructor(core) {
