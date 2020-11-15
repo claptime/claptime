@@ -27,6 +27,13 @@ export default {
       },
     },
   },
+  news: {
+    covers: {
+      filenames: {
+        CROPPED_1500_500: '1500-500.jpg',
+      },
+    },
+  },
   profiles: {
     covers: {
       filenames: {

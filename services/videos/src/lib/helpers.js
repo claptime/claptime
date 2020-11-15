@@ -107,7 +107,6 @@ const validateSubmission = async (
   );
   console.log('Email sent to author');
 
-  // TODO send notification
   if (status === 'APPROVED') {
     const subscribingUsers = await listUserCollection({
       userCollectionCollectionId: {

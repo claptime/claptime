@@ -160,7 +160,7 @@ ImageInput.propTypes = {
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   updatedImage: PropTypes.string,
-  format: PropTypes.oneOf(['3:4', '5:1', '1:1']).isRequired,
+  format: PropTypes.oneOf(['3:4', '5:1', '3:1', '1:1']).isRequired,
   shape: PropTypes.oneOf(['rect', 'round']),
 };
 
