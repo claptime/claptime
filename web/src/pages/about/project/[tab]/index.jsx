@@ -1,5 +1,4 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
 
 import { Title } from 'claptime/components/atoms';
@@ -45,6 +44,4 @@ const ProjectPage = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(ProjectPage), {
-  ssr: false,
-});
+export default ProjectPage;
