@@ -82,7 +82,6 @@ export const addEpisodeToSeries = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -185,7 +184,6 @@ export const addEpisodeToSeries = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -1011,7 +1009,6 @@ export const addVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -1114,7 +1111,6 @@ export const addVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -1940,7 +1936,6 @@ export const importVideo = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -2043,7 +2038,6 @@ export const importVideo = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -2869,7 +2863,6 @@ export const publishVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -2972,7 +2965,6 @@ export const publishVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -3798,7 +3790,6 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -3901,7 +3892,6 @@ export const removeEpisodeFromSeries = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -4738,7 +4728,6 @@ export const moveEpisodeAfter = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -4841,7 +4830,6 @@ export const moveEpisodeAfter = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -5685,7 +5673,6 @@ export const setVideoNodeMeta = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -5788,7 +5775,6 @@ export const setVideoNodeMeta = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -6622,7 +6608,6 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -6725,7 +6710,6 @@ export const submitVideoNodeToCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -7551,7 +7535,6 @@ export const unpublishVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -7654,7 +7637,6 @@ export const unpublishVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -8430,7 +8412,6 @@ export const validateSubmission = /* GraphQL */ `
         slug
         name
         status
-        collectionStarringVideoNodeId
         tagline
         description
         links {
@@ -8485,35 +8466,15 @@ export const validateSubmission = /* GraphQL */ `
             nextToken
           }
         }
-        starringVideoNode {
-          id
-          label
-          createdAt
-          updatedAt
-          videoNode {
+        starringVideoNodes {
+          items {
             id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
+            label
+            description
             createdAt
             updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
+          nextToken
         }
       }
       videoNode {
@@ -8994,7 +8955,6 @@ export const createUserCollection = /* GraphQL */ `
         slug
         name
         status
-        collectionStarringVideoNodeId
         tagline
         description
         links {
@@ -9049,35 +9009,15 @@ export const createUserCollection = /* GraphQL */ `
             nextToken
           }
         }
-        starringVideoNode {
-          id
-          label
-          createdAt
-          updatedAt
-          videoNode {
+        starringVideoNodes {
+          items {
             id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
+            label
+            description
             createdAt
             updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
+          nextToken
         }
       }
     }
@@ -9096,7 +9036,6 @@ export const deleteUserCollection = /* GraphQL */ `
         slug
         name
         status
-        collectionStarringVideoNodeId
         tagline
         description
         links {
@@ -9151,35 +9090,15 @@ export const deleteUserCollection = /* GraphQL */ `
             nextToken
           }
         }
-        starringVideoNode {
-          id
-          label
-          createdAt
-          updatedAt
-          videoNode {
+        starringVideoNodes {
+          items {
             id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
+            label
+            description
             createdAt
             updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
+          nextToken
         }
       }
     }
@@ -9212,7 +9131,6 @@ export const createUserProfile = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -9295,7 +9213,6 @@ export const deleteUserProfile = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -9978,7 +9895,6 @@ export const createCollection = /* GraphQL */ `
       slug
       name
       status
-      collectionStarringVideoNodeId
       tagline
       description
       links {
@@ -10012,7 +9928,6 @@ export const createCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -10068,7 +9983,6 @@ export const createCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -10121,54 +10035,28 @@ export const createCollection = /* GraphQL */ `
           nextToken
         }
       }
-      starringVideoNode {
-        id
-        label
-        createdAt
-        updatedAt
-        videoNode {
+      starringVideoNodes {
+        items {
           id
-          title
-          status
-          videoNodeProfileId
-          category
-          duration
-          releaseYear
-          synopsis
-          festivals
-          searchField
-          ttl
-          createdBy
+          label
+          description
           createdAt
           updatedAt
-          owner
-          views {
-            nextToken
-          }
-          donationsAvailable
-          videoNodeNextNodeId
-          videoNodeParentNodeId
-          type
-          nodeType
-          childrenCount
-          likesCount
-          collections {
-            nextToken
-          }
-          credits {
-            nextToken
-          }
-          profile {
+          collection {
             id
+            slug
             name
-            biography
+            status
+            tagline
+            description
+            collectionProfileId
             searchField
-            createdAt
             createdBy
+            createdAt
             owner
             updatedAt
           }
-          nextNode {
+          videoNode {
             id
             title
             status
@@ -10191,35 +10079,9 @@ export const createCollection = /* GraphQL */ `
             nodeType
             childrenCount
             likesCount
-          }
-          parentNode {
-            id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
-            createdAt
-            updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
-          }
-          childNodes {
-            nextToken
           }
         }
+        nextToken
       }
     }
   }
@@ -10231,7 +10093,6 @@ export const updateCollection = /* GraphQL */ `
       slug
       name
       status
-      collectionStarringVideoNodeId
       tagline
       description
       links {
@@ -10265,7 +10126,6 @@ export const updateCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -10321,7 +10181,6 @@ export const updateCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -10374,54 +10233,28 @@ export const updateCollection = /* GraphQL */ `
           nextToken
         }
       }
-      starringVideoNode {
-        id
-        label
-        createdAt
-        updatedAt
-        videoNode {
+      starringVideoNodes {
+        items {
           id
-          title
-          status
-          videoNodeProfileId
-          category
-          duration
-          releaseYear
-          synopsis
-          festivals
-          searchField
-          ttl
-          createdBy
+          label
+          description
           createdAt
           updatedAt
-          owner
-          views {
-            nextToken
-          }
-          donationsAvailable
-          videoNodeNextNodeId
-          videoNodeParentNodeId
-          type
-          nodeType
-          childrenCount
-          likesCount
-          collections {
-            nextToken
-          }
-          credits {
-            nextToken
-          }
-          profile {
+          collection {
             id
+            slug
             name
-            biography
+            status
+            tagline
+            description
+            collectionProfileId
             searchField
-            createdAt
             createdBy
+            createdAt
             owner
             updatedAt
           }
-          nextNode {
+          videoNode {
             id
             title
             status
@@ -10444,35 +10277,9 @@ export const updateCollection = /* GraphQL */ `
             nodeType
             childrenCount
             likesCount
-          }
-          parentNode {
-            id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
-            createdAt
-            updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
-          }
-          childNodes {
-            nextToken
           }
         }
+        nextToken
       }
     }
   }
@@ -10484,7 +10291,6 @@ export const deleteCollection = /* GraphQL */ `
       slug
       name
       status
-      collectionStarringVideoNodeId
       tagline
       description
       links {
@@ -10518,7 +10324,6 @@ export const deleteCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -10574,7 +10379,6 @@ export const deleteCollection = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -10627,54 +10431,28 @@ export const deleteCollection = /* GraphQL */ `
           nextToken
         }
       }
-      starringVideoNode {
-        id
-        label
-        createdAt
-        updatedAt
-        videoNode {
+      starringVideoNodes {
+        items {
           id
-          title
-          status
-          videoNodeProfileId
-          category
-          duration
-          releaseYear
-          synopsis
-          festivals
-          searchField
-          ttl
-          createdBy
+          label
+          description
           createdAt
           updatedAt
-          owner
-          views {
-            nextToken
-          }
-          donationsAvailable
-          videoNodeNextNodeId
-          videoNodeParentNodeId
-          type
-          nodeType
-          childrenCount
-          likesCount
-          collections {
-            nextToken
-          }
-          credits {
-            nextToken
-          }
-          profile {
+          collection {
             id
+            slug
             name
-            biography
+            status
+            tagline
+            description
+            collectionProfileId
             searchField
-            createdAt
             createdBy
+            createdAt
             owner
             updatedAt
           }
-          nextNode {
+          videoNode {
             id
             title
             status
@@ -10697,35 +10475,9 @@ export const deleteCollection = /* GraphQL */ `
             nodeType
             childrenCount
             likesCount
-          }
-          parentNode {
-            id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
-            createdAt
-            updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
-          }
-          childNodes {
-            nextToken
           }
         }
+        nextToken
       }
     }
   }
@@ -10747,7 +10499,6 @@ export const createCollectionVideoNode = /* GraphQL */ `
         slug
         name
         status
-        collectionStarringVideoNodeId
         tagline
         description
         links {
@@ -10802,35 +10553,15 @@ export const createCollectionVideoNode = /* GraphQL */ `
             nextToken
           }
         }
-        starringVideoNode {
-          id
-          label
-          createdAt
-          updatedAt
-          videoNode {
+        starringVideoNodes {
+          items {
             id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
+            label
+            description
             createdAt
             updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
+          nextToken
         }
       }
       videoNode {
@@ -11152,7 +10883,6 @@ export const updateCollectionVideoNode = /* GraphQL */ `
         slug
         name
         status
-        collectionStarringVideoNodeId
         tagline
         description
         links {
@@ -11207,35 +10937,15 @@ export const updateCollectionVideoNode = /* GraphQL */ `
             nextToken
           }
         }
-        starringVideoNode {
-          id
-          label
-          createdAt
-          updatedAt
-          videoNode {
+        starringVideoNodes {
+          items {
             id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
+            label
+            description
             createdAt
             updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
+          nextToken
         }
       }
       videoNode {
@@ -11557,7 +11267,6 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
         slug
         name
         status
-        collectionStarringVideoNodeId
         tagline
         description
         links {
@@ -11612,35 +11321,15 @@ export const deleteCollectionVideoNode = /* GraphQL */ `
             nextToken
           }
         }
-        starringVideoNode {
-          id
-          label
-          createdAt
-          updatedAt
-          videoNode {
+        starringVideoNodes {
+          items {
             id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
+            label
+            description
             createdAt
             updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
+          nextToken
         }
       }
       videoNode {
@@ -11975,7 +11664,6 @@ export const createCredit = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -12360,7 +12048,6 @@ export const deleteCredit = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -12749,7 +12436,6 @@ export const createProfile = /* GraphQL */ `
           slug
           name
           status
-          collectionStarringVideoNodeId
           tagline
           description
           links {
@@ -12780,11 +12466,8 @@ export const createProfile = /* GraphQL */ `
             owner
             updatedAt
           }
-          starringVideoNode {
-            id
-            label
-            createdAt
-            updatedAt
+          starringVideoNodes {
+            nextToken
           }
         }
         nextToken
@@ -12957,7 +12640,6 @@ export const updateProfile = /* GraphQL */ `
           slug
           name
           status
-          collectionStarringVideoNodeId
           tagline
           description
           links {
@@ -12988,11 +12670,8 @@ export const updateProfile = /* GraphQL */ `
             owner
             updatedAt
           }
-          starringVideoNode {
-            id
-            label
-            createdAt
-            updatedAt
+          starringVideoNodes {
+            nextToken
           }
         }
         nextToken
@@ -13191,7 +12870,6 @@ export const createUserSettings = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -13288,7 +12966,6 @@ export const updateUserSettings = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -13385,7 +13062,6 @@ export const deleteUserSettings = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -13440,8 +13116,79 @@ export const createStarringVideoNode = /* GraphQL */ `
     createStarringVideoNode(input: $input) {
       id
       label
+      description
       createdAt
       updatedAt
+      collection {
+        id
+        slug
+        name
+        status
+        tagline
+        description
+        links {
+          type
+          url
+        }
+        categories {
+          id
+          category
+          description
+        }
+        collectionProfileId
+        searchField
+        createdBy
+        createdAt
+        owner
+        updatedAt
+        videoNodes {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+        starringVideoNodes {
+          items {
+            id
+            label
+            description
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }
       videoNode {
         id
         title
@@ -13749,8 +13496,79 @@ export const updateStarringVideoNode = /* GraphQL */ `
     updateStarringVideoNode(input: $input) {
       id
       label
+      description
       createdAt
       updatedAt
+      collection {
+        id
+        slug
+        name
+        status
+        tagline
+        description
+        links {
+          type
+          url
+        }
+        categories {
+          id
+          category
+          description
+        }
+        collectionProfileId
+        searchField
+        createdBy
+        createdAt
+        owner
+        updatedAt
+        videoNodes {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+        starringVideoNodes {
+          items {
+            id
+            label
+            description
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }
       videoNode {
         id
         title
@@ -14058,8 +13876,79 @@ export const deleteStarringVideoNode = /* GraphQL */ `
     deleteStarringVideoNode(input: $input) {
       id
       label
+      description
       createdAt
       updatedAt
+      collection {
+        id
+        slug
+        name
+        status
+        tagline
+        description
+        links {
+          type
+          url
+        }
+        categories {
+          id
+          category
+          description
+        }
+        collectionProfileId
+        searchField
+        createdBy
+        createdAt
+        owner
+        updatedAt
+        videoNodes {
+          items {
+            id
+            collectionVideoNodeCollectionId
+            status
+            categoryId
+            rejectionReason
+            collectionVideoNodeVideoNodeId
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+        }
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
+        }
+        starringVideoNodes {
+          items {
+            id
+            label
+            description
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }
       videoNode {
         id
         title
@@ -14437,7 +14326,6 @@ export const createVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -14540,7 +14428,6 @@ export const createVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -15366,7 +15253,6 @@ export const updateVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -15469,7 +15355,6 @@ export const updateVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -16295,7 +16180,6 @@ export const deleteVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
@@ -16398,7 +16282,6 @@ export const deleteVideoNode = /* GraphQL */ `
             slug
             name
             status
-            collectionStarringVideoNodeId
             tagline
             description
             collectionProfileId
