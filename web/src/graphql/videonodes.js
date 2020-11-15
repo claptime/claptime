@@ -439,3 +439,19 @@ export const createStarringVideoNode = /* GraphQL */ `
     }
   }
 `;
+
+export const updateStarringVideoNode = /* GraphQL */ `
+  mutation UpdateStarringVideoNode($input: UpdateStarringVideoNodeInput!) {
+    updateStarringVideoNode(input: $input) {
+      id
+    }
+  }
+`;
+
+export const deleteStarringVideoNode = /* GraphQL */ `
+  mutation DeleteStarringVideoNode($input: DeleteStarringVideoNodeInput!) {
+    deleteStarringVideoNode(input: $input) {
+      id
+    }
+  }
+`;

@@ -46,7 +46,7 @@ const StyledText = styled.span`
   svg {
     position: relative;
     width: auto;
-    height: 35px;
+    height: 25px;
     margin-right: 15px;
   }
 `;

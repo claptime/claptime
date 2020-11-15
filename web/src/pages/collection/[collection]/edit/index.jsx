@@ -20,7 +20,7 @@ import {
   Links,
   PageHeader,
 } from 'claptime/components/molecules';
-import StarringVideoNode from 'claptime/components/molecules/StarringVideoNode';
+import StarringVideoNodeFormInput from 'claptime/components/molecules/StarringVideoNodeFormInput';
 import CategoriesInput from 'claptime/components/organisms/CategoriesInput';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
@@ -28,8 +28,12 @@ import {
   listCollectionsBySlug,
   updateCollection,
 } from 'claptime/graphql/collections';
-import { createStarringVideoNode } from 'claptime/graphql/videonodes';
-import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
+import {
+  createStarringVideoNode,
+  updateStarringVideoNode,
+  deleteStarringVideoNode,
+} from 'claptime/graphql/videonodes';
+import { useApolloClient, useQueryGet, useMutation } from 'claptime/lib/apollo';
 import { getUrl } from 'claptime/lib/profiles';
 import Head from 'claptime/lib/seo/Head';
 import { useIsAuthenticated, useUserState } from 'claptime/lib/user';
@@ -58,13 +62,25 @@ const CollectionEditPage = () => {
     },
     { resultPath: '$.listCollectionsBySlug.items[0]' },
   );
+
+  const [createStarringVideoNodeMutation] = useMutation(
+    gql(createStarringVideoNode),
+  );
+  const [deleteStarringVideoNodeMutation] = useMutation(
+    gql(deleteStarringVideoNode),
+  );
+
   if (!useIsAuthenticated()) return <Spin />;
   if (response) return response;
-
   // Check authorization
   if (!isAdmin && collection.owner !== userId) {
     Router.push('/');
   }
+
+  const {
+    starringVideoNodes: { items: defaultStarringVideoNodes },
+  } = collection;
+
   const onFinish = async (fieldsValue) => {
     setSaving(true);
     if (fieldsValue.cover.croppedImage) {
@@ -107,11 +123,38 @@ const CollectionEditPage = () => {
         url: fieldsValue.website,
       });
     }
-    console.log(fieldsValue);
-    if (fieldsValue.starringVideoNode) {
-      console.log('tutu');
-      console.log(fieldsValue.starringVideoNode);
-    }
+
+    const asyncMutationExec = async (mutation, input) => {
+      return mutation({
+        variables: { input },
+      });
+    };
+
+    const starringVideoNodesToCreate = fieldsValue.starringVideoNodes.filter(
+      (svn) => svn.id === null,
+    );
+    await Promise.all(
+      starringVideoNodesToCreate.map((svn) => {
+        asyncMutationExec(createStarringVideoNodeMutation, {
+          label: svn.label,
+          description: svn.description,
+          starringVideoNodeVideoNodeId: svn.videoNode.id,
+          starringVideoNodeCollectionId: collection.id,
+        });
+      }),
+    );
+
+    const starringVideoNodesToDelete = defaultStarringVideoNodes.filter(
+      (e) => fieldsValue.starringVideoNodes.indexOf(e) === -1,
+    );
+    await Promise.all(
+      starringVideoNodesToDelete.map((svn) => {
+        asyncMutationExec(deleteStarringVideoNodeMutation, {
+          id: svn.id,
+        });
+      }),
+    );
+
     await apolloClient.mutate({
       mutation: gql(updateCollection),
       variables: {
@@ -180,7 +223,7 @@ const CollectionEditPage = () => {
             instagram: getUrl(collection.links || [], 'INSTAGRAM'),
             labfilms: getUrl(collection.links || [], 'LABFILMS'),
             website: getUrl(collection.links || [], 'WEBSITE'),
-            starringVideoNode: null,
+            starringVideoNodes: defaultStarringVideoNodes,
           }}
           layout="vertical"
           style={{
@@ -315,19 +358,19 @@ const CollectionEditPage = () => {
             </Layouts.Form.Column>
             <Layouts.Form.Column>
               <Form.Item
-                name="starringVideoNode"
+                name="starringVideoNodes"
                 label={
                   <>
-                    {t('collection.edit.starringVideoNode')}&nbsp;
+                    {t('collection.edit.starringVideoNodes')}&nbsp;
                     <Tooltip
-                      title={t('collection.edit.starringVideoNodeTooltip')}
+                      title={t('collection.edit.starringVideoNodesTooltip')}
                     >
                       <InfoCircleOutlined />
                     </Tooltip>
                   </>
                 }
               >
-                <StarringVideoNode
+                <StarringVideoNodeFormInput
                   onChange={() => setUnsavedChanges(true)}
                   collectionId={collection.id}
                 />

@@ -102,6 +102,19 @@ export const Collection = ({
     category
     description
   }
+  starringVideoNodes {
+    items {
+      id
+      label
+      description
+      videoNode {
+        id
+        title
+        synopsis
+        type
+      }
+    }
+  }
   `
   }
   ${
