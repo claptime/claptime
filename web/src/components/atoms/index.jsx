@@ -1,5 +1,6 @@
 export { default as Button } from './Button';
 export { default as ButtonGroup } from './ButtonGroup';
+export { default as ContactUsButton } from './ContactUsButton';
 export { default as Covers } from './Covers';
 export { default as IconButton } from './IconButton';
 export { default as Icons } from './Icons';

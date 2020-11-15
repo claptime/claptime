@@ -165,11 +165,11 @@ const RightMenu = ({ mode }) => {
               </StyledMenuItem>
               <StyledMenuItem
                 color={primary}
-                key="press"
-                current={pathname === '/about/press' ? 1 : 0}
+                key="project"
+                current={pathname === '/about/project' ? 1 : 0}
               >
-                <Link href="/about/press">
-                  <a>{t('navbar.press').toLowerCase()}</a>
+                <Link href="/about/project">
+                  <a>{t('navbar.project').toLowerCase()}</a>
                 </Link>
               </StyledMenuItem>
               <StyledMenuItem color={primary} key="blog">

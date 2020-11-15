@@ -17,16 +17,11 @@ import { createAuthLink } from 'aws-appsync-auth-link';
 import { createSubscriptionHandshakeLink } from 'aws-appsync-subscription-link';
 import { JSONPath } from 'jsonpath-plus';
 import { Button, Result } from 'antd';
-import {
-  HomeOutlined,
-  ReloadOutlined,
-  MessageOutlined,
-} from '@ant-design/icons';
+import { HomeOutlined, ReloadOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
-import { Spin } from 'claptime/components/atoms';
+import { ContactUsButton, Spin } from 'claptime/components/atoms';
 import { initAmplify } from 'claptime/lib/amplify';
-import { openChat } from 'claptime/lib/chat';
 import { updateQuery } from 'claptime/utils';
 import AppSyncConfig from 'claptime/aws-exports';
 
@@ -143,9 +138,9 @@ const useQueryCustom = (
                   </Button>
                 </a>
               </Link>
-              <Button icon={<MessageOutlined />} onClick={() => openChat(true)}>
-                {t('errors.fetchingData.contactButton')}
-              </Button>
+              <ContactUsButton
+                buttonText={t('errors.fetchingData.contactButton')}
+              />
             </>
           }
         />

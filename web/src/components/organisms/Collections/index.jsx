@@ -1,11 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Typography } from 'antd';
-import { MessageOutlined } from '@ant-design/icons';
+import { Typography } from 'antd';
 
+import { ContactUsButton } from 'claptime/components/atoms';
 import { Cards } from 'claptime/components/molecules';
 import { useQueryList } from 'claptime/lib/apollo';
-import { openChat } from 'claptime/lib/chat';
 import { listCollections } from 'claptime/graphql/collections';
 
 const Collections = () => {
@@ -40,9 +39,7 @@ const Collections = () => {
         <Typography.Title level={3} style={{ marginRight: 16 }}>
           {t('collectionsPage.becomeCurator')}
         </Typography.Title>
-        <Button icon={<MessageOutlined />} onClick={() => openChat(true)}>
-          {t('collectionsPage.contactUs')}
-        </Button>
+        <ContactUsButton buttonText={t('collectionsPage.contactUs')} />
       </div>
     </div>
   );

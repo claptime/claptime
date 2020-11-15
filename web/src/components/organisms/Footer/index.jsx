@@ -85,6 +85,11 @@ function Footer() {
               <a>{t('navbar.filmmakers')}</a>
             </Link>
           </p>
+          <p>
+            <Link href="/about/project">
+              <a>{t('navbar.project')}</a>
+            </Link>
+          </p>
         </Section>
         <Section>
           <Title level={3}>{t('footer.misc.title')}</Title>
@@ -101,16 +106,6 @@ function Footer() {
             >
               {t('footer.misc.helpCenter')}
             </a>
-          </p>
-          <p>
-            <Link href="/partners">
-              <a>{t('footer.misc.partners')}</a>
-            </Link>
-          </p>
-          <p>
-            <Link href="/about/press">
-              <a>{t('navbar.press')}</a>
-            </Link>
           </p>
           <p>
             <Link href="/legal">
