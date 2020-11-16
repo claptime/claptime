@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Carousel } from 'claptime/components/molecules';
 import consts from 'consts';
+
+import { Carousel } from 'claptime/components/molecules';
 
 import StarringVideoNode from 'claptime/components/organisms/StarringVideoNode';
 

@@ -5,13 +5,13 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { Icons } from 'claptime/components/atoms';
+import { Icons, Title } from 'claptime/components/atoms';
 import { Cards } from 'claptime/components/molecules';
 import consts from 'claptime/consts';
 import { listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt } from 'claptime/graphql/collections';
 import { useQueryList } from 'claptime/lib/apollo';
 import PropTypes from 'claptime/lib/prop-types';
-import { Title } from 'claptime/components/atoms';
+
 const {
   style: {
     colors: { primary, lightgrey },

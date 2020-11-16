@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Input, Select, Tooltip, message } from 'antd';
+import { Button, Form, Input, Select, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import { useTranslation } from 'react-i18next';
@@ -54,17 +54,17 @@ const AddStarringVideoNodeForm = ({
     >
       <Form.Item name="id" label={t('collection.edit.starringVideoNodeSelect')}>
         <Select onChange={handleSelectChange}>
-          <Option key="select-starringVideoNode-null" value={null}>
+          <Select.Option key="select-starringVideoNode-null" value={null}>
             {t('collection.edit.starringVideoNodeNone')}
-          </Option>
+          </Select.Option>
           {listVideoNodes.map((item) => {
             const {
               videoNode: { id, title },
             } = item;
             return (
-              <Option key={`select-starringVideoNode-${id}`} value={id}>
+              <Select.Option key={`select-starringVideoNode-${id}`} value={id}>
                 {title}
-              </Option>
+              </Select.Option>
             );
           })}
         </Select>

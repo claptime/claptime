@@ -14,7 +14,7 @@ import {
   Title as StyledTitle,
 } from 'claptime/components/atoms';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 const {
   style: {
@@ -37,7 +37,7 @@ const StarringVideoNode = ({ starringVideoNode }) => {
   const {
     label,
     description,
-    videoNode: { id, title, synopsis, type },
+    videoNode: { id, title, type },
   } = starringVideoNode;
 
   return (
