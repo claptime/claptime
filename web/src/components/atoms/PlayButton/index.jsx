@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
+
 import { CaretRightOutlined } from '@ant-design/icons';
 
 import { useTranslation } from 'react-i18next';

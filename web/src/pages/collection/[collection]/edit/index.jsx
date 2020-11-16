@@ -30,7 +30,6 @@ import {
 } from 'claptime/graphql/collections';
 import {
   createStarringVideoNode,
-  updateStarringVideoNode,
   deleteStarringVideoNode,
 } from 'claptime/graphql/videonodes';
 import { useApolloClient, useQueryGet, useMutation } from 'claptime/lib/apollo';
@@ -134,25 +133,25 @@ const CollectionEditPage = () => {
       (svn) => svn.id === null,
     );
     await Promise.all(
-      starringVideoNodesToCreate.map((svn) => {
+      starringVideoNodesToCreate.map((svn) =>
         asyncMutationExec(createStarringVideoNodeMutation, {
           label: svn.label,
           description: svn.description,
           starringVideoNodeVideoNodeId: svn.videoNode.id,
           starringVideoNodeCollectionId: collection.id,
-        });
-      }),
+        }),
+      ),
     );
 
     const starringVideoNodesToDelete = defaultStarringVideoNodes.filter(
       (e) => fieldsValue.starringVideoNodes.indexOf(e) === -1,
     );
     await Promise.all(
-      starringVideoNodesToDelete.map((svn) => {
+      starringVideoNodesToDelete.map((svn) =>
         asyncMutationExec(deleteStarringVideoNodeMutation, {
           id: svn.id,
-        });
-      }),
+        }),
+      ),
     );
 
     await apolloClient.mutate({

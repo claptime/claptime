@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Select, Input, List, Tooltip, Button } from 'antd';
+import { List, Tooltip, Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-
-const { Option } = Select;
 
 const StarringVideoNodeRow = ({
   editable,

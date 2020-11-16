@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import { Select, Modal, Input, List, Popover, Tooltip, Button } from 'antd';
+import { List, Popover, Tooltip, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 import { useTranslation } from 'react-i18next';
 
 import { listCollectionVideoNodes } from 'claptime/graphql/collections';
-import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
+import { useQueryGet } from 'claptime/lib/apollo';
 
 import StarringVideoNodeRow from './StarringVideoNodeRow';
 import AddStarringVideoNodeForm from './AddStarringVideoNodeForm';
@@ -15,10 +15,10 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
   const { t } = useTranslation();
 
   const [listVideoNodes, setListVideoNodes] = useState([]);
-  const [listStarringVideoNodes, setListStarringVideoNodes] = useState([]);
+
   const [showForm, setShowForm] = useState(false);
 
-  const { item: collectionVideoNodes, loadMore, response } = useQueryGet(
+  const { item: collectionVideoNodes } = useQueryGet(
     listCollectionVideoNodes,
     {
       variables: {
@@ -31,7 +31,6 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
     { resultPath: '$.listCollectionVideoNodes' },
   );
 
-  useEffect(() => setListStarringVideoNodes(value));
   useEffect(() => {
     if (collectionVideoNodes) {
       const { items } = collectionVideoNodes;
