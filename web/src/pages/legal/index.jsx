@@ -52,7 +52,7 @@ const Legal = () => {
             En vertu de l&lsquo;article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l&lsquo;économie numérique, il est précisé aux utilisateurs du site internet&nbsp;<a href="https://www.clap-time.com">https://www.clap-time.com</a>&nbsp;l&lsquo;identité des différents intervenants dans le cadre de sa réalisation et de son suivi:
           </p>
           <p>
-            <strong>Propriétaire</strong> :  Micro-entreprise BOUGERE CHRISTOPHE  Numéro de TVA: FR 60 848515664 – 11 rue de Sambre et Meuse 75010 Paris<br />
+            <strong>Propriétaire</strong> : Association LabFilms – 53 allée de la Robertsau 67000 STRASBOURG<br />
 
             <strong>Responsable publication</strong> : Christophe BOUGERE – christophe@clap-time.com<br />
             Le responsable publication est une personne physique ou une personne morale.<br />
@@ -139,7 +139,7 @@ const Legal = () => {
           <h3>7.1 Responsables de la collecte des données personnelles</h3>
 
           <p>
-            Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est : BOUGERE CHRISTOPHE. <a href="https://www.clap-time.com">https://www.clap-time.com</a>&nbsp;est représenté par Christophe BOUGERE, son représentant légal
+            Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est l’association LabFilms, représentée par Christophe BOUGERE.
           </p>
 
           <p>
@@ -184,8 +184,8 @@ const Legal = () => {
           <p>
             Si l’Utilisateur souhaite savoir comment <a href="https://www.clap-time.com">https://www.clap-time.com</a> utilise ses Données Personnelles, demander à les rectifier ou s’oppose à leur traitement, l’Utilisateur peut contacter <a href="https://www.clap-time.com">https://www.clap-time.com</a> par écrit à l’adresse suivante :
           </p>
-          BOUGERE CHRISTOPHE – DPO, Christophe BOUGERE <br />
-          11 rue de Sambre et Meuse 75010 Paris.
+          Association LabFilms – DPO, Christophe BOUGERE<br />
+          53 allée de la Robertsau 67000 STRASBOURG.
           <p>
             Dans ce cas, l’Utilisateur doit indiquer les Données Personnelles qu’il souhaiterait que <a href="https://www.clap-time.com">https://www.clap-time.com</a> corrige, mette à jour ou supprime, en s’identifiant précisément avec une copie d’une pièce d’identité (carte d’identité ou passeport).
           </p>

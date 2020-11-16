@@ -83,7 +83,6 @@ const MyProfilePage = () => {
     {
       key: 'information',
       Component: Information,
-      isDefault: true,
     },
   ];
   const actions = [];

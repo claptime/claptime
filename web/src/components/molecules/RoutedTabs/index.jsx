@@ -7,10 +7,42 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'claptime/lib/prop-types';
 import PageHeader from 'claptime/components/molecules/PageHeader';
 
-const RoutedTabs = ({ actions, basePath, tabs, i18nBasePath }) => {
+const RoutedTabs = ({
+  actions,
+  basePath,
+  tabs,
+  i18nBasePath,
+  withPageTitle,
+}) => {
   const { t } = useTranslation();
   const { asPath } = useRouter();
   const currentKey = asPath.split('/').pop().split('?')[0];
+
+  const tabsElement = (
+    <Tabs
+      defaultActiveKey={currentKey}
+      tabPosition="top"
+      style={{
+        margin: '0 auto',
+      }}
+      onChange={(key) => {
+        Router.push(`${basePath}/${key}`);
+      }}
+    >
+      {tabs.map(({ key, Component }) => (
+        <Tabs.TabPane
+          tab={t(`${i18nBasePath}.container.tabs.${key}`)}
+          key={key}
+        >
+          <Component />
+        </Tabs.TabPane>
+      ))}
+    </Tabs>
+  );
+
+  if (!withPageTitle) {
+    return tabsElement;
+  }
 
   const pageTitle = (
     <span>
@@ -33,25 +65,7 @@ const RoutedTabs = ({ actions, basePath, tabs, i18nBasePath }) => {
           paddingTop: 0,
         }}
       >
-        <Tabs
-          defaultActiveKey={currentKey}
-          tabPosition="top"
-          style={{
-            margin: '0 auto',
-          }}
-          onChange={(key) => {
-            Router.push(`${basePath}/${key}`);
-          }}
-        >
-          {tabs.map(({ key, Component }) => (
-            <Tabs.TabPane
-              tab={t(`${i18nBasePath}.container.tabs.${key}`)}
-              key={key}
-            >
-              <Component />
-            </Tabs.TabPane>
-          ))}
-        </Tabs>
+        {tabsElement}
       </div>
     </div>
   );
@@ -62,10 +76,12 @@ RoutedTabs.propTypes = {
   basePath: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
   i18nBasePath: PropTypes.string.isRequired,
+  withPageTitle: PropTypes.bool,
 };
 
 RoutedTabs.defaultProps = {
   actions: [],
+  withPageTitle: true,
 };
 
 export default RoutedTabs;

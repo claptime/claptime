@@ -1,3 +1,8 @@
+enum NewsStatus {
+  DRAFT
+  PUBLISHED
+}
+
 type NewsButton @aws_iam @aws_cognito_user_pools {
   text: String!
   url: String!
@@ -17,6 +22,7 @@ type News
 {
   id: ID!
   title: String!
+  status: NewsStatus!
   description: String
   button: NewsButton
   links: [Link]
