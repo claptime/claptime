@@ -11,10 +11,10 @@ import consts from 'claptime/consts';
 import { listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt } from 'claptime/graphql/collections';
 import { useQueryList } from 'claptime/lib/apollo';
 import PropTypes from 'claptime/lib/prop-types';
-
+import { Title } from 'claptime/components/atoms';
 const {
   style: {
-    colors: { primary },
+    colors: { primary, lightgrey },
   },
 } = consts;
 
@@ -81,7 +81,9 @@ const CategoryCarousel = ({ collectionId, collectionSlug, category }) => {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'baseline' }}>
-          <h2>{category.category}</h2>
+          <Title underlined={false} lineColor={lightgrey}>
+            {category.category}
+          </Title>
           {hasMore ? (
             <Link
               href="/collection/[collection]/category/[category]"
