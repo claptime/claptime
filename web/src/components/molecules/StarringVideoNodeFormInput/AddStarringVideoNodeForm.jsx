@@ -43,7 +43,7 @@ const AddStarringVideoNodeForm = ({
   return (
     <Form
       form={form}
-      id="category-add-form"
+      id="add-starring-videonode-form"
       onFinish={onFinish}
       layout="vertical"
       style={{ width: 400 }}
@@ -76,6 +76,10 @@ const AddStarringVideoNodeForm = ({
             max: 100,
             message: t('collection.edit.starringVideoNodeLabelMaxLength'),
           },
+          {
+            required: labelEnabled,
+            message: t('collection.edit.required'),
+          },
         ]}
         label={
           <span>
@@ -87,7 +91,9 @@ const AddStarringVideoNodeForm = ({
                   ? document.getElementById(containerId)
                   : document.body
               }
-              title={t('collection.edit.starringVideoNodeLabelTooltip')}
+              title={
+                <i>{t('collection.edit.starringVideoNodeLabelTooltip')}</i>
+              }
             >
               <QuestionCircleOutlined />
             </Tooltip>
@@ -108,11 +114,7 @@ const AddStarringVideoNodeForm = ({
                   ? document.getElementById(containerId)
                   : document.body
               }
-              title={
-                <i>
-                  {t('collection.edit.starringVideoNodeDescriptionTooltip')}
-                </i>
-              }
+              title={t('collection.edit.starringVideoNodeDescriptionTooltip')}
             >
               <QuestionCircleOutlined />
             </Tooltip>
@@ -128,8 +130,13 @@ const AddStarringVideoNodeForm = ({
         <Input.TextArea disabled={!labelEnabled} rows={4} />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" form="category-add-form" htmlType="submit">
-          {t('collection.edit.categoryAdd')}
+        <Button
+          disabled={!labelEnabled}
+          type="primary"
+          form="add-starring-videonode-form"
+          htmlType="submit"
+        >
+          {t('collection.edit.starringVideoNodeAdd')}
         </Button>
       </Form.Item>
     </Form>
