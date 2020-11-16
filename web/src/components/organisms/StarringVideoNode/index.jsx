@@ -4,6 +4,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import consts from 'consts';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 import {
   Button,
@@ -31,11 +32,14 @@ const Infos = styled.div`
 `;
 
 const StarringVideoNode = ({ starringVideoNode }) => {
+  const { t } = useTranslation();
+
   const {
     label,
     description,
     videoNode: { id, title, synopsis, type },
   } = starringVideoNode;
+
   return (
     <Container>
       <StyledTitle lineColor={lightgrey}>{label}</StyledTitle>
@@ -49,7 +53,7 @@ const StarringVideoNode = ({ starringVideoNode }) => {
               <PlayButton videoId={id} />
               <Link href="/video/[video]" as={`/video/${id}`}>
                 <Button
-                  text="Plus d'infos"
+                  text={t('starringVideoNode.infos')}
                   color={grey}
                   icon={<InfoCircleOutlined />}
                 />

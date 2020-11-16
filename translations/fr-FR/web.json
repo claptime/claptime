@@ -386,6 +386,9 @@
       }
     }
   },
+  "starringVideoNode": {
+    "infos": "Plus d'infos"
+  },
   "collection": {
     "subscribe": "S'abonner",
     "unsubscribe": "Se désabonner",
@@ -440,6 +443,7 @@
       "starringVideoNodeButton": "Sélectionner un film",
       "starringVideoNodeNone": "Aucun",
       "starringVideoNodeInputPlaceholder": "Label",
+      "starringVideoNodeAdd": "Ajouter",
       "starringVideoNodeDelete": "Supprimer (sera effectif à la sauvegarde de la collection)",
       "starringVideoNodesAddTooltip": "Ajouter un film à l'affiche",
       "starringVideoNodesAddPopover": "Nouveau film à l'affiche",

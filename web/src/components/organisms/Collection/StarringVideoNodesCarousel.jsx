@@ -19,7 +19,10 @@ const StarringVideoNodesCarousel = ({ items }) => {
   return (
     <Carousel dotsColor={grey}>
       {items.map((i) => (
-        <StarringVideoNode starringVideoNode={i} />
+        <StarringVideoNode
+          key={`carousel-starring-videonode-${i}`}
+          starringVideoNode={i}
+        />
       ))}
     </Carousel>
   );
