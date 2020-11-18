@@ -8,7 +8,7 @@ type View
 @auth(rules: [
   { allow: owner, operations: [create, read] },
   { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
-  { allow: private, provider: iam, operations: [create] },
+  { allow: private, operations: [create]},
   { allow: public, provider: iam, operations: [create] },
 ])
 {
