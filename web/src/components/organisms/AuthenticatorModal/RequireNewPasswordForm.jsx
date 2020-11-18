@@ -3,23 +3,11 @@ import { Form, Input, Button, Popover } from 'antd';
 import { InfoCircleOutlined, LockOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Auth } from 'aws-amplify';
-import PasswordValidator from 'password-validator';
 
 import consts from 'claptime/consts';
 import PropTypes from 'claptime/lib/prop-types';
 import { nl2br } from 'claptime/utils/i18n';
-
-const passwordSchema = new PasswordValidator()
-  .is()
-  .min(8)
-  .has()
-  .uppercase()
-  .has()
-  .lowercase()
-  .has()
-  .digits()
-  .has()
-  .symbols();
+import { passwordSchema } from 'claptime/utils';
 
 const RequireNewPasswordForm = ({ onChange, email }) => {
   const [form] = Form.useForm();

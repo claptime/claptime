@@ -6,25 +6,13 @@ import {
   LockOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import PasswordValidator from 'password-validator';
 import { useTranslation } from 'react-i18next';
 import { Auth } from 'aws-amplify';
 
 import consts from 'claptime/consts';
 import PropTypes from 'claptime/lib/prop-types';
 import { nl2br } from 'claptime/utils/i18n';
-
-const passwordSchema = new PasswordValidator()
-  .is()
-  .min(8)
-  .has()
-  .uppercase()
-  .has()
-  .lowercase()
-  .has()
-  .digits()
-  .has()
-  .symbols();
+import { passwordSchema } from 'claptime/utils';
 
 const SignUpForm = ({ onChange }) => {
   const [form] = Form.useForm();
