@@ -51,11 +51,15 @@ const submitToCollection = async (
     collection.owner,
   );
   const email = UserAttributes.find(({ Name }) => Name === 'email').Value;
+  const firstName = UserAttributes.find(({ Name }) => Name === 'given_name')
+    .Value;
 
   // Send email to collection owner
   await sendEmailToUser(
     'submit',
-    claims,
+    {
+      given_name: firstName,
+    },
     {
       videoNode,
       collection,
