@@ -26,13 +26,14 @@ const SignInForm = ({ onChange, email: emailProp }) => {
     setLoading(true);
 
     try {
-      const { challengeName, challengeParam } = await Auth.signIn(
-        email,
-        password,
-      );
-      console.log(challengeName, challengeParam);
-      // TODO handle challenges
-      // https://github.com/aws-amplify/amplify-js/blob/main/packages/auth/src/Auth.ts#L537
+      const { challengeName } = await Auth.signIn(email, password);
+      if (challengeName === 'NEW_PASSWORD_REQUIRED') {
+        await Auth.forgotPassword(email);
+        onChange({
+          nextAuthState: 'requireNewPassword',
+          email,
+        });
+      }
     } catch (err) {
       switch (err.code) {
         case 'UserNotFoundException':
@@ -40,6 +41,12 @@ const SignInForm = ({ onChange, email: emailProp }) => {
           break;
         case 'NotAuthorizedException':
           setError(t('authenticatorModal.signIn.errorWrongPassword'));
+          break;
+        case 'UserNotConfirmedException':
+          onChange({
+            nextAuthState: 'confirmSignUp',
+            email,
+          });
           break;
         default:
           setError(t('authenticatorModal.signIn.errorDefault'));
