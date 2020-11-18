@@ -4,6 +4,7 @@ import { List, Popover, Tooltip, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'claptime/lib/prop-types';
 
 import { listCollectionVideoNodes } from 'claptime/graphql/collections';
 import { useQueryGet } from 'claptime/lib/apollo';
@@ -90,6 +91,17 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
       }
     />
   );
+};
+
+StarringVideoNodeFormInput.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  value: PropTypes.arrayOf(PropTypes.claptime.starringVideoNode),
+  collectionId: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+};
+
+StarringVideoNodeFormInput.defaultProps = {
+  onChange: () => {},
 };
 
 export default StarringVideoNodeFormInput;

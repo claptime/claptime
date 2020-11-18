@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import consts from 'consts';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'claptime/lib/prop-types';
 
 import {
   Button,
@@ -64,6 +65,9 @@ const StarringVideoNode = ({ starringVideoNode }) => {
       </Infos>
     </Container>
   );
+};
+StarringVideoNode.propTypes = {
+  starringVideoNode: PropTypes.claptime.starringVideoNode.isRequired,
 };
 
 export default StarringVideoNode;

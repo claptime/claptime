@@ -145,6 +145,12 @@ const AddStarringVideoNodeForm = ({
 
 AddStarringVideoNodeForm.propTypes = {
   onStarringVideoNodeAdded: PropTypes.func.isRequired,
+  containerId: PropTypes.string,
+  listVideoNodes: PropTypes.arrayOf(PropTypes.claptime.videoNode).isRequired,
+};
+
+AddStarringVideoNodeForm.defaultProps = {
+  containerId: undefined,
 };
 
 export default AddStarringVideoNodeForm;
