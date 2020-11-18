@@ -19,6 +19,10 @@ const ConfirmSignUpForm = ({ onChange, email }) => {
 
     try {
       await Auth.confirmSignUp(email, code);
+      onChange({
+        nextAuthState: 'signIn',
+        email,
+      });
     } catch (err) {
       switch (err.code) {
         case 'CodeMismatchException':
