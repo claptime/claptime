@@ -11,6 +11,15 @@ PropTypes.claptime = {
     category: PropTypes.string.isRequired,
     description: PropTypes.string,
   }),
+  starringVideoNode: PropTypes.shape({
+    id: PropTypes.string,
+    label: PropTypes.string,
+    description: PropTypes.string,
+    videoNode: PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    }),
+  }),
   credit: PropTypes.shape({
     role: PropTypes.string,
     profile: PropTypes.shape({

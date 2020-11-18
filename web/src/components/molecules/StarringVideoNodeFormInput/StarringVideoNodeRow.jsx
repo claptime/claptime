@@ -3,6 +3,7 @@ import React from 'react';
 import { List, Tooltip, Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'claptime/lib/prop-types';
 
 const StarringVideoNodeRow = ({
   editable,
@@ -31,4 +32,15 @@ const StarringVideoNodeRow = ({
   );
 };
 
+StarringVideoNodeRow.propTypes = {
+  editable: PropTypes.bool,
+  starringVideoNode: PropTypes.claptime.starringVideoNode.isRequired,
+  index: PropTypes.number.isRequired,
+  onDelete: PropTypes.func,
+};
+
+StarringVideoNodeRow.defaultProps = {
+  editable: true,
+  onDelete: () => {},
+};
 export default StarringVideoNodeRow;

@@ -3,6 +3,7 @@ import React from 'react';
 import consts from 'consts';
 
 import { Carousel } from 'claptime/components/molecules';
+import PropTypes from 'claptime/lib/prop-types';
 
 import StarringVideoNode from 'claptime/components/organisms/StarringVideoNode';
 
@@ -27,6 +28,10 @@ const StarringVideoNodesCarousel = ({ items }) => {
       ))}
     </Carousel>
   );
+};
+
+StarringVideoNodesCarousel.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.claptime.StarringVideoNode).isRequired,
 };
 
 export default StarringVideoNodesCarousel;
