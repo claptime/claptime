@@ -1,11 +1,19 @@
 {
   "errors": {
+    "refreshButton": "Recharger la page",
+    "backHomeButton": "Revenir à l'accueil",
+    "contactUs": "Nous contacter",
+    "404": {
+      "title": "Cette page n’est pas ou plus disponible",
+      "subtitle": "Le lien que vous avez suivi est peut-être rompu, ou la page a été supprimée.\nS'il s'agit d'un film ou d'une série, il se peut que son propriétaire l'ait supprimé."
+    },
+    "500": {
+      "title": "Cette page est temporairement indisponible",
+      "subtitle": "Oops, une erreur est survenue.\nSi le problème persiste, contactez-nous pour que nous puissions le résoudre au plus vite."
+    },
     "fetchingData": {
       "title": "Impossible de charger le contenu",
-      "subTitle": "Si le problème persiste, faites-le-nous savoir pour que nous puissions résoudre le problème au plus vite.",
-      "refreshButton": "Recharger la page",
-      "backHomeButton": "Revenir à l'accueil",
-      "contactButton": "Nous contacter"
+      "subtitle": "Nous ne sommes pas en mesure de charger le contenu demandé.\nSi le problème persiste, contactez-nous pour que nous puissions le résoudre au plus vite."
     }
   },
   "admin": {

@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
-import Router from 'next/router';
+import React from 'react';
 
-import { Spin } from 'claptime/components/atoms';
+import { Errors, Layouts } from 'claptime/components/molecules';
+import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 
-const Error = () => {
-  useEffect(() => {
-    Router.push('/');
-  }, []);
-  return <Spin />;
+const Error500 = () => {
+  return (
+    <NavBarTemplate>
+      <Layouts.Strip isFirst>
+        <Errors.Error500 />
+      </Layouts.Strip>
+    </NavBarTemplate>
+  );
 };
 
-export default Error;
+export default Error500;

@@ -3,6 +3,7 @@ export { default as Cards } from './Cards';
 export { default as Carousel } from './Carousel';
 export { default as Charter } from './Charter';
 export { default as CreditsInput } from './CreditsInput';
+export { default as Errors } from './Errors';
 export { default as FilmCreationActions } from './FilmCreationActions';
 export { default as ImageInput } from './ImageInput';
 export { default as Layouts } from './Layouts';
