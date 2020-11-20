@@ -10,7 +10,7 @@ const {
   DEFAULT_CLAP_VALUE,
   userSettings: {
     notifications: {
-      types: { NEWSLETTER },
+      types: { NEWSLETTER, LABFILMS_NEWSLETTER },
       channels: { EMAIL },
     },
   },
@@ -52,11 +52,15 @@ function userReducer(state, action) {
         hasPublicProfile:
           typeof action.payload.profileId === 'string' ||
           state.hasPublicProfile,
-        // For now, a user is considered as onboarded if he set consent for the newsletter
+        // For now, a user is considered as onboarded if he set consent for both newsletters
         isOnboarded:
           action.payload.notifications &&
           action.payload.notifications.find(
             ({ type, channel }) => type === NEWSLETTER && channel === EMAIL,
+          ) &&
+          action.payload.notifications.find(
+            ({ type, channel }) =>
+              type === LABFILMS_NEWSLETTER && channel === EMAIL,
           ),
       };
     case 'settingUpdated':

@@ -90,6 +90,14 @@ const handleEmail = async (identity, type, frequency) => {
     case 'NEWSLETTER':
       return updateMailchimp(
         await getParam('mailchimp-audience-id', false),
+        await getParam('mailchimp-api-key', true),
+        identity,
+        frequency === 'ALWAYS',
+      );
+    case 'LABFILMS_NEWSLETTER':
+      return updateMailchimp(
+        await getParam('labfilms-mailchimp-audience-id', false),
+        await getParam('labfilms-mailchimp-api-key', true),
         identity,
         frequency === 'ALWAYS',
       );
