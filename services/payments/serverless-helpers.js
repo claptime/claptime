@@ -6,12 +6,3 @@ exports.getAccountId = async (serverless) =>
 exports.getApiEndpoint = () => getApiConfig().endpoint;
 
 exports.getApiId = () => getApiConfig().id;
-
-exports.getApiSubDomain = (serverless) => {
-  switch (serverless.service.provider.stage) {
-    case 'prod':
-      return 'api';
-    default:
-      return `api-${serverless.service.provider.stage}`;
-  }
-};

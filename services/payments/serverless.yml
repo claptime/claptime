@@ -53,7 +53,7 @@ custom:
   appsyncPrefix: arn:aws:appsync:${self:provider.region}:${self:custom.accountId}:apis/${file(serverless-helpers.js):getApiId}/types
 
   customDomain:
-    domainName: ${file(serverless-helpers.js):getApiSubDomain}.clap-time.com
+    domainName: api-${self:provider.stage}.clap-time.com
     basePath: payments
     stage: ${self:provider.stage}
     createRoute53Record: true
