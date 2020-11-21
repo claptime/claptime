@@ -58,6 +58,8 @@ const StyledNav = styled.nav`
     background: none;
     border-color: white;
     align-self: center;
+    position: absolute;
+    right: 3%;
   }
   .bars-btn {
     display: block;
@@ -95,7 +97,7 @@ const StyledNav = styled.nav`
     #claptime-notifications-menu-container {
       display: block;
       margin-left: auto;
-      margin-right: 5%;
+      margin-right: 80px;
     }
     .bars-menu {
       display: inline-block;

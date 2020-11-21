@@ -23,6 +23,7 @@ const {
 
 const StyledMenuItem = styled(Menu.Item)`
   font-weight: ${({ current }) => (current ? 'bold' : 'normal')};
+  vertical-align: middle !important;
 `;
 
 const StyledButton = styled.button`
