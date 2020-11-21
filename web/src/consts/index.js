@@ -5,6 +5,7 @@ export default {
   DEFAULT_CLAP_VALUE: 2.0,
   MIN_CLAP_VALUE: 1.0,
   MIN_VIDEOS_IN_COLLECTION: 3,
+  MAX_SVN_IN_COLLECTION: 10,
   style,
   device,
   blog: 'https://medium.com/claptime',

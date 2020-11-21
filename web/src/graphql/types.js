@@ -112,6 +112,11 @@ export const Collection = ({
         title
         synopsis
         type
+        profile {
+          id
+          name
+          biography
+        }
       }
     }
   }

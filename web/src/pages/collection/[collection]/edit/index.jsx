@@ -39,6 +39,8 @@ import { useIsAuthenticated, useUserState } from 'claptime/lib/user';
 import { dataURItoBlob } from 'claptime/utils';
 import { nl2br } from 'claptime/utils/i18n';
 
+const { MAX_SVN_IN_COLLECTION } = consts;
+
 const CollectionEditPage = () => {
   const [form] = Form.useForm();
   const {
@@ -132,16 +134,18 @@ const CollectionEditPage = () => {
     const starringVideoNodesToCreate = fieldsValue.starringVideoNodes.filter(
       (svn) => svn.id === null,
     );
-    await Promise.all(
-      starringVideoNodesToCreate.map((svn) =>
-        asyncMutationExec(createStarringVideoNodeMutation, {
-          label: svn.label,
-          description: svn.description,
-          starringVideoNodeVideoNodeId: svn.videoNode.id,
-          starringVideoNodeCollectionId: collection.id,
-        }),
-      ),
-    );
+    if (starringVideoNodesToCreate.length <= MAX_SVN_IN_COLLECTION) {
+      await Promise.all(
+        starringVideoNodesToCreate.map((svn) =>
+          asyncMutationExec(createStarringVideoNodeMutation, {
+            label: svn.label,
+            description: svn.description,
+            starringVideoNodeVideoNodeId: svn.videoNode.id,
+            starringVideoNodeCollectionId: collection.id,
+          }),
+        ),
+      );
+    }
 
     const starringVideoNodesToDelete = defaultStarringVideoNodes.filter(
       (e) => fieldsValue.starringVideoNodes.indexOf(e) === -1,

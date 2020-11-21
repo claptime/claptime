@@ -4,6 +4,8 @@ import { List, Popover, Tooltip, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 import { useTranslation } from 'react-i18next';
+
+import consts from 'consts';
 import PropTypes from 'claptime/lib/prop-types';
 
 import { listCollectionVideoNodes } from 'claptime/graphql/collections';
@@ -11,6 +13,8 @@ import { useQueryGet } from 'claptime/lib/apollo';
 
 import StarringVideoNodeRow from './StarringVideoNodeRow';
 import AddStarringVideoNodeForm from './AddStarringVideoNodeForm';
+
+const { MAX_SVN_IN_COLLECTION } = consts;
 
 const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
   const { t } = useTranslation();
@@ -29,7 +33,10 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
       },
       errorPolicy: 'all',
     },
-    { resultPath: '$.listCollectionVideoNodes' },
+    {
+      resultPath: '$.listCollectionVideoNodes',
+      getAll: true,
+    },
   );
 
   useEffect(() => {
@@ -81,10 +88,18 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
             }
           >
             <Tooltip
-              title={t('collection.edit.starringVideoNodesAddTooltip')}
+              title={
+                value.length < MAX_SVN_IN_COLLECTION
+                  ? t('collection.edit.starringVideoNodesAddTooltip')
+                  : t('collection.edit.starringVideoNodesCannotAddTooltip')
+              }
               placement="right"
             >
-              <Button shape="circle" icon={<PlusOutlined />} />
+              <Button
+                disabled={value.length >= MAX_SVN_IN_COLLECTION}
+                shape="circle"
+                icon={<PlusOutlined />}
+              />
             </Tooltip>
           </Popover>
         </div>
