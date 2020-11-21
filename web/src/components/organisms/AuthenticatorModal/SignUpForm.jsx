@@ -41,8 +41,10 @@ const SignUpForm = ({ onChange }) => {
         email,
       });
     } catch (err) {
-      // TODO handle most common cases, like email already exists
       switch (err.code) {
+        case 'UsernameExistsException':
+          setError(t('authenticatorModal.signUp.errorEmailAlreadyExists'));
+          break;
         default:
           setError(t('authenticatorModal.signUp.errorDefault'));
           console.error(err);

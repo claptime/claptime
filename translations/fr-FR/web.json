@@ -114,6 +114,7 @@
       "passwordConfirmationPlaceholder": "●●●●●●●●●●",
       "signUp": "S'inscrire",
       "signIn": "Se connecter",
+      "errorEmailAlreadyExists": "Un compte existe déjà avec cette adresse email.",
       "errorDefault": "Une erreur est survenue. Si le problème persiste, contactez-nous.",
       "errorPasswordMin": "Le mot de passe doit faire au moins 8 caractères",
       "errorPasswordLowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
