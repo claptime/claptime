@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import consts from 'consts';
+
 import PropTypes from 'claptime/lib/prop-types';
+
+const {
+  device: { mobileS, tablet },
+} = consts;
 
 const StyledButton = styled.button`
   all: unset;
@@ -15,7 +21,13 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   color: ${(props) => props.color || 'white'};
-  padding: 15px 25px;
+
+  @media ${mobileS} {
+    padding: 5px 8px;
+  }
+  @media ${tablet} {
+    padding: 15px 25px;
+  }
   ${(props) => (props.centered ? 'margin: auto;' : '')}
   svg {
     height: 100%;

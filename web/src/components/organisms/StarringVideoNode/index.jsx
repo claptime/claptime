@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from 'antd';
+
 import { InfoCircleOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import consts from 'consts';
@@ -15,42 +15,85 @@ import {
   Title as StyledTitle,
 } from 'claptime/components/atoms';
 
-const { Title } = Typography;
+import { ProfileLink } from 'claptime/components/molecules';
 
 const {
   style: {
     colors: { lightgrey, grey },
+    fonts: { stylized },
   },
+  device: { mobileS, tablet },
 } = consts;
 
 const Container = styled.div`
   padding: 3% 9%;
+  @media ${mobileS} {
+    text-align: center;
+    .video-cover {
+      width: 250px;
+    }
+  }
+  @media ${tablet} {
+    text-align: left;
+    .video-cover {
+      width: 500px;
+    }
+  }
 `;
 
 const Infos = styled.div`
   display: flex;
-  flex-direction: row;
+  @media ${mobileS} {
+    flex-direction: column;
+    align-items: center;
+    .svn-infos {
+      width: 100%;
+      margin: 20px 0;
+    }
+    .svn-title {
+      font-family: ${stylized};
+      font-size: 1.5em;
+    }
+  }
+  @media ${tablet} {
+    flex-direction: row;
+    align-items: normal;
+    .svn-infos {
+      margin-left: 30px;
+      .svn-title {
+        font-size: 2em;
+        margin-bottom: 0;
+      }
+      .svn-description {
+        margin: 50px 0;
+        font-size: 1.33em;
+      }
+    }
+  }
 `;
 
 const StarringVideoNode = ({ starringVideoNode }) => {
   const { t } = useTranslation();
-
+  console.log(starringVideoNode);
   const {
     label,
     description,
-    videoNode: { id, title, type },
+    videoNode: { id, title, type, profile },
   } = starringVideoNode;
 
   return (
     <Container>
       <StyledTitle lineColor={lightgrey}>{label}</StyledTitle>
       <Infos>
-        <Covers.Video width={300} videoId={id} />
-        <div style={{ marginLeft: '30px' }}>
-          <Title>{title}</Title>
-          <p style={{ margin: '5% 0' }}>{description}</p>
+        <Covers.Video videoId={id} />
+        <div className="svn-infos">
+          <h3 className="svn-title">{title}</h3>
+          <p>
+            {t('video.addedBy')} <ProfileLink profile={profile} />
+          </p>
+          <p className="svn-description">{description}</p>
           {type === 'FILM' && (
-            <ButtonGroup style={{ display: 'flex', flexDirection: 'row' }}>
+            <ButtonGroup>
               <PlayButton videoId={id} />
               <Link href="/video/[video]" as={`/video/${id}`}>
                 <Button
