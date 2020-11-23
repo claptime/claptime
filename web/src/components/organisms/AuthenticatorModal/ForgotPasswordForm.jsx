@@ -24,8 +24,16 @@ const ForgotPasswordForm = ({ onChange }) => {
         email,
       });
     } catch (err) {
-      setError(t('authenticatorModal.forgotPassword.errorDefault'));
-      console.error(err);
+      switch (err.code) {
+        case 'UserNotFoundException':
+          setError(t('authenticatorModal.forgotPassword.errorWrongEmail'));
+          console.error(err);
+          break;
+        default:
+          setError(t('authenticatorModal.forgotPassword.errorDefault'));
+          console.error(err);
+          break;
+      }
     }
 
     setLoading(false);

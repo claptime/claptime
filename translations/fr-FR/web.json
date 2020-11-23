@@ -55,6 +55,7 @@
       "emailPlaceholder": "nick.park@aardman.com",
       "sendCode": "Envoyer le code",
       "backToSignIn": "Retour à la connexion",
+      "errorWrongEmail": "Aucun utilisateur n'est associé à cette adresse email",
       "errorDefault": "Une erreur est survenue. Si le problème persiste, contactez-nous."
     },
     "requireNewPassword": {
