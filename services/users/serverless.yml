@@ -18,10 +18,14 @@ provider:
         - ${self:custom.ssmPrefix}/staging/mailchimp-api-key
         - ${self:custom.ssmPrefix}/${self:provider.stage}/mailchimp-audience-id
         - ${self:custom.ssmPrefix}/staging/mailchimp-audience-id
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/mailchimp-server-prefix
+        - ${self:custom.ssmPrefix}/staging/mailchimp-server-prefix
         - ${self:custom.ssmPrefix}/${self:provider.stage}/labfilms-mailchimp-api-key
         - ${self:custom.ssmPrefix}/staging/labfilms-mailchimp-api-key
         - ${self:custom.ssmPrefix}/${self:provider.stage}/labfilms-mailchimp-audience-id
         - ${self:custom.ssmPrefix}/staging/labfilms-mailchimp-audience-id
+        - ${self:custom.ssmPrefix}/${self:provider.stage}/labfilms-mailchimp-server-prefix
+        - ${self:custom.ssmPrefix}/staging/labfilms-mailchimp-server-prefix
     - Effect: Allow
       Action: appsync:GraphQL
       Resource:
