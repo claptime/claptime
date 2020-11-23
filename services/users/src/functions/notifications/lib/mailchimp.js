@@ -1,7 +1,13 @@
 const axios = require('axios');
 const md5 = require('md5');
 
-const updateMailchimp = async (audienceId, apiKey, identity, enabled) => {
+const updateMailchimp = async (
+  audienceId,
+  serverPrefix,
+  apiKey,
+  identity,
+  enabled,
+) => {
   const {
     claims: { given_name: givenName, family_name: familyName, email },
   } = identity;
@@ -13,7 +19,7 @@ const updateMailchimp = async (audienceId, apiKey, identity, enabled) => {
     `adding ${givenName} ${familyName} (${email}) to Mailchimp audience ${audienceId}.`,
   );
   const res = await axios.put(
-    `https://us4.api.mailchimp.com/3.0/lists/${audienceId}/members/${md5(
+    `https://${serverPrefix}.api.mailchimp.com/3.0/lists/${audienceId}/members/${md5(
       email.toLowerCase(),
     )}`,
     {
