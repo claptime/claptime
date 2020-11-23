@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import moment from 'moment';
 import { JSONPath } from 'jsonpath-plus';
+import PasswordValidator from 'password-validator';
 
 export const buf2str = (buf) =>
   String.fromCharCode.apply(null, new Uint8Array(buf));
@@ -112,6 +113,18 @@ export const listItems = async ({
   } while (nextToken);
   return items.slice(0, limit);
 };
+
+export const passwordSchema = new PasswordValidator()
+  .is()
+  .min(8)
+  .has()
+  .uppercase()
+  .has()
+  .lowercase()
+  .has()
+  .digits()
+  .has()
+  .symbols();
 
 /**
  * promisify()
@@ -228,6 +241,7 @@ export default {
   isMobile,
   getSearchableValue,
   listItems,
+  passwordSchema,
   promisify,
   shuffle,
   sleep,

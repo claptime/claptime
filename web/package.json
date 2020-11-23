@@ -4,8 +4,6 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.2",
     "@apollo/client": "^3.1.4",
-    "@aws-amplify/ui-components": "^0.9.3",
-    "@aws-amplify/ui-react": "^0.2.28",
     "@clappr/core": "^0.4.15",
     "@clappr/player": "^0.4.1",
     "@clappr/stats-plugin": "^0.2.0",
@@ -35,6 +33,7 @@
     "nprogress": "^0.2.0",
     "null-loader": "^4.0.0",
     "p2p-media-loader-hlsjs": "^0.6.2",
+    "password-validator": "^5.1.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.9.0",
     "react": "^16.13.1",
