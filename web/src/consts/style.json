@@ -16,8 +16,7 @@
   },
   "fonts": {
     "stylized": "'Convergence', sans-serif",
-    "default": "'Open Sans', sans-serif",
-    "stylizedVariant": "Convergence"
+    "default": "'Open Sans', sans-serif"
   },
   "navbar": {
     "height": "100px"

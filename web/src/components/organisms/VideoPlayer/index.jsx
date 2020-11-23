@@ -26,14 +26,14 @@ const {
   device,
   style: {
     colors: { strawberry, primary },
-    fonts: { stylizedVariant },
+    fonts: { stylized },
   },
 } = consts;
 
 // Need to use !important in order to override clappr style
 const StyledContainer = styled.div`
   .media-control {
-    font-family: ${stylizedVariant} !important;
+    font-family: ${stylized} !important;
     transition: background 0.4s ease-in-out !important;
     .bar-background {
       height: 4px !important;
@@ -61,7 +61,7 @@ const StyledContainer = styled.div`
     }
     .media-control-center-panel {
       height: 32px !important;
-      font-family: ${stylizedVariant} !important;
+      font-family: ${stylized} !important;
     }
     .seek-time {
       margin: 0 12% !important;
