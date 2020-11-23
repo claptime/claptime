@@ -1,8 +1,7 @@
 const axios = require('axios');
 const md5 = require('md5');
-const { getParam } = require('claptime-commons/ssm');
 
-const updateMailchimp = async (audienceId, identity, enabled) => {
+const updateMailchimp = async (audienceId, apiKey, identity, enabled) => {
   const {
     claims: { given_name: givenName, family_name: familyName, email },
   } = identity;
@@ -10,7 +9,6 @@ const updateMailchimp = async (audienceId, identity, enabled) => {
     console.log(`disabled in ${process.env.STAGE} environment`);
     return { skipped: true };
   }
-  const mailchimpApiKey = await getParam('mailchimp-api-key', true);
   console.log(
     `adding ${givenName} ${familyName} (${email}) to Mailchimp audience ${audienceId}.`,
   );
@@ -29,7 +27,7 @@ const updateMailchimp = async (audienceId, identity, enabled) => {
     },
     {
       headers: {
-        Authorization: `apikey ${mailchimpApiKey}`,
+        Authorization: `apikey ${apiKey}`,
       },
     },
   );

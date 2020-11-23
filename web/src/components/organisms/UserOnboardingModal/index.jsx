@@ -40,7 +40,7 @@ const UserOnboardingModal = () => {
       }}
     >
       <Typography.Title level={3}>
-        {t('userOnboardingModal.title', { firstName: user.firstName })}
+        {t('userOnboardingModal.title')}
       </Typography.Title>
       <p>{nl2br(t('userOnboardingModal.description'))}</p>
       <NotificationPreferences />

@@ -857,14 +857,16 @@
     "noResult": "Aucun résultat"
   },
   "notificationPreferences": {
-    "newsletter": "Lettre d'information",
-    "newsletterTooltip": "Recevez un condensé d'informations sur Claptime : films du moment, nouvelles fonctionnalités, partenariats... Pas plus d'un email par mois.",
+    "claptimeNewsletter": "L'essentiel Claptime",
+    "claptimeNewsletterTooltip": "Recevez un condensé d'informations sur Claptime : films du moment, nouvelles fonctionnalités, partenariats... Promis, pas plus d'un email par mois.",
+    "labfilmsNewsletter": "L'écosystème LabFilms",
+    "labfilmsNewsletterTooltip": "Vous vous intéressez au cinéma autoproduit ? Alors abonnez-vous à la newsletter de LabFilms pour recevoir toutes les actualités de l'écosystème !",
     "yes": "Oui",
     "no": "Non"
   },
   "userOnboardingModal": {
-    "title": "{{firstName}}, on reste en contact ?",
-    "description": "Claptime est un projet encore jeune, et nous comptons sur le bouche-à-oreille pour construire une communauté de cinéastes et de cinéphiles hors du commun.\nUne manière simple de nous aider est de rester informé en s'inscrivant à notre lettre d'information, et de partager les nouveautés qui seraient susceptibles d'intéresser vos proches.\n\nOn compte sur vous ! Mais pas d'obligation, on n'est pas des tyrans."
+    "title": "Vos préférences email",
+    "description": "Claptime est un projet encore jeune, et nous comptons sur le bouche-à-oreille pour construire une communauté de cinéastes et de cinéphiles hors du commun.\nUne manière simple de nous aider est de rester informé en s'inscrivant à notre lettre d'information, et de partager les nouveautés qui seraient susceptibles d'intéresser vos proches.\n\nChoisissez les communications que vous souhaitez recevoir par email :"
   },
   "profile": {
     "follow": "Suivre",
@@ -908,7 +910,7 @@
       "save": "Enregistrer"
     },
     "notifications": {
-      "title": "Vos préférences de communication"
+      "title": "Vos préférences email"
     },
     "claps": {
       "clapValue": "Valeur par défaut d'un clap"
