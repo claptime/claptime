@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
-import Router from 'next/router';
+import React from 'react';
 
-import { Spin } from 'claptime/components/atoms';
+import { Errors, Layouts } from 'claptime/components/molecules';
+import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 
-const NotFound = () => {
-  useEffect(() => {
-    Router.push('/');
-  }, []);
-  return <Spin />;
+const Error404 = () => {
+  return (
+    <NavBarTemplate>
+      <Layouts.Strip isFirst>
+        <Errors.Error404 />
+      </Layouts.Strip>
+    </NavBarTemplate>
+  );
 };
 
-export default NotFound;
+export default Error404;

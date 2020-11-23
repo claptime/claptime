@@ -33,7 +33,6 @@ Placeholder.defaultProps = {
 
 const StyledImage = styled.img`
   width: 100%;
-  height: 100%;
   display: block;
   overflow: hidden;
   ${({ rounded }) => (rounded ? 'border-radius: 100%;' : '')}

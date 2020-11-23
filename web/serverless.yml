@@ -6,3 +6,12 @@ claptime:
       - ${env.DOMAIN}
     memory: 3008
     useServerlessTraceTarget: true
+
+    # Redirecting clap-time.com to www.clap-time.com
+    # https://github.com/serverless-nextjs/serverless-next.js#i-was-expecting-for-automatic-subdomain-redirection-when-using-the-domaintype-wwwapex-input
+    cloudfront:
+      defaults:
+        forward:
+          headers: [Host]
+    domainRedirects:
+      clap-time.com: https://www.clap-time.com
