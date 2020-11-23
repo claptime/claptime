@@ -23,6 +23,7 @@ const {
 
 const StyledMenuItem = styled(Menu.Item)`
   font-weight: ${({ current }) => (current ? 'bold' : 'normal')};
+  vertical-align: middle !important;
 `;
 
 const StyledButton = styled.button`
@@ -34,7 +35,7 @@ const RightMenu = ({ mode }) => {
   const { pathname } = useRouter();
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-  const [initialAuthState, setInitialAuthState] = useState('signin');
+  const [initialAuthState, setInitialAuthState] = useState('signIn');
   const user = useUserState();
 
   return (
@@ -182,7 +183,7 @@ const RightMenu = ({ mode }) => {
               <StyledButton
                 type="button"
                 onClick={() => {
-                  setInitialAuthState('signup');
+                  setInitialAuthState('signUp');
                   setShowModal(true);
                 }}
               >
@@ -196,7 +197,7 @@ const RightMenu = ({ mode }) => {
                 text={t('register.login')}
                 onClick={() => {
                   setShowModal(true);
-                  setInitialAuthState('signin');
+                  setInitialAuthState('signIn');
                 }}
               />
             </StyledMenuItem>,

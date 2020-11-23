@@ -12,7 +12,7 @@ import { invalidateCache } from 'claptime/utils';
 
 const {
   frequencies: { ALWAYS, NEVER },
-  types: { NEWSLETTER },
+  types: { NEWSLETTER, LABFILMS_NEWSLETTER },
   channels: { EMAIL },
 } = consts.userSettings.notifications;
 
@@ -20,16 +20,22 @@ const Notifications = () => {
   const user = useUserState();
   const dispatch = useUserDispatch();
   const apolloClient = useApolloClient();
-  const [saving, setSaving] = useState(false);
+  const [saving, setSaving] = useState({
+    NEWSLETTER: false,
+    LABFILMS_NEWSLETTER: false,
+  });
   const { t } = useTranslation();
 
   const notificationSettings = user.settings.notifications || [];
   const newsletterSetting = notificationSettings.find(
     ({ type, channel }) => type === NEWSLETTER && channel === EMAIL,
   );
+  const labfilmsNewsletterSetting = notificationSettings.find(
+    ({ type, channel }) => type === LABFILMS_NEWSLETTER && channel === EMAIL,
+  );
 
-  const onChange = async ({ target: { value } }) => {
-    setSaving(true);
+  const onChange = (notificationType) => async ({ target: { value } }) => {
+    setSaving({ ...saving, [notificationType]: true });
     try {
       const {
         data: {
@@ -38,7 +44,7 @@ const Notifications = () => {
       } = await apolloClient.mutate({
         mutation: gql(setNotificationPreference),
         variables: {
-          type: NEWSLETTER,
+          type: notificationType,
           channel: EMAIL,
           frequency: value,
         },
@@ -51,25 +57,54 @@ const Notifications = () => {
     } catch (error) {
       console.error(error);
     }
-    setSaving(false);
+    setSaving({ ...saving, [notificationType]: false });
   };
 
   return (
-    <Form>
+    <Form labelCol={{ span: 12 }} wrapperCol={{ span: 12 }}>
       <Form.Item
         label={
           <span>
-            <Tooltip title={t('notificationPreferences.newsletterTooltip')}>
+            {t('notificationPreferences.claptimeNewsletter')}{' '}
+            <Tooltip
+              title={t('notificationPreferences.claptimeNewsletterTooltip')}
+            >
               <InfoCircleOutlined />
-            </Tooltip>{' '}
-            {t('notificationPreferences.newsletter')}
+            </Tooltip>
           </span>
         }
       >
         <Radio.Group
-          onChange={onChange}
+          onChange={onChange(NEWSLETTER)}
           defaultValue={newsletterSetting && newsletterSetting.frequency}
-          disabled={saving}
+          disabled={saving.NEWSLETTER}
+        >
+          <Radio.Button value={ALWAYS}>
+            {t('notificationPreferences.yes')}
+          </Radio.Button>
+          <Radio.Button value={NEVER}>
+            {t('notificationPreferences.no')}
+          </Radio.Button>
+        </Radio.Group>
+      </Form.Item>
+      <Form.Item
+        label={
+          <span>
+            {t('notificationPreferences.labfilmsNewsletter')}{' '}
+            <Tooltip
+              title={t('notificationPreferences.labfilmsNewsletterTooltip')}
+            >
+              <InfoCircleOutlined />
+            </Tooltip>
+          </span>
+        }
+      >
+        <Radio.Group
+          onChange={onChange(LABFILMS_NEWSLETTER)}
+          defaultValue={
+            labfilmsNewsletterSetting && labfilmsNewsletterSetting.frequency
+          }
+          disabled={saving.LABFILMS_NEWSLETTER}
         >
           <Radio.Button value={ALWAYS}>
             {t('notificationPreferences.yes')}

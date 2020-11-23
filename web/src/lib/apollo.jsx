@@ -1,6 +1,5 @@
 // https://medium.com/@guillac124/create-your-custom-apollo-client-for-aws-appsync-to-use-hooks-2d5cbce29db5
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Auth } from 'aws-amplify';
 import {
   ApolloClient,
@@ -16,11 +15,9 @@ import { createAuthLink } from 'aws-appsync-auth-link';
 // https://github.com/awslabs/aws-mobile-appsync-sdk-js/issues/493
 import { createSubscriptionHandshakeLink } from 'aws-appsync-subscription-link';
 import { JSONPath } from 'jsonpath-plus';
-import { Button, Result } from 'antd';
-import { HomeOutlined, ReloadOutlined } from '@ant-design/icons';
-import Link from 'next/link';
 
-import { ContactUsButton, Spin } from 'claptime/components/atoms';
+import { Spin } from 'claptime/components/atoms';
+import { Errors } from 'claptime/components/molecules';
 import { initAmplify } from 'claptime/lib/amplify';
 import { updateQuery } from 'claptime/utils';
 import AppSyncConfig from 'claptime/aws-exports';
@@ -86,7 +83,6 @@ const useQueryCustom = (
   queryParams,
   { errorElement, resultPath = '$', lazy = false } = {},
 ) => {
-  const { t } = useTranslation();
   // This mapping avoid using a condition within a hook
   const mapping = {
     true: useLazyQuery,
@@ -117,34 +113,7 @@ const useQueryCustom = (
   ) {
     return {
       ...result,
-      response: errorElement || (
-        <Result
-          status="500"
-          title={t('errors.fetchingData.title')}
-          subTitle={t('errors.fetchingData.subTitle')}
-          extra={
-            <>
-              <Button
-                icon={<ReloadOutlined />}
-                onClick={() => document.location.reload(true)}
-                type="primary"
-              >
-                {t('errors.fetchingData.refreshButton')}
-              </Button>
-              <Link href="/">
-                <a>
-                  <Button icon={<HomeOutlined />}>
-                    {t('errors.fetchingData.backHomeButton')}
-                  </Button>
-                </a>
-              </Link>
-              <ContactUsButton
-                buttonText={t('errors.fetchingData.contactButton')}
-              />
-            </>
-          }
-        />
-      ),
+      response: errorElement || <Errors.ErrorFetchingData />,
     };
   }
   return result;
