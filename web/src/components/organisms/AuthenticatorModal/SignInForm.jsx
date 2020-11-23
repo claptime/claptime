@@ -26,16 +26,16 @@ const SignInForm = ({ onChange, email: emailProp }) => {
     setLoading(true);
 
     try {
-      const { challengeName } = await Auth.signIn(email, password);
-      if (challengeName === 'NEW_PASSWORD_REQUIRED') {
-        await Auth.forgotPassword(email);
-        onChange({
-          nextAuthState: 'requireNewPassword',
-          email,
-        });
-      }
+      await Auth.signIn(email, password);
     } catch (err) {
       switch (err.code) {
+        case 'PasswordResetRequiredException':
+          await Auth.forgotPassword(email);
+          onChange({
+            nextAuthState: 'requireNewPassword',
+            email,
+          });
+          break;
         case 'UserNotFoundException':
           setError(t('authenticatorModal.signIn.errorWrongEmail'));
           break;
