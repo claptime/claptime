@@ -597,7 +597,6 @@
     }
   },
   "series": {
-    "sheetSubtitle": "Fiche de la série",
     "thisSeries": "cette série",
     "noEpisode": "Aucun épisode disponible pour le moment.",
     "nbEpisodes": "{{count}} épisode",
@@ -606,6 +605,7 @@
       "coverPopoverTitle": "Format recommandé",
       "coverPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les affiches au format 3/4.\n\nPour vous assurer qu'une affiche sera affichée avec la meilleure qualité possible, nous vous conseillons de sélectionner une image ayant une largeur minimale de 600 pixels, ainsi qu'une hauteur minimale de 800 pixels.",
       "pageTitle": "Éditer la série",
+      "sheetSubtitle": "Fiche de la série",
       "warningDraft": "Cette série est encore à l'état de brouillon",
       "addVideo": "Ajouter un épisode",
       "warningEpisodesNotPublished": "<0/><1>Attention !</1> Au moins un épisode de la série n'est pas publié.<3/>Les utilisateurs pourront visionner les épisodes jusqu'au premier non-publié. Les suivants ne seront pas disponibles.",
