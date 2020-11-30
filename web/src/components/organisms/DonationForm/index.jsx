@@ -282,13 +282,17 @@ DonationForm.defaultProps = {
   withLabel: false,
 };
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-);
+let stripePromise;
+const getStripe = () => {
+  if (!stripePromise) {
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+  }
+  return stripePromise;
+};
 
 const WithStripe = ({ ...props }) => {
   return (
-    <Elements stripe={stripePromise}>
+    <Elements stripe={getStripe()}>
       <DonationForm {...props} />
     </Elements>
   );
