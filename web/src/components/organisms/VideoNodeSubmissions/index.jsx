@@ -74,10 +74,10 @@ const VideoNodeSubmissions = ({ videoNodeId }) => {
     },
     {
       title: t('submissions.table.updatedAt'),
-      dataIndex: 'updatedAt',
       key: 'lastUpdateDate',
       optional: true,
-      render: (date) => moment(date).calendar(),
+      render: (text, record) =>
+        moment(record.updatedAt || record.createdAt).calendar(),
     },
     {
       title: t('submissions.table.status'),
