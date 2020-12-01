@@ -131,6 +131,17 @@ const CollectionEditPage = () => {
       });
     };
 
+    const starringVideoNodesToDelete = defaultStarringVideoNodes.filter(
+      (e) => fieldsValue.starringVideoNodes.indexOf(e) === -1,
+    );
+    await Promise.all(
+      starringVideoNodesToDelete.map((svn) =>
+        asyncMutationExec(deleteStarringVideoNodeMutation, {
+          id: svn.id,
+        }),
+      ),
+    );
+
     const starringVideoNodesToCreate = fieldsValue.starringVideoNodes.filter(
       (svn) => svn.id === null,
     );
@@ -146,17 +157,6 @@ const CollectionEditPage = () => {
         ),
       );
     }
-
-    const starringVideoNodesToDelete = defaultStarringVideoNodes.filter(
-      (e) => fieldsValue.starringVideoNodes.indexOf(e) === -1,
-    );
-    await Promise.all(
-      starringVideoNodesToDelete.map((svn) =>
-        asyncMutationExec(deleteStarringVideoNodeMutation, {
-          id: svn.id,
-        }),
-      ),
-    );
 
     await apolloClient.mutate({
       mutation: gql(updateCollection),
