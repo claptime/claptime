@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, CaretRightOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import consts from 'consts';
 import Link from 'next/link';
@@ -19,7 +19,7 @@ import { ProfileLink } from 'claptime/components/molecules';
 
 const {
   style: {
-    colors: { lightgrey, grey },
+    colors: { lightgrey, grey, strawberryHover },
     fonts: { stylized },
   },
   device: { mobileS, tablet },
@@ -74,7 +74,6 @@ const Infos = styled.div`
 
 const StarringVideoNode = ({ starringVideoNode }) => {
   const { t } = useTranslation();
-  console.log(starringVideoNode);
   const {
     label,
     description,
@@ -96,13 +95,26 @@ const StarringVideoNode = ({ starringVideoNode }) => {
             <ButtonGroup>
               <PlayButton videoId={id} />
               <Link href="/video/[video]" as={`/video/${id}`}>
-                <Button
-                  text={t('starringVideoNode.infos')}
-                  color={grey}
-                  icon={<InfoCircleOutlined />}
-                />
+                <a>
+                  <Button
+                    text={t('starringVideoNode.infos')}
+                    color={grey}
+                    icon={<InfoCircleOutlined />}
+                  />
+                </a>
               </Link>
             </ButtonGroup>
+          )}
+          {type === 'SERIES' && (
+            <Link href="/series/[series]" as={`/series/${id}`}>
+              <a>
+                <Button
+                  text={t('starringVideoNode.seriesButton')}
+                  color={strawberryHover}
+                  icon={<CaretRightOutlined />}
+                />
+              </a>
+            </Link>
           )}
         </div>
       </Infos>
