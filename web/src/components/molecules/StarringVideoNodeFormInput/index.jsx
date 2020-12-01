@@ -61,6 +61,7 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
   return (
     <List
       dataSource={value}
+      locale={{ emptyText: t('collection.edit.starringVideoNodesEmpty') }}
       renderItem={(svn, index) => (
         <StarringVideoNodeRow
           index={index}
