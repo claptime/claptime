@@ -91,9 +91,7 @@ const AddStarringVideoNodeForm = ({
                   ? document.getElementById(containerId)
                   : document.body
               }
-              title={
-                <i>{t('collection.edit.starringVideoNodeLabelTooltip')}</i>
-              }
+              title={t('collection.edit.starringVideoNodeLabelTooltip')}
             >
               <QuestionCircleOutlined />
             </Tooltip>

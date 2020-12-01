@@ -387,7 +387,8 @@
     }
   },
   "starringVideoNode": {
-    "infos": "Plus d'infos"
+    "infos": "Plus d'infos",
+    "seriesButton": "Accéder aux épisodes"
   },
   "collection": {
     "subscribe": "S'abonner",
@@ -451,10 +452,11 @@
       "starringVideoNodeSelect": "Sélectionner un élément de la collection",
       "starringVideoNodeLabel": "Label",
       "starringVideoNodeDescription": "Description",
-      "starringVideoNodeLabelTooltip": "Le film du mois",
+      "starringVideoNodeLabelTooltip": "Exemple : \"Le film du mois\", \"La perle de la semaine\"",
       "starringVideoNodeDescriptionTooltip": "Une description brève qui doit donner envie au spectateur de regarder le film.",
       "starringVideoNodeLabelMaxLength": "Le label ne doit pas dépasser 100 caractères.",
-      "starringVideoNodeDescriptionMaxLength": "La description ne doit pas dépasser 300 caractères."
+      "starringVideoNodeDescriptionMaxLength": "La description ne doit pas dépasser 300 caractères.",
+      "starringVideoNodesEmpty": "Aucun film à l'affiche"
     },
     "submissions": {
       "pageTitle": "Soumissions dans la collection \"{{collectionName}}\"",
