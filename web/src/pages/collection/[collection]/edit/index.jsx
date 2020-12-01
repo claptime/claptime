@@ -13,6 +13,8 @@ import { gql } from '@apollo/client';
 import { Storage } from 'aws-amplify';
 import Link from 'next/link';
 
+import styled from 'styled-components';
+
 import { Spin } from 'claptime/components/atoms';
 import {
   ImageInput,
@@ -40,6 +42,12 @@ import { dataURItoBlob } from 'claptime/utils';
 import { nl2br } from 'claptime/utils/i18n';
 
 const { MAX_SVN_IN_COLLECTION } = consts;
+
+const Container = styled.div`
+  .ant-row .ant-form-item {
+    flex-flow: row;
+  }
+`;
 
 const CollectionEditPage = () => {
   const [form] = Form.useForm();
@@ -183,7 +191,7 @@ const CollectionEditPage = () => {
   const disabled = saving;
 
   return (
-    <>
+    <Container>
       <Head page="collection/edit" />
       <NavBarTemplate>
         <PageHeader
@@ -396,7 +404,7 @@ const CollectionEditPage = () => {
           </Layouts.Form.Row>
         </Form>
       </NavBarTemplate>
-    </>
+    </Container>
   );
 };
 
