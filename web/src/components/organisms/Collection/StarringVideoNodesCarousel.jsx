@@ -31,7 +31,7 @@ const StarringVideoNodesCarousel = ({ items }) => {
 };
 
 StarringVideoNodesCarousel.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.claptime.StarringVideoNode).isRequired,
+  items: PropTypes.arrayOf(PropTypes.claptime.starringVideoNode).isRequired,
 };
 
 export default StarringVideoNodesCarousel;
