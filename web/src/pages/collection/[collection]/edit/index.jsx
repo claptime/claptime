@@ -13,6 +13,8 @@ import { gql } from '@apollo/client';
 import { Storage } from 'aws-amplify';
 import Link from 'next/link';
 
+import styled from 'styled-components';
+
 import { Spin } from 'claptime/components/atoms';
 import {
   ImageInput,
@@ -20,6 +22,7 @@ import {
   Links,
   PageHeader,
 } from 'claptime/components/molecules';
+import StarringVideoNodeFormInput from 'claptime/components/molecules/StarringVideoNodeFormInput';
 import CategoriesInput from 'claptime/components/organisms/CategoriesInput';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
@@ -27,12 +30,24 @@ import {
   listCollectionsBySlug,
   updateCollection,
 } from 'claptime/graphql/collections';
-import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
+import {
+  createStarringVideoNode,
+  deleteStarringVideoNode,
+} from 'claptime/graphql/videonodes';
+import { useApolloClient, useQueryGet, useMutation } from 'claptime/lib/apollo';
 import { getUrl } from 'claptime/lib/profiles';
 import Head from 'claptime/lib/seo/Head';
 import { useIsAuthenticated, useUserState } from 'claptime/lib/user';
 import { dataURItoBlob } from 'claptime/utils';
 import { nl2br } from 'claptime/utils/i18n';
+
+const { MAX_SVN_IN_COLLECTION } = consts;
+
+const Container = styled.div`
+  .ant-row .ant-form-item {
+    flex-flow: row;
+  }
+`;
 
 const CollectionEditPage = () => {
   const [form] = Form.useForm();
@@ -56,13 +71,24 @@ const CollectionEditPage = () => {
     },
     { resultPath: '$.listCollectionsBySlug.items[0]' },
   );
+
+  const [createStarringVideoNodeMutation] = useMutation(
+    gql(createStarringVideoNode),
+  );
+  const [deleteStarringVideoNodeMutation] = useMutation(
+    gql(deleteStarringVideoNode),
+  );
+
   if (!useIsAuthenticated()) return <Spin />;
   if (response) return response;
-
   // Check authorization
   if (!isAdmin && collection.owner !== userId) {
     Router.push('/');
   }
+
+  const {
+    starringVideoNodes: { items: defaultStarringVideoNodes },
+  } = collection;
 
   const onFinish = async (fieldsValue) => {
     setSaving(true);
@@ -106,6 +132,40 @@ const CollectionEditPage = () => {
         url: fieldsValue.website,
       });
     }
+
+    const asyncMutationExec = async (mutation, input) => {
+      return mutation({
+        variables: { input },
+      });
+    };
+
+    const starringVideoNodesToDelete = defaultStarringVideoNodes.filter(
+      (e) => fieldsValue.starringVideoNodes.indexOf(e) === -1,
+    );
+    await Promise.all(
+      starringVideoNodesToDelete.map((svn) =>
+        asyncMutationExec(deleteStarringVideoNodeMutation, {
+          id: svn.id,
+        }),
+      ),
+    );
+
+    const starringVideoNodesToCreate = fieldsValue.starringVideoNodes.filter(
+      (svn) => svn.id === null,
+    );
+    if (starringVideoNodesToCreate.length <= MAX_SVN_IN_COLLECTION) {
+      await Promise.all(
+        starringVideoNodesToCreate.map((svn) =>
+          asyncMutationExec(createStarringVideoNodeMutation, {
+            label: svn.label,
+            description: svn.description,
+            starringVideoNodeVideoNodeId: svn.videoNode.id,
+            starringVideoNodeCollectionId: collection.id,
+          }),
+        ),
+      );
+    }
+
     await apolloClient.mutate({
       mutation: gql(updateCollection),
       variables: {
@@ -131,7 +191,7 @@ const CollectionEditPage = () => {
   const disabled = saving;
 
   return (
-    <>
+    <Container>
       <Head page="collection/edit" />
       <NavBarTemplate>
         <PageHeader
@@ -174,6 +234,7 @@ const CollectionEditPage = () => {
             instagram: getUrl(collection.links || [], 'INSTAGRAM'),
             labfilms: getUrl(collection.links || [], 'LABFILMS'),
             website: getUrl(collection.links || [], 'WEBSITE'),
+            starringVideoNodes: defaultStarringVideoNodes,
           }}
           layout="vertical"
           style={{
@@ -308,6 +369,25 @@ const CollectionEditPage = () => {
             </Layouts.Form.Column>
             <Layouts.Form.Column>
               <Form.Item
+                name="starringVideoNodes"
+                label={
+                  <>
+                    {t('collection.edit.starringVideoNodes')}&nbsp;
+                    <Tooltip
+                      title={t('collection.edit.starringVideoNodesTooltip')}
+                    >
+                      <InfoCircleOutlined />
+                    </Tooltip>
+                  </>
+                }
+              >
+                <StarringVideoNodeFormInput
+                  onChange={() => setUnsavedChanges(true)}
+                  collectionId={collection.id}
+                />
+              </Form.Item>
+
+              <Form.Item
                 name="categories"
                 label={t('collection.edit.categories')}
               >
@@ -324,7 +404,7 @@ const CollectionEditPage = () => {
           </Layouts.Form.Row>
         </Form>
       </NavBarTemplate>
-    </>
+    </Container>
   );
 };
 

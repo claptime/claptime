@@ -431,3 +431,27 @@ export const onUpdateVideoNode = /* GraphQL */ `
     }
   }
 `;
+
+export const createStarringVideoNode = /* GraphQL */ `
+  mutation CreateStarringVideoNode($input: CreateStarringVideoNodeInput!) {
+    createStarringVideoNode(input: $input) {
+      id
+    }
+  }
+`;
+
+export const updateStarringVideoNode = /* GraphQL */ `
+  mutation UpdateStarringVideoNode($input: UpdateStarringVideoNodeInput!) {
+    updateStarringVideoNode(input: $input) {
+      id
+    }
+  }
+`;
+
+export const deleteStarringVideoNode = /* GraphQL */ `
+  mutation DeleteStarringVideoNode($input: DeleteStarringVideoNodeInput!) {
+    deleteStarringVideoNode(input: $input) {
+      id
+    }
+  }
+`;

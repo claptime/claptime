@@ -24,7 +24,7 @@ const StyledTitle = styled.h1`
     z-index: 1;
     &:before {
       background-color: ${({ faded, lineColor }) =>
-        faded ? consts.style.colors.gray : lineColor};
+        faded ? consts.style.colors.lightgrey : lineColor};
       content: '';
       height: 60%;
       position: absolute;
@@ -95,7 +95,7 @@ Title.defaultProps = {
   children: null,
   centered: false,
   underlined: true,
-  lineColor: consts.style.colors.gray,
+  lineColor: consts.style.colors.lightgrey,
   faded: false,
 };
 

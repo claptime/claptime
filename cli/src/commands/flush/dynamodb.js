@@ -74,6 +74,7 @@ class DynamodbCommand extends Command {
       { name: 'Credit' },
       { name: 'Profile' },
       { name: 'News' },
+      { name: 'StarringVideoNode' },
       {
         name: 'UserCollection',
         schema: {

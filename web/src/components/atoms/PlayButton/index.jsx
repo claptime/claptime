@@ -1,31 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
+
 import { CaretRightOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+
 import { useTranslation } from 'react-i18next';
+
+import { Button } from 'claptime/components/atoms';
 
 import consts from 'claptime/consts';
 import PropTypes from 'claptime/lib/prop-types';
 
 const {
   style: {
-    colors: { strawberry },
+    colors: { strawberryHover },
   },
 } = consts;
-
-const StyledButton = styled(Button)`
-  border-radius: 6px;
-  border-color: ${strawberry} !important;
-  color: white !important;
-  background-color: ${strawberry} !important;
-  font-size: 1em;
-  &:hover {
-    border-color: ${strawberry} !important;
-    color: ${strawberry} !important;
-    background-color: white !important;
-  }
-`;
 
 const PlayButton = ({ videoId }) => {
   const { t } = useTranslation();
@@ -33,9 +22,11 @@ const PlayButton = ({ videoId }) => {
   return (
     <Link href="/video/[video]/play" as={`/video/${videoId}/play`}>
       <a>
-        <StyledButton icon={<CaretRightOutlined />}>
-          {t('video.play')}
-        </StyledButton>
+        <Button
+          text={t('video.play')}
+          color={strawberryHover}
+          icon={<CaretRightOutlined />}
+        />
       </a>
     </Link>
   );

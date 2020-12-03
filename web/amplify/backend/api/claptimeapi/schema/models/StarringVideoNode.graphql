@@ -1,0 +1,19 @@
+type StarringVideoNode
+@model(
+  queries: { list: "listStarringVideoNodes" },
+  mutations: { delete: "deleteStarringVideoNode", create: "createStarringVideoNode" },
+  subscriptions: null,
+)
+@auth(rules: [
+  { allow: owner, operations: [create, delete, read, update] },
+  { allow: groups, groups: ["admin"], operations: [create, delete, read, update] },
+  { allow: private, operations: [read]},
+  { allow: public, provider: iam, operations: [read]},
+])
+{
+  id: ID!
+  label: String
+  description: String
+  videoNode: VideoNode! @connection
+  collection: Collection! @connection(name: "CollectionStarringVideoNode")
+}
