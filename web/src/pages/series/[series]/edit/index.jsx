@@ -384,167 +384,170 @@ const SeriesEditPage = () => {
           }
           extra={getActions()}
         />
-        {status === consts.series.status.PUBLISHED ? (
-          <VideoNodeSubmissions videoNodeId={seriesId} />
-        ) : null}
-        <Subtitle style={{ margin: '16px 0 ' }}>
-          {t('series.edit.sheetSubtitle')}
-        </Subtitle>
-        <Form
-          form={form}
-          id="video-edit-form"
-          onFinish={saveSeries}
-          initialValues={{
-            cover: { image: null },
-            title: series.title,
-            synopsis: series.synopsis,
-            festivals: series.festivals,
-            category: series.category,
-            releaseYear:
-              series.releaseYear &&
-              moment(series.releaseYear.toString(), 'YYYY'),
-            credits: series.credits.items,
-            donationsAvailable: series.donationsAvailable || false,
-          }}
-          hideRequiredMark
+        <div
           style={{
             margin: '0 9%',
           }}
-          layout="vertical"
         >
-          <Layouts.Form.Row>
-            <Layouts.Form.Column>
-              <Form.Item
-                name="title"
-                rules={[
-                  {
-                    required: true,
-                    message: t('series.edit.required'),
-                  },
-                ]}
-                label={t('series.edit.title')}
-              >
-                <Input
-                  placeholder={t('series.edit.titlePlaceholder')}
-                  disabled={disabled}
-                  onChange={() => setUnsavedChanges(true)}
-                />
-              </Form.Item>
-              <Form.Item
-                name="cover"
-                label={
-                  <span>
-                    <Popover
-                      title={t('series.edit.coverPopoverTitle')}
-                      content={coverPopoverContent()}
-                    >
-                      <InfoCircleOutlined />
-                    </Popover>
-                    {` ${t('series.edit.cover')}`}
-                  </span>
-                }
-              >
-                <ImageInput
-                  s3Path={`videoNodes/${series.id}/${consts.videos.covers.filenames.CROPPED_600_800}`}
-                  format="3:4"
-                  disabled={disabled}
-                  updatedCover={updatedImage}
-                  onChange={(value) => {
-                    if (value.filename) {
-                      setUnsavedChanges(true); // onChange is triggered when loading
-                    }
-                  }}
-                />
-              </Form.Item>
-            </Layouts.Form.Column>
-            <Layouts.Form.Column>
-              <Form.Item name="synopsis" label={t('series.edit.synopsis')}>
-                <Input.TextArea
-                  rows={6}
-                  placeholder={t('series.edit.synopsisPlaceholder')}
-                  disabled={disabled}
-                  onChange={() => setUnsavedChanges(true)}
-                />
-              </Form.Item>
-              <Form.Item name="festivals" label={t('series.edit.festivals')}>
-                <Input.TextArea
-                  rows={6}
-                  placeholder={t('series.edit.festivalsPlaceholder')}
-                  disabled={disabled}
-                  onChange={() => setUnsavedChanges(true)}
-                />
-              </Form.Item>
-              <Form.Item name="category" label={t('series.edit.category')}>
-                <Select
-                  placeholder={t('series.edit.categoryPlaceholder')}
-                  disabled={disabled}
+          {status === consts.series.status.PUBLISHED ? (
+            <VideoNodeSubmissions videoNodeId={seriesId} />
+          ) : null}
+          <Subtitle style={{ margin: '16px 0 ' }}>
+            {t('series.edit.sheetSubtitle')}
+          </Subtitle>
+          <Form
+            form={form}
+            id="video-edit-form"
+            onFinish={saveSeries}
+            initialValues={{
+              cover: { image: null },
+              title: series.title,
+              synopsis: series.synopsis,
+              festivals: series.festivals,
+              category: series.category,
+              releaseYear:
+                series.releaseYear &&
+                moment(series.releaseYear.toString(), 'YYYY'),
+              credits: series.credits.items,
+              donationsAvailable: series.donationsAvailable || false,
+            }}
+            hideRequiredMark
+            layout="vertical"
+          >
+            <Layouts.Form.Row>
+              <Layouts.Form.Column>
+                <Form.Item
+                  name="title"
+                  rules={[
+                    {
+                      required: true,
+                      message: t('series.edit.required'),
+                    },
+                  ]}
+                  label={t('series.edit.title')}
+                >
+                  <Input
+                    placeholder={t('series.edit.titlePlaceholder')}
+                    disabled={disabled}
+                    onChange={() => setUnsavedChanges(true)}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="cover"
+                  label={
+                    <span>
+                      <Popover
+                        title={t('series.edit.coverPopoverTitle')}
+                        content={coverPopoverContent()}
+                      >
+                        <InfoCircleOutlined />
+                      </Popover>
+                      {` ${t('series.edit.cover')}`}
+                    </span>
+                  }
+                >
+                  <ImageInput
+                    s3Path={`videoNodes/${series.id}/${consts.videos.covers.filenames.CROPPED_600_800}`}
+                    format="3:4"
+                    disabled={disabled}
+                    updatedCover={updatedImage}
+                    onChange={(value) => {
+                      if (value.filename) {
+                        setUnsavedChanges(true); // onChange is triggered when loading
+                      }
+                    }}
+                  />
+                </Form.Item>
+              </Layouts.Form.Column>
+              <Layouts.Form.Column>
+                <Form.Item name="synopsis" label={t('series.edit.synopsis')}>
+                  <Input.TextArea
+                    rows={6}
+                    placeholder={t('series.edit.synopsisPlaceholder')}
+                    disabled={disabled}
+                    onChange={() => setUnsavedChanges(true)}
+                  />
+                </Form.Item>
+                <Form.Item name="festivals" label={t('series.edit.festivals')}>
+                  <Input.TextArea
+                    rows={6}
+                    placeholder={t('series.edit.festivalsPlaceholder')}
+                    disabled={disabled}
+                    onChange={() => setUnsavedChanges(true)}
+                  />
+                </Form.Item>
+                <Form.Item name="category" label={t('series.edit.category')}>
+                  <Select
+                    placeholder={t('series.edit.categoryPlaceholder')}
+                    disabled={disabled}
+                    onChange={() => setUnsavedChanges(true)}
+                  >
+                    {Object.keys(consts.collections.default.categories).map(
+                      (c) => (
+                        <Select.Option value={c} key={c}>
+                          {t(`categories.${c}.name`)}
+                        </Select.Option>
+                      ),
+                    )}
+                  </Select>
+                </Form.Item>
+                <Form.Item
+                  label={t('series.edit.releaseYear')}
+                  name="releaseYear"
+                  rules={[
+                    {
+                      type: 'object',
+                    },
+                  ]}
                   onChange={() => setUnsavedChanges(true)}
                 >
-                  {Object.keys(consts.collections.default.categories).map(
-                    (c) => (
-                      <Select.Option value={c} key={c}>
-                        {t(`categories.${c}.name`)}
-                      </Select.Option>
-                    ),
-                  )}
-                </Select>
-              </Form.Item>
-              <Form.Item
-                label={t('series.edit.releaseYear')}
-                name="releaseYear"
-                rules={[
-                  {
-                    type: 'object',
-                  },
-                ]}
-                onChange={() => setUnsavedChanges(true)}
-              >
-                <DatePicker
-                  placeholder={t('series.edit.releaseYearPlaceholder')}
-                  picker="year"
-                  onChange={() => setUnsavedChanges(true)}
-                  disabledDate={(current) => current && current > moment()}
-                  disabled={disabled}
-                  style={{
-                    width: '100%',
-                  }}
-                />
-              </Form.Item>
-              <Form.Item
-                name="donationsAvailable"
-                label={
-                  <span>
-                    <Tooltip
-                      title={t('video.edit.tooltipDonations')}
-                      placement="topLeft"
-                    >
-                      <InfoCircleOutlined />
-                    </Tooltip>{' '}
-                    {t('video.edit.authorizeDonations')}
-                  </span>
-                }
-                valuePropName="checked"
-              >
-                <Switch
-                  disabled={disabled}
-                  defaultChecked={series.donationsAvailable}
-                  onChange={() => setUnsavedChanges(true)}
-                />
-              </Form.Item>
-            </Layouts.Form.Column>
-            <Layouts.Form.Column>
-              <Form.Item name="credits" label={t('series.edit.credits')}>
-                <CreditsInput
-                  textColor={consts.style.colors.dark}
-                  editable={!disabled}
-                  onChange={() => setUnsavedChanges(true)}
-                />
-              </Form.Item>
-            </Layouts.Form.Column>
-          </Layouts.Form.Row>
-        </Form>
+                  <DatePicker
+                    placeholder={t('series.edit.releaseYearPlaceholder')}
+                    picker="year"
+                    onChange={() => setUnsavedChanges(true)}
+                    disabledDate={(current) => current && current > moment()}
+                    disabled={disabled}
+                    style={{
+                      width: '100%',
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="donationsAvailable"
+                  label={
+                    <span>
+                      <Tooltip
+                        title={t('video.edit.tooltipDonations')}
+                        placement="topLeft"
+                      >
+                        <InfoCircleOutlined />
+                      </Tooltip>{' '}
+                      {t('video.edit.authorizeDonations')}
+                    </span>
+                  }
+                  valuePropName="checked"
+                >
+                  <Switch
+                    disabled={disabled}
+                    defaultChecked={series.donationsAvailable}
+                    onChange={() => setUnsavedChanges(true)}
+                  />
+                </Form.Item>
+              </Layouts.Form.Column>
+              <Layouts.Form.Column>
+                <Form.Item name="credits" label={t('series.edit.credits')}>
+                  <CreditsInput
+                    textColor={consts.style.colors.dark}
+                    editable={!disabled}
+                    onChange={() => setUnsavedChanges(true)}
+                  />
+                </Form.Item>
+              </Layouts.Form.Column>
+            </Layouts.Form.Row>
+          </Form>
 
-        <VideosInSeriesData series={series} onUpdate={refetch} />
+          <VideosInSeriesData series={series} onUpdate={refetch} />
+        </div>
       </NavBarTemplate>
     </>
   );

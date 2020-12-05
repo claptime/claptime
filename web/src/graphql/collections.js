@@ -16,6 +16,15 @@ export const listCollectionsBySlug = /* GraphQL */ `
         profile: {
           level: LEVELS.REGULAR,
         },
+        starringVideoNodes: {
+          level: LEVELS.REGULAR,
+          videoNode: {
+            level: LEVELS.REGULAR,
+            profile: {
+              level: LEVELS.REGULAR,
+            },
+          },
+        },
       }),
     })}
   }

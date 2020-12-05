@@ -2,12 +2,37 @@ import React from 'react';
 import { Typography } from 'antd';
 import { Trans } from 'react-i18next';
 
+import styled from 'styled-components';
+import consts from 'consts';
+
 import { Covers, TextExpand } from 'claptime/components/atoms';
 import { AddToList, Links, ProfileLink } from 'claptime/components/molecules';
 import PropTypes from 'claptime/lib/prop-types';
+import StarringVideoNodesCarousel from './StarringVideoNodesCarousel';
 import CategoryCarousel from './CategoryCarousel';
 
 const { Title } = Typography;
+
+const {
+  device: { mobileS, laptop },
+} = consts;
+
+const StyledHeader = styled.div`
+  @media ${mobileS} {
+    display: flex;
+    flex-direction: column;
+    p {
+      text-align: left;
+      width: 100%;
+    }
+  }
+  @media ${laptop} {
+    flex-direction: row;
+    p {
+      text-align: right;
+    }
+  }
+`;
 
 const Collection = ({ collection }) => {
   return (
@@ -19,56 +44,52 @@ const Collection = ({ collection }) => {
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
-            padding: '36px 0',
+            padding: '18px 0',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-            }}
-          >
-            <Title level={1} ellipsis={{ rows: 2 }}>
-              {collection.name}
-            </Title>
-            <AddToList
-              id={collection.id}
-              type="Collection"
-              list="SUBSCRIBED"
-              style={{ marginLeft: 16 }}
-            />
-            <div style={{ flexGrow: 1 }} />
-            <Links.Buttons links={collection.links} />
-          </div>
+          <StyledHeader>
+            <div
+              style={{
+                display: 'flex',
+                width: '100%',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+              }}
+            >
+              <Title level={1} ellipsis={{ rows: 2 }}>
+                {collection.name}
+              </Title>
+              <AddToList
+                id={collection.id}
+                type="Collection"
+                list="SUBSCRIBED"
+                style={{ marginLeft: 16 }}
+              />
+              <div style={{ flexGrow: 1 }} />
+              <Links.Buttons links={collection.links} />
+            </div>
+            <p
+              style={{
+                fontWeight: 'bold',
+                fontVariant: 'small-caps',
+              }}
+            >
+              <Trans i18nKey="collection.curatedBy">
+                <span>Une collection animée par</span>
+                <ProfileLink
+                  profile={collection.profile}
+                  popoverPlacement="topLeft"
+                />
+              </Trans>
+            </p>
+          </StyledHeader>
           <Typography.Title level={3} style={{ fontWeight: 'normal' }}>
             {collection.tagline}
           </Typography.Title>
         </div>
-        <TextExpand
-          text={collection.description}
-          excerptLength={500}
-          style={{
-            marginBottom: 36,
-          }}
-        />
-        <p
-          style={{
-            fontWeight: 'bold',
-            textAlign: 'right',
-            fontVariant: 'small-caps',
-          }}
-        >
-          <Trans i18nKey="collection.curatedBy">
-            <span>Une collection animée par</span>
-            <ProfileLink
-              profile={collection.profile}
-              popoverPlacement="topLeft"
-            />
-          </Trans>
-        </p>
+        <TextExpand text={collection.description} excerptLength={500} />
       </div>
+      <StarringVideoNodesCarousel items={collection.starringVideoNodes.items} />
       {collection.categories.map((category) => (
         <CategoryCarousel
           key={category.id}

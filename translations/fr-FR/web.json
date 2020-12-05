@@ -492,6 +492,10 @@
       }
     }
   },
+  "starringVideoNode": {
+    "infos": "Plus d'infos",
+    "seriesButton": "Accéder aux épisodes"
+  },
   "collection": {
     "subscribe": "S'abonner",
     "unsubscribe": "Se désabonner",
@@ -540,7 +544,25 @@
       "save": "Sauvegarder",
       "view": "Voir la collection",
       "required": "Obligatoire",
-      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche"
+      "errorUploadingCover": "Une erreur est survenue lors de l'upload de l'affiche",
+      "starringVideoNodes": "À l'affiche",
+      "starringVideoNodesTooltip": "Ces films et séries seront affichés en tête de la collection, dans un bandeau défilant. Vous pouvez en ajouter 10 au maximum.",
+      "starringVideoNodeButton": "Sélectionner un film",
+      "starringVideoNodeNone": "Aucun",
+      "starringVideoNodeInputPlaceholder": "Label",
+      "starringVideoNodeAdd": "Ajouter",
+      "starringVideoNodeDelete": "Supprimer (sera effectif à la sauvegarde de la collection)",
+      "starringVideoNodesAddTooltip": "Ajouter un film à l'affiche",
+      "starringVideoNodesCannotAddTooltip": "Vous ne pouvez pas ajouter plus de 10 films à l'affiche sur une collection",
+      "starringVideoNodesAddPopover": "Nouveau film à l'affiche",
+      "starringVideoNodeSelect": "Sélectionner un élément de la collection",
+      "starringVideoNodeLabel": "Label",
+      "starringVideoNodeDescription": "Description",
+      "starringVideoNodeLabelTooltip": "Exemple : \"Le film du mois\", \"La perle de la semaine\"",
+      "starringVideoNodeDescriptionTooltip": "Une description brève qui doit donner envie au spectateur de regarder le film.",
+      "starringVideoNodeLabelMaxLength": "Le label ne doit pas dépasser 100 caractères.",
+      "starringVideoNodeDescriptionMaxLength": "La description ne doit pas dépasser 300 caractères.",
+      "starringVideoNodesEmpty": "Aucun film à l'affiche"
     },
     "submissions": {
       "pageTitle": "Soumissions dans la collection \"{{collectionName}}\"",
@@ -597,7 +619,6 @@
     }
   },
   "series": {
-    "sheetSubtitle": "Fiche de la série",
     "thisSeries": "cette série",
     "noEpisode": "Aucun épisode disponible pour le moment.",
     "nbEpisodes": "{{count}} épisode",
@@ -606,6 +627,7 @@
       "coverPopoverTitle": "Format recommandé",
       "coverPopoverContent": "Formats acceptés : .jpg et .png\n\nClaptime stocke les affiches au format 3/4.\n\nPour vous assurer qu'une affiche sera affichée avec la meilleure qualité possible, nous vous conseillons de sélectionner une image ayant une largeur minimale de 600 pixels, ainsi qu'une hauteur minimale de 800 pixels.",
       "pageTitle": "Éditer la série",
+      "sheetSubtitle": "Fiche de la série",
       "warningDraft": "Cette série est encore à l'état de brouillon",
       "addVideo": "Ajouter un épisode",
       "warningEpisodesNotPublished": "<0/><1>Attention !</1> Au moins un épisode de la série n'est pas publié.<3/>Les utilisateurs pourront visionner les épisodes jusqu'au premier non-publié. Les suivants ne seront pas disponibles.",

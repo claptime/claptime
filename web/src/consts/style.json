@@ -13,12 +13,11 @@
     "unavailable": "#8b8b94",
     "illustrationsSpectators": "rgb(235, 115, 126)",
     "illustrationsFilmmakers": "rgb(86, 194, 132)",
-    "gray": "rgb(240, 239, 253)"
+    "lightgrey": "rgb(240, 239, 253)"
   },
   "fonts": {
-    "stylized": "'Quicksand', sans-serif",
-    "default": "'Open Sans', sans-serif",
-    "stylizedVariant": "Convergence"
+    "stylized": "'Convergence', sans-serif",
+    "default": "'Open Sans', sans-serif"
   },
   "navbar": {
     "height": "100px"

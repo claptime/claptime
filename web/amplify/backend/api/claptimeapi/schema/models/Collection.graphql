@@ -32,6 +32,7 @@ type Collection
   slug: String!
   name: String!
   status: CollectionStatus!
+  starringVideoNodes: [StarringVideoNode] @connection(name: "CollectionStarringVideoNode")
   tagline: String
   description: String
   links: [Link]

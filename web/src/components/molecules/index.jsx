@@ -14,3 +14,4 @@ export { default as RoutedTabs } from './RoutedTabs';
 export { default as SearchBar } from './SearchBar';
 export { default as SocialNetworkIcons } from './SocialNetworkIcons';
 export { default as VideoDropzone } from './VideoDropzone';
+export { default as StarringVideoNodeFormInput } from './StarringVideoNodeFormInput';

@@ -82,6 +82,7 @@ export const Collection = ({
   level = LEVELS.REGULAR,
   profile = defaultParams,
   videoNodes = defaultParams,
+  starringVideoNodes = defaultParams,
 } = {}) => `
 {
   id
@@ -101,6 +102,13 @@ export const Collection = ({
     id
     category
     description
+  }
+  ${
+    ifAtLeast(level, LEVELS.COMPLETE) &&
+    `starringVideoNodes ${Connection({
+      children: StarringVideoNode(starringVideoNodes),
+      variables: starringVideoNodes.variables,
+    })}`
   }
   `
   }
@@ -211,6 +219,13 @@ export const VideoNode = ({
       variables: childNodes.variables,
     })}`
   }
+}`;
+
+export const StarringVideoNode = ({ videoNode = defaultParams } = {}) => `{
+  id
+  label
+  description
+  ${ifNotSkipped(videoNode.level) && `videoNode ${VideoNode(videoNode)}`}
 }`;
 
 export const CollectionVideoNode = ({
