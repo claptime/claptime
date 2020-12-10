@@ -89,7 +89,7 @@ const CategoryCarousel = ({ collectionId, collectionSlug, category }) => {
               href="/collection/[collection]/category/[category]"
               as={`/collection/${collectionSlug}/category/${category.id}`}
             >
-              <a style={{ marginLeft: 16 }}>{t('collection.seeMore')}</a>
+              <a style={{ marginLeft: 32 }}>{t('collection.seeMore')}</a>
             </Link>
           ) : null}
         </div>
