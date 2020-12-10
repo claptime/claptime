@@ -9,7 +9,7 @@ import consts from 'consts';
 import PropTypes from 'claptime/lib/prop-types';
 
 import { listCollectionVideoNodes } from 'claptime/graphql/collections';
-import { useQueryGet } from 'claptime/lib/apollo';
+import { useQueryList } from 'claptime/lib/apollo';
 
 import StarringVideoNodeRow from './StarringVideoNodeRow';
 import AddStarringVideoNodeForm from './AddStarringVideoNodeForm';
@@ -23,7 +23,7 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
 
   const [showForm, setShowForm] = useState(false);
 
-  const { item: collectionVideoNodes } = useQueryGet(
+  const { items: collectionVideoNodes, response } = useQueryList(
     listCollectionVideoNodes,
     {
       variables: {
@@ -41,10 +41,11 @@ const StarringVideoNodeFormInput = ({ value, collectionId, onChange }) => {
 
   useEffect(() => {
     if (collectionVideoNodes) {
-      const { items } = collectionVideoNodes;
-      setListVideoNodes(items);
+      setListVideoNodes(collectionVideoNodes);
     }
   }, [collectionVideoNodes]);
+  if (response) return response;
+
   const addStarringVideoNode = (svn) => {
     if (onChange) {
       onChange([...value, svn]);
