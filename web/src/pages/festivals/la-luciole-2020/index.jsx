@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -42,7 +41,6 @@ const StyledHeader = styled.div`
 
 const LaLuciolePage = ({ collectionId, collectionCategoryId }) => {
   const [shuffleSeed, setShuffleSeed] = useState();
-  const { t } = useTranslation();
 
   const { item: collection, response: collectionResponse } = useQueryGet(
     getCollection,
@@ -119,12 +117,15 @@ const LaLuciolePage = ({ collectionId, collectionCategoryId }) => {
                   }}
                 >
                   <Title level={1} ellipsis={{ rows: 2 }}>
-                    {collection.title}
+                    {collection.name}
                   </Title>
                   <div style={{ flexGrow: 1 }} />
-                  <Links.Buttons links={[]} />
+                  <Links.Buttons links={collection.links} />
                 </div>
               </StyledHeader>
+              <Typography.Title level={3} style={{ fontWeight: 'normal' }}>
+                {collection.tagline}
+              </Typography.Title>
             </div>
             <Paragraph>{collection.description}</Paragraph>
           </div>
