@@ -1,21 +1,65 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'antd';
+import styled from 'styled-components';
 
-import { Title } from 'claptime/components/atoms';
+import { Covers } from 'claptime/components/atoms';
+import { Links } from 'claptime/components/molecules';
 import { StaticVideosList } from 'claptime/components/organisms/VideosList';
 import NavBarTemplate from 'claptime/components/templates/NavBarTemplate';
 import consts from 'claptime/consts';
-import { listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt } from 'claptime/graphql/collections';
-import { useQueryList } from 'claptime/lib/apollo';
+import {
+  getCollection,
+  listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt,
+} from 'claptime/graphql/collections';
+import { useQueryGet, useQueryList } from 'claptime/lib/apollo';
 import PropTypes from 'claptime/lib/prop-types';
 import { shuffle } from 'claptime/utils';
 import Head from 'claptime/lib/seo/Head';
+
+const { Title, Paragraph } = Typography;
+
+const {
+  device: { mobileS, laptop },
+} = consts;
+
+const StyledHeader = styled.div`
+  @media ${mobileS} {
+    display: flex;
+    flex-direction: column;
+    p {
+      text-align: left;
+      width: 100%;
+    }
+  }
+  @media ${laptop} {
+    flex-direction: row;
+    p {
+      text-align: right;
+    }
+  }
+`;
 
 const LaLuciolePage = ({ collectionId, collectionCategoryId }) => {
   const [shuffleSeed, setShuffleSeed] = useState();
   const { t } = useTranslation();
 
-  const { items, response } = useQueryList(
+  const { item: collection, response: collectionResponse } = useQueryGet(
+    getCollection,
+    {
+      variables: {
+        id: collectionId,
+      },
+    },
+    {
+      resultPath: '$.getCollection',
+    },
+  );
+
+  const {
+    items: collectionVideoNodes,
+    response: collectionVideoNodesResponse,
+  } = useQueryList(
     listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt,
     {
       variables: {
@@ -39,13 +83,14 @@ const LaLuciolePage = ({ collectionId, collectionCategoryId }) => {
     },
   );
   useEffect(() => {
-    if (items) {
-      setShuffleSeed(Math.floor(Math.random() * items.length));
+    if (collectionVideoNodes) {
+      setShuffleSeed(Math.floor(Math.random() * collectionVideoNodes.length));
     }
-  }, [items]);
-  if (response) return response;
+  }, [collectionVideoNodes]);
+  if (collectionResponse) return collectionResponse;
+  if (collectionVideoNodesResponse) return collectionVideoNodesResponse;
 
-  const videoNodes = shuffle(items, shuffleSeed).map(
+  const videoNodes = shuffle(collectionVideoNodes, shuffleSeed).map(
     ({ videoNode }) => videoNode,
   );
 
@@ -53,13 +98,36 @@ const LaLuciolePage = ({ collectionId, collectionCategoryId }) => {
     <>
       <Head page="laLuciole" />
       <NavBarTemplate>
-        <div
-          style={{
-            minHeight: `calc(100vh - ${consts.style.navbar.height})`,
-            padding: consts.style.padding.xl,
-          }}
-        >
-          <Title>{t('laLuciolePage.title')}</Title>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Covers.Collection collectionId={collectionId} shadow={false} />
+          <div style={{ padding: '0 9%' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                padding: '18px 0',
+              }}
+            >
+              <StyledHeader>
+                <div
+                  style={{
+                    display: 'flex',
+                    width: '100%',
+                    justifyContent: 'space-between',
+                    alignItems: 'baseline',
+                  }}
+                >
+                  <Title level={1} ellipsis={{ rows: 2 }}>
+                    {collection.title}
+                  </Title>
+                  <div style={{ flexGrow: 1 }} />
+                  <Links.Buttons links={[]} />
+                </div>
+              </StyledHeader>
+            </div>
+            <Paragraph>{collection.description}</Paragraph>
+          </div>
           <StaticVideosList
             sortable={false}
             videos={videoNodes}

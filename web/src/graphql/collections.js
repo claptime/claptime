@@ -1,5 +1,11 @@
 import { Collection, CollectionVideoNode, Connection, LEVELS } from './types';
 
+export const getCollection = /* GraphQL */ `
+  query GetCollection($id: ID!) {
+    getCollection(id: $id) ${Collection()}
+  }
+`;
+
 export const deleteCollection = /* GraphQL */ `
   mutation DeleteCollection($input: DeleteCollectionInput!) {
     deleteCollection(input: $input) {
