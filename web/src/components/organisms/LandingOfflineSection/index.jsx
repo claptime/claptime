@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import consts from 'claptime/consts';
@@ -10,7 +10,8 @@ const { device } = consts;
 
 const BackgroundContainer = styled.div`
   @media ${device.mobileS} {
-    background: url(/assets/backgrounds/camera.svg) no-repeat center 0 scroll;
+    background-image: url(/assets/backgrounds/camera.svg);
+    background-repeat: no-repeat;
     background-size: 100%;
     section {
       padding-top: 60%;
@@ -37,9 +38,16 @@ const BackgroundContainer = styled.div`
 `;
 
 const OfflineSection = () => {
+  window.addEventListener(
+    'scroll',
+    () =>
+      (document.getElementById('claptime-background-container').style.opacity =
+        1 - window.scrollY / window.innerHeight),
+  );
+
   return (
     <>
-      <BackgroundContainer>
+      <BackgroundContainer id="claptime-background-container">
         <Banner />
       </BackgroundContainer>
       <Details />
