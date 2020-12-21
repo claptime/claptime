@@ -29,7 +29,7 @@ const StyledContainer = styled.div`
     backgroundImage
       ? `
   background: url(/assets/backgrounds/${backgroundImage}.svg);
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   `
       : ''}
