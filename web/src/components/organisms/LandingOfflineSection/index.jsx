@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import consts from 'claptime/consts';
@@ -38,12 +38,10 @@ const BackgroundContainer = styled.div`
 `;
 
 const OfflineSection = () => {
-  window.addEventListener(
-    'scroll',
-    () =>
-      (document.getElementById('claptime-background-container').style.opacity =
-        1 - window.scrollY / window.innerHeight),
-  );
+  window.addEventListener('scroll', () => {
+    document.getElementById('claptime-background-container').style.opacity =
+      1 - window.scrollY / window.innerHeight;
+  });
 
   return (
     <>
