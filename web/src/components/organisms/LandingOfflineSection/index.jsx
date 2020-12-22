@@ -50,7 +50,7 @@ const OfflineSection = () => {
 
   return (
     <>
-      <BackgroundContainer opacity={opacity} id="claptime-background-container">
+      <BackgroundContainer opacity={opacity}>
         <Banner />
       </BackgroundContainer>
       <Details />
