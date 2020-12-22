@@ -66,37 +66,41 @@ const CollectionCard = ({ collection }) => {
                 padding: 16,
               }}
             >
-              <div>
+              <div style={{ width: '100%' }}>
                 <div
                   style={{
                     display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
                   }}
                 >
-                  <Typography.Title level={3}>
-                    {collection.name}
-                  </Typography.Title>
-                  <AddToList
-                    id={collection.id}
-                    type="Collection"
-                    list="SUBSCRIBED"
-                    style={{ marginLeft: 16 }}
-                  />
+                  <div style={{ display: 'flex' }}>
+                    <Typography.Title level={3}>
+                      {collection.name}
+                    </Typography.Title>
+                    <AddToList
+                      id={collection.id}
+                      type="Collection"
+                      list="SUBSCRIBED"
+                      style={{ marginLeft: 16 }}
+                    />
+                  </div>
+                  {collection.profile ? (
+                    <p>
+                      <Trans i18nKey="collection.curatedBy">
+                        <span className="curated-by">
+                          Une collection animée par
+                        </span>
+                        <ProfileLink
+                          profile={collection.profile}
+                          popoverPlacement="topLeft"
+                        />
+                      </Trans>
+                    </p>
+                  ) : null}
                 </div>
                 <p style={{ marginBottom: 0 }}>{collection.tagline}</p>
               </div>
-              {collection.profile ? (
-                <p>
-                  <Trans i18nKey="collection.curatedBy">
-                    <span className="curated-by">
-                      Une collection animée par
-                    </span>
-                    <ProfileLink
-                      profile={collection.profile}
-                      popoverPlacement="topLeft"
-                    />
-                  </Trans>
-                </p>
-              ) : null}
             </div>
           </div>
         </Container>

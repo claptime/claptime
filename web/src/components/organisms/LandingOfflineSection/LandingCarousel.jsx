@@ -160,34 +160,36 @@ const LandingCarousel = ({
   return (
     <>
       <Container mainColor={mainColor} textColor={textColor}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Title
+              lineColor={mainColor}
+              underlined={false}
+              className="landing-title carousel-title"
+            >
+              {iAm}
+            </Title>
+            <Link href={iAmSwitchLink}>
+              <a style={{ marginLeft: 36 }}>
+                <Title
+                  lineColor={secondaryColor}
+                  faded
+                  underlined={false}
+                  className="landing-title carousel-title"
+                >
+                  {iAmNot}
+                </Title>
+              </a>
+            </Link>
+          </div>
           <Title
             lineColor={mainColor}
             underlined={false}
             className="landing-title carousel-title"
           >
-            {iAm}
+            {title}
           </Title>
-          <Link href={iAmSwitchLink}>
-            <a style={{ marginLeft: 36 }}>
-              <Title
-                lineColor={secondaryColor}
-                faded
-                underlined={false}
-                className="landing-title carousel-title"
-              >
-                {iAmNot}
-              </Title>
-            </a>
-          </Link>
         </div>
-        <Title
-          lineColor={mainColor}
-          underlined={false}
-          className="landing-title carousel-title"
-        >
-          {title}
-        </Title>
         <Carousel
           slidesToShow={3}
           dots={false}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import consts from 'claptime/consts';
@@ -10,7 +10,13 @@ const { device } = consts;
 
 const BackgroundContainer = styled.div`
   @media ${device.mobileS} {
-    background: url(/assets/backgrounds/camera.svg) no-repeat center 0 scroll;
+    background: linear-gradient(
+        rgba(255, 255, 255, ${(props) => props.opacity || 0}),
+        rgba(255, 255, 255, ${(props) => props.opacity || 0})
+      ),
+      url(/assets/backgrounds/camera.svg);
+
+    background-repeat: no-repeat;
     background-size: 100%;
     section {
       padding-top: 60%;
@@ -37,9 +43,14 @@ const BackgroundContainer = styled.div`
 `;
 
 const OfflineSection = () => {
+  const [opacity, setOpacity] = useState(0);
+  window.addEventListener('scroll', () => {
+    setOpacity(window.scrollY / window.innerHeight);
+  });
+
   return (
     <>
-      <BackgroundContainer>
+      <BackgroundContainer opacity={opacity}>
         <Banner />
       </BackgroundContainer>
       <Details />
