@@ -1,13 +1,13 @@
 {
-    "APIKeyExpirationEpoch": "-1",
-    "AppSyncApiName": "claptimeapi",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnablePointInTimeRecovery": "true",
-    "DynamoDBEnableServerSideEncryption": "true",
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authclaptime",
-            "Outputs.UserPoolId"
-        ]
-    }
+  "APIKeyExpirationEpoch": "-1",
+  "AppSyncApiName": "claptimeapi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnablePointInTimeRecovery": "true",
+  "DynamoDBEnableServerSideEncryption": "true",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authclaptime",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

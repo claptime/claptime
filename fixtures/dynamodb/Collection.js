@@ -13,6 +13,7 @@ module.exports = ({
     description,
     links = [],
     categories = [],
+    acceptSubmissions = true,
   ) => {
     const createdAt = getRandomDatetime();
     return {
@@ -31,6 +32,7 @@ module.exports = ({
       links,
       categories,
       updatedAt: createdAt,
+      acceptSubmissions,
     };
   };
   return [
@@ -63,6 +65,7 @@ module.exports = ({
           description: "Lorsque musique et animation s'accordent parfaitement",
         },
       ],
+      true,
     ),
     getItem(
       '189b65c5-6e61-4391-9b11-380eb4058fd9',
@@ -98,6 +101,7 @@ module.exports = ({
           description: "S'échapper de la routine quelques instants",
         },
       ],
+      true,
     ),
     getItem(
       'db773154-36cd-4376-830f-423917b23bf0',
@@ -155,6 +159,7 @@ module.exports = ({
           description: 'Pour devenir imbattable au Trivial Pursuit',
         },
       ],
+      true,
     ),
     getItem(
       '4e51be7e-f314-4a63-a20f-c3afb4196f00',
@@ -182,6 +187,7 @@ module.exports = ({
           category: 'Spectacles vivants',
         },
       ],
+      true,
     ),
     getItem(
       'fac6597e-9713-4d95-a982-eed3e91a70f7',
@@ -202,6 +208,7 @@ module.exports = ({
           category: 'Édition 2020',
         },
       ],
+      false,
     ),
   ];
 };
