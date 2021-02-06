@@ -1,8 +1,9 @@
 const { Command } = require('@oclif/command');
 const dynamodb = require('claptime-commons/dynamodb');
 const { getApiConfig, getCurrentEnv } = require('claptime-commons/dev/amplify');
-const { commonFlags, confirm } = require('../../utils');
 const { uuidV4 } = require('claptime-commons/utils');
+
+const { commonFlags, confirm } = require('../../utils');
 
 const defaultCollection = {
   id: '4e51be7e-f314-4a63-a20f-c3afb4196f00',
