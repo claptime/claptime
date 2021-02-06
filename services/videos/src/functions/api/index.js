@@ -3,6 +3,7 @@ const { getHandler } = require('claptime-commons/appsync');
 const addEpisodeToSeries = require('./resolvers/addEpisodeToSeries');
 const addVideoNode = require('./resolvers/addVideoNode');
 const importVideo = require('./resolvers/importVideo');
+const importVideoLabfilms = require('./resolvers/importVideoLabfilms');
 const likesCount = require('./resolvers/likesCount');
 const publishVideoNode = require('./resolvers/publishVideoNode');
 const removeEpisodeFromSeries = require('./resolvers/removeEpisodeFromSeries');
@@ -39,6 +40,15 @@ module.exports.handler = getHandler({
     },
     importVideo: {
       handler: importVideo,
+      checkOwnership: [
+        {
+          modelName: 'VideoNode',
+          idArgumentName: 'videoNodeId',
+        },
+      ],
+    },
+    importVideoLabfilms: {
+      handler: importVideoLabfilms,
       checkOwnership: [
         {
           modelName: 'VideoNode',

@@ -161,7 +161,7 @@
         "title": "Juste le temps d'un café...",
         "item1": "Inscrivez-vous et créez votre profil public Claptime avec soin.",
         "item2": "Renseignez la fiche de votre film ou de votre série (synopsis, année de sortie, genre...).",
-        "item3": "Déposez vos fichiers vidéos depuis votre PC, ou importez-les depuis YouTube ou Vimeo."
+        "item3": "Déposez vos fichiers vidéos depuis votre PC, ou importez-les depuis LabFilms, YouTube ou Vimeo."
       },
       "section2": {
         "title": "Une plateforme dédiée au cinéma",
@@ -722,7 +722,7 @@
       "IMPORT": {
         "stepName": "Import",
         "title": "Import",
-        "description": "Votre vidéo est en cours d'import depuis YouTube ou Vimeo. Veuillez patienter, cette page se mettra à jour lorsque celle-ci aura été importée."
+        "description": "Votre vidéo est en cours d'import depuis LabFilms, YouTube ou Vimeo. Veuillez patienter, cette page se mettra à jour lorsque celle-ci aura été importée."
       },
       "UPLOAD": {
         "stepName": "Upload",
@@ -976,10 +976,14 @@
       },
       "actions": {
         "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à hello@clap-time.com",
-        "import": "Importer une vidéo",
+        "import": "Importer une vidéo depuis YouTube ou Vimeo",
+        "importDescription": "Si votre film est disponible sur un hébergeur vidéo comme YouTube ou Vimeo, renseignez le lien pour importer directement la vidéo. Vous pourrez modifier toutes les informations avant publication.",
+        "videoLink": "https://www.youtube.com/watch?v=[video]",
+        "importLabfilms": "Importer une vidéo depuis LabFilms",
+        "importLabfilmsDescription": "Si votre film est disponible sur la plateforme <1>LabFilms</1>, renseignez le lien de sa page projet pour importer directement la vidéo, ainsi que certaines informations (titre, crédits). Vous pourrez modifier toutes les informations avant publication.",
+        "labfilmsLink": "https://www.labfilms.org/projets/[projet]",
         "importButton": "Importer",
-        "upload": "Uploader une vidéo",
-        "videoLink": "Lien de la vidéo (YouTube/Vimeo)"
+        "upload": "Uploader une vidéo"
       },
       "newVideoTitle": "Sans titre"
     },
