@@ -523,6 +523,7 @@
       "tagline": "Accroche",
       "taglinePlaceholder": "Saisissez une accroche",
       "taglineMaxLength": "L'accroche ne doit pas dépasser 100 caractères.",
+      "acceptSubmissions": "Accepter les soumissions",
       "description": "Description",
       "descriptionPlaceholder": "Saisissez une description",
       "cover": "Image de couverture",

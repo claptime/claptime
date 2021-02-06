@@ -95,6 +95,7 @@ export const Collection = ({
     ifAtLeast(level, LEVELS.REGULAR) &&
     `
   tagline
+  acceptSubmissions
   collectionProfileId
   description
   links ${Link()}
