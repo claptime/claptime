@@ -19,6 +19,7 @@ const getCompiledTemplate = (type, name, output) =>
 // TODO i18n
 const getTitle = (templateName, params) =>
   ({
+    defaultApprove: `${params.videoNode.title} a été publié`,
     approve: `${params.videoNode.title} a été accepté dans la collection ${params.collection.name}`,
     reject: `${params.videoNode.title} n'a pas été accepté dans la collection ${params.collection.name}`,
     submit: `Nouvelle soumission pour ${params.collection.name} : ${params.videoNode.title}`,
@@ -90,7 +91,6 @@ const sendEmailToUser = async (
       },
     },
     Destination: {
-      BccAddresses: [FROM_EMAIL],
       ToAddresses: [toEmail],
     },
     Source: FROM_EMAIL,

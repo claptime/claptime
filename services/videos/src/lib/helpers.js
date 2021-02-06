@@ -2,6 +2,8 @@ const { sendEmailToUser } = require('claptime-commons/emails');
 const { getCognitoUserById } = require('claptime-commons/cognito');
 const { updateCollectionVideoNode } = require('./models');
 
+const { collections } = require('./consts');
+
 const {
   createCollectionVideoNode,
   getCollection,
@@ -54,19 +56,22 @@ const submitToCollection = async (
   const firstName = UserAttributes.find(({ Name }) => Name === 'given_name')
     .Value;
 
+  const sendToOwner = !(collections.default.slug === collection.slug);
   // Send email to collection owner
-  await sendEmailToUser(
-    'submit',
-    {
-      given_name: firstName,
-    },
-    {
-      videoNode,
-      collection,
-    },
-    email,
-  );
-  console.log('Email sent to collection owner');
+  if (sendToOwner) {
+    await sendEmailToUser(
+      'submit',
+      {
+        given_name: firstName,
+      },
+      {
+        videoNode,
+        collection,
+      },
+      email,
+    );
+    console.log('Email sent to collection owner');
+  }
 
   // TODO send notification
 
@@ -98,9 +103,12 @@ const validateSubmission = async (
     collectionVideoNode.collectionVideoNodeVideoNodeId,
   );
 
+  const approve =
+    collections.default.slug === collection.slug ? 'defaultApprove' : 'approve';
+
   // Send email to author
   await sendEmailToUser(
-    status === 'APPROVED' ? 'approve' : 'reject',
+    status === 'APPROVED' ? approve : 'reject',
     claims,
     {
       videoNode,

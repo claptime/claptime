@@ -742,7 +742,7 @@
       "DRAFT": {
         "stepName": "Fiche",
         "title": "Traitée",
-        "description": "C'est la première étape, votre vidéo est maintenant prête pour le streaming. Complétez sa fiche (synopsis, festivals, affiche, crédits...) et soumettez la à validation."
+        "description": "C'est la première étape, votre vidéo est maintenant prête pour le streaming. Complétez sa fiche (synopsis, festivals, affiche, crédits...) et publiez-la."
       },
       "PUBLISHED": {
         "stepName": "Publication",
@@ -804,8 +804,8 @@
       "deleteSucceeded": "La vidéo a bien été supprimée",
       "deleteFailed": "Une erreur est survenue lors de la suppression de la vidéo",
       "publish": "Publier",
-      "publishConfirm": "Publier (soumettre à validation) ?",
-      "publishSucceeded": "Merci pour votre soumission. Votre vidéo va maintenant être revue avant d'être publiée.",
+      "publishConfirm": "Publier ?",
+      "publishSucceeded": "Votre vidéo a bien été publiée.",
       "publishMissingTitle": "Impossible de publier : la vidéo n'a pas de titre.",
       "publishMissingSynopsis": "Impossible de publier : la vidéo n'a pas de synopsis.",
       "publishMissingCategory": "Impossible de publier : la vidéo n'a pas de catégorie.",
@@ -836,6 +836,7 @@
       "status": "Statut",
       "actions": "Actions",
       "view": "Voir la collection",
+      "cannotRemove": "Vous ne pouvez pas supprimer votre film de la collection par défaut",
       "remove": "Supprimer la soumission",
       "removeConfirm": "Si vous supprimez la soumission, votre film ou série ne sera plus accessible au sein de la collection. Êtes-vous sûr ?",
       "removed": "La soumission a bien été supprimée de la collection.",
