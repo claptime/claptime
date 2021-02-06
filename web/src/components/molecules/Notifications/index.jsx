@@ -178,7 +178,7 @@ const Notifications = () => {
         extra = <Covers.Profile width={69} height={92} profileId={profileId} />;
         notificationDescription = (
           <Trans i18nKey="notifications.videoNodeAddedByFilmmaker">
-            <strong>{{ profileName }}</strong> 1{' '}
+            <strong>{{ profileName }}</strong>1
             <strong>{{ videoNodeTitle }}</strong>
           </Trans>
         );

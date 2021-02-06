@@ -99,6 +99,15 @@ const validateSubmission = async (
     collectionVideoNode.collectionVideoNodeVideoNodeId,
   );
 
+  const notifyUsers = async (usersList, type, channels, payload) => {
+    console.log(`-> Send notification to ${usersList.length} users.`);
+    await Promise.all(
+      usersList.map((user) => {
+        return notifyUser(user, type, channels, payload);
+      }),
+    );
+  };
+
   // Send email to author
   await sendEmailToUser(
     status === 'APPROVED' ? 'approve' : 'reject',
@@ -169,15 +178,6 @@ const notifySubscribingUsers = async (videoNode, profile) => {
     'VIDEO_NODE_ADDED_BY_FILMMAKER',
     channels,
     payload,
-  );
-};
-
-const notifyUsers = async (usersList, type, channels, payload) => {
-  console.log(`-> Send notification to ${usersList.length} users.`);
-  await Promise.all(
-    usersList.map((user) => {
-      return notifyUser(user, type, channels, payload);
-    }),
   );
 };
 
