@@ -76,6 +76,15 @@ const submitToCollection = async (
   return collectionVideoNode;
 };
 
+const notifyUsers = async (usersList, type, channels, payload) => {
+  console.log(`-> Send notification to ${usersList.length} users.`);
+  await Promise.all(
+    usersList.map((user) => {
+      return notifyUser(user, type, channels, payload);
+    }),
+  );
+};
+
 const validateSubmission = async (
   collectionVideoNode,
   status,
@@ -98,15 +107,6 @@ const validateSubmission = async (
   const videoNode = await getVideoNode(
     collectionVideoNode.collectionVideoNodeVideoNodeId,
   );
-
-  const notifyUsers = async (usersList, type, channels, payload) => {
-    console.log(`-> Send notification to ${usersList.length} users.`);
-    await Promise.all(
-      usersList.map((user) => {
-        return notifyUser(user, type, channels, payload);
-      }),
-    );
-  };
 
   // Send email to author
   await sendEmailToUser(
