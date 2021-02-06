@@ -835,6 +835,7 @@
       "status": "Statut",
       "actions": "Actions",
       "view": "Voir la collection",
+      "cannotRemove": "Vous ne pouvez pas supprimer votre film de la collection par défaut",
       "remove": "Supprimer la soumission",
       "removeConfirm": "Si vous supprimez la soumission, votre film ou série ne sera plus accessible au sein de la collection. Êtes-vous sûr ?",
       "removed": "La soumission a bien été supprimée de la collection.",
