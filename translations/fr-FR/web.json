@@ -762,7 +762,7 @@
       "charter": "Avant de mettre en ligne votre film, assurez-vous qu'il respecte <1>notre charte<1>.",
       "modalCharterTitle": "La charte Claptime",
       "title": "Titre",
-      "titleTooltip": "Éviter de surcharger ce champ : n'entrez par exemple pas de caractères spéciaux qui ne sont pas explicitement inclus dans le titre.",
+      "titleTooltip": "Évitez de surcharger ce champ : n'entrez par exemple pas de caractères spéciaux qui ne sont pas explicitement inclus dans le titre.",
       "titlePlaceholder": "Titre de la vidéo",
       "ttl": "Disponibilité",
       "coverPopoverTitle": "Format recommandé",
