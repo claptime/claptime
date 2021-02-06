@@ -5,6 +5,7 @@ const { getVideoNode, updateVideoNode } = require('../../../lib/models');
 const {
   submitToCollection,
   validateSubmission,
+  notifySubscribingUsers,
 } = require('../../../lib/helpers');
 
 module.exports = async (event) => {
@@ -13,7 +14,7 @@ module.exports = async (event) => {
     identity: { claims },
   } = event;
 
-  const { category, status } = await getVideoNode(videoNodeId);
+  const { category, status, title, profile } = await getVideoNode(videoNodeId);
   if (status !== 'DRAFT') {
     throw new Error('VideoNodeMustBeDraft');
   }
@@ -36,6 +37,9 @@ module.exports = async (event) => {
 
   // Automatically validate submission to default collection
   await validateSubmission(collectionVideoNode, 'APPROVED', undefined, claims);
+
+  // Send notification to users who are following the filmmaker
+  await notifySubscribingUsers({ id: videoNodeId, title }, profile);
 
   return getVideoNode(videoNodeId);
 };

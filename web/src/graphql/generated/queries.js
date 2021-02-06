@@ -257,6 +257,16 @@ export const listCollections = /* GraphQL */ `
             nextToken
           }
         }
+        starringVideoNodes {
+          items {
+            id
+            label
+            description
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
       }
       nextToken
     }
@@ -409,6 +419,54 @@ export const getCollection = /* GraphQL */ `
           nextToken
         }
       }
+      starringVideoNodes {
+        items {
+          id
+          label
+          description
+          createdAt
+          updatedAt
+          collection {
+            id
+            slug
+            name
+            status
+            tagline
+            description
+            collectionProfileId
+            searchField
+            createdBy
+            createdAt
+            owner
+            updatedAt
+          }
+          videoNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -486,6 +544,16 @@ export const listCollectionsBySlug = /* GraphQL */ `
             nextToken
           }
         }
+        starringVideoNodes {
+          items {
+            id
+            label
+            description
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
       }
       nextToken
     }
@@ -561,6 +629,16 @@ export const getCollectionVideoNode = /* GraphQL */ `
           videoNodes {
             nextToken
           }
+        }
+        starringVideoNodes {
+          items {
+            id
+            label
+            description
+            createdAt
+            updatedAt
+          }
+          nextToken
         }
       }
       videoNode {
@@ -921,6 +999,9 @@ export const listCollectionVideoNodes = /* GraphQL */ `
             owner
             updatedAt
           }
+          starringVideoNodes {
+            nextToken
+          }
         }
         videoNode {
           id
@@ -1083,6 +1164,9 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
             owner
             updatedAt
           }
+          starringVideoNodes {
+            nextToken
+          }
         }
         videoNode {
           id
@@ -1244,6 +1328,9 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
             createdBy
             owner
             updatedAt
+          }
+          starringVideoNodes {
+            nextToken
           }
         }
         videoNode {
@@ -1667,6 +1754,9 @@ export const getProfile = /* GraphQL */ `
             owner
             updatedAt
           }
+          starringVideoNodes {
+            nextToken
+          }
         }
         nextToken
       }
@@ -1817,6 +1907,161 @@ export const getProfile = /* GraphQL */ `
     }
   }
 `;
+export const listStarringVideoNodes = /* GraphQL */ `
+  query ListStarringVideoNodes(
+    $filter: ModelStarringVideoNodeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listStarringVideoNodes(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        label
+        description
+        createdAt
+        updatedAt
+        collection {
+          id
+          slug
+          name
+          status
+          tagline
+          description
+          links {
+            type
+            url
+          }
+          categories {
+            id
+            category
+            description
+          }
+          collectionProfileId
+          searchField
+          createdBy
+          createdAt
+          owner
+          updatedAt
+          videoNodes {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          starringVideoNodes {
+            nextToken
+          }
+        }
+        videoNode {
+          id
+          title
+          status
+          videoNodeProfileId
+          category
+          duration
+          releaseYear
+          synopsis
+          festivals
+          searchField
+          ttl
+          createdBy
+          createdAt
+          updatedAt
+          owner
+          views {
+            nextToken
+          }
+          donationsAvailable
+          videoNodeNextNodeId
+          videoNodeParentNodeId
+          type
+          nodeType
+          childrenCount
+          likesCount
+          collections {
+            nextToken
+          }
+          credits {
+            nextToken
+          }
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
+            owner
+            updatedAt
+          }
+          nextNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+          parentNode {
+            id
+            title
+            status
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+          childNodes {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const listUserCollection = /* GraphQL */ `
   query ListUserCollection(
     $userSettingsCollectionsId: String
@@ -1875,6 +2120,60 @@ export const listUserCollection = /* GraphQL */ `
             owner
             updatedAt
           }
+          starringVideoNodes {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+`;
+export const listUserProfile = /* GraphQL */ `
+  query ListUserProfile(
+    $userSettingsProfilesId: String
+    $listUserProfileProfileId: ModelUserProfilePrimaryCompositeKeyConditionInput
+    $filter: ModelUserProfileFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listUserProfile(
+      userSettingsProfilesId: $userSettingsProfilesId
+      listUserProfileProfileId: $listUserProfileProfileId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        list
+        userSettingsProfilesId
+        userProfileProfileId
+        createdAt
+        updatedAt
+        profile {
+          id
+          name
+          biography
+          links {
+            type
+            url
+          }
+          searchField
+          createdAt
+          createdBy
+          owner
+          updatedAt
+          collections {
+            nextToken
+          }
+          roles {
+            nextToken
+          }
+          videoNodes {
+            nextToken
+          }
         }
       }
       nextToken
@@ -1892,26 +2191,6 @@ export const getUserSettings = /* GraphQL */ `
         type
         channel
         frequency
-      }
-      profiles {
-        items {
-          list
-          userSettingsProfilesId
-          userProfileProfileId
-          createdAt
-          updatedAt
-          profile {
-            id
-            name
-            biography
-            searchField
-            createdAt
-            createdBy
-            owner
-            updatedAt
-          }
-        }
-        nextToken
       }
       owner
       createdAt
@@ -1934,6 +2213,26 @@ export const getUserSettings = /* GraphQL */ `
             searchField
             createdBy
             createdAt
+            owner
+            updatedAt
+          }
+        }
+        nextToken
+      }
+      profiles {
+        items {
+          list
+          userSettingsProfilesId
+          userProfileProfileId
+          createdAt
+          updatedAt
+          profile {
+            id
+            name
+            biography
+            searchField
+            createdAt
+            createdBy
             owner
             updatedAt
           }

@@ -8,6 +8,7 @@ const {
   getCollectionBySlug,
   getVideoNode,
   listUserCollection,
+  listUserProfile,
   notifyUser,
 } = require('./models');
 const { slackVideoNode } = require('./slack');
@@ -68,7 +69,7 @@ const submitToCollection = async (
   );
   console.log('Email sent to collection owner');
 
-  // TODO send notification
+  // send notification to users who are subscribing to the collection
 
   await slackVideoNode('published', videoNode);
   console.log('Slack message sent');
@@ -117,7 +118,9 @@ const validateSubmission = async (
         eq: collection.id,
       },
     });
-    console.log('Create notification for subscribing users');
+    console.log(
+      `Create notification for users who subscribe to collection ${collection.name} (id : ${collection.id}`,
+    );
     const channels = ['WEB'];
     const payload = JSON.stringify({
       collection: {
@@ -130,23 +133,56 @@ const validateSubmission = async (
         id: videoNode.id,
       },
     });
-    await Promise.all(
-      subscribingUsers.map((user) => {
-        const { userSettingsCollectionsId: owner } = user;
-        return notifyUser(
-          owner,
-          'VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS',
-          channels,
-          payload,
-        );
-      }),
+
+    await notifyUsers(
+      subscribingUsers.map((user) => user.userSettingsCollectionsId),
+      'VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS',
+      channels,
+      payload,
     );
   }
 
   return res;
 };
 
+// notify users who are following the filmmakers in params
+const notifySubscribingUsers = async (videoNode, profile) => {
+  console.log(`List users who follow ${profile.name} (id : ${profile.id})`);
+  const subscribingUsers = await listUserProfile({
+    userProfileProfileId: {
+      eq: profile.id,
+    },
+  });
+  console.log(
+    `Create notification for users who follow ${profile.name} (profileId : ${profile.id})`,
+  );
+  const channels = ['WEB'];
+  const payload = JSON.stringify({
+    profile,
+    videoNode: {
+      title: videoNode.title,
+      id: videoNode.id,
+    },
+  });
+  await notifyUsers(
+    subscribingUsers.map((user) => user.userSettingsProfilesId),
+    'VIDEO_NODE_ADDED_BY_FILMMAKER',
+    channels,
+    payload,
+  );
+};
+
+const notifyUsers = async (usersList, type, channels, payload) => {
+  console.log(`-> Send notification to ${usersList.length} users.`);
+  await Promise.all(
+    usersList.map((user) => {
+      return notifyUser(user, type, channels, payload);
+    }),
+  );
+};
+
 module.exports = {
   submitToCollection,
   validateSubmission,
+  notifySubscribingUsers,
 };
