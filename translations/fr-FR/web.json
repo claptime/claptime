@@ -692,6 +692,7 @@
     "thisFilm": "ce film",
     "thisEpisode": "cet épisode",
     "play": "Démarrer la séance",
+    "notWatchable": "\"{{title}}\" n'est pas visionnable en ce moment.",
     "previousEpisode": "Épisode précédent",
     "nextEpisode": "Épisode suivant",
     "nextEpisodeNotPublished": "L'épisode suivant n'est pas encore en ligne",

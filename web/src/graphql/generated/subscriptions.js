@@ -7,6 +7,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
       id
       title
       status
+      watchable
       videoNodeProfileId
       category
       duration
@@ -19,6 +20,41 @@ export const onUpdateVideoNode = /* GraphQL */ `
       createdAt
       updatedAt
       owner
+      views {
+        items {
+          id
+          viewVideoNodeId
+          createdAt
+          owner
+          updatedAt
+          videoNode {
+            id
+            title
+            status
+            watchable
+            videoNodeProfileId
+            category
+            duration
+            releaseYear
+            synopsis
+            festivals
+            searchField
+            ttl
+            createdBy
+            createdAt
+            updatedAt
+            owner
+            donationsAvailable
+            videoNodeNextNodeId
+            videoNodeParentNodeId
+            type
+            nodeType
+            childrenCount
+            likesCount
+          }
+        }
+        nextToken
+      }
       donationsAvailable
       videoNodeNextNodeId
       videoNodeParentNodeId
@@ -56,6 +92,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -103,6 +140,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -175,6 +213,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -202,6 +241,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -214,6 +254,16 @@ export const onUpdateVideoNode = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+        views {
+          items {
+            id
+            viewVideoNodeId
+            createdAt
+            owner
+            updatedAt
+          }
+          nextToken
+        }
         donationsAvailable
         videoNodeNextNodeId
         videoNodeParentNodeId
@@ -275,6 +325,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -287,6 +338,9 @@ export const onUpdateVideoNode = /* GraphQL */ `
           createdAt
           updatedAt
           owner
+          views {
+            nextToken
+          }
           donationsAvailable
           videoNodeNextNodeId
           videoNodeParentNodeId
@@ -314,6 +368,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -338,6 +393,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -359,9 +415,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
             likesCount
           }
           childNodes {
-            nextToken
-          }
-          views {
             nextToken
           }
         }
@@ -369,6 +422,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -381,6 +435,9 @@ export const onUpdateVideoNode = /* GraphQL */ `
           createdAt
           updatedAt
           owner
+          views {
+            nextToken
+          }
           donationsAvailable
           videoNodeNextNodeId
           videoNodeParentNodeId
@@ -408,6 +465,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -432,6 +490,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -453,9 +512,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
             likesCount
           }
           childNodes {
-            nextToken
-          }
-          views {
             nextToken
           }
         }
@@ -464,6 +520,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -483,16 +540,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
             nodeType
             childrenCount
             likesCount
-          }
-          nextToken
-        }
-        views {
-          items {
-            id
-            viewVideoNodeId
-            createdAt
-            owner
-            updatedAt
           }
           nextToken
         }
@@ -501,6 +548,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -513,6 +561,16 @@ export const onUpdateVideoNode = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+        views {
+          items {
+            id
+            viewVideoNodeId
+            createdAt
+            owner
+            updatedAt
+          }
+          nextToken
+        }
         donationsAvailable
         videoNodeNextNodeId
         videoNodeParentNodeId
@@ -574,6 +632,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -586,6 +645,9 @@ export const onUpdateVideoNode = /* GraphQL */ `
           createdAt
           updatedAt
           owner
+          views {
+            nextToken
+          }
           donationsAvailable
           videoNodeNextNodeId
           videoNodeParentNodeId
@@ -613,6 +675,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -637,6 +700,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -658,9 +722,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
             likesCount
           }
           childNodes {
-            nextToken
-          }
-          views {
             nextToken
           }
         }
@@ -668,6 +729,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -680,6 +742,9 @@ export const onUpdateVideoNode = /* GraphQL */ `
           createdAt
           updatedAt
           owner
+          views {
+            nextToken
+          }
           donationsAvailable
           videoNodeNextNodeId
           videoNodeParentNodeId
@@ -707,6 +772,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -731,6 +797,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -752,9 +819,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
             likesCount
           }
           childNodes {
-            nextToken
-          }
-          views {
             nextToken
           }
         }
@@ -763,6 +827,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -782,16 +847,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
             nodeType
             childrenCount
             likesCount
-          }
-          nextToken
-        }
-        views {
-          items {
-            id
-            viewVideoNodeId
-            createdAt
-            owner
-            updatedAt
           }
           nextToken
         }
@@ -801,6 +856,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -813,6 +869,9 @@ export const onUpdateVideoNode = /* GraphQL */ `
           createdAt
           updatedAt
           owner
+          views {
+            nextToken
+          }
           donationsAvailable
           videoNodeNextNodeId
           videoNodeParentNodeId
@@ -840,6 +899,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -864,6 +924,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -886,43 +947,6 @@ export const onUpdateVideoNode = /* GraphQL */ `
           }
           childNodes {
             nextToken
-          }
-          views {
-            nextToken
-          }
-        }
-        nextToken
-      }
-      views {
-        items {
-          id
-          viewVideoNodeId
-          createdAt
-          owner
-          updatedAt
-          videoNode {
-            id
-            title
-            status
-            videoNodeProfileId
-            category
-            duration
-            releaseYear
-            synopsis
-            festivals
-            searchField
-            ttl
-            createdBy
-            createdAt
-            updatedAt
-            owner
-            donationsAvailable
-            videoNodeNextNodeId
-            videoNodeParentNodeId
-            type
-            nodeType
-            childrenCount
-            likesCount
           }
         }
         nextToken

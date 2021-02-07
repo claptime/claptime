@@ -11,11 +11,10 @@ import {
   Button,
   ButtonGroup,
   Covers,
-  PlayButton,
   Title as StyledTitle,
 } from 'claptime/components/atoms';
 
-import { ProfileLink } from 'claptime/components/molecules';
+import { PlayButton, ProfileLink } from 'claptime/components/molecules';
 
 const {
   style: {
@@ -93,7 +92,7 @@ const StarringVideoNode = ({ starringVideoNode }) => {
           <p className="svn-description">{description}</p>
           {type === 'FILM' && (
             <ButtonGroup>
-              <PlayButton videoId={id} />
+              <PlayButton videoNode={starringVideoNode} />
               <Link href="/video/[video]" as={`/video/${id}`}>
                 <a>
                   <Button

@@ -46,13 +46,17 @@ const VideoPlayerPage = ({ video, imageUrl }) => {
 
   const { username: userId, isAdmin } = useUserState();
 
-  if (
-    video.status !== consts.videos.status.PUBLISHED &&
-    !isAdmin &&
-    video.owner !== userId
-  ) {
-    return Router.push('/');
-  }
+  useEffect(() => {
+    if (!video.watchable && !isAdmin && video.owner !== userId) {
+      Router.push(`/video/${video.id}`);
+    } else if (
+      video.status !== consts.videos.status.PUBLISHED &&
+      !isAdmin &&
+      video.owner !== userId
+    ) {
+      Router.push('/');
+    }
+  }, [video, isAdmin, userId]);
 
   return (
     <>
