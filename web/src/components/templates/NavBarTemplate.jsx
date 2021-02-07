@@ -6,6 +6,7 @@ import { Spin } from 'claptime/components/atoms';
 import NavBar from 'claptime/components/organisms/NavBar';
 import Footer from 'claptime/components/organisms/Footer';
 
+import { initChat } from 'claptime/lib/chat';
 import PropTypes from 'claptime/lib/prop-types';
 import { useUserState } from 'claptime/lib/user';
 import consts from 'claptime/consts';
@@ -52,6 +53,9 @@ const NavBarTemplate = ({ children, collapsed }) => {
     window.addEventListener('resize', handleResize);
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  useEffect(() => {
+    initChat();
   }, []);
   const user = useUserState();
 
