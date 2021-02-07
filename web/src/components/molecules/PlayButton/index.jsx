@@ -17,7 +17,6 @@ const {
 const PlayButton = ({ videoNode }) => {
   const { t } = useTranslation();
 
-  console.log(videoNode);
   if (!videoNode.watchable) {
     return (
       <Alert
