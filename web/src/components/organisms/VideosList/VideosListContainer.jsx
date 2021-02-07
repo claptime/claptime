@@ -5,8 +5,8 @@ import InfiniteScroll from 'react-infinite-scroller';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import { Covers, PlayButton, Spin } from 'claptime/components/atoms';
-import { Cards, Layouts } from 'claptime/components/molecules';
+import { Covers, Spin } from 'claptime/components/atoms';
+import { Cards, Layouts, PlayButton } from 'claptime/components/molecules';
 import PropTypes from 'claptime/lib/prop-types';
 import consts from 'claptime/consts';
 import { formatDuration } from 'claptime/utils';
@@ -81,7 +81,7 @@ export const VideosListContainer = ({
                       <span style={{ color: strawberry }}>&nbsp;/&nbsp;</span>,
                     )}
                   </div>
-                  <PlayButton videoId={video.id} />
+                  <PlayButton videoNode={video} />
                 </div>
               }
             />

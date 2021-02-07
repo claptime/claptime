@@ -11,8 +11,8 @@ const decrementTtl = async ({ id, ttl }) => {
     ttl: ttl - 1,
   };
   if (input.ttl === 0) {
-    input.status = 'DRAFT';
     input.ttl = null;
+    input.watchable = false;
   }
   console.log(input);
   try {
