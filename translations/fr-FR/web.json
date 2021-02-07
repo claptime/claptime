@@ -983,10 +983,10 @@
       "actions": {
         "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à hello@clap-time.com",
         "import": "Importer une vidéo depuis YouTube ou Vimeo",
-        "importDescription": "Si votre film est disponible sur un hébergeur vidéo comme YouTube ou Vimeo, renseignez le lien pour importer directement la vidéo. Vous pourrez modifier toutes les informations avant publication.",
+        "importDescription": "Si votre vidéo est disponible sur un hébergeur comme YouTube ou Vimeo, renseignez le lien pour importer directement la vidéo. Vous pourrez modifier toutes les informations avant publication.",
         "videoLink": "https://www.youtube.com/watch?v=[video]",
         "importLabfilms": "Importer une vidéo depuis LabFilms",
-        "importLabfilmsDescription": "Si votre film est disponible sur la plateforme <1>LabFilms</1>, renseignez le lien de sa page projet pour importer directement la vidéo, ainsi que certaines informations (titre, crédits). Vous pourrez modifier toutes les informations avant publication.",
+        "importLabfilmsDescription": "Si votre vidéo est disponible sur la plateforme <1>LabFilms</1>, renseignez le lien de sa page projet pour importer directement la vidéo, ainsi que certaines informations (titre, crédits). Vous pourrez modifier toutes les informations avant publication.",
         "labfilmsLink": "https://www.labfilms.org/projets/[projet]",
         "importButton": "Importer",
         "upload": "Uploader une vidéo"
