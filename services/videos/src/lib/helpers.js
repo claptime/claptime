@@ -12,7 +12,6 @@ const {
   listUserCollection,
   notifyUser,
 } = require('./models');
-const { slackVideoNode } = require('./slack');
 
 const submitToCollection = async (
   videoNodeId,
@@ -75,8 +74,6 @@ const submitToCollection = async (
 
   // TODO send notification
 
-  await slackVideoNode('published', videoNode);
-  console.log('Slack message sent');
   return collectionVideoNode;
 };
 
