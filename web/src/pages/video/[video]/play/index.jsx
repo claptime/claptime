@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
 import { useTranslation } from 'react-i18next';
