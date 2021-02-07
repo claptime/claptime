@@ -27,6 +27,24 @@ const createCollectionVideoNode = async (input) => {
   return collectionVideoNode;
 };
 
+const createCredit = async (input) => {
+  const {
+    data: { createCredit: credit },
+  } = await appSyncClient.mutate({
+    mutation: gql(/* GraphQL */ `
+      mutation CreateCredit($input: CreateCreditInput!) {
+        createCredit(input: $input) {
+          id
+        }
+      }
+    `),
+    variables: {
+      input,
+    },
+  });
+  return credit;
+};
+
 const createVideoNode = async (input) => {
   const {
     data: { createVideoNode: videoNode },
@@ -586,6 +604,7 @@ const listUserCollection = async (filter) => {
 
 module.exports = {
   createCollectionVideoNode,
+  createCredit,
   createVideoNode,
   deleteCollectionVideoNode,
   deleteCredit,

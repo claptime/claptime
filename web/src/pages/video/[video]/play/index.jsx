@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,6 @@ import FullScreenTemplate from 'claptime/components/templates/FullScreenTemplate
 import consts from 'claptime/consts';
 import { getVideoNode } from 'claptime/graphql/videonodes';
 import { unauthClient } from 'claptime/lib/apollo';
-import { setChatVisibility } from 'claptime/lib/chat';
 import PropTypes from 'claptime/lib/prop-types';
 import { useUserState } from 'claptime/lib/user';
 import Head from 'claptime/lib/seo/Head';
@@ -44,11 +43,6 @@ export async function getServerSideProps(ctx) {
 
 const VideoPlayerPage = ({ video, imageUrl }) => {
   const { t } = useTranslation();
-
-  useEffect(() => {
-    setChatVisibility(false);
-    return () => setChatVisibility(true);
-  }, []);
 
   const { username: userId, isAdmin } = useUserState();
 

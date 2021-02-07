@@ -35,7 +35,7 @@ import Link from 'next/link';
 
 import styled from 'styled-components';
 
-import { Spin, Subtitle } from 'claptime/components/atoms';
+import { Link as StyledLink, Spin, Subtitle } from 'claptime/components/atoms';
 import {
   Charter,
   CreditsInput,
@@ -79,13 +79,6 @@ const ReadCharter = styled.span`
   border-radius: 6px;
   padding: 10px 20px;
   max-width: 90vw;
-`;
-
-const StyledLink = styled.a`
-  color: ${consts.style.colors.strawberry};
-  &:hover {
-    color: ${consts.style.colors.strawberryHover};
-  }
 `;
 
 // Wrapper component workaround for combining next/link + i18next <Trans>

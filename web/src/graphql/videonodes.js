@@ -336,6 +336,14 @@ export const importVideo = /* GraphQL */ `
   }
 `;
 
+export const importVideoLabfilms = /* GraphQL */ `
+  mutation ImportVideoLabfilms($videoNodeId: ID!, $labfilmsLink: String!) {
+    importVideoLabfilms(videoNodeId: $videoNodeId, labfilmsLink: $labfilmsLink) {
+      ${videoNodeFields}
+    }
+  }
+`;
+
 export const publishVideoNode = /* GraphQL */ `
   mutation PublishVideoNode($videoNodeId: ID!) {
     publishVideoNode(videoNodeId: $videoNodeId) {
