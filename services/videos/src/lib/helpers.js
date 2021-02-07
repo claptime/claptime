@@ -1,3 +1,5 @@
+const { pLimit } = require('claptime-commons/promise');
+
 const { sendEmailToUser } = require('claptime-commons/emails');
 const { getCognitoUserById } = require('claptime-commons/cognito');
 const { updateCollectionVideoNode } = require('./models');
@@ -10,6 +12,7 @@ const {
   getCollectionBySlug,
   getVideoNode,
   listUserCollection,
+  listUserProfile,
   notifyUser,
 } = require('./models');
 
@@ -72,9 +75,18 @@ const submitToCollection = async (
     console.log('Email sent to collection owner');
   }
 
-  // TODO send notification
-
   return collectionVideoNode;
+};
+
+const notifyUsers = async (usersList, type, channels, payload) => {
+  console.log(`-> Send notification to ${usersList.length} users.`);
+  const limit = pLimit(10);
+
+  await Promise.all(
+    usersList.map((user) =>
+      limit(() => notifyUser(user, type, channels, payload)),
+    ),
+  );
 };
 
 const validateSubmission = async (
@@ -122,12 +134,15 @@ const validateSubmission = async (
         eq: collection.id,
       },
     });
-    console.log('Create notification for subscribing users');
-    const channels = ['WEB'];
+    console.log(
+      `Create notification for users who subscribe to collection ${collection.name} (id : ${collection.id}`,
+    );
+    const channels = ['WEB', 'EMAIL'];
     const payload = JSON.stringify({
       collection: {
         name: collection.name,
         id: collection.id,
+        slug: collection.slug,
       },
       videoNode: {
         type: videoNode.type,
@@ -135,23 +150,47 @@ const validateSubmission = async (
         id: videoNode.id,
       },
     });
-    await Promise.all(
-      subscribingUsers.map((user) => {
-        const { userSettingsCollectionsId: owner } = user;
-        return notifyUser(
-          owner,
-          'VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS',
-          channels,
-          payload,
-        );
-      }),
+
+    await notifyUsers(
+      subscribingUsers.map((user) => user.userSettingsCollectionsId),
+      'VIDEO_NODE_ADDED_TO_COLLECTION_SUBSCRIBERS',
+      channels,
+      payload,
     );
   }
 
   return res;
 };
 
+// notify users who are following the filmmakers in params
+const notifySubscribingUsers = async (videoNode, profile) => {
+  console.log(`List users who follow ${profile.name} (id : ${profile.id})`);
+  const subscribingUsers = await listUserProfile({
+    userProfileProfileId: {
+      eq: profile.id,
+    },
+  });
+  console.log(
+    `Create notification for users who follow ${profile.name} (profileId : ${profile.id})`,
+  );
+  const channels = ['WEB', 'EMAIL'];
+  const payload = JSON.stringify({
+    profile,
+    videoNode: {
+      title: videoNode.title,
+      id: videoNode.id,
+    },
+  });
+  await notifyUsers(
+    subscribingUsers.map((user) => user.userSettingsProfilesId),
+    'VIDEO_NODE_ADDED_BY_FILMMAKER',
+    channels,
+    payload,
+  );
+};
+
 module.exports = {
   submitToCollection,
   validateSubmission,
+  notifySubscribingUsers,
 };

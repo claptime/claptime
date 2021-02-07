@@ -891,7 +891,11 @@
     "labfilmsNewsletter": "L'écosystème LabFilms",
     "labfilmsNewsletterTooltip": "Vous vous intéressez au cinéma autoproduit ? Alors abonnez-vous à la newsletter de LabFilms pour recevoir toutes les actualités de l'écosystème !",
     "yes": "Oui",
-    "no": "Non"
+    "no": "Non",
+    "email": "Vos préférences conernant vos notifications",
+    "newsletters": "Vos préférences conernant nos newsletters",
+    "emailNotification": "Recevoir mes notifications par email",
+    "emailNotificationTooltip": "Vous recevez par exemple des notifications lorsque de nouveaux films sont ajoutés dans une collection à laquelle vous êtes abonné. En choisissant \"Oui\", vous recevrez aussi ces notifications par email."
   },
   "userOnboardingModal": {
     "title": "Vos préférences email",
@@ -934,9 +938,6 @@
       "biography": "Ma biographie",
       "language": "Langue",
       "save": "Enregistrer"
-    },
-    "notifications": {
-      "title": "Vos préférences email"
     },
     "claps": {
       "clapValue": "Valeur par défaut d'un clap"
@@ -1053,6 +1054,7 @@
       "PUBLISHED": "<0>{{title}}</0> est maintenant en ligne !"
     },
     "videoNodeAddedToCollectionSubscribers": "<0>{{videoNodeTitle}}</0>, nouvel ajout dans la collection <2>{{collectionName}}</2>",
+    "videoNodeAddedByFilmmaker": "<0>{{profileName}}</0> a mis en ligne un nouveau film : <2>{{videoNodeTitle}}</2>",
     "popover": {
       "title": "Mes notifications",
       "emptyTitle": "Aucune notification pour le moment",

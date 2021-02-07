@@ -1,0 +1,8 @@
+{{#> layouts/base.html }}
+{{#*inline "body-block"}}
+Un nouveau film, {{videoNode.title}}, a été ajouté au sein de la collection <a href="{{getCollectionLink collection}}">{{collection.name}}</a> à laquelle vous êtes abonné.
+<br />
+Pour découvrir cette nouveauté, <a href="{{getVideoNodeLink videoNode}}">c'est par ici !</a>
+<br /><br />
+{{/inline}}
+{{/layouts/base.html}}

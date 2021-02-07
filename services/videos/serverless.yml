@@ -37,6 +37,7 @@ provider:
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionVideoNodes
         - ${self:custom.appsyncPrefix}/Query/fields/listCredits
         - ${self:custom.appsyncPrefix}/Query/fields/listUserCollection
+        - ${self:custom.appsyncPrefix}/Query/fields/listUserProfile
         - ${self:custom.appsyncPrefix}/Query/fields/listUserVideoNodesByVideoNodeAndList
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByParent
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByStatusSortByTitle

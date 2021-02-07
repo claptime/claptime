@@ -47,6 +47,7 @@ export default {
       types: {
         NEWSLETTER: 'NEWSLETTER',
         LABFILMS_NEWSLETTER: 'LABFILMS_NEWSLETTER',
+        EMAIL_NOTIFICATION: 'EMAIL_NOTIFICATION',
       },
       channels: {
         EMAIL: 'EMAIL',

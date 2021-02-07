@@ -253,6 +253,10 @@ const getVideoNode = async (videoNodeId) => {
           type
           nodeType
           childrenCount
+          profile {
+            id
+            name
+          }
           credits {
             items {
               id
@@ -602,6 +606,43 @@ const listUserCollection = async (filter) => {
   return items;
 };
 
+const listUserProfile = async (filter) => {
+  let nextToken;
+  const items = [];
+  do {
+    const {
+      data: { listUserProfile: userProfile },
+    } = await appSyncClient.query({
+      query: gql(/* GraphQL */ `
+        query ListUserProfile(
+          $filter: ModelUserProfileFilterInput
+          $limit: Int
+          $nextToken: String
+        ) {
+          listUserProfile(
+            filter: $filter
+            limit: $limit
+            nextToken: $nextToken
+          ) {
+            items {
+              userProfileProfileId
+              userSettingsProfilesId
+            }
+            nextToken
+          }
+        }
+      `),
+      variables: {
+        filter,
+        nextToken,
+      },
+    });
+    ({ nextToken } = userProfile);
+    items.push(...userProfile.items);
+  } while (nextToken);
+  return items;
+};
+
 module.exports = {
   createCollectionVideoNode,
   createCredit,
@@ -622,4 +663,5 @@ module.exports = {
   updateVideoNode,
   notifyUser,
   listUserCollection,
+  listUserProfile,
 };

@@ -43,7 +43,7 @@ const UserOnboardingModal = () => {
         {t('userOnboardingModal.title')}
       </Typography.Title>
       <p>{nl2br(t('userOnboardingModal.description'))}</p>
-      <NotificationPreferences />
+      <NotificationPreferences.Newsletters />
     </Modal>
   );
 };
