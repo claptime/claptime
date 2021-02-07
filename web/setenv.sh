@@ -9,7 +9,6 @@ get_param() {
   echo `aws ssm --region $AWS_REGION get-parameter --with-decryption --output text --name /$STAGE/$1 --query Parameter.Value 2> /dev/null`
 }
 
-export SLACK_WEBHOOK="$(get_param slack-webhook)"
 export STRIPE_CONNECT_CLIENT_ID="$(get_param stripe-client-id)"
 export STRIPE_PUBLISHABLE_KEY="$(get_param stripe-public-key)"
 export NODE_OPTIONS="--max_old_space_size=8192"
