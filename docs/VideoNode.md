@@ -1,6 +1,14 @@
-# Video status
+# 🤓 Understanding the VideoNode concept
 
-The following flow chart can be previewd in Visual Studio Code using the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension.
+A **VideoNode**, in Claptime jargon, is an abstract type that embraces films, series and series episodes.
+We can see this as a tree structure: a video is a leaf, and can either be a film or a series episode depending if it has a parent node or not. This might sounds complicated at first, but also makes it easier because both concepts are stored and can be queried in the same way.
+
+## Lifecycle
+
+![Video node lifecycle diagram](./images/video-node-lifecycle.png)
+
+<details>
+  <summary>Diagram definition</summary>
 
 ```mermaid
 graph TB
@@ -21,7 +29,9 @@ graph TB
   PublishedStatus --> End
 ```
 
-At any time, the user can also delete the video which immediately deletes it from our database.
+</details>
+
+At any time, the user can also delete the video node which immediately deletes it from our database.
 
 ## Available actions depending on status
 
@@ -33,10 +43,3 @@ At any time, the user can also delete the video which immediately deletes it fro
 | PROCESSING_FAILED |  ✓   |         |           |   ✓    |      |   ✓    |
 |             DRAFT |  ✓   |    ✓    |           |   ✓    |  ✓   |        |
 |         PUBLISHED |  ✓   |         |     ✓     |        |  ✓   |        |
-
-## Required fields to do actions
-
-|         | Title | Description | Category | Release year | Cover | Credits |
-| ------- | :---: | :---------: | :------: | :----------: | :---: | :-----: |
-| Save    |   ✓   |             |          |              |       |         |
-| Publish |   ✓   |      ✓      |    ✓     |      ✓       |   ✓   |         |

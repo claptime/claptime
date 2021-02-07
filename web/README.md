@@ -1,12 +1,12 @@
 # Web
 
-This is an [AWS Amplify](https://aws-amplify.github.io/) + [React](https://reactjs.org) app.
+This is an [AWS Amplify](https://docs.amplify.aws/start/q/integration/next) + [Next.js](https://nextjs.org/) app. See [documentation](../docs/Setup.md) to get started.
 
 ## Folders organization
 
-- `amplify/` amplify configuration
-- `public/` files that should be available publicly, outside of the webpack bundle
-- `src/` Files bundled by webpack.
+- `amplify/` amplify backend definition and configuration
+- `public/` files that should be available publicly, that aren't bundled by webpack
+- `src/` Files bundled by webpack
   - `components/` React components (usually `.jsx` files), following atomic design
     - `atoms/` Basic building blocks (a button)
     - `molecules/` Groups of atoms (a subscribe button)
@@ -16,35 +16,5 @@ This is an [AWS Amplify](https://aws-amplify.github.io/) + [React](https://react
   - `graphql/` GraphQL queries, mutations and subscriptions
   - `lib/` Claptime related helpers
   - `pages/` Next.js route components
-  - `styles/` Less style
+  - `styles/` CSS and LESS stylesheets
   - `utils/` Generic helpers
-
-## Environments/Stages
-
-### Production
-
-- URL: [https://www.clap-time.com](https://www.clap-time.com)
-- Git branch: `#master`
-
-### Staging
-
-- URL: [https://staging.clap-time.com](https://staging.clap-time.com)
-- Git branch: `#develop`
-- Username: `claptime`
-- Password: `crackersstaging`
-
-## Setup a new environment
-
-```bash
-git checkout develop
-npm install
-amplify checkout staging
-amplify env add # No / {ENV_NAME} / Yes / {PROFILE_NAME}
-amplify push # Yes / javascript / src/graphql/**/*.js / Yes / 8
-claptime setup-env
-claptime seed:all
-```
-
-## Local development
-
-You can run the app locally: `npm run dev`. However you will have to configure CORS in order to load videos from the CDN. You can install [CORS Everywhere on Firefox](https://addons.mozilla.org/fr/firefox/addon/cors-everywhere/) or [Allow CORS on Chrome](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
