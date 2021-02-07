@@ -44,6 +44,7 @@ const sampleVideoNode = {
 const recipientEmail = 'test@clap-time.com';
 
 const emailSubjects = {
+  defaultApprove: `${sampleVideoNode.title} a été publié`,
   approve: `${sampleVideoNode.title} a été accepté dans la collection ${sampleCollection.name}`,
   reject: `${sampleVideoNode.title} n'a pas été accepté dans la collection ${sampleCollection.name}`,
   submit: `Nouvelle soumission pour ${sampleCollection.name} : ${sampleVideoNode.title}`,
@@ -75,7 +76,6 @@ describe('emails', () => {
           1,
           expect.objectContaining({
             Destination: {
-              BccAddresses: [FROM_EMAIL],
               ToAddresses: [recipientEmail],
             },
             Source: FROM_EMAIL,

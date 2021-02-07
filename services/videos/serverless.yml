@@ -21,6 +21,7 @@ provider:
       Action: appsync:GraphQL
       Resource:
         - ${self:custom.appsyncPrefix}/Mutation/fields/createCollectionVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/createCredit
         - ${self:custom.appsyncPrefix}/Mutation/fields/createVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCollectionVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCredit

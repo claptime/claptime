@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@slack/webhook": "^5.0.3",
-    "claptime-commons": "file:../../commons"
+    "claptime-commons": "file:../../commons",
+    "scrape-it": "^5.3.1"
   }
 }

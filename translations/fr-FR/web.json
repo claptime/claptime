@@ -161,7 +161,7 @@
         "title": "Juste le temps d'un café...",
         "item1": "Inscrivez-vous et créez votre profil public Claptime avec soin.",
         "item2": "Renseignez la fiche de votre film ou de votre série (synopsis, année de sortie, genre...).",
-        "item3": "Déposez vos fichiers vidéos depuis votre PC, ou importez-les depuis YouTube ou Vimeo."
+        "item3": "Déposez vos fichiers vidéos depuis votre PC, ou importez-les depuis LabFilms, YouTube ou Vimeo."
       },
       "section2": {
         "title": "Une plateforme dédiée au cinéma",
@@ -523,6 +523,7 @@
       "tagline": "Accroche",
       "taglinePlaceholder": "Saisissez une accroche",
       "taglineMaxLength": "L'accroche ne doit pas dépasser 100 caractères.",
+      "acceptSubmissions": "Accepter les soumissions",
       "description": "Description",
       "descriptionPlaceholder": "Saisissez une description",
       "cover": "Image de couverture",
@@ -721,7 +722,7 @@
       "IMPORT": {
         "stepName": "Import",
         "title": "Import",
-        "description": "Votre vidéo est en cours d'import depuis YouTube ou Vimeo. Veuillez patienter, cette page se mettra à jour lorsque celle-ci aura été importée."
+        "description": "Votre vidéo est en cours d'import depuis LabFilms, YouTube ou Vimeo. Veuillez patienter, cette page se mettra à jour lorsque celle-ci aura été importée."
       },
       "UPLOAD": {
         "stepName": "Upload",
@@ -741,7 +742,7 @@
       "DRAFT": {
         "stepName": "Fiche",
         "title": "Traitée",
-        "description": "C'est la première étape, votre vidéo est maintenant prête pour le streaming. Complétez sa fiche (synopsis, festivals, affiche, crédits...) et soumettez la à validation."
+        "description": "C'est la première étape, votre vidéo est maintenant prête pour le streaming. Complétez sa fiche (synopsis, festivals, affiche, crédits...) et publiez-la."
       },
       "PUBLISHED": {
         "stepName": "Publication",
@@ -762,6 +763,7 @@
       "charter": "Avant de mettre en ligne votre film, assurez-vous qu'il respecte <1>notre charte<1>.",
       "modalCharterTitle": "La charte Claptime",
       "title": "Titre",
+      "titleTooltip": "Évitez de surcharger ce champ : n'entrez par exemple pas de caractères spéciaux qui ne sont pas explicitement inclus dans le titre.",
       "titlePlaceholder": "Titre de la vidéo",
       "ttl": "Disponibilité",
       "coverPopoverTitle": "Format recommandé",
@@ -771,8 +773,10 @@
       "ttlDuration": "{{count}} jour",
       "ttlDuration_plural": "{{count}} jours",
       "synopsis": "Synopsis",
+      "synopsisTooltip": "Comme pour le titre, soyez le plus clair possible. Remplissez ce champ de façon à donner envie aux spectateurs de découvrir votre réalisation.",
       "synopsisPlaceholder": "Saisissez un synopsis",
       "festivals": "Festivals",
+      "festivalsTooltip": "Vous pouvez lister ici les différents festivals dans lesquels votre réalisation a été présentée.",
       "festivalsPlaceholder": "Renseignez les sélections et les prix en festivals",
       "category": "Catégorie",
       "categoryPlaceholder": "Catégorie de la vidéo",
@@ -803,8 +807,8 @@
       "deleteSucceeded": "La vidéo a bien été supprimée",
       "deleteFailed": "Une erreur est survenue lors de la suppression de la vidéo",
       "publish": "Publier",
-      "publishConfirm": "Publier (soumettre à validation) ?",
-      "publishSucceeded": "Merci pour votre soumission. Votre vidéo va maintenant être revue avant d'être publiée.",
+      "publishConfirm": "Publier ?",
+      "publishSucceeded": "Votre vidéo a bien été publiée.",
       "publishMissingTitle": "Impossible de publier : la vidéo n'a pas de titre.",
       "publishMissingSynopsis": "Impossible de publier : la vidéo n'a pas de synopsis.",
       "publishMissingCategory": "Impossible de publier : la vidéo n'a pas de catégorie.",
@@ -835,6 +839,7 @@
       "status": "Statut",
       "actions": "Actions",
       "view": "Voir la collection",
+      "cannotRemove": "Vous ne pouvez pas supprimer votre film de la collection par défaut",
       "remove": "Supprimer la soumission",
       "removeConfirm": "Si vous supprimez la soumission, votre film ou série ne sera plus accessible au sein de la collection. Êtes-vous sûr ?",
       "removed": "La soumission a bien été supprimée de la collection.",
@@ -976,10 +981,14 @@
       },
       "actions": {
         "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à hello@clap-time.com",
-        "import": "Importer une vidéo",
+        "import": "Importer une vidéo depuis YouTube ou Vimeo",
+        "importDescription": "Si votre film est disponible sur un hébergeur vidéo comme YouTube ou Vimeo, renseignez le lien pour importer directement la vidéo. Vous pourrez modifier toutes les informations avant publication.",
+        "videoLink": "https://www.youtube.com/watch?v=[video]",
+        "importLabfilms": "Importer une vidéo depuis LabFilms",
+        "importLabfilmsDescription": "Si votre film est disponible sur la plateforme <1>LabFilms</1>, renseignez le lien de sa page projet pour importer directement la vidéo, ainsi que certaines informations (titre, crédits). Vous pourrez modifier toutes les informations avant publication.",
+        "labfilmsLink": "https://www.labfilms.org/projets/[projet]",
         "importButton": "Importer",
-        "upload": "Uploader une vidéo",
-        "videoLink": "Lien de la vidéo (YouTube/Vimeo)"
+        "upload": "Uploader une vidéo"
       },
       "newVideoTitle": "Sans titre"
     },

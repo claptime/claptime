@@ -66,6 +66,7 @@ export const listViews = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -108,6 +109,7 @@ export const listViews = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -132,6 +134,7 @@ export const listViews = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -205,6 +208,7 @@ export const listCollections = /* GraphQL */ `
         status
         tagline
         description
+        acceptSubmissions
         links {
           type
           url
@@ -281,6 +285,7 @@ export const getCollection = /* GraphQL */ `
       status
       tagline
       description
+      acceptSubmissions
       links {
         type
         url
@@ -314,6 +319,7 @@ export const getCollection = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -325,6 +331,7 @@ export const getCollection = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -369,6 +376,7 @@ export const getCollection = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -396,6 +404,7 @@ export const getCollection = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -433,6 +442,7 @@ export const getCollection = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -444,6 +454,7 @@ export const getCollection = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -492,6 +503,7 @@ export const listCollectionsBySlug = /* GraphQL */ `
         status
         tagline
         description
+        acceptSubmissions
         links {
           type
           url
@@ -578,6 +590,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
         status
         tagline
         description
+        acceptSubmissions
         links {
           type
           url
@@ -645,6 +658,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -728,6 +742,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -770,6 +785,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -794,6 +810,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -822,6 +839,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -864,6 +882,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -888,6 +907,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -917,6 +937,7 @@ export const getCollectionVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -971,6 +992,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
           status
           tagline
           description
+          acceptSubmissions
           links {
             type
             url
@@ -1007,6 +1029,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -1049,6 +1072,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1073,6 +1097,7 @@ export const listCollectionVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1136,6 +1161,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
           status
           tagline
           description
+          acceptSubmissions
           links {
             type
             url
@@ -1172,6 +1198,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -1214,6 +1241,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1238,6 +1266,7 @@ export const listCollectionVideoNodesByCollectionAndCategorySortByCreatedAt = /*
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1301,6 +1330,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
           status
           tagline
           description
+          acceptSubmissions
           links {
             type
             url
@@ -1337,6 +1367,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -1379,6 +1410,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1403,6 +1435,7 @@ export const listCollectionVideoNodesByCollectionAndStatus = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1475,6 +1508,7 @@ export const listCredits = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -1517,6 +1551,7 @@ export const listCredits = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1541,6 +1576,7 @@ export const listCredits = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1649,6 +1685,7 @@ export const listProfiles = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -1676,6 +1713,7 @@ export const listProfiles = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1726,6 +1764,7 @@ export const getProfile = /* GraphQL */ `
           status
           tagline
           description
+          acceptSubmissions
           links {
             type
             url
@@ -1784,6 +1823,7 @@ export const getProfile = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1812,6 +1852,7 @@ export const getProfile = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -1854,6 +1895,7 @@ export const getProfile = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1878,6 +1920,7 @@ export const getProfile = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -1931,6 +1974,7 @@ export const listStarringVideoNodes = /* GraphQL */ `
           status
           tagline
           description
+          acceptSubmissions
           links {
             type
             url
@@ -1967,6 +2011,7 @@ export const listStarringVideoNodes = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -2009,6 +2054,7 @@ export const listStarringVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2033,6 +2079,7 @@ export const listStarringVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2092,6 +2139,7 @@ export const listUserCollection = /* GraphQL */ `
           status
           tagline
           description
+          acceptSubmissions
           links {
             type
             url
@@ -2129,57 +2177,6 @@ export const listUserCollection = /* GraphQL */ `
     }
   }
 `;
-export const listUserProfile = /* GraphQL */ `
-  query ListUserProfile(
-    $userSettingsProfilesId: String
-    $listUserProfileProfileId: ModelUserProfilePrimaryCompositeKeyConditionInput
-    $filter: ModelUserProfileFilterInput
-    $limit: Int
-    $nextToken: String
-    $sortDirection: ModelSortDirection
-  ) {
-    listUserProfile(
-      userSettingsProfilesId: $userSettingsProfilesId
-      listUserProfileProfileId: $listUserProfileProfileId
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      sortDirection: $sortDirection
-    ) {
-      items {
-        list
-        userSettingsProfilesId
-        userProfileProfileId
-        createdAt
-        updatedAt
-        profile {
-          id
-          name
-          biography
-          links {
-            type
-            url
-          }
-          searchField
-          createdAt
-          createdBy
-          owner
-          updatedAt
-          collections {
-            nextToken
-          }
-          roles {
-            nextToken
-          }
-          videoNodes {
-            nextToken
-          }
-        }
-      }
-      nextToken
-    }
-  }
-`;
 export const getUserSettings = /* GraphQL */ `
   query GetUserSettings($id: ID!) {
     getUserSettings(id: $id) {
@@ -2191,33 +2188,6 @@ export const getUserSettings = /* GraphQL */ `
         type
         channel
         frequency
-      }
-      owner
-      createdAt
-      updatedAt
-      collections {
-        items {
-          list
-          userSettingsCollectionsId
-          userCollectionCollectionId
-          createdAt
-          updatedAt
-          collection {
-            id
-            slug
-            name
-            status
-            tagline
-            description
-            collectionProfileId
-            searchField
-            createdBy
-            createdAt
-            owner
-            updatedAt
-          }
-        }
-        nextToken
       }
       profiles {
         items {
@@ -2239,6 +2209,34 @@ export const getUserSettings = /* GraphQL */ `
         }
         nextToken
       }
+      owner
+      createdAt
+      updatedAt
+      collections {
+        items {
+          list
+          userSettingsCollectionsId
+          userCollectionCollectionId
+          createdAt
+          updatedAt
+          collection {
+            id
+            slug
+            name
+            status
+            tagline
+            description
+            acceptSubmissions
+            collectionProfileId
+            searchField
+            createdBy
+            createdAt
+            owner
+            updatedAt
+          }
+        }
+        nextToken
+      }
       videoNodes {
         items {
           list
@@ -2250,6 +2248,7 @@ export const getUserSettings = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2303,6 +2302,7 @@ export const listUserVideoNodes = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -2345,6 +2345,7 @@ export const listUserVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2369,6 +2370,7 @@ export const listUserVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2425,6 +2427,7 @@ export const listUserVideoNodesByVideoNodeAndList = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -2467,6 +2470,7 @@ export const listUserVideoNodesByVideoNodeAndList = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2491,6 +2495,7 @@ export const listUserVideoNodesByVideoNodeAndList = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2531,6 +2536,7 @@ export const listVideoNodes = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -2614,6 +2620,7 @@ export const listVideoNodes = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -2656,6 +2663,7 @@ export const listVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2680,6 +2688,7 @@ export const listVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2708,6 +2717,7 @@ export const listVideoNodes = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -2750,6 +2760,7 @@ export const listVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2774,6 +2785,7 @@ export const listVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2803,6 +2815,7 @@ export const listVideoNodes = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2836,6 +2849,7 @@ export const getVideoNode = /* GraphQL */ `
       id
       title
       status
+      watchable
       videoNodeProfileId
       category
       duration
@@ -2859,6 +2873,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2907,6 +2922,7 @@ export const getVideoNode = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -2918,6 +2934,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -2965,6 +2982,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3009,6 +3027,7 @@ export const getVideoNode = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -3036,6 +3055,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3063,6 +3083,7 @@ export const getVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -3146,6 +3167,7 @@ export const getVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3188,6 +3210,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3212,6 +3235,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3240,6 +3264,7 @@ export const getVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3282,6 +3307,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3306,6 +3332,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3335,6 +3362,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3362,6 +3390,7 @@ export const getVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -3445,6 +3474,7 @@ export const getVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3487,6 +3517,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3511,6 +3542,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3539,6 +3571,7 @@ export const getVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3581,6 +3614,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3605,6 +3639,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3634,6 +3669,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3662,6 +3698,7 @@ export const getVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3704,6 +3741,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3728,6 +3766,7 @@ export const getVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3778,6 +3817,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -3861,6 +3901,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3903,6 +3944,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3927,6 +3969,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -3955,6 +3998,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -3997,6 +4041,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4021,6 +4066,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4050,6 +4096,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4098,6 +4145,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -4181,6 +4229,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -4223,6 +4272,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4247,6 +4297,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4275,6 +4326,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -4317,6 +4369,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4341,6 +4394,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4370,6 +4424,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4416,6 +4471,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -4499,6 +4555,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -4541,6 +4598,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4565,6 +4623,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4593,6 +4652,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -4635,6 +4695,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4659,6 +4720,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -4688,6 +4750,7 @@ export const listVideoNodesByParent = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration

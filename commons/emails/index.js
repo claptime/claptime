@@ -19,6 +19,7 @@ const getCompiledTemplate = (type, name, output) =>
 // TODO i18n
 const getTitle = (templateName, params) =>
   ({
+    defaultApprove: `${params.videoNode.title} a été publié`,
     approve: `${params.videoNode.title} a été accepté dans la collection ${
       params.collection ? params.collection.name : 'NA'
     }`,
@@ -102,7 +103,6 @@ const sendEmailToUser = async (
       },
     },
     Destination: {
-      BccAddresses: [FROM_EMAIL],
       ToAddresses: [toEmail],
     },
     Source: FROM_EMAIL,

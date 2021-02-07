@@ -35,6 +35,7 @@ type Collection
   starringVideoNodes: [StarringVideoNode] @connection(name: "CollectionStarringVideoNode")
   tagline: String
   description: String
+  acceptSubmissions: Boolean
   links: [Link]
   categories: [CollectionCategory]
   videoNodes: [CollectionVideoNode] @connection(name: "CollectionVideoNode")

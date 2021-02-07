@@ -24,6 +24,7 @@ const SubmitToCollection = ({ videoNode, onChange }) => {
       variables: {
         filter: {
           status: { eq: 'PUBLISHED' },
+          acceptSubmissions: { eq: true },
         },
       },
     },

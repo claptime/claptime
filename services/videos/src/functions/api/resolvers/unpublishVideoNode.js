@@ -7,7 +7,6 @@ const {
   listVideoNodesByParent,
   updateVideoNode,
 } = require('../../../lib/models');
-const { slackVideoNode } = require('../../../lib/slack');
 
 module.exports = async (event) => {
   const {
@@ -25,7 +24,7 @@ module.exports = async (event) => {
   }
 
   console.log(`Unpublishing VideoNode ${videoNodeId}`);
-  const { title, type } = await updateVideoNode({
+  await updateVideoNode({
     id: videoNodeId,
     status: 'DRAFT',
   });
@@ -91,8 +90,6 @@ module.exports = async (event) => {
       console.log('No previous episode found, skipping');
     }
   }
-
-  await slackVideoNode('unpublished', { id: videoNodeId, type, title });
 
   return getVideoNode(videoNodeId);
 };

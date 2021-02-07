@@ -80,7 +80,7 @@ const handleEmail = async (identity, type, frequency) => {
         frequency === 'ALWAYS',
       );
     case 'EMAIL_NOTIFICATION':
-      break;
+      return {};
     default:
       throw new Error(`UnhandledNotificationType ${type}`);
   }

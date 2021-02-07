@@ -5,6 +5,7 @@ export { default as Covers } from './Covers';
 export { default as IconButton } from './IconButton';
 export { default as Icons } from './Icons';
 export { default as Image } from './Image';
+export { default as Link } from './Link';
 export { default as Logo } from './Logo';
 export { default as PlayButton } from './PlayButton';
 export { default as Spin } from './Spin';

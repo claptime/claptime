@@ -1,9 +1,9 @@
 {
   "typeName": "Mutation",
-  "fieldName": "importVideo",
+  "fieldName": "importVideoLabfilms",
   "arguments": {
     "videoNodeId": "0fbe7004-a52a-49a0-85e0-967265cd6172",
-    "videoLink": "https://www.youtube.com/watch?v=ce6xNSyRMCo&feature=emb_title"
+    "labfilmsLink": "https://www.labfilms.org/projets/calinophilie-court-metrage"
   },
   "identity": {
     "claims": {
