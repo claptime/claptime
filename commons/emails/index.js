@@ -19,9 +19,21 @@ const getCompiledTemplate = (type, name, output) =>
 // TODO i18n
 const getTitle = (templateName, params) =>
   ({
-    approve: `${params.videoNode.title} a été accepté dans la collection ${params.collection.name}`,
-    reject: `${params.videoNode.title} n'a pas été accepté dans la collection ${params.collection.name}`,
-    submit: `Nouvelle soumission pour ${params.collection.name} : ${params.videoNode.title}`,
+    approve: `${params.videoNode.title} a été accepté dans la collection ${
+      params.collection ? params.collection.name : 'NA'
+    }`,
+    reject: `${params.videoNode.title} n'a pas été accepté dans la collection ${
+      params.collection ? params.collection.name : 'NA'
+    }`,
+    submit: `Nouvelle soumission pour ${
+      params.collection ? params.collection.name : 'NA'
+    } : ${params.videoNode.title}`,
+    filmmakerPublishedVideoNode: `${
+      params.profile ? params.profile.name : 'NA'
+    } a mis en ligne un nouveau film`,
+    videoNodeAddedToCollection: `Nouvel ajout dans la collection ${
+      params.collection ? params.collection.name : 'NA'
+    }`,
   }[templateName]);
 
 Handlebars.registerPartial(

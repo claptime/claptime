@@ -4,29 +4,7 @@ const {
 const { getParam } = require('claptime-commons/ssm');
 const { appSyncClient, gql } = require('claptime-commons/appsync');
 const { updateMailchimp } = require('../lib/mailchimp');
-
-const getNotificationPreferences = async (username) => {
-  const {
-    data: {
-      getUserSettings: { notifications },
-    },
-  } = await appSyncClient.query({
-    query: gql(`query GetUserSettings($id: ID!) {
-      getUserSettings(id: $id) {
-        id
-        notifications {
-          type
-          channel
-          frequency
-        }
-      }
-    }`),
-    variables: {
-      id: username,
-    },
-  });
-  return notifications || [];
-};
+const { getUserSettings } = require('../lib/models');
 
 const updateNotificationPreferences = async (username, preferences) => {
   await appSyncClient.mutate({
@@ -50,9 +28,7 @@ const updateNotificationPreference = async (
   channel,
   frequency,
 ) => {
-  const currentPreferences = await getNotificationPreferences(
-    identity.username,
-  );
+  const currentPreferences = await getUserSettings(identity.username);
   console.log(
     `Current notification preferences for ${identity.username}:`,
     currentPreferences,
@@ -103,6 +79,8 @@ const handleEmail = async (identity, type, frequency) => {
         identity,
         frequency === 'ALWAYS',
       );
+    case 'EMAIL_NOTIFICATION':
+      break;
     default:
       throw new Error(`UnhandledNotificationType ${type}`);
   }

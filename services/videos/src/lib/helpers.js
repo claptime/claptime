@@ -1,3 +1,5 @@
+const { pLimit } = require('claptime-commons/promise');
+
 const { sendEmailToUser } = require('claptime-commons/emails');
 const { getCognitoUserById } = require('claptime-commons/cognito');
 const { updateCollectionVideoNode } = require('./models');
@@ -69,8 +71,6 @@ const submitToCollection = async (
   );
   console.log('Email sent to collection owner');
 
-  // send notification to users who are subscribing to the collection
-
   await slackVideoNode('published', videoNode);
   console.log('Slack message sent');
   return collectionVideoNode;
@@ -78,10 +78,12 @@ const submitToCollection = async (
 
 const notifyUsers = async (usersList, type, channels, payload) => {
   console.log(`-> Send notification to ${usersList.length} users.`);
+  const limit = pLimit(10);
+
   await Promise.all(
-    usersList.map((user) => {
-      return notifyUser(user, type, channels, payload);
-    }),
+    usersList.map((user) =>
+      limit(() => notifyUser(user, type, channels, payload)),
+    ),
   );
 };
 
@@ -130,11 +132,12 @@ const validateSubmission = async (
     console.log(
       `Create notification for users who subscribe to collection ${collection.name} (id : ${collection.id}`,
     );
-    const channels = ['WEB'];
+    const channels = ['WEB', 'EMAIL'];
     const payload = JSON.stringify({
       collection: {
         name: collection.name,
         id: collection.id,
+        slug: collection.slug,
       },
       videoNode: {
         type: videoNode.type,
@@ -165,7 +168,7 @@ const notifySubscribingUsers = async (videoNode, profile) => {
   console.log(
     `Create notification for users who follow ${profile.name} (profileId : ${profile.id})`,
   );
-  const channels = ['WEB'];
+  const channels = ['WEB', 'EMAIL'];
   const payload = JSON.stringify({
     profile,
     videoNode: {
