@@ -9,6 +9,7 @@ export { default as ImageInput } from './ImageInput';
 export { default as Layouts } from './Layouts';
 export { default as Links } from './Links';
 export { default as PageHeader } from './PageHeader';
+export { default as PlayButton } from './PlayButton';
 export { default as ProfileLink } from './ProfileLink';
 export { default as RoutedTabs } from './RoutedTabs';
 export { default as SearchBar } from './SearchBar';

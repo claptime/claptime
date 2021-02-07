@@ -5,12 +5,13 @@ import { Button, Carousel, Typography, Tooltip, Tabs, Empty } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { Covers, PlayButton, TextExpand } from 'claptime/components/atoms';
+import { Covers, TextExpand } from 'claptime/components/atoms';
 import Clap from 'claptime/components/organisms/Clap';
 import {
   AddToList,
   Cards,
   CreditsInput,
+  PlayButton,
   ProfileLink,
 } from 'claptime/components/molecules';
 import { StaticVideosList } from 'claptime/components/organisms/VideosList';
@@ -293,7 +294,7 @@ const Video = ({ video }) => {
         {video.type === 'FILM' && (
           <PlayAndEpisodes>
             <div style={{ display: 'inline-block' }}>
-              <PlayButton videoId={video.id} />
+              <PlayButton videoNode={video} />
               {ttl && (
                 <Tooltip
                   title={t('video.ttlTooltip', {
