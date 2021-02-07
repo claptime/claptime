@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 
@@ -40,19 +40,6 @@ const StyledHeader = styled(Header)`
 `;
 
 const NavBarTemplate = ({ children, collapsed }) => {
-  const [windowDimensions, setWindowDimensions] = useState({});
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
   const user = useUserState();
 
   if (!user.loaded) {
@@ -71,10 +58,7 @@ const NavBarTemplate = ({ children, collapsed }) => {
     <>
       <Layout>
         <StyledHeader color={primary}>
-          <NavBar
-            logoSize={collapsed ? 'small' : 'large'}
-            logoColor={windowDimensions.width >= 1024 ? primary : 'white'}
-          />
+          <NavBar logoSize={collapsed ? 'small' : 'large'} />
         </StyledHeader>
         {children}
         <Footer />
