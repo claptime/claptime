@@ -18,7 +18,6 @@ import {
 } from 'claptime/lib/user';
 import { initAmplify } from 'claptime/lib/amplify';
 import getApolloClient from 'claptime/lib/apollo';
-import { initChat } from 'claptime/lib/chat';
 import { initFacebook } from 'claptime/lib/facebook';
 import i18n from 'claptime/lib/i18n';
 import { initMonitoring } from 'claptime/lib/monitoring';
@@ -38,7 +37,6 @@ const App = ({ Component, pageProps }) => {
   const user = useUserState();
   useEffect(() => {
     initAmplify();
-    initChat();
     initFacebook();
     initMonitoring();
     Hub.listen('auth', async ({ payload: { event } }) => {
