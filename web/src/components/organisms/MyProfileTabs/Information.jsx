@@ -11,7 +11,6 @@ import { ImageInput, Layouts, Links } from 'claptime/components/molecules';
 import consts from 'claptime/consts';
 import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
 import { getUrl } from 'claptime/lib/profiles';
-import { profileUpdateSlackAlert } from 'claptime/lib/slack';
 import { useUserDispatch, useUserState, userActions } from 'claptime/lib/user';
 import {
   createProfile,
@@ -132,14 +131,6 @@ const Information = () => {
         message.error(t('myProfilePage.information.errorUploadingAvatar'));
       }
     }
-
-    await profileUpdateSlackAlert(
-      user,
-      fieldsValue.name,
-      fieldsValue.biography,
-      links,
-      currentProfileId,
-    );
 
     try {
       await refetch();

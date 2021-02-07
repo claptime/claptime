@@ -1,72 +1,41 @@
-# Claptime
+# 🎬 Claptime
 
-## Install
+[![Homepage](./docs/images/screenshot-homepage.png)](https://www.clap-time.com/)
 
-### Node.js
+## 👀 About
 
-Node 12 or greater. Usage of [nvm](https://github.com/nvm-sh/nvm) is recommended.
+🎯 **[Claptime](https://www.clap-time.com/)** is a video on demand platform dedicated to indie movies. Your can find more information about the project in [our manifest](https://www.clap-time.com/about/project/manifest/). It is now part of the [LabFilms ecosystem](https://info.labfilms.org/).
 
-```bash
-nvm use
-```
+🎁 This repository hosts the code of the whole platform available at [www.clap-time.com](https://www.clap-time.com). Use it well, my friend.
 
-### Amplify CLI
+🇫🇷 At this time, the platform is only available in French, and distributes French-speaking movies. While the source code and the documentation are in English, you might come across some external resources in French.
 
-```bash
-npm install --global @aws-amplify/cli@latest
-```
+🏴‍☠️ The source code of Claptime is distributed under the terms of [The Unlicense](./LICENSE.md). Please note that this does not apply to the Claptime trademark nor the graphic assets.
 
-### CLI
+💬 Any help would be much appreciated. If you like the project and want to give a hand, drop us an email at [hello@clap-time.com](mailto:hello@clap-time.com). There are many ways to contribute: development, design, communication, film curation, testing, and of course feedback. If you're familiar with GitHub, feel free to open [issues](issues/) and [pull requests](pulls/) as well.
 
-The Claptime CLI will be installed along with this package.
+## 🏛 Overview
 
-```bash
-npm ci
-claptime --help
-```
+Claptime is a cloud application hosted on AWS and leverages as much as possible serverless and managed services. The following diagram describes its high-level architecture:
 
-## Set parameters
+[![Architecture diagram](./docs/images/architecture-diagram.png)](https://www.clap-time.com/)
 
-```bash
-STAGE=staging
-REGION=eu-west-1
+Claptime is built with the [AWS Amplify framework](https://aws.amazon.com/amplify/), which makes the glue between our frontend and our backend. You wll find the Amplify application in `web/`.
 
-aws ssm --region $REGION put-parameter --overwrite --name /$STAGE/slack-webhook --type String --value "[VALUE]"
-```
+It also uses the [Serverless framework](https://www.serverless.com/open-source/) to create some custom [services](./services/). Shared libraries are defined in the [commons package](./commons).
 
-### Create and setup a new environment
+A [`claptime` CLI](./cli/) is available and provides useful commands to developers for deployments, migrations and local development. Some [fixtures](./fixtures) are available to fill your developer environment with real data.
 
-```bash
-STAGE=mystage
-cd web
-amplify init
-? Do you want to use an existing environment? No
-? Enter a name for the environment $STAGE
-? Do you want to use an AWS profile? Yes
-? Please choose the profile you want to use default
+It uses GitHub Actions to run some code checks (see [workflows](./.github/workflows)), and Amplify Hosting to deploy and host the app (see the [cd.yml](./cd.yml) CloudFormation stack and the [amplify.yml](./amplify.yml) CD configuration).
 
-git checkout -B $STAGE
-git add amplify/team-provider-info.json
-git commit -m "adding new env"
-# about 5 minutes
-amplify push
-? Are you sure you want to continue? Yes
-? Do you want to update code for your updated GraphQL API Yes
-? Do you want to generate GraphQL statements (queries, mutations and subscription) based on your schema types?
-This will overwrite your current graphql queries, mutations and subscriptions Yes
+## 📚 Documentation
 
-claptime deploy:all
+### [🧑‍💻 Developer setup](./docs/Setup.md)
 
-claptime setup-env
-claptime seed:all
-claptime seed:videos
+### [💾 Data storage](./docs/Storage.md)
 
-npm run dev
-# go to localhost:3000
-```
+### [🤓 Understanding the VideoNode concept](./docs/VideoNode.md)
 
-### Lint
+### [💸 Donations workflow](./docs/Donations.md)
 
-```bash
-npm run lint
-```
+Note: Some diagrams and charts are written using [Mermaid](https://mermaid-js.github.io/mermaid). When editing their definition, they can be previewed in Visual Studio Code using the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension.

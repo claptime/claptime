@@ -1,4 +1,4 @@
-# Payments
+# 💸 Donations
 
 ## Stripe for creators
 

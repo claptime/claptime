@@ -14,6 +14,10 @@ import { deleteCollectionVideoNode } from 'claptime/graphql/collections';
 import { useApolloClient, useQueryGet } from 'claptime/lib/apollo';
 import PropTypes from 'claptime/lib/prop-types';
 
+import consts from 'claptime/consts';
+
+const { collections } = consts;
+
 const VideoNodeSubmissions = ({ videoNodeId }) => {
   const { t } = useTranslation();
   const apolloClient = useApolloClient();
@@ -110,40 +114,57 @@ const VideoNodeSubmissions = ({ videoNodeId }) => {
     {
       title: t('submissions.table.actions'),
       key: 'actions',
-      render: (text, record) => (
-        <ButtonGroup>
-          <Tooltip title={t('submissions.table.view')}>
-            <Link
-              href="/collection/[collection]"
-              as={`/collection/${record.collection.slug}`}
-            >
-              <a>
-                <Button icon={<EyeOutlined />} />
-              </a>
-            </Link>
-          </Tooltip>
-          <Tooltip title={t('submissions.table.remove')}>
-            <Popconfirm
+      render: (text, record) => {
+        const isDefaultCollection =
+          record.collection.slug === collections.default.slug;
+        return (
+          <ButtonGroup>
+            <Tooltip title={t('submissions.table.view')}>
+              <Link
+                href="/collection/[collection]"
+                as={`/collection/${record.collection.slug}`}
+              >
+                <a>
+                  <Button icon={<EyeOutlined />} />
+                </a>
+              </Link>
+            </Tooltip>
+            <Tooltip
               title={
-                <div
-                  style={{
-                    maxWidth: 300,
-                  }}
-                >
-                  <h3>{t('submissions.table.remove')}</h3>
-                  <p>{t('submissions.table.removeConfirm')}</p>
-                </div>
+                isDefaultCollection
+                  ? t('submissions.table.cannotRemove')
+                  : t('submissions.table.remove')
               }
-              onConfirm={() => removeSubmission(record.id)}
-              okText={t('submissions.table.confirmYes')}
-              cancelText={t('submissions.table.confirmNo')}
-              icon={<DeleteOutlined style={{ color: 'red' }} />}
             >
-              <Button icon={<DeleteOutlined style={{ color: 'red' }} />} />
-            </Popconfirm>
-          </Tooltip>
-        </ButtonGroup>
-      ),
+              <Popconfirm
+                title={
+                  <div
+                    style={{
+                      maxWidth: 300,
+                    }}
+                  >
+                    <h3>{t('submissions.table.remove')}</h3>
+                    <p>{t('submissions.table.removeConfirm')}</p>
+                  </div>
+                }
+                onConfirm={() => removeSubmission(record.id)}
+                okText={t('submissions.table.confirmYes')}
+                cancelText={t('submissions.table.confirmNo')}
+                icon={<DeleteOutlined style={{ color: 'red' }} />}
+              >
+                <Button
+                  disabled={isDefaultCollection}
+                  icon={
+                    <DeleteOutlined
+                      style={{ color: isDefaultCollection ? 'grey' : 'red' }}
+                    />
+                  }
+                />
+              </Popconfirm>
+            </Tooltip>
+          </ButtonGroup>
+        );
+      },
     },
   ];
 

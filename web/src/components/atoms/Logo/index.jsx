@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-
 import styled from 'styled-components';
 
+import consts from 'claptime/consts';
 import PropTypes from 'claptime/lib/prop-types';
 
 const StyledLogo = styled.svg`
@@ -76,7 +76,8 @@ LargeLogo.propTypes = {
   color: PropTypes.string.isRequired,
 };
 
-const Logo = ({ color, size }) => {
+const Logo = ({ size }) => {
+  const color = consts.style.colors.primary;
   return (
     <Link href="/">
       <a>
@@ -88,12 +89,10 @@ const Logo = ({ color, size }) => {
 };
 
 Logo.propTypes = {
-  color: PropTypes.string,
   size: PropTypes.oneOf(['small', 'large']),
 };
 
 Logo.defaultProps = {
-  color: 'white',
   size: 'large',
 };
 

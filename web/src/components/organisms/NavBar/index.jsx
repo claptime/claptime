@@ -94,6 +94,11 @@ const StyledNav = styled.nav`
     display: none;
   }
   @media (max-width: 1023px) {
+    .logo g,
+    .logo g path {
+      fill: white;
+    }
+
     #claptime-notifications-menu-container {
       display: block;
       margin-left: auto;
@@ -174,14 +179,14 @@ const StyledDrawer = styled(Drawer)`
   }
 `;
 
-const NavBar = ({ logoSize, logoColor }) => {
+const NavBar = ({ logoSize }) => {
   const [visible, setVisible] = useState(false);
   const user = useUserState();
 
   return (
     <StyledNav className="nav-bar" style={{ width: '100%', display: 'flex' }}>
       <div className="logo" style={{ height: 40, textAlign: 'center' }}>
-        <Logo color={logoColor} size={logoSize} />
+        <Logo size={logoSize} />
       </div>
       <div className="menu-items">
         <LeftMenu mode="horizontal" />
@@ -216,12 +221,10 @@ const NavBar = ({ logoSize, logoColor }) => {
 
 NavBar.propTypes = {
   logoSize: PropTypes.oneOf(['small', 'large']),
-  logoColor: PropTypes.string,
 };
 
 NavBar.defaultProps = {
   logoSize: 'large',
-  logoColor: `${primary}`,
 };
 
 export default NavBar;

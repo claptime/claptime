@@ -1,5 +1,4 @@
 const { getVideoNode, updateVideoNode } = require('../../../lib/models');
-const { slackVideoNode } = require('../../../lib/slack');
 
 module.exports = async (event) => {
   const {
@@ -32,13 +31,8 @@ module.exports = async (event) => {
       2,
     )}`,
   );
-  const { status, type } = await updateVideoNode(input);
+  await updateVideoNode(input);
   console.log('-> VideoNode updated');
-
-  // Slack alert
-  if (status === 'PUBLISHED') {
-    await slackVideoNode('meta updated', { id: videoNodeId, type, title });
-  }
 
   return getVideoNode(videoNodeId);
 };

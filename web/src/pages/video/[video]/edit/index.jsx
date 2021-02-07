@@ -622,7 +622,14 @@ const VideoEditPage = () => {
                         message: t('video.edit.required'),
                       },
                     ]}
-                    label={t('video.edit.title')}
+                    label={
+                      <span>
+                        <Tooltip title={t('video.edit.titleTooltip')}>
+                          <InfoCircleOutlined />
+                        </Tooltip>
+                        {` ${t('video.edit.title')}`}
+                      </span>
+                    }
                   >
                     <Input
                       placeholder={t('video.edit.titlePlaceholder', {
@@ -635,7 +642,17 @@ const VideoEditPage = () => {
                       onChange={() => setUnsavedChanges(true)}
                     />
                   </Form.Item>
-                  <Form.Item name="synopsis" label={t('video.edit.synopsis')}>
+                  <Form.Item
+                    name="synopsis"
+                    label={
+                      <span>
+                        <Tooltip title={t('video.edit.synopsisTooltip')}>
+                          <InfoCircleOutlined />
+                        </Tooltip>
+                        {` ${t('video.edit.synopsis')}`}
+                      </span>
+                    }
+                  >
                     <Input.TextArea
                       rows={6}
                       placeholder={t('video.edit.synopsisPlaceholder')}
@@ -643,7 +660,17 @@ const VideoEditPage = () => {
                       onChange={() => setUnsavedChanges(true)}
                     />
                   </Form.Item>
-                  <Form.Item name="festivals" label={t('video.edit.festivals')}>
+                  <Form.Item
+                    name="festivals"
+                    label={
+                      <span>
+                        <Tooltip title={t('video.edit.festivalsTooltip')}>
+                          <InfoCircleOutlined />
+                        </Tooltip>
+                        {` ${t('video.edit.festivals')}`}
+                      </span>
+                    }
+                  >
                     <Input.TextArea
                       rows={6}
                       placeholder={t('video.edit.festivalsPlaceholder')}
