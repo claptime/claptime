@@ -39,7 +39,6 @@ module.exports = async (event) => {
   await updateVideoNode({
     id: videoNodeId,
     title: data.title || '',
-    synopsis: data.description || '',
   });
 
   // Credits
