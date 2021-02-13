@@ -9,7 +9,6 @@ import PropTypes from 'claptime/lib/prop-types';
 
 import consts from 'claptime/consts';
 import { Button, Title } from 'claptime/components/atoms';
-import { text2span } from 'claptime/utils/i18n';
 
 // Duration of the longest animation
 const LOOP_DURATION_MS = 8960;

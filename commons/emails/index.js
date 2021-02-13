@@ -77,9 +77,8 @@ Handlebars.registerHelper('getTranslationType', (videoNodeType, upperCase) => {
   };
   if(upperCase) {
     return translation[videoNodeType].charAt(0).toUpperCase() + translation[videoNodeType].slice(1);
-  } else {
-    return translation[videoNodeType];
   }
+  return translation[videoNodeType];
 });
 
 const sendEmailToUser = async (
