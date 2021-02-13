@@ -179,6 +179,7 @@ const notifySubscribingUsers = async (videoNode, profile) => {
     videoNode: {
       title: videoNode.title,
       id: videoNode.id,
+      type: videoNode.type
     },
   });
   await notifyUsers(

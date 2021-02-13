@@ -70,6 +70,18 @@ Handlebars.registerHelper('getCollectionSubmissionsLink', (collection) => {
   return `${getDomain()}/collection/${collection.slug}/submissions`;
 });
 
+Handlebars.registerHelper('getTranslationType', (videoNodeType, upperCase) => {
+  const translation = {
+    FILM: 'un nouveau film',
+    SERIES: 'une nouvelle série'
+  };
+  if(upperCase) {
+    return translation[videoNodeType].charAt(0).toUpperCase() + translation[videoNodeType].slice(1);
+  } else {
+    return translation[videoNodeType];
+  }
+});
+
 const sendEmailToUser = async (
   templateName,
   identity,
