@@ -52,7 +52,7 @@ const Container = styled.div`
   .illustration-legend {
     margin: 0 8%;
     h2 {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
   }
 
@@ -60,8 +60,8 @@ const Container = styled.div`
     margin-left: 9%;
   }
 
-  .illustration-title span {
-    text-shadow: ${(props) => props.mainColor} 0 0 2px;
+  .illustration-title {
+    text-align: center;
   }
 
   .carousel-title span {
@@ -135,7 +135,7 @@ const getSection = (path, title, text, playing) => {
     <div className="illustration-section" key={path}>
       {getLottie(path, playing)}
       <div className="illustration-legend">
-        <h2 className="illustration-title">{text2span(title)}</h2>
+        <h2 className="illustration-title">{title}</h2>
         <p className="illustration-text">{text}</p>
       </div>
     </div>

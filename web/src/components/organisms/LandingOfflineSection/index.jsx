@@ -10,11 +10,7 @@ const { device } = consts;
 
 const BackgroundContainer = styled.div`
   @media ${device.mobileS} {
-    background: linear-gradient(
-        rgba(255, 255, 255, ${(props) => props.opacity || 0}),
-        rgba(255, 255, 255, ${(props) => props.opacity || 0})
-      ),
-      url(/assets/backgrounds/camera.svg);
+    background: url(/assets/backgrounds/camera.svg);
 
     background-repeat: no-repeat;
     background-size: 100%;
@@ -43,14 +39,9 @@ const BackgroundContainer = styled.div`
 `;
 
 const OfflineSection = () => {
-  const [opacity, setOpacity] = useState(0);
-  window.addEventListener('scroll', () => {
-    setOpacity(window.scrollY / window.innerHeight);
-  });
-
   return (
     <>
-      <BackgroundContainer opacity={opacity}>
+      <BackgroundContainer>
         <Banner />
       </BackgroundContainer>
       <Details />
