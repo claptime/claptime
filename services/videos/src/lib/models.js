@@ -235,6 +235,7 @@ const getVideoNode = async (videoNodeId) => {
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration

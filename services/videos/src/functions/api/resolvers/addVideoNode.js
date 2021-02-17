@@ -12,6 +12,7 @@ module.exports = async (event) => {
   const { id } = await createVideoNode({
     status: status[type],
     videoNodeProfileId: profileId,
+    watchable: true,
     title: ' ',
     createdBy: username,
     owner: username,
