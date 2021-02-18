@@ -178,9 +178,7 @@ const Notifications = () => {
             type: videoNodeType,
           },
         } = jsonPayload;
-        const newType = t(
-          `notifications.videoNodeAddedByFilmmaker.${videoNodeType}`,
-        );
+        const newType = t(`notifications.${videoNodeType}`);
         link = `/video/${videoNodeId}`;
         extra = <Covers.Profile width={69} height={92} profileId={profileId} />;
         notificationDescription = (
