@@ -47,7 +47,8 @@ class CheckAllVideoInDefaultCollectionCommand extends Command {
     const videoNodesNotInDefaultCollection = videoNodes.filter(
       (item) =>
         !videoNodesInDefaultCollection.includes(item.id) &&
-        item.status === 'PUBLISHED',
+        item.status === 'PUBLISHED' &&
+        item.nodeType === 'ROOT',
     );
 
     await dynamodb.putItems(
