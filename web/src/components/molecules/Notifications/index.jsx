@@ -169,6 +169,26 @@ const Notifications = () => {
         );
         break;
       }
+      case 'VIDEO_NODE_ADDED_BY_FILMMAKER': {
+        const {
+          profile: { name: profileName, id: profileId },
+          videoNode: {
+            id: videoNodeId,
+            title: videoNodeTitle,
+            type: videoNodeType,
+          },
+        } = jsonPayload;
+        const newType = t(`notifications.${videoNodeType}`);
+        link = `/video/${videoNodeId}`;
+        extra = <Covers.Profile width={69} height={92} profileId={profileId} />;
+        notificationDescription = (
+          <Trans i18nKey="notifications.videoNodeAddedByFilmmaker">
+            <strong>{{ profileName }}</strong>1{{ newType }}3
+            <strong>{{ videoNodeTitle }}</strong>
+          </Trans>
+        );
+        break;
+      }
       default:
         link = '/';
         notificationDescription = 'not handled';

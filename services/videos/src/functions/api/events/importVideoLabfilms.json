@@ -1,0 +1,63 @@
+{
+  "typeName": "Mutation",
+  "fieldName": "importVideoLabfilms",
+  "arguments": {
+    "videoNodeId": "0fbe7004-a52a-49a0-85e0-967265cd6172",
+    "labfilmsLink": "https://www.labfilms.org/projets/calinophilie-court-metrage"
+  },
+  "identity": {
+    "claims": {
+      "sub": "1dec54b1-8327-4b5f-a3ff-5803510c7d17",
+      "email_verified": true,
+      "birthdate": "2019-03-18",
+      "iss": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_TiC1wJSsS",
+      "cognito:username": "1dec54b1-8327-4b5f-a3ff-5803510c7d17",
+      "given_name": "Regular",
+      "aud": "4i3fi5alrqifvqbvjk0h85160h",
+      "event_id": "36152130-171b-4d6a-9cb5-52b6fd3cedbc",
+      "token_use": "id",
+      "auth_time": 1595410203,
+      "exp": 1595502563,
+      "iat": 1595498963,
+      "family_name": "Claptime",
+      "email": "user-regular@clap-time.com"
+    },
+    "defaultAuthStrategy": "ALLOW",
+    "groups": null,
+    "issuer": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_TiC1wJSsS",
+    "sourceIp": ["213.245.27.145"],
+    "sub": "1dec54b1-8327-4b5f-a3ff-5803510c7d17",
+    "username": "1dec54b1-8327-4b5f-a3ff-5803510c7d17"
+  },
+  "source": null,
+  "request": {
+    "headers": {
+      "x-forwarded-for": "213.245.27.145, 70.132.16.72",
+      "accept-encoding": "gzip, deflate, br",
+      "cloudfront-viewer-country": "FR",
+      "cloudfront-is-tablet-viewer": "false",
+      "referer": "http://localhost:3000/my-profile/videos",
+      "via": "2.0 e1228fe256c8bfaa20fd0e879d865614.cloudfront.net (CloudFront)",
+      "cloudfront-forwarded-proto": "https",
+      "origin": "http://localhost:3000",
+      "content-type": "application/json",
+      "x-amzn-trace-id": "Root=1-5f1963fd-8877ece85b37c39b09e98004",
+      "x-amz-cf-id": "Od__dGx0X0fa2BTXJTsyAdOleJpBp7JEEp_6imu5xca4bANjw_9ORw==",
+      "authorization": "eyJraWQiOiJZcXk0TWtRb05tU0hwdkI5enpNdVVTTktxczBQaGtCZ3VmRzJcL3UxZVJKRT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxZGVjNTRiMS04MzI3LTRiNWYtYTNmZi01ODAzNTEwYzdkMTciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYmlydGhkYXRlIjoiMjAxOS0wMy0xOCIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0xX1RpQzF3SlNzUyIsImNvZ25pdG86dXNlcm5hbWUiOiIxZGVjNTRiMS04MzI3LTRiNWYtYTNmZi01ODAzNTEwYzdkMTciLCJnaXZlbl9uYW1lIjoiUmVndWxhciIsImF1ZCI6IjRpM2ZpNWFscnFpZnZxYnZqazBoODUxNjBoIiwiZXZlbnRfaWQiOiIzNjE1MjEzMC0xNzFiLTRkNmEtOWNiNS01MmI2ZmQzY2VkYmMiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTU5NTQxMDIwMywiZXhwIjoxNTk1NTAyNTYzLCJpYXQiOjE1OTU0OTg5NjMsImZhbWlseV9uYW1lIjoiQ2xhcHRpbWUiLCJlbWFpbCI6InVzZXItcmVndWxhckBjbGFwLXRpbWUuY29tIn0.hPjNgCglCRcU01gETzE6deiua9yMjSY9onjKsTI4iXq5_U1uss3gMVr7-aXtYGm5rxdnDmBrDb9Vd3nZTzLzVwz2JlXuDiMsbJreRZnH9_tK3Z4Y5hL7bBMoCZU-AzsRXLY_f7-lHdJx5Rcy5yoRubHQ1u7x5ypRTj1iquGhk0rsZn_iYgzmTHmD5H1EuJeC4B1Mn6fCchIwPCQU2rPqnIn2rAa6DSctYNKN2c9aBq-832CDY28IWpSg5q7sqN71Judnn5oCxnyaN743CO3fKVLMACrvHZ7PKnAipd-2KHziZ88Y4RrRRbiZGIkegI5DSpcKY_eTtMLFF8XNkTdEOw",
+      "content-length": "290",
+      "x-amz-user-agent": "aws-amplify/2.0.1",
+      "x-forwarded-proto": "https",
+      "host": "qmrkmqagfbbuvhcy6it6qducfy.appsync-api.eu-west-1.amazonaws.com",
+      "accept-language": "en-US,en;q=0.8,fr;q=0.5,fr-FR;q=0.3",
+      "user-agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+      "cloudfront-is-desktop-viewer": "true",
+      "cloudfront-is-mobile-viewer": "false",
+      "accept": "*/*",
+      "x-forwarded-port": "443",
+      "cloudfront-is-smarttv-viewer": "false"
+    }
+  },
+  "prev": {
+    "result": {}
+  }
+}

@@ -10,7 +10,9 @@ const { device } = consts;
 
 const BackgroundContainer = styled.div`
   @media ${device.mobileS} {
-    background: url(/assets/backgrounds/camera.svg) no-repeat center 0 scroll;
+    background: url(/assets/backgrounds/camera.svg);
+
+    background-repeat: no-repeat;
     background-size: 100%;
     section {
       padding-top: 60%;

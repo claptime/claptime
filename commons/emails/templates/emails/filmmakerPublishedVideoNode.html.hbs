@@ -1,0 +1,8 @@
+{{#> layouts/base.html }}
+{{#*inline "body-block"}}
+{{profile.name}} vient de mettre en ligne {{getTranslationType videoNode.type false}} sur Claptime : {{videoNode.title}}
+<br />
+Pour découvrir cette nouveauté, <a href="{{getVideoNodeLink videoNode}}">c'est par ici !</a>
+<br /><br />
+{{/inline}}
+{{/layouts/base.html}}

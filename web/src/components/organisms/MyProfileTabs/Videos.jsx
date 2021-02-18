@@ -108,6 +108,7 @@ const Videos = () => {
   return (
     <>
       <FilmCreationActions />
+      <br />
       <DataTable
         columns={columns}
         items={videos}

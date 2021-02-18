@@ -125,9 +125,9 @@ module.exports.handler = async (event) => {
       console.log(
         'Cannot update item, which must have been deleted while processing. This is normal behaviour.',
       );
-    } else {
-      throw err;
+      return event;
     }
+    throw err;
   }
   console.log('No handler defined.');
   throw new Error('NO_HANDLER');

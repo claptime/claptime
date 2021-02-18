@@ -9,7 +9,6 @@ import PropTypes from 'claptime/lib/prop-types';
 
 import consts from 'claptime/consts';
 import { Button, Title } from 'claptime/components/atoms';
-import { text2span } from 'claptime/utils/i18n';
 
 // Duration of the longest animation
 const LOOP_DURATION_MS = 8960;
@@ -52,7 +51,7 @@ const Container = styled.div`
   .illustration-legend {
     margin: 0 8%;
     h2 {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
   }
 
@@ -60,8 +59,8 @@ const Container = styled.div`
     margin-left: 9%;
   }
 
-  .illustration-title span {
-    text-shadow: ${(props) => props.mainColor} 0 0 2px;
+  .illustration-title {
+    text-align: center;
   }
 
   .carousel-title span {
@@ -135,7 +134,7 @@ const getSection = (path, title, text, playing) => {
     <div className="illustration-section" key={path}>
       {getLottie(path, playing)}
       <div className="illustration-legend">
-        <h2 className="illustration-title">{text2span(title)}</h2>
+        <h2 className="illustration-title">{title}</h2>
         <p className="illustration-text">{text}</p>
       </div>
     </div>
@@ -160,34 +159,36 @@ const LandingCarousel = ({
   return (
     <>
       <Container mainColor={mainColor} textColor={textColor}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Title
+              lineColor={mainColor}
+              underlined={false}
+              className="landing-title carousel-title"
+            >
+              {iAm}
+            </Title>
+            <Link href={iAmSwitchLink}>
+              <a style={{ marginLeft: 36 }}>
+                <Title
+                  lineColor={secondaryColor}
+                  faded
+                  underlined={false}
+                  className="landing-title carousel-title"
+                >
+                  {iAmNot}
+                </Title>
+              </a>
+            </Link>
+          </div>
           <Title
             lineColor={mainColor}
             underlined={false}
             className="landing-title carousel-title"
           >
-            {iAm}
+            {title}
           </Title>
-          <Link href={iAmSwitchLink}>
-            <a style={{ marginLeft: 36 }}>
-              <Title
-                lineColor={secondaryColor}
-                faded
-                underlined={false}
-                className="landing-title carousel-title"
-              >
-                {iAmNot}
-              </Title>
-            </a>
-          </Link>
         </div>
-        <Title
-          lineColor={mainColor}
-          underlined={false}
-          className="landing-title carousel-title"
-        >
-          {title}
-        </Title>
         <Carousel
           slidesToShow={3}
           dots={false}

@@ -2,6 +2,7 @@ const {
   getApiConfig,
   getAwsConfig,
   getCurrentEnv,
+  getCognitoPoolConfig,
 } = require('claptime-commons/dev/amplify');
 
 exports.getAccountId = async (serverless) =>
@@ -12,3 +13,7 @@ exports.getApiEndpoint = () => getApiConfig().endpoint;
 exports.getApiId = () => getApiConfig().id;
 
 exports.getEnabled = () => getCurrentEnv() === 'prod';
+
+exports.getCognitoUserPoolId = () => getCognitoPoolConfig().id;
+
+exports.getCognitoRegion = () => getCognitoPoolConfig().region;

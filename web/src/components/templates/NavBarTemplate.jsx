@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 
@@ -6,6 +6,7 @@ import { Spin } from 'claptime/components/atoms';
 import NavBar from 'claptime/components/organisms/NavBar';
 import Footer from 'claptime/components/organisms/Footer';
 
+import { initChat } from 'claptime/lib/chat';
 import PropTypes from 'claptime/lib/prop-types';
 import { useUserState } from 'claptime/lib/user';
 import consts from 'claptime/consts';
@@ -40,18 +41,8 @@ const StyledHeader = styled(Header)`
 `;
 
 const NavBarTemplate = ({ children, collapsed }) => {
-  const [windowDimensions, setWindowDimensions] = useState({});
   useEffect(() => {
-    function handleResize() {
-      setWindowDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    initChat();
   }, []);
   const user = useUserState();
 
@@ -71,10 +62,7 @@ const NavBarTemplate = ({ children, collapsed }) => {
     <>
       <Layout>
         <StyledHeader color={primary}>
-          <NavBar
-            logoSize={collapsed ? 'small' : 'large'}
-            logoColor={windowDimensions.width >= 1024 ? primary : 'white'}
-          />
+          <NavBar logoSize={collapsed ? 'small' : 'large'} />
         </StyledHeader>
         {children}
         <Footer />

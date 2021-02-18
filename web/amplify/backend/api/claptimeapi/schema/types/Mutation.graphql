@@ -18,6 +18,12 @@ type Mutation {
   ): VideoNode
   @function(name: "claptime-videos-${env}-api")
 
+  importVideoLabfilms(
+    videoNodeId: ID!,
+    labfilmsLink: String!,
+  ): VideoNode
+  @function(name: "claptime-videos-${env}-api")
+
   publishVideoNode(
     videoNodeId: ID!,
   ): VideoNode

@@ -9,7 +9,6 @@ import FullScreenTemplate from 'claptime/components/templates/FullScreenTemplate
 import consts from 'claptime/consts';
 import { getVideoNode } from 'claptime/graphql/videonodes';
 import { unauthClient } from 'claptime/lib/apollo';
-import { setChatVisibility } from 'claptime/lib/chat';
 import PropTypes from 'claptime/lib/prop-types';
 import { useUserState } from 'claptime/lib/user';
 import Head from 'claptime/lib/seo/Head';
@@ -45,20 +44,19 @@ export async function getServerSideProps(ctx) {
 const VideoPlayerPage = ({ video, imageUrl }) => {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    setChatVisibility(false);
-    return () => setChatVisibility(true);
-  }, []);
-
   const { username: userId, isAdmin } = useUserState();
 
-  if (
-    video.status !== consts.videos.status.PUBLISHED &&
-    !isAdmin &&
-    video.owner !== userId
-  ) {
-    return Router.push('/');
-  }
+  useEffect(() => {
+    if (!video.watchable && !isAdmin && video.owner !== userId) {
+      Router.push(`/video/${video.id}`);
+    } else if (
+      video.status !== consts.videos.status.PUBLISHED &&
+      !isAdmin &&
+      video.owner !== userId
+    ) {
+      Router.push('/');
+    }
+  }, [video, isAdmin, userId]);
 
   return (
     <>

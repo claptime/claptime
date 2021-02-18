@@ -1,9 +1,9 @@
 {
   "typeName": "Mutation",
-  "fieldName": "addVideoNode",
+  "fieldName": "importVideo",
   "arguments": {
-    "profileId": "125bc79f-1958-4b8e-b3f1-c764c24a70e2",
-    "type": "FILM"
+    "videoNodeId": "0fbe7004-a52a-49a0-85e0-967265cd6172",
+    "videoLink": "https://www.youtube.com/watch?v=ce6xNSyRMCo&feature=emb_title"
   },
   "identity": {
     "claims": {

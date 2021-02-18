@@ -33,10 +33,22 @@ provider:
         - ${self:custom.appsyncPrefix}/Mutation/fields/createNotification
         - ${self:custom.appsyncPrefix}/Query/fields/getProfile
         - ${self:custom.appsyncPrefix}/Query/fields/getUserSettings
+    - Effect: Allow
+      Action:
+        - cognito-idp:AdminGetUser
+      Resource: ${self:custom.cognitoUserPoolArn}
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+      Resource: '*'
 
 functions:
   notifications:
     handler: src/functions/notifications/index.handler
+    environment:
+      COGNITO_USERPOOL_ID: ${file(serverless-helpers.js):getCognitoUserPoolId}
+      FROM_EMAIL: Claptime <hello@clap-time.com>
+      HELP_CENTER_URL: https://claptime.slite.com/p/channel/AHqUp91QZuDZPMf2UijEwk
 
 plugins:
   - serverless-stack-termination-protection
@@ -44,6 +56,7 @@ plugins:
 custom:
   accountId: ${file(serverless-helpers.js):getAccountId}
   appsyncPrefix: arn:aws:appsync:${self:provider.region}:${self:custom.accountId}:apis/${file(serverless-helpers.js):getApiId}/types
+  cognitoUserPoolArn: arn:aws:cognito-idp:${file(serverless-helpers.js):getCognitoRegion}:${file(serverless-helpers.js):getAccountId}:userpool/${file(serverless-helpers.js):getCognitoUserPoolId}
   ssmPrefix: arn:aws:ssm:${self:provider.region}:${self:custom.accountId}:parameter
   serverlessTerminationProtection:
     stages:

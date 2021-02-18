@@ -19,9 +19,22 @@ const getCompiledTemplate = (type, name, output) =>
 // TODO i18n
 const getTitle = (templateName, params) =>
   ({
-    approve: `${params.videoNode.title} a été accepté dans la collection ${params.collection.name}`,
-    reject: `${params.videoNode.title} n'a pas été accepté dans la collection ${params.collection.name}`,
-    submit: `Nouvelle soumission pour ${params.collection.name} : ${params.videoNode.title}`,
+    defaultApprove: `${params.videoNode.title} a été publié`,
+    approve: `${params.videoNode.title} a été accepté dans la collection ${
+      params.collection ? params.collection.name : 'NA'
+    }`,
+    reject: `${params.videoNode.title} n'a pas été accepté dans la collection ${
+      params.collection ? params.collection.name : 'NA'
+    }`,
+    submit: `Nouvelle soumission pour ${
+      params.collection ? params.collection.name : 'NA'
+    } : ${params.videoNode.title}`,
+    filmmakerPublishedVideoNode: `${
+      params.profile ? params.profile.name : 'NA'
+    } a mis en ligne un nouveau film`,
+    videoNodeAddedToCollection: `Nouvel ajout dans la collection ${
+      params.collection ? params.collection.name : 'NA'
+    }`,
   }[templateName]);
 
 Handlebars.registerPartial(
@@ -57,6 +70,17 @@ Handlebars.registerHelper('getCollectionSubmissionsLink', (collection) => {
   return `${getDomain()}/collection/${collection.slug}/submissions`;
 });
 
+Handlebars.registerHelper('getTranslationType', (videoNodeType, upperCase) => {
+  const translation = {
+    FILM: 'un nouveau film',
+    SERIES: 'une nouvelle série'
+  };
+  if(upperCase) {
+    return translation[videoNodeType].charAt(0).toUpperCase() + translation[videoNodeType].slice(1);
+  }
+  return translation[videoNodeType];
+});
+
 const sendEmailToUser = async (
   templateName,
   identity,
@@ -90,7 +114,6 @@ const sendEmailToUser = async (
       },
     },
     Destination: {
-      BccAddresses: [FROM_EMAIL],
       ToAddresses: [toEmail],
     },
     Source: FROM_EMAIL,

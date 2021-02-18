@@ -7,6 +7,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
       id
       title
       status
+      watchable
       videoNodeProfileId
       category
       duration
@@ -30,6 +31,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -78,6 +80,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -89,6 +92,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -136,6 +140,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -180,6 +185,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             status
             tagline
             description
+            acceptSubmissions
             collectionProfileId
             searchField
             createdBy
@@ -207,6 +213,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -234,6 +241,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -317,6 +325,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -359,6 +368,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -383,6 +393,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -411,6 +422,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -453,6 +465,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -477,6 +490,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -506,6 +520,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -533,6 +548,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
         id
         title
         status
+        watchable
         videoNodeProfileId
         category
         duration
@@ -616,6 +632,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -658,6 +675,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -682,6 +700,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -710,6 +729,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -752,6 +772,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -776,6 +797,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -805,6 +827,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -833,6 +856,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
           id
           title
           status
+          watchable
           videoNodeProfileId
           category
           duration
@@ -875,6 +899,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration
@@ -899,6 +924,7 @@ export const onUpdateVideoNode = /* GraphQL */ `
             id
             title
             status
+            watchable
             videoNodeProfileId
             category
             duration

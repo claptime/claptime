@@ -6,6 +6,7 @@ export const getVideoNode = /* GraphQL */ `
       title
       ttl
       status
+      watchable
       category
       duration
       releaseYear
@@ -117,6 +118,7 @@ export const listVideoNodesByStatusSortByTitle = /* GraphQL */ `
         title
         ttl
         status
+        watchable
         category
         duration
         releaseYear
@@ -186,6 +188,7 @@ export const listVideoNodesByStatusSortByCreatedAt = /* GraphQL */ `
         title
         ttl
         status
+        watchable
         category
         duration
         releaseYear
@@ -239,6 +242,7 @@ const videoNodeFields = `
   id
   title
   status
+  watchable
   videoNodeProfileId
   category
   duration
@@ -331,6 +335,14 @@ export const addVideoNode = /* GraphQL */ `
 export const importVideo = /* GraphQL */ `
   mutation ImportVideo($videoNodeId: ID!, $videoLink: String!) {
     importVideo(videoNodeId: $videoNodeId, videoLink: $videoLink) {
+      ${videoNodeFields}
+    }
+  }
+`;
+
+export const importVideoLabfilms = /* GraphQL */ `
+  mutation ImportVideoLabfilms($videoNodeId: ID!, $labfilmsLink: String!) {
+    importVideoLabfilms(videoNodeId: $videoNodeId, labfilmsLink: $labfilmsLink) {
       ${videoNodeFields}
     }
   }

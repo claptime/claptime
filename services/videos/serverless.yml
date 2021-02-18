@@ -21,6 +21,7 @@ provider:
       Action: appsync:GraphQL
       Resource:
         - ${self:custom.appsyncPrefix}/Mutation/fields/createCollectionVideoNode
+        - ${self:custom.appsyncPrefix}/Mutation/fields/createCredit
         - ${self:custom.appsyncPrefix}/Mutation/fields/createVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCollectionVideoNode
         - ${self:custom.appsyncPrefix}/Mutation/fields/deleteCredit
@@ -36,6 +37,7 @@ provider:
         - ${self:custom.appsyncPrefix}/Query/fields/listCollectionVideoNodes
         - ${self:custom.appsyncPrefix}/Query/fields/listCredits
         - ${self:custom.appsyncPrefix}/Query/fields/listUserCollection
+        - ${self:custom.appsyncPrefix}/Query/fields/listUserProfile
         - ${self:custom.appsyncPrefix}/Query/fields/listUserVideoNodesByVideoNodeAndList
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByParent
         - ${self:custom.appsyncPrefix}/Query/fields/listVideoNodesByStatusSortByTitle

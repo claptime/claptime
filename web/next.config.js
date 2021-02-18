@@ -2,15 +2,10 @@ const withLess = require('@zeit/next-less');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const antdCustom = require('./src/styles/antd-custom');
 
-const {
-  SLACK_WEBHOOK,
-  STRIPE_CONNECT_CLIENT_ID,
-  STRIPE_PUBLISHABLE_KEY,
-} = process.env;
+const { STRIPE_CONNECT_CLIENT_ID, STRIPE_PUBLISHABLE_KEY } = process.env;
 
-if (!SLACK_WEBHOOK || !STRIPE_CONNECT_CLIENT_ID || !STRIPE_PUBLISHABLE_KEY) {
+if (!STRIPE_CONNECT_CLIENT_ID || !STRIPE_PUBLISHABLE_KEY) {
   console.error('ERROR: ENVIRONMENT VARIABLES NOT DEFINED');
-  console.error(`SLACK_WEBHOOK=${SLACK_WEBHOOK}`);
   console.error(`STRIPE_CONNECT_CLIENT_ID=${STRIPE_CONNECT_CLIENT_ID}`);
   console.error(`STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}`);
   process.exit(1);
@@ -19,7 +14,6 @@ if (!SLACK_WEBHOOK || !STRIPE_CONNECT_CLIENT_ID || !STRIPE_PUBLISHABLE_KEY) {
 module.exports = withLess({
   target: 'serverless',
   env: {
-    NEXT_PUBLIC_SLACK_WEBHOOK: SLACK_WEBHOOK,
     NEXT_PUBLIC_STRIPE_CONNECT_CLIENT_ID: STRIPE_CONNECT_CLIENT_ID,
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: STRIPE_PUBLISHABLE_KEY,
   },

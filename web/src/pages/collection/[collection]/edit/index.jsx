@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Router, { useRouter } from 'next/router';
-import { Button, Form, Input, Popover, Tooltip, message } from 'antd';
+import { Button, Form, Input, Popover, Switch, Tooltip, message } from 'antd';
 import {
   CopyOutlined,
   EyeOutlined,
@@ -179,6 +179,7 @@ const CollectionEditPage = () => {
             ({ id, category, description }) => ({ id, category, description }),
           ),
           links,
+          acceptSubmissions: fieldsValue.acceptSubmissions,
         },
       },
     });
@@ -235,6 +236,7 @@ const CollectionEditPage = () => {
             labfilms: getUrl(collection.links || [], 'LABFILMS'),
             website: getUrl(collection.links || [], 'WEBSITE'),
             starringVideoNodes: defaultStarringVideoNodes,
+            acceptSubmissions: collection.acceptSubmissions || true,
           }}
           layout="vertical"
           style={{
@@ -363,6 +365,16 @@ const CollectionEditPage = () => {
                   autoSize={{ minRows: 4, maxRows: 10 }}
                   placeholder={t('collection.edit.descriptionPlaceholder')}
                   disabled={disabled}
+                  onChange={() => setUnsavedChanges(true)}
+                />
+              </Form.Item>
+              <Form.Item
+                name="acceptSubmissions"
+                label={t('collection.edit.acceptSubmissions')}
+              >
+                <Switch
+                  disabled={disabled}
+                  defaultChecked={collection.acceptSubmissions}
                   onChange={() => setUnsavedChanges(true)}
                 />
               </Form.Item>
