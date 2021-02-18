@@ -172,9 +172,15 @@ const Notifications = () => {
       case 'VIDEO_NODE_ADDED_BY_FILMMAKER': {
         const {
           profile: { name: profileName, id: profileId },
-          videoNode: { id: videoNodeId, title: videoNodeTitle, type },
+          videoNode: {
+            id: videoNodeId,
+            title: videoNodeTitle,
+            type: videoNodeType,
+          },
         } = jsonPayload;
-        let newType = t(`notifications.videoNodeAddedByFilmmaker.${type}`);
+        const newType = t(
+          `notifications.videoNodeAddedByFilmmaker.${videoNodeType}`,
+        );
         link = `/video/${videoNodeId}`;
         extra = <Covers.Profile width={69} height={92} profileId={profileId} />;
         notificationDescription = (
