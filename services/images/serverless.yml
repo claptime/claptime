@@ -2,7 +2,7 @@ service: claptime-images
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs14.x
   stage: ${opt:stage, 'staging'}
   region: ${opt:region, 'eu-west-1'}
   versionFunctions: false
