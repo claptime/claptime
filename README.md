@@ -12,7 +12,7 @@
 
 🏴‍☠️ The source code of Claptime is distributed under the terms of [The Unlicense](./LICENSE.md). Please note that this does not apply to the Claptime trademark nor the graphic assets.
 
-💬 Any help would be much appreciated. If you like the project and want to give a hand, drop us an email at [hello@clap-time.com](mailto:hello@clap-time.com). There are many ways to contribute: development, design, communication, film curation, testing, and of course feedback. If you're familiar with GitHub, feel free to open [issues](issues/) and [pull requests](pulls/) as well.
+💬 Any help would be much appreciated. If you like the project and want to give a hand, drop us an email at [contact.claptime@gmail.com](mailto:contact.claptime@gmail.com). There are many ways to contribute: development, design, communication, film curation, testing, and of course feedback. If you're familiar with GitHub, feel free to open [issues](issues/) and [pull requests](pulls/) as well.
 
 ## 🏛 Overview
 

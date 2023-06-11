@@ -48,6 +48,7 @@ functions:
     environment:
       COGNITO_USERPOOL_ID: ${file(serverless-helpers.js):getCognitoUserPoolId}
       FROM_EMAIL: Claptime <hello@clap-time.com>
+      REPLY_TO_EMAIL: Claptime <contact.claptime@gmail.com>
       HELP_CENTER_URL: https://claptime.slite.com/p/channel/AHqUp91QZuDZPMf2UijEwk
 
 plugins:

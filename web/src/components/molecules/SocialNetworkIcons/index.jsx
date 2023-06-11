@@ -43,7 +43,7 @@ const SocialNetworkIcons = ({ flexDirection, color }) => {
         color={color}
         component={Icons.Mail}
         onClick={() => {
-          window.location.href = 'mailto:hello@clap-time.com';
+          window.location.href = 'mailto:contact.claptime@gmail.com';
         }}
       />
     </StyledIconsContainer>

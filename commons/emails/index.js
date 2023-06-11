@@ -5,7 +5,7 @@ const path = require('path');
 const { getDomain } = require('../env');
 const { sendEmail } = require('../ses');
 
-const { FROM_EMAIL, HELP_CENTER_URL } = process.env;
+const { FROM_EMAIL, REPLY_TO_EMAIL, HELP_CENTER_URL } = process.env;
 
 const getCompiledTemplate = (type, name, output) =>
   Handlebars.compile(
@@ -117,7 +117,7 @@ const sendEmailToUser = async (
       ToAddresses: [toEmail],
     },
     Source: FROM_EMAIL,
-    ReplyToAddresses: [FROM_EMAIL],
+    ReplyToAddresses: [REPLY_TO_EMAIL],
   });
 };
 
