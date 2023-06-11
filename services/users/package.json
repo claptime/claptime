@@ -7,7 +7,7 @@
     "md5": "^2.2.1"
   },
   "devDependencies": {
-    "serverless": "^1.60.4",
+    "serverless": "^3.32.2",
     "serverless-stack-termination-protection": "^1.0.4"
   }
 }

@@ -2,7 +2,7 @@
   "name": "claptime-videos",
   "private": true,
   "devDependencies": {
-    "serverless": "^1.47.0",
+    "serverless": "^3.32.2",
     "serverless-cf-vars": "^0.3.2",
     "serverless-fargate-tasks": "^0.4.1",
     "serverless-stack-termination-protection": "^1.0.4",
