@@ -3,7 +3,7 @@ const path = require('path');
 const { sendEmail } = require('../../ses');
 const { sendEmailToUser } = require('..');
 
-const { FROM_EMAIL } = process.env;
+const { FROM_EMAIL, REPLY_TO_EMAIL } = process.env;
 
 jest.mock('claptime-commons/ses', () => ({
   sendEmail: jest.fn(async (params) => ({
@@ -27,7 +27,7 @@ const identity = {
   exp: 1595513108,
   iat: 1595509508,
   family_name: 'Claptime',
-  email: 'user-regular@clap-time.com',
+  email: 'contact.claptime+regular@gmail.com',
 };
 
 const sampleCollection = {
@@ -41,7 +41,7 @@ const sampleVideoNode = {
   id: '5ae69e9d-b8e5-4240-b724-9014fd01c2ac',
 };
 
-const recipientEmail = 'test@clap-time.com';
+const recipientEmail = 'contact.claptime+test@gmail.com';
 
 const emailSubjects = {
   defaultApprove: `${sampleVideoNode.title} a été publié`,
@@ -70,7 +70,7 @@ describe('emails', () => {
             collection: sampleCollection,
             videoNode: sampleVideoNode,
           },
-          'test@clap-time.com',
+          'contact.claptime+test@gmail.com',
         );
         expect(sendEmail).toHaveBeenNthCalledWith(
           1,
@@ -79,7 +79,7 @@ describe('emails', () => {
               ToAddresses: [recipientEmail],
             },
             Source: FROM_EMAIL,
-            ReplyToAddresses: [FROM_EMAIL],
+            ReplyToAddresses: [REPLY_TO_EMAIL],
           }),
         );
         const { subject, html, text } = await sendEmail.mock.results[0].value;

@@ -738,7 +738,7 @@
       },
       "PROCESSING_FAILED": {
         "title": "Erreur de traitement",
-        "description": "Une erreur est survenue lors du traitement de votre vidéo 😟. Assurez-vous qu'elle soit dans un format standard (.mp4, .mkv, .flv, .mov). Si le problème persiste, faites-le-nous savoir à hello@clap-time.com"
+        "description": "Une erreur est survenue lors du traitement de votre vidéo 😟. Assurez-vous qu'elle soit dans un format standard (.mp4, .mkv, .flv, .mov). Si le problème persiste, faites-le-nous savoir à contact.claptime@gmail.com"
       },
       "DRAFT": {
         "stepName": "Fiche",
@@ -981,7 +981,7 @@
         "likesCount": "Favoris"
       },
       "actions": {
-        "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à hello@clap-time.com",
+        "errorWhileImporting": "Une erreur est survenue lors de l'import de la vidéo. Assurez-vous que le lien est correct, et si l'erreur persiste envoyez-nous un email à contact.claptime@gmail.com",
         "import": "Importer une vidéo depuis YouTube ou Vimeo",
         "importDescription": "Si votre vidéo est disponible sur un hébergeur comme YouTube ou Vimeo, renseignez le lien pour importer directement la vidéo. Vous pourrez modifier toutes les informations avant publication.",
         "videoLink": "https://www.youtube.com/watch?v=[video]",

@@ -54,11 +54,11 @@ const Legal = () => {
           <p>
             <strong>Propriétaire</strong> : Association LabFilms – 53 allée de la Robertsau 67000 STRASBOURG<br />
 
-            <strong>Responsable publication</strong> : Christophe BOUGERE – christophe@clap-time.com<br />
+            <strong>Responsable publication</strong> : Christophe BOUGERE – contact.claptime@gmail.com<br />
             Le responsable publication est une personne physique ou une personne morale.<br />
-            <strong>Webmaster</strong> : Christophe BOUGERE – christophe@clap-time.com<br />
+            <strong>Webmaster</strong> : Christophe BOUGERE – contact.claptime@gmail.com<br />
             <strong>Hébergeur</strong> : Amazon Web Services EMEA SARL – 5 rue Plaetis L-2338 LUXEMBOURG https://aws.amazon.com<br />
-            <strong>Délégué à la protection des données</strong> : Christophe BOUGERE – christophe@clap-time.com<br />
+            <strong>Délégué à la protection des données</strong> : Christophe BOUGERE – contact.claptime@gmail.com<br />
           </p>
 
           <h2>2. Conditions générales d’utilisation du site et des services proposés.</h2>

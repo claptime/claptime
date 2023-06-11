@@ -94,7 +94,7 @@ class CognitoCommand extends Command {
     const users = JSON.parse(fs.readFileSync(USERS_PATH));
     const { id: userPoolId, region: userPoolRegion } = getCognitoPoolConfig();
     const admin = await this.createUser({
-      email: 'user-admin@clap-time.com',
+      email: 'contact.claptime+user-admin@gmail.com',
       password: 'Crackers#18032019',
       firstName: 'Admin',
       lastName: 'Claptime',
@@ -113,7 +113,7 @@ class CognitoCommand extends Command {
       updated = true;
     }
     const regular = await this.createUser({
-      email: 'user-regular@clap-time.com',
+      email: 'contact.claptime+user-regular@gmail.com',
       password: 'Crackers#18032019',
       firstName: 'Regular',
       lastName: 'Claptime',
